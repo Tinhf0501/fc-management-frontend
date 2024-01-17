@@ -30,6 +30,8 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/fontawesome.css",
+              "src/template.scss",
               "src/styles.scss"
             ],
             "scripts": []
