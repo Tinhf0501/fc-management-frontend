@@ -8,11 +8,18 @@ export const routes: Routes = [
         children: [
             {
                 path: 'login',
-                loadComponent: () => import('../../pages/login/login.page').then(p => p.LoginPage)
+                loadComponent: () => import('../../pages/login/login.page').then(p => p.LoginPage),
+                title: 'Đăng Nhập | FMS'
             },
             {
                 path: 'register',
-                loadComponent: () => import('../../pages/register/register.page').then(p => p.RegisterPage)
+                loadComponent: () => import('../../pages/register/register.page').then(p => p.RegisterPage),
+                title: 'Đăng ký | FMS'
+            },
+            {
+                path: 'forgot-password',
+                loadComponent: () => import('../../pages/forgot-password/forgot-password.page').then(p => p.ForgotPasswordPage),
+                title: 'Quên mật khẩu | FMS'
             }
         ]
     }

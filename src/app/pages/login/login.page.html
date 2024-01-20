@@ -4,7 +4,9 @@
     </div>
     <login-form></login-form>
     <div class="text-center">
-        <a class="small" href="forgot-password.html">Forgot Password?</a>
+        <a class="small" [routerLink]="'/auth/forgot-password'"
+            >Forgot Password?</a
+        >
     </div>
     <div class="text-center">
         <a class="small" [routerLink]="'/auth/register'">Create an Account!</a>
