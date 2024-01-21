@@ -1,4 +1,17 @@
+$sidebar-mobile-width: 6.5rem;
+
 .sidebar {
+    width: 0;
+    min-height: 100vh;
+    position: relative;
+    left: -$sidebar-mobile-width;
+    transition: left 0.1s;
+
+    &-mobile-show {
+        width: unset;
+        left: 0;
+    }
+
     .sidebar-heading {
         text-transform: uppercase !important;
         text-align: center;
@@ -8,13 +21,8 @@
     }
     .nav-item {
         .collapse {
-            -webkit-animation-name: growIn;
             animation-name: growIn;
-            -webkit-animation-duration: 200ms;
             animation-duration: 200ms;
-            -webkit-animation-timing-function:
-                transform cubic-bezier(0.18, 1.25, 0.4, 1),
-                opacity cubic-bezier(0, 1, 0.4, 1);
             animation-timing-function:
                 transform cubic-bezier(0.18, 1.25, 0.4, 1),
                 opacity cubic-bezier(0, 1, 0.4, 1);
@@ -144,30 +152,9 @@
             }
         }
     }
-    width: 6.5rem;
-    min-height: 100vh;
     .nav-item.active {
         .nav-link {
             font-weight: 700;
-        }
-    }
-    #sidebarToggle {
-        width: 2.5rem;
-        height: 2.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        &::after {
-            font-weight: 900;
-            content: '\f104';
-            font-family: 'Font Awesome 5 Free';
-            margin-right: 0.1rem;
-        }
-        &:hover {
-            text-decoration: none;
-        }
-        &:focus {
-            outline: none;
         }
     }
     .sidebar-brand {
@@ -220,13 +207,6 @@
 .sidebar.toggled {
     width: 0 !important;
     overflow: hidden;
-    #sidebarToggle {
-        &::after {
-            content: '\f105';
-            font-family: 'Font Awesome 5 Free';
-            margin-left: 0.25rem;
-        }
-    }
     .sidebar-card {
         display: none;
     }
@@ -280,15 +260,6 @@
             }
         }
     }
-    #sidebarToggle {
-        background-color: #eaecf4;
-        &::after {
-            color: #b7b9cc;
-        }
-        &:hover {
-            background-color: #dddfeb;
-        }
-    }
 }
 .sidebar-dark {
     .sidebar-brand {
@@ -339,40 +310,25 @@
             }
         }
     }
-    #sidebarToggle {
-        background-color: rgba(255, 255, 255, 0.2);
-        &::after {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-    }
 }
-.sidebar-dark.toggled {
-    #sidebarToggle {
-        &::after {
-            color: rgba(255, 255, 255, 0.5);
-        }
-    }
-}
+
 .sidebar-toggled {
     footer.sticky-footer {
         width: 100%;
     }
 }
+
 @media (min-width: 768px) {
     .sidebar {
         width: 14rem !important;
+        left: 0;
         .nav-item {
             .collapse {
                 position: relative;
                 left: 0;
                 z-index: 1;
                 top: 0;
-                -webkit-animation: none;
                 animation: none;
-                margin: 0 1rem;
                 .collapse-inner {
                     border-radius: 0;
                     box-shadow: none;
@@ -385,9 +341,7 @@
             }
             .nav-link {
                 display: block;
-                width: 100%;
                 text-align: left;
-                padding: 1rem;
                 width: 14rem;
                 i {
                     font-size: 0.85rem;
@@ -439,13 +393,8 @@
                 left: calc(6.5rem + 1.5rem / 2);
                 z-index: 1;
                 top: 2px;
-                -webkit-animation-name: growIn;
                 animation-name: growIn;
-                -webkit-animation-duration: 200ms;
                 animation-duration: 200ms;
-                -webkit-animation-timing-function:
-                    transform cubic-bezier(0.18, 1.25, 0.4, 1),
-                    opacity cubic-bezier(0, 1, 0.4, 1);
                 animation-timing-function:
                     transform cubic-bezier(0.18, 1.25, 0.4, 1),
                     opacity cubic-bezier(0, 1, 0.4, 1);
@@ -494,5 +443,16 @@
         .sidebar-heading {
             text-align: center;
         }
+    }
+}
+
+@keyframes growIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
