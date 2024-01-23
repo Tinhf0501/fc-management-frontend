@@ -1,6 +1,7 @@
-import { Component, QueryList, ViewChildren, inject } from "@angular/core";
+import { Component, OnInit, QueryList, ViewChildren, inject } from "@angular/core";
 import { NgbCollapse } from "@ng-bootstrap/ng-bootstrap";
 import { SidebarService } from "../../service/sidebar.service";
+import { Observable } from "rxjs";
 
 @Component({
     selector: 'main-header',
@@ -13,6 +14,7 @@ export class MainHeaderComponent {
 
     private sidebarService: SidebarService = inject(SidebarService);
 
+    public title$: Observable<string> = this.sidebarService.getValueTitle();
 
     public openSidebarMobile() {
         this.sidebarService.toggleSidebar();

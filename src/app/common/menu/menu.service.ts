@@ -20,4 +20,8 @@ export class MenuService {
     public getMenu(): Observable<Menu[]> {
         return this.menuCache.asObservable();
     }
+
+    public getValueMenu(): Menu[] {
+        return this.menuCache.getValue();
+    }
 }

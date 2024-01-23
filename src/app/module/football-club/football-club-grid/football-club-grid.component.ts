@@ -17,8 +17,7 @@ export class FootballClubGridComponent implements OnInit {
         {
             headerName: 'STT',
             valueGetter: (param) => {
-                console.log(param);
-                return 1;
+                return param.node.rowIndex + 1;
             },
             minWidth: 50,
             pinned: 'left',
@@ -26,36 +25,43 @@ export class FootballClubGridComponent implements OnInit {
         {
             headerName: 'Mã FC',
             field: 'code',
+            tooltipField: 'code',
             minWidth: 100,
         },
         {
             headerName: 'Tên FC',
             field: 'name',
+            tooltipField: 'name',
             minWidth: 100,
         },
         {
             headerName: 'Mô tả',
             field: 'description',
+            tooltipField: 'description',
             minWidth: 100,
         },
         {
             headerName: 'logo',
             field: 'logo',
+            tooltipField: 'logo',
             minWidth: 100,
         },
         {
             headerName: 'Ngày tạo',
             field: 'createdDate',
+            tooltipField: 'createdDate',
             minWidth: 100,
         },
         {
             headerName: 'Người tạo',
             field: 'createdBy',
+            tooltipField: 'createdBy',
             minWidth: 100,
         },
         {
             headerName: 'Trạng thái',
             field: 'status',
+            tooltipField: 'status',
             minWidth: 100,
         },
         {
@@ -88,6 +94,6 @@ export class FootballClubGridComponent implements OnInit {
     public onGridSizeChanged(param: GridSizeChangedEvent): void {
         param.api.sizeColumnsToFit();
     }
-    
+
 
 }
