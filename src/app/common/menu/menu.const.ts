@@ -22,8 +22,8 @@ export const BASE_MENU: Menu[] = [
         ]
     },
     {
-        label: 'Tables',
+        label: 'Quản lý đội bóng',
         icon: 'fas fa-fw fa-table',
-        link: '/table'
+        link: '/football-club'
     }
 ]
