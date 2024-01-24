@@ -24,7 +24,24 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@fms-common": [
+        "src/app/common/index.ts"
+      ],
+      "@fms-module/auth": [
+        "src/app/module/auth/index.ts"
+      ],
+      "@fms-module/common": [
+        "src/app/module/common/index.ts"
+      ],
+      "@fms-module/football-club": [
+        "src/app/module/football-club/index.ts"
+      ],
+      "@fms-module/member": [
+        "src/app/module/member/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,6 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MenuService } from './common/menu/menu.service';
-import { BASE_MENU } from './common/menu/menu.const';
+import { MenuService, BASE_MENU } from '@fms-common';
 
 @Component({
     selector: 'app-root',
@@ -8,7 +7,6 @@ import { BASE_MENU } from './common/menu/menu.const';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
     private menuService: MenuService = inject(MenuService);
 
     public ngOnInit(): void {

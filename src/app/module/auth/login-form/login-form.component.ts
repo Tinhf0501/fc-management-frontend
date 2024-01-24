@@ -1,10 +1,16 @@
-import { Component, inject, OnDestroy, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { SsoButtonComponent } from "../sso-button/sso-button.component";
-import { SsoService } from "src/app/common/sso/sso.service";
-import { SingleSignOn } from "src/app/common/sso/sso.interface";
-import { Subscription } from "rxjs";
-import { CommonModule, JsonPipe, NgFor } from "@angular/common";
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
+import { SsoButtonComponent } from '../sso-button/sso-button.component';
+import { SsoService } from 'src/app/module/auth/sso-button/service/sso.service';
+import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface';
+import { Subscription } from 'rxjs';
+import { CommonModule, JsonPipe, NgFor } from '@angular/common';
 
 @Component({
     selector: 'login-form',
@@ -19,10 +25,9 @@ import { CommonModule, JsonPipe, NgFor } from "@angular/common";
 
         // components
         SsoButtonComponent,
-    ]
+    ],
 })
 export class LoginFormComponent implements OnInit, OnDestroy {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
     private ssoService: SsoService = inject(SsoService);
 
@@ -33,16 +38,15 @@ export class LoginFormComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.buildForm();
-        this.ssoListener = this.ssoService.listenSsoListChange(ssoList => {
+        this.ssoListener = this.ssoService.listenSsoListChange((ssoList) => {
             this.ssoList = ssoList;
-
-        })
+        });
     }
 
     private buildForm(): void {
         this.loginFormGroup = this.formBuilder.group({
             email: [null, [Validators.required, Validators.email]],
-            password: [null, [Validators.required, Validators.minLength(8)]]
+            password: [null, [Validators.required, Validators.minLength(8)]],
         });
     }
 

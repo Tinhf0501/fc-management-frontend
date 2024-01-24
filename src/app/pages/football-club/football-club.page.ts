@@ -1,13 +1,10 @@
-import { DEFAULT_PAGE_SIZE } from './../../module/common/pagination/constant/pagination.const';
-import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
     FcFormSearchComponent,
-    FootballClubGridComponent
-} from "../../module/football-club"
-import { PaginationComponent } from "src/app/module/common";
-import { Pagination } from "src/app/module/common/pagination/model/pagination.model";
-
+    FootballClubGridComponent,
+} from '@fms-module/football-club';
+import { PaginationComponent, Pagination } from '@fms-module/common';
 
 @Component({
     selector: 'football-club',
@@ -19,9 +16,8 @@ import { Pagination } from "src/app/module/common/pagination/model/pagination.mo
         FootballClubGridComponent,
         PaginationComponent,
         RouterLink,
-    ]
+    ],
 })
 export class FootballClubPage {
-
     public pagination: Pagination = new Pagination(1, 100);
 }

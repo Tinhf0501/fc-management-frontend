@@ -1,8 +1,8 @@
 import { Pagination } from './model/pagination.model';
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { NgbPagination } from "@ng-bootstrap/ng-bootstrap";
-import { NgSelectModule } from "@ng-select/ng-select";
-import { PAGE_LIST } from "./constant/pagination.const";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { PAGE_LIST } from './constant/pagination.const';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,14 +10,9 @@ import { FormsModule } from '@angular/forms';
     templateUrl: './pagination.component.html',
     styleUrls: ['./pagination.component.scss'],
     standalone: true,
-    imports: [
-        NgbPagination,
-        NgSelectModule,
-        FormsModule
-    ],
+    imports: [NgbPagination, NgSelectModule, FormsModule],
 })
 export class PaginationComponent implements OnInit {
-
     @Input()
     public pagination: Pagination;
 

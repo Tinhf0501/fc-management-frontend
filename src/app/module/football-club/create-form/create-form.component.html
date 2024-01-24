@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
+  <div class="row row-gap-2">
+    <div class="col-md-6">
+      <label class="fw-semibold required">Tên FC</label>
+      <input
+        placeholder="Nhập tên FC"
+        class="form-control"
+        formControlName="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="fw-semibold required">Ảnh đại diện</label>
+      <input
+        class="form-control"
+        type="file"
+        accept="image/*"
+        (change)="onChangeAvatar($event)"
+      />
+    </div>
+  </div>
+
+  <div class="row row-gap-2">
+    <div class="col-md-6">
+      <label class="fw-semibold">Mô tả</label>
+      <textarea
+        style="min-height: 150px"
+        class="form-control"
+        placeholder="Nhập mô tả"
+        formControlName="description"
+      ></textarea>
+    </div>
+
+    <div class="col-md-6">
+      <img
+        *ngIf="imageUrl"
+        class="w-50"
+        [src]="imageUrl"
+        alt="image"
+        height="180px"
+      />
+    </div>
+  </div>
+</form>

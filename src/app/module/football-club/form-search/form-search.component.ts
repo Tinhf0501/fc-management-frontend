@@ -1,32 +1,33 @@
-import { Component, OnInit, inject } from "@angular/core";
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NgSelectModule } from "@ng-select/ng-select";
+import { Component, OnInit, inject } from '@angular/core';
+import {
+    FormsModule,
+    ReactiveFormsModule,
+    FormBuilder,
+    FormGroup,
+    Validators,
+} from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
     selector: 'fc-form-search',
     templateUrl: './form-search.component.html',
     styleUrls: ['./form-search.component.scss'],
     standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        NgSelectModule
-    ]
+    imports: [FormsModule, ReactiveFormsModule, NgSelectModule],
 })
 export class FcFormSearchComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
     public status = [
         {
             code: 0,
-            name: "Không hoạt đông",
+            name: 'Không hoạt đông',
         },
         {
             code: 1,
-            name: "Hoạt động",
-        }
+            name: 'Hoạt động',
+        },
     ];
 
     public ngOnInit(): void {
