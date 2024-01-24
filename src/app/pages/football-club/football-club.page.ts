@@ -1,5 +1,6 @@
 import { DEFAULT_PAGE_SIZE } from './../../module/common/pagination/constant/pagination.const';
 import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 import {
     FcFormSearchComponent,
     FootballClubGridComponent
@@ -16,7 +17,8 @@ import { Pagination } from "src/app/module/common/pagination/model/pagination.mo
     imports: [
         FcFormSearchComponent,
         FootballClubGridComponent,
-        PaginationComponent
+        PaginationComponent,
+        RouterLink,
     ]
 })
 export class FootballClubPage {

@@ -1,0 +1,8 @@
+<ag-grid-angular
+    style="min-height: 300px"
+    class="ag-theme-quartz w-100 h-100"
+    [columnDefs]="columnDefs"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+    (gridSizeChanged)="onGridSizeChanged($event)"
+></ag-grid-angular>
