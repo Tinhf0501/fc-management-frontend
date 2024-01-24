@@ -1,18 +1,14 @@
-import { Component, OnInit, inject } from "@angular/core";
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
     selector: 'forgot-password-form',
     templateUrl: './forgot-password-form.component.html',
     styleUrls: ['./forgot-password-form.component.scss'],
     standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-    ]
+    imports: [FormsModule, ReactiveFormsModule],
 })
 export class ForgotPasswordFormComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public forgotPasswordFormGroup: FormGroup;
@@ -23,7 +19,7 @@ export class ForgotPasswordFormComponent implements OnInit {
 
     private buildForm(): void {
         this.forgotPasswordFormGroup = this.formBuilder.group({
-            email: [null, [Validators.required, Validators.email]]
-        })
+            email: [null, [Validators.required, Validators.email]],
+        });
     }
 }

@@ -4,7 +4,7 @@ export const BASE_MENU: Menu[] = [
     {
         label: 'Dashboard',
         icon: 'fas fa-fw fa-tachometer-alt',
-        link: '/dashboard'
+        link: '/dashboard',
     },
     {
         title: 'Interface',
@@ -17,13 +17,13 @@ export const BASE_MENU: Menu[] = [
             },
             {
                 icon: 'fas fa-fw fa-cog',
-                label: 'Cards'
-            }
-        ]
+                label: 'Cards',
+            },
+        ],
     },
     {
         label: 'Quản lý đội bóng',
         icon: 'fas fa-fw fa-table',
-        link: '/football-club'
-    }
-]
+        link: '/football-club',
+    },
+];

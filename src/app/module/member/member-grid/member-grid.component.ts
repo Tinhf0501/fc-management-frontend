@@ -1,28 +1,20 @@
-import { Component } from "@angular/core";
-import { AgGridAngular } from "ag-grid-angular";
-import {
-    ColDef,
-    GridReadyEvent,
-    GridSizeChangedEvent,
-} from "ag-grid-community";
+import { Component } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
 
 @Component({
     selector: 'member-grid',
     templateUrl: './member-grid.component.html',
     styleUrls: ['./member-grid.component.scss'],
     standalone: true,
-    imports: [
-        AgGridAngular,
-    ],
+    imports: [AgGridAngular],
 })
 export class MemberGridComponent {
-    
     public columnDefs: ColDef[] = [
-
         {
             headerName: 'STT',
             minWidth: 50,
-            valueGetter: param => {
+            valueGetter: (param) => {
                 return param.node.rowIndex + 1;
             },
             pinned: 'left',
@@ -84,9 +76,9 @@ export class MemberGridComponent {
         {
             headerName: 'Thao tác',
             minWidth: 50,
-            pinned: 'right'
+            pinned: 'right',
         },
-    ]
+    ];
 
     public rowData = [
         {
@@ -99,9 +91,8 @@ export class MemberGridComponent {
             address: 'Hà Nội',
             avatar: 'no image',
             account: 'tinhf0501',
-        }
-    ]
-
+        },
+    ];
 
     public onGridReady(param: GridReadyEvent): void {
         param.api.sizeColumnsToFit();

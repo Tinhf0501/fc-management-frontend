@@ -1,10 +1,50 @@
-<div>
+<div class="d-flex flex-column row-gap-4">
+    <create-fc-form></create-fc-form>
+    <div class="d-flex flex-column row-gap-2">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>Media</h4>
+            <button class="btn btn-success">
+                <i class="fas fa-plus me-2"></i>
+                <span>Thêm media</span>
+            </button>
+        </div>
 
+        <div class="d-flex gap-3 overflow-hidden w-100">
+            <img
+                class="rounded"
+                src="https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-6/417384467_2455037564679436_3032735477183929143_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGxn_B_nPKowcZsdVk9uIifUJDtPOB6f-VQkO084Hp_5Wvq10lGbkU1y_6v1N_KEXdu3TCBfnhS9AxnU5jNtw7k&_nc_ohc=duB5D_3nNx4AX8OeJ8n&_nc_ht=scontent-hkg1-2.xx&oh=00_AfAkJUHeUJilnicf0yVep6O75XBwah6dAQ069V_kPLKAAg&oe=65B6C62D"
+                width="100px"
+                height="100px"
+                alt="image"
+            />
+
+            <img
+                class="rounded"
+                src="https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-6/417384467_2455037564679436_3032735477183929143_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGxn_B_nPKowcZsdVk9uIifUJDtPOB6f-VQkO084Hp_5Wvq10lGbkU1y_6v1N_KEXdu3TCBfnhS9AxnU5jNtw7k&_nc_ohc=duB5D_3nNx4AX8OeJ8n&_nc_ht=scontent-hkg1-2.xx&oh=00_AfAkJUHeUJilnicf0yVep6O75XBwah6dAQ069V_kPLKAAg&oe=65B6C62D"
+                width="100px"
+                height="100px"
+                alt="image"
+            />
+
+            <img
+                class="rounded"
+                src="https://scontent-hkg1-2.xx.fbcdn.net/v/t39.30808-6/417384467_2455037564679436_3032735477183929143_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=dd5e9f&_nc_eui2=AeGxn_B_nPKowcZsdVk9uIifUJDtPOB6f-VQkO084Hp_5Wvq10lGbkU1y_6v1N_KEXdu3TCBfnhS9AxnU5jNtw7k&_nc_ohc=duB5D_3nNx4AX8OeJ8n&_nc_ht=scontent-hkg1-2.xx&oh=00_AfAkJUHeUJilnicf0yVep6O75XBwah6dAQ069V_kPLKAAg&oe=65B6C62D"
+                width="100px"
+                height="100px"
+                alt="image"
+            />
+        </div>
+    </div>
     <div class="d-flex flex-column gap-2">
         <div class="d-flex justify-content-between align-items-center">
             <h4>Danh sách thành viên</h4>
-            <button class="btn btn-success">Thêm mới</button>
+            <button class="btn btn-success">
+                <i class="fas fa-plus me-2"></i>
+                <span>Thêm thành viên</span>
+            </button>
         </div>
-        <member-grid></member-grid>
+        <div style="height: 300px">
+            <member-grid></member-grid>
+        </div>
     </div>
 </div>

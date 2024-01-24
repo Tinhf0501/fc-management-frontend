@@ -1,18 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { AgGridAngular } from "ag-grid-angular";
-import { ColDef, GridSizeChangedEvent } from "ag-grid-community";
+import { Component, OnInit } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, GridSizeChangedEvent } from 'ag-grid-community';
 
 @Component({
     selector: 'fc-grid',
     templateUrl: './football-club-grid.component.html',
     styleUrls: ['./football-club-grid.component.scss'],
     standalone: true,
-    imports: [
-        AgGridAngular,
-    ],
+    imports: [AgGridAngular],
 })
 export class FootballClubGridComponent implements OnInit {
-
     public colDefs: ColDef[] = [
         {
             headerName: 'STT',
@@ -68,8 +65,7 @@ export class FootballClubGridComponent implements OnInit {
             headerName: 'Thao tác',
             minWidth: 100,
             pinned: 'right',
-        }
-
+        },
     ];
 
     public rowData = [
@@ -81,11 +77,9 @@ export class FootballClubGridComponent implements OnInit {
             createdDate: '05/01/2000',
             createdBy: 'tinhf0501',
             status: 'Đang hoạt động',
-        }
-    ]
-    public ngOnInit(): void {
-
-    }
+        },
+    ];
+    public ngOnInit(): void {}
 
     public onGridReady(param): void {
         param.api.sizeColumnsToFit();
@@ -94,6 +88,4 @@ export class FootballClubGridComponent implements OnInit {
     public onGridSizeChanged(param: GridSizeChangedEvent): void {
         param.api.sizeColumnsToFit();
     }
-
-
 }

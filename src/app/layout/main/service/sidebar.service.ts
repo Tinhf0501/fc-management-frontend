@@ -1,11 +1,10 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class SidebarService {
-
     private collapseSidebarMobile: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     private titleCache: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
@@ -27,8 +26,7 @@ export class SidebarService {
     }
 
     public listenSidebarChange(listener: (status: boolean) => void): Subscription {
-        return this.collapseSidebarMobile.asObservable()
-            .subscribe(listener);
+        return this.collapseSidebarMobile.asObservable().subscribe(listener);
     }
 
     public getSidebarStatus(): Observable<boolean> {
