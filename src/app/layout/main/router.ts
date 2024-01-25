@@ -34,6 +34,14 @@ export const routes: Routes = [
                     title: 'Tạo mới đội bóng',
                 },
             },
+            {
+                path: 'member',
+                loadComponent: () => import('../../pages/member/member.page').then(p => p.MemberPage),
+                title: 'Quản lý thành viên | FMS',
+                data: {
+                   title: 'Quản lý thành viên',
+                },
+            },
         ],
     },
 ];
