@@ -1,0 +1,95 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
+    <div class="row">
+        <div class="col-md-6">
+            <label class="fw-semibold">Account</label>
+            <ng-select
+                [items]="accounts"
+                bindLabel="fullName"
+                bindValue="username"
+                placeholder="chọn tài khoản"
+            ></ng-select>
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold required">Fc</label>
+            <ng-select
+                [items]="footballClubs"
+                bindLabel="name"
+                bindValue="id"
+                placeholder="Chọn đội bóng"
+            ></ng-select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="fw-semibold required">Họ và tên</label>
+            <input
+                placeholder="Nhập họ và tên"
+                class="form-control"
+                formControlName="fullName"
+            />
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold required">Tên áo</label>
+            <input 
+                placeholder="Nhập tên áo"
+                class="form-control"
+                formControlName="prinntedName"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="fw-semibold required">Ngày sinh</label>
+            <input 
+                type="date"
+                class="form-control"
+                formControlName="dob"
+            />
+        </div>
+
+        <div class="col-md-6">
+            <label class="fw-semibold required">Số áo</label>
+            <input
+                class="form-control"
+                placeholder="Nhập số áo"
+                formControlName="prinntedNumber"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="fw-semibold required">Số điện thoại</label>
+            <input
+                placeholder="Nhập số điện thoại"
+                class="form-control"
+                formControlName="phone"
+            />
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold">Vị trí</label>
+            <ng-select
+                [items]="positions"
+                bindLabel="name"
+                bindValue="code"
+                placeholder="Chọn vị trí"
+            ></ng-select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="fw-semibold required">Địa chỉ</label>
+            <textare class="form-control" formControlName="address" style="min-height: 150px"></textare>
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold">Avatar</label>
+            <input 
+                type="file"
+                class="form-control"
+            />
+        </div>
+    </div>
+</form>

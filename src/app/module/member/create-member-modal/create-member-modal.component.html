@@ -1,0 +1,15 @@
+<div class="d-flex flex-column">
+    <div class="modal-header d-flex justify-content-between">
+        <span class="h4">Thêm mới thành viên</span>
+        <span aria-hidden="true" (click)="closeModal()">&times;</span>
+    </div>
+
+    <div class="modal-body">
+        <create-member-form></create-member-form>
+    </div>
+
+    <div class="modal-footer d-flex justify-content-center gap-2">
+        <button class="btn btn-primary">Lưu lại</button>
+        <button class="btn btn-secondary" (click)="closeModal()">Hủy bỏ</button>
+    </div>
+</div>
