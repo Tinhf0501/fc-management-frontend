@@ -9,6 +9,7 @@ import {
     Pagination,
 } from '@fms-module/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'donate-page',
@@ -19,6 +20,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
         DonateFormSearchComponent,
         DonateGridComponent,
         PaginationComponent,
+        TranslateModule,
     ],
 })
 export class DonatePage {

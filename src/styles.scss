@@ -22,3 +22,8 @@
     content: ' *';
     @extend .text-danger;
 }
+
+.ag-header-cell-text,
+label {
+    text-transform: capitalize;
+}

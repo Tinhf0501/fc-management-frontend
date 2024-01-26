@@ -1,0 +1,25 @@
+{
+    "COMMON": {
+        "STATUS": "status",
+        "FC": "football club",
+        "SEARCH": "search",
+        "CREATE": "create",
+        "EXPORT_EXCEL": "export excel",
+        "TOTAL_RECORD": "total record: {{numberOfRecord}}",
+        "RECORD_PER_PAGE": "record/page",
+        "ACTION": "action",
+        "NO": "no",
+        "LANGUAGE": {
+            "VN": "Vietnamese",
+            "EN": "English"
+        }
+    },
+    "DONATE": {
+        "NAME_DONATOR": "donator's name",
+        "DATE_DONATE": "donated date",
+        "AMOUNT_DONATE": "amount of donate",
+        "CONTENT": "content",
+        "INPUT_NAME_DONATOR": "enter donator's name" 
+    }
+}
+

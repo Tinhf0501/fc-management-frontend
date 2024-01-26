@@ -1,0 +1,25 @@
+{
+    "COMMON": {
+        "STATUS": "trạng thái",
+        "FC": "đội bóng",
+        "SEARCH": "tìm kiếm",
+        "CREATE": "thêm mới",
+        "EXPORT_EXCEL": "xuất excel",
+        "TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
+        "RECORD_PER_PAGE": "số bản ghi trên trang",
+        "ACTION": "thao tác",
+        "NO": "stt",
+        "LANGUAGE": {
+            "VN": "Tiếng Việt",
+            "EN": "Tiếng Anh"
+        }
+    },
+    "DONATE": {
+        "NAME_DONATOR": "tên người donate",
+        "DATE_DONATE": "ngày donate",
+        "AMOUNT_DONATE": "số tiên donate",
+        "CONTENT": "nội dung",
+        "INPUT_NAME_DONATOR": "nhập người donate" 
+    }
+}
+

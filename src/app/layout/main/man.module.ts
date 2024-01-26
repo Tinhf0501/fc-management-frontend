@@ -6,8 +6,18 @@ import { RouterModule } from '@angular/router';
 import { routes } from './router';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgSelectModule } from '@ng-select/ng-select';
 
-const imports = [CommonModule, RouterModule.forChild(routes), NgbCollapse];
+const imports = [
+    CommonModule,
+    RouterModule.forChild(routes),
+    NgbCollapse,
+    FormsModule,
+    TranslateModule,
+    NgSelectModule,
+];
 
 const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
 

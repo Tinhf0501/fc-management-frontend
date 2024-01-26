@@ -4,13 +4,14 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PAGE_LIST } from './constant/pagination.const';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'pagination',
     templateUrl: './pagination.component.html',
     styleUrls: ['./pagination.component.scss'],
     standalone: true,
-    imports: [NgbPagination, NgSelectModule, FormsModule],
+    imports: [NgbPagination, NgSelectModule, FormsModule, TranslateModule],
 })
 export class PaginationComponent implements OnInit {
     @Input()

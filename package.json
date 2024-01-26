@@ -26,7 +26,9 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0",
-    "@ng-select/ng-select": "10.0.4"
+    "@ng-select/ng-select": "10.0.4",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0" 
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.0.4",

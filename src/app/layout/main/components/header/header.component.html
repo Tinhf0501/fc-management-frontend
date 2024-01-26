@@ -7,8 +7,28 @@
     <span class="h4 ps-3 d-none d-md-block">{{ title$ | async }}</span>
 
     <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
         <!-- Nav Item - Alerts -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <ng-select
+                style="min-width: 120px"
+                [items]="languages"
+                [searchable]="false"
+                [clearable]="false"
+                bindLabel="label"
+                bindValue="value"
+                [(ngModel)]="language"
+                (change)="onChangeLanguage($event)"
+            >
+                <ng-template ng-label-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+
+                <ng-template ng-option-tmp let-item="item">
+                    {{ item.label | translate }}
+                </ng-template>
+            </ng-select>
+        </li>
         <li class="nav-item dropdown no-arrow mx-1">
             <button type="button" class="nav-link dropdown-toggle" (click)="toggleDropdown(alertsDropdown)">
                 <i class="fas fa-bell fa-fw"></i>

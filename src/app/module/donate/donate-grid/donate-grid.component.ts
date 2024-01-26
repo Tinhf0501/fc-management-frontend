@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular'
 import {
     GridReadyEvent,
     GridSizeChangedEvent,
     ColDef,
 } from 'ag-grid-community';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'donate-grid',
@@ -17,53 +18,52 @@ import {
 })
 export class DonateGridComponent {
 
+    private translateService: TranslateService = inject(TranslateService);
+
     public columnDefs: ColDef[] = [
         {
-            headerName: 'STT',
-            valueGetter: param => {
-                return param.node.rowIndex + 1;
-            },
+            headerName: this.translateService.instant('COMMON.NO'),
             minWidth: 50,
             pinned: 'left',
         },
         {
-            headerName: 'Người donate',
+            headerName: this.translateService.instant('DONATE.NAME_DONATOR'), 
             minWidth: 100,
             field: 'name',
             tooltipField: 'name',
         },
         {
-            headerName: 'Số tiền doante',
+            headerName: this.translateService.instant('DONATE.AMOUNT_DONATE'),
             minWidth: 100,
             field: 'amount',
             tooltipField: 'amount',
         },
         {
-            headerName: 'Nội dung',
+            headerName: this.translateService.instant('DONATE.CONTENT'),
             minWidth: 100,
             field: 'note',
             tooltipField: 'note',
         },
         {
-            headerName: 'Football club',
+            headerName: this.translateService.instant('COMMON.FC'), 
             minWidth: 100,
             field: 'fcName',
             tooltipField: 'fcName'
         },
         {
-            headerName: 'Ngày donate',
+            headerName: this.translateService.instant('DONATE.DATE_DONATE'),
             minWidth: 100,
             field: 'createdDate',
             tooltipField: 'createdDate',
         },
         {
-            headerName: 'Trạng thái',
+            headerName: this.translateService.instant('COMMON.STATUS'),
             minWidth: 100,
             field: 'status',
             tooltipField: 'status',
         },
         {
-            headerName: 'thao tác',
+            headerName: this.translateService.instant('COMMON.ACTION'),
             minWidth: 50,
             pinned: 'right',
         }
