@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { NavigationEnd, Router, Scroll, ActivatedRoute } from '@angular/router';
+import { NavigationEnd, Router, Scroll, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, Subject, filter, takeUntil, map } from 'rxjs';
 import { SidebarService } from './service/sidebar.service';
 
@@ -20,7 +20,13 @@ export class MainLayout implements OnInit, OnDestroy {
         this.router.events
             .pipe(
                 filter((res) => res instanceof NavigationEnd || res instanceof Scroll),
-                map((res) => this.activatedRoute.snapshot.firstChild.data),
+                map(_ => this.activatedRoute.snapshot),
+                map((snapshot: ActivatedRouteSnapshot) => {
+                    while (snapshot.firstChild) {
+                        snapshot = snapshot.firstChild;
+                    }
+                    return snapshot.data;        
+                }),
                 takeUntil(this.unsubscribe$),
             )
             .subscribe((data) => {

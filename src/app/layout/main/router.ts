@@ -16,23 +16,25 @@ export const routes: Routes = [
             },
             {
                 path: 'football-club',
-                loadComponent: () =>
-                    import('../../pages/football-club/football-club.page').then((p) => p.FootballClubPage),
-                title: 'Quản lý đội bóng | FMS',
-                data: {
-                    title: 'Quản lý đội bóng',
-                },
-            },
-            {
-                path: 'create-football-club',
-                loadComponent: () =>
-                    import('../../pages/football-club/create-football-club/create-football-club.page').then(
-                        (p) => p.CreateFootballClubPage,
-                    ),
-                title: 'Tạo đội bóng | FMS',
-                data: {
-                    title: 'Tạo mới đội bóng',
-                },
+                children: [
+                    {
+                        path: '',
+                        loadComponent: () => import('../../pages/football-club/football-club.page').then(p => p.FootballClubPage),
+                        title: 'Quản lý đội bóng | FMS',
+                        data: {
+                            title: 'Quản lý đội bóng',
+                        },
+                    },
+                    {
+                        path: 'create-football-club',
+                        loadComponent: () => import('../../pages/football-club/create-football-club/create-football-club.page').then(p => p.CreateFootballClubPage),
+                        title: 'Tạo đội báo | FMS',
+                        data: {
+                            title: 'Tạo mới đội bóng',
+                        },
+                    },
+                
+                ]
             },
             {
                 path: 'member',
