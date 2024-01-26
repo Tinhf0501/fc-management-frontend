@@ -1,0 +1,29 @@
+<div class="d-flex flex-column row-gap-3 h-100">
+    <div class="bg-light p-3 rounded">
+        <div class="bg-white p-3 rounded">
+            <donate-form-search></donate-form-search>
+        </div>
+    </div>
+
+    <div class="bg-light p-3 rounded h-100">
+        <div class="bg-white p-3 rounded h-100 d-flex flex-column row-gap-2">
+            <div class="d-flex justify-content-between align-items-center">
+                <i class="fw-semibold">Tổng số bản ghi: 1</i>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-sm btn-success" (click)="openAddDonate()">
+                        <i class="fas fa-plus me-2"></i>
+                        <span>Thêm mới</span>
+                    </button>
+                    <button class="btn btn-sm btn-secondary">
+                        <i class="fas fa-download me-2"></i>
+                        <span>Xuất Excel</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-grow-1">
+                <donate-grid></donate-grid>
+            </div>
+            <pagination [pagination]="pagination"></pagination>
+        </div>
+    </div>
+</div>

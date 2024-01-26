@@ -42,6 +42,14 @@ export const routes: Routes = [
                    title: 'Quản lý thành viên',
                 },
             },
+            {
+                path: 'donate',
+                loadComponent: () => import('../../pages/donate/donate.page').then(p => p.DonatePage),
+                title: 'Quản lý donate | FMS',
+                data: {
+                    title: 'Quản lý donate',
+                },
+            },
         ],
     },
 ];

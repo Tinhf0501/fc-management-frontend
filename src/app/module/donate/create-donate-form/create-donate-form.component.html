@@ -1,0 +1,50 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-3">
+    <div class="row">
+        <div class="col-md-12">
+            <label class="fw-semibold required">Người donate</label>
+            <input
+                placeholder="Nhập người donate"
+                class="form-control"
+            />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="fw-semibold required">Số tiền</label>
+            <div class="row">
+                
+               <div class="col-md-9">
+                    <input
+                        placeholder="Nhập số tiền"
+                        type="number"
+                        class="form-control"
+                    />
+               </div>
+               <div class="col-md-3"> 
+                    <ng-select
+                        [items]="['VNĐ']"
+                        [clearable]="false"
+                        placeholder="Đơn vị"
+                    ></ng-select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="fw-semibold required">Football club nhận</label>
+            <ng-select
+                placeholder="Chọn đội bóng"
+            ></ng-select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="fw-semibold required">Nội dung</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div> 
+</form>

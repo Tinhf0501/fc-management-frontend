@@ -40,7 +40,10 @@
       ],
       "@fms-module/member": [
         "src/app/module/member/index.ts"
-      ]
+      ],
+      "@fms-module/donate": [
+        "src/app/module/donate/index.ts"
+      ],
     }
   },
   "angularCompilerOptions": {
