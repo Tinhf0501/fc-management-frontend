@@ -1,95 +1,84 @@
 <form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
     <div class="row">
         <div class="col-md-6">
-            <label class="fw-semibold">Account</label>
+            <label class="fw-semibold text-capitalize">{{ 'ACCOUNT.ACC' | translate }}</label>
             <ng-select
                 [items]="accounts"
                 bindLabel="fullName"
                 bindValue="username"
-                placeholder="chọn tài khoản"
+                [placeholder]="'ACCOUNT.SELECT_ACC' | translate"
             ></ng-select>
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold required">Fc</label>
+            <label class="fw-semibold required text-capitalize">{{ 'COMMON.FC' | translate }}</label>
             <ng-select
                 [items]="footballClubs"
                 bindLabel="name"
                 bindValue="id"
-                placeholder="Chọn đội bóng"
+                [placeholder]="'COMMON.SELECT_FC' | translate"
             ></ng-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <label class="fw-semibold required">Họ và tên</label>
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.FULLNAME' | translate }}</label>
             <input
-                placeholder="Nhập họ và tên"
+                [placeholder]="'MEMBER.INPUT_FULLNAME' | translate"
                 class="form-control"
                 formControlName="fullName"
             />
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold required">Tên áo</label>
-            <input 
-                placeholder="Nhập tên áo"
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.PRINTED_NAME' | translate }}</label>
+            <input
+                [placeholder]="'MEMBER.INPUT_PRINTED_NAME' | translate"
                 class="form-control"
-                formControlName="prinntedName"
+                formControlName="printedName"
             />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <label class="fw-semibold required">Ngày sinh</label>
-            <input 
-                type="date"
-                class="form-control"
-                formControlName="dob"
-            />
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.DOB' | translate }}</label>
+            <input type="date" class="form-control" formControlName="dob" />
         </div>
 
         <div class="col-md-6">
-            <label class="fw-semibold required">Số áo</label>
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.PRINTED_NUMBER' | translate }}</label>
             <input
                 class="form-control"
-                placeholder="Nhập số áo"
-                formControlName="prinntedNumber"
+                [placeholder]="'MEMBER.INPUT_PRINTED_NUMBER' | translate"
+                formControlName="printedNumber"
             />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <label class="fw-semibold required">Số điện thoại</label>
-            <input
-                placeholder="Nhập số điện thoại"
-                class="form-control"
-                formControlName="phone"
-            />
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.PHONE' | translate }}</label>
+            <input [placeholder]="'MEMBER.INPUT_PHONE' | translate" class="form-control" formControlName="phone" />
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold">Vị trí</label>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.POSITION' | translate }}</label>
             <ng-select
                 [items]="positions"
                 bindLabel="name"
                 bindValue="code"
-                placeholder="Chọn vị trí"
+                [placeholder]="'COMMON.SELECT_POSITION' | translate"
             ></ng-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <label class="fw-semibold required">Địa chỉ</label>
-            <textare class="form-control" formControlName="address" style="min-height: 150px"></textare>
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.ADDRESS' | translate }}</label>
+            <textarea class="form-control" formControlName="address" style="min-height: 150px"></textarea>
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold">Avatar</label>
-            <input 
-                type="file"
-                class="form-control"
-            />
+            <label class="fw-semibold text-capitalize">{{ 'MEMBER.AVATAR' | translate }}</label>
+            <input type="file" class="form-control" />
         </div>
     </div>
 </form>

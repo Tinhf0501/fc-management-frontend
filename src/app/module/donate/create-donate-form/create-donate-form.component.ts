@@ -6,7 +6,7 @@ import {
     FormGroup,
 } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-donate-form',
@@ -17,10 +17,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
+        TranslateModule
     ],
 })
 export class CreateDonateFormComponent implements OnInit {
-   
+
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;

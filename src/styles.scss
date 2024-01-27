@@ -27,3 +27,14 @@
 label {
     text-transform: capitalize;
 }
+
+input {
+    &::placeholder {
+        text-transform: capitalize;
+    }
+}
+
+.fas.fa-times,
+.cursor-pointer {
+    cursor: pointer !important;
+}

@@ -1,31 +1,27 @@
 <form [formGroup]="formGroup" class="d-flex flex-column row-gap-3">
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">Người donate</label>
-            <input
-                placeholder="Nhập người donate"
-                class="form-control"
-            />
+            <label class="fw-semibold required text-capitalize">{{ 'DONATE.NAME_DONATOR' | translate }}</label>
+            <input [placeholder]="'DONATE.INPUT_NAME_DONATOR' | translate" class="form-control" />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">Số tiền</label>
+            <label class="fw-semibold required text-capitalize">{{ 'DONATE.AMOUNT_DONATE' | translate }}</label>
             <div class="row">
-                
-               <div class="col-md-9">
+                <div class="col-md-9">
                     <input
-                        placeholder="Nhập số tiền"
+                        [placeholder]="'DONATE.INPUT_AMOUNT_DONATE' | translate"
                         type="number"
                         class="form-control"
                     />
-               </div>
-               <div class="col-md-3"> 
+                </div>
+                <div class="col-md-3">
                     <ng-select
                         [items]="['VNĐ']"
                         [clearable]="false"
-                        placeholder="Đơn vị"
+                        [placeholder]="'DONATE.CURRENCY' | translate"
                     ></ng-select>
                 </div>
             </div>
@@ -34,17 +30,15 @@
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">Football club nhận</label>
-            <ng-select
-                placeholder="Chọn đội bóng"
-            ></ng-select>
+            <label class="fw-semibold required text-capitalize">{{ 'COMMON.FC' | translate }}</label>
+            <ng-select [placeholder]="'COMMON.SELECT_FC' | translate"></ng-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">Nội dung</label>
+            <label class="fw-semibold required">{{ 'DONATE.CONTENT' | translate }}</label>
             <textarea class="form-control"></textarea>
         </div>
-    </div> 
+    </div>
 </form>

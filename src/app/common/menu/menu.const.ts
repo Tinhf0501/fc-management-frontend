@@ -27,12 +27,12 @@ export const BASE_MENU: Menu[] = [
         link: '/football-club',
     },
     {
-        label: 'Quản lý thành viên',
+        label: 'MEMBER.TITLE',
         icon: 'fas fa-fw fa-table',
         link: '/member',
     },
     {
-        label: 'Quản lý donate',
+        label: 'DONATE.TITLE',
         icon: 'fas fa-fw fa-table',
         link: 'donate',
     },

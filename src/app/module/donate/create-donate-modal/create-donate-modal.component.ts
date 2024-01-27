@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateDonateFormComponent } from '@fms-module/donate';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-donate-modal',
@@ -9,6 +10,7 @@ import { CreateDonateFormComponent } from '@fms-module/donate';
     standalone: true,
     imports: [
         CreateDonateFormComponent,
+        TranslateModule
     ],
 })
 export class CreateDonateModalComponent {

@@ -12,6 +12,7 @@ export class MainLayout implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
     private router: Router = inject(Router);
     private sidebarService: SidebarService = inject(SidebarService);
+
     private unsubscribe$: Subject<void> = new Subject();
 
     public title$: Observable<string> = this.sidebarService.getValueTitle();
@@ -25,7 +26,7 @@ export class MainLayout implements OnInit, OnDestroy {
                     while (snapshot.firstChild) {
                         snapshot = snapshot.firstChild;
                     }
-                    return snapshot.data;        
+                    return snapshot.data;
                 }),
                 takeUntil(this.unsubscribe$),
             )

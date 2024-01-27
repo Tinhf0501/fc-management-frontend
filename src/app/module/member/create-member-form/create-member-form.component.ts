@@ -6,6 +6,7 @@ import {
     FormBuilder,
     FormGroup,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-member-form',
@@ -16,6 +17,7 @@ import {
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
+        TranslateModule,
     ],
 })
 export class CreateMemberFormComponent implements OnInit {
@@ -37,14 +39,14 @@ export class CreateMemberFormComponent implements OnInit {
             name: 'ST',
         }
     ]
-    
+
     public footballClubs = [
         {
             name: 'FC 2000',
             id: 1,
         }
     ]
-            
+
 
     private formBuilder: FormBuilder = inject(FormBuilder);
 

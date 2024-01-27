@@ -3,6 +3,8 @@ import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarService } from '../../service/sidebar.service';
 import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { Language } from '../../model/language.interface';
+import { LANGUAGES } from '@fms-common';
 
 @Component({
     selector: 'main-header',
@@ -15,25 +17,16 @@ export class MainHeaderComponent implements OnInit {
     private sidebarService: SidebarService = inject(SidebarService);
     private translateService: TranslateService = inject(TranslateService);
 
-    public language: String;
-    public languages = [
-        {
-            label: 'COMMON.LANGUAGE.VN', 
-            value: 'vn',
-        },
-        {
-            label: 'COMMON.LANGUAGE.EN', 
-            value: 'en',
-        },
-    ]
+    public language: string;
+    public languages: Language[] = LANGUAGES;
 
     public title$: Observable<string> = this.sidebarService.getValueTitle();
 
     public ngOnInit(): void {
-        this.language = localStorage.getItem('language') ?? 'vn';
+        this.language = localStorage.getItem('language') ?? this.translateService.getDefaultLang();
     }
 
-    public onChangeLanguage(language): void {
+    public onChangeLanguage(language: Language): void {
         this.translateService.use(language.value);
         localStorage.setItem('language', language.value);
     }

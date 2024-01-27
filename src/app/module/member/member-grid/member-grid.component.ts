@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
+import { GridCore } from '@fms-module/common';
 
 @Component({
     selector: 'member-grid',
-    templateUrl: './member-grid.component.html',
+    templateUrl: '../../common/grid-core/grid-core.component.html',
     styleUrls: ['./member-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular],
 })
-export class MemberGridComponent {
+export class MemberGridComponent extends GridCore {
     public columnDefs: ColDef[] = [
         {
-            headerName: 'STT',
+            headerValueGetter: param => this.translateService.instant('COMMON.NO'),
             minWidth: 50,
             valueGetter: (param) => {
                 return param.node.rowIndex + 1;
@@ -20,61 +21,61 @@ export class MemberGridComponent {
             pinned: 'left',
         },
         {
-            headerName: 'Tên áo',
+            headerValueGetter: param => this.translateService.instant('MEMBER.PRINTED_NAME'),
             minWidth: 100,
             field: 'printedName',
             tooltipField: 'printedName',
         },
         {
-            headerName: 'Số áo',
+            headerValueGetter: param => this.translateService.instant('MEMBER.PRINTED_NUMBER'),
             minWidth: 50,
             field: 'printedNumber',
             tooltipField: 'printedNumber',
         },
         {
-            headerName: 'Vị trí',
+            headerValueGetter: param => this.translateService.instant('COMMON.POSITION'),
             minWidth: 100,
             field: 'position',
             tooltipField: 'position',
         },
         {
-            headerName: 'Họ và tên',
+            headerValueGetter: param => this.translateService.instant('MEMBER.FULLNAME'),
             minWidth: 100,
             field: 'fullName',
             tooltipField: 'fullName',
         },
         {
-            headerName: 'Ngày sinh',
+            headerValueGetter: param => this.translateService.instant('MEMBER.DOB'),
             minWidth: 100,
             field: 'dob',
             tooltipField: 'dob',
         },
         {
-            headerName: 'SĐT',
+            headerValueGetter: param => this.translateService.instant('MEMBER.PHONE'),
             minWidth: 100,
             field: 'phone',
             tooltipField: 'phone',
         },
         {
-            headerName: 'Địa chỉ',
+            headerValueGetter: param => this.translateService.instant('MEMBER.ADDRESS'),
             minWidth: 100,
             field: 'address',
             tooltipField: 'address',
         },
         {
-            headerName: 'Ảnh đại diện',
+            headerValueGetter: param => this.translateService.instant('MEMBER.AVATAR'),
             minWidth: 100,
             field: 'avatar',
             tooltipField: 'avatar',
         },
         {
-            headerName: 'Tên tài khoản',
+            headerValueGetter: param => this.translateService.instant('ACCOUNT.ACC_NAME'),
             minWidth: 100,
             field: 'account',
             tooltipField: 'account',
         },
         {
-            headerName: 'Thao tác',
+            headerValueGetter: param => this.translateService.instant('COMMON.ACTION'),
             minWidth: 50,
             pinned: 'right',
         },
@@ -93,12 +94,4 @@ export class MemberGridComponent {
             account: 'tinhf0501',
         },
     ];
-
-    public onGridReady(param: GridReadyEvent): void {
-        param.api.sizeColumnsToFit();
-    }
-
-    public onGridSizeChanged(param: GridSizeChangedEvent): void {
-        param.api.sizeColumnsToFit();
-    }
 }

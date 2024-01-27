@@ -6,7 +6,7 @@ import {
     FormGroup,
     FormBuilder,
 } from '@angular/forms';
-import { MemberGridComponent } from '@fms-module/member';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'member-form-search',
@@ -17,6 +17,7 @@ import { MemberGridComponent } from '@fms-module/member';
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
+        TranslateModule,
     ],
 })
 export class MemberFormSearchComponent implements OnInit {

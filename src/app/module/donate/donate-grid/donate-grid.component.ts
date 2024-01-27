@@ -1,69 +1,68 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular'
 import {
-    GridReadyEvent,
-    GridSizeChangedEvent,
     ColDef,
 } from 'ag-grid-community';
-import { TranslateService } from '@ngx-translate/core';
+import { GridCore } from '@fms-module/common';
 
 @Component({
     selector: 'donate-grid',
-    templateUrl: './donate-grid.component.html',
+    templateUrl: '../../common/grid-core/grid-core.component.html',
     styleUrls: ['./donate-grid.component.scss'],
     standalone: true,
     imports: [
         AgGridAngular,
     ],
 })
-export class DonateGridComponent {
-
-    private translateService: TranslateService = inject(TranslateService);
+export class DonateGridComponent extends GridCore {
 
     public columnDefs: ColDef[] = [
         {
-            headerName: this.translateService.instant('COMMON.NO'),
+            headerValueGetter: param => this.translateService.instant('COMMON.NO'),
             minWidth: 50,
             pinned: 'left',
+            valueGetter: param => {
+                return param.node.rowIndex + 1;
+            }
         },
         {
-            headerName: this.translateService.instant('DONATE.NAME_DONATOR'), 
+            headerValueGetter: param => this.translateService.instant('DONATE.NAME_DONATOR'),
             minWidth: 100,
             field: 'name',
             tooltipField: 'name',
         },
         {
-            headerName: this.translateService.instant('DONATE.AMOUNT_DONATE'),
+            headerValueGetter: param => this.translateService.instant('DONATE.AMOUNT_DONATE'),
             minWidth: 100,
             field: 'amount',
             tooltipField: 'amount',
         },
         {
-            headerName: this.translateService.instant('DONATE.CONTENT'),
+            headerValueGetter: param => this.translateService.instant('DONATE.CONTENT'),
             minWidth: 100,
             field: 'note',
             tooltipField: 'note',
         },
         {
-            headerName: this.translateService.instant('COMMON.FC'), 
+            headerValueGetter: param => this.translateService.instant('COMMON.FC'),
             minWidth: 100,
             field: 'fcName',
             tooltipField: 'fcName'
         },
         {
-            headerName: this.translateService.instant('DONATE.DATE_DONATE'),
+            headerValueGetter: param => this.translateService.instant('DONATE.DATE_DONATE'),
             minWidth: 100,
             field: 'createdDate',
             tooltipField: 'createdDate',
         },
         {
-            headerName: this.translateService.instant('COMMON.STATUS'),
+            headerValueGetter: param => this.translateService.instant('COMMON.STATUS'),
             minWidth: 100,
             field: 'status',
             tooltipField: 'status',
         },
         {
-            headerName: this.translateService.instant('COMMON.ACTION'),
+            headerValueGetter: param => this.translateService.instant('COMMON.ACTION'),
             minWidth: 50,
             pinned: 'right',
         }
@@ -78,14 +77,5 @@ export class DonateGridComponent {
             createdDate: '26-01-2024',
             status: 'Hoàn thành',
         }
-    ]; 
-
-
-    public onGridReady(param: GridReadyEvent): void {
-        param.api.sizeColumnsToFit();
-    }
-
-    public onGridSizeChanged(param: GridSizeChangedEvent): void {
-        param.api.sizeColumnsToFit();
-    }
+    ];
 }

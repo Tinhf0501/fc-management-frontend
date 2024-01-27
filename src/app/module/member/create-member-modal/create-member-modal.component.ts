@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CreateMemberFormComponent } from '@fms-module/member';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./create-member-modal.component.scss'],
     standalone: true,
     imports: [
-        CreateMemberFormComponent
+        CreateMemberFormComponent,
+        TranslateModule,
     ],
 })
 export class CreateMemberModal implements OnInit {

@@ -33,7 +33,7 @@ export const routes: Routes = [
                             title: 'Tạo mới đội bóng',
                         },
                     },
-                
+
                 ]
             },
             {
@@ -41,7 +41,7 @@ export const routes: Routes = [
                 loadComponent: () => import('../../pages/member/member.page').then(p => p.MemberPage),
                 title: 'Quản lý thành viên | FMS',
                 data: {
-                   title: 'Quản lý thành viên',
+                    title: 'MEMBER.TITLE',
                 },
             },
             {
@@ -49,7 +49,7 @@ export const routes: Routes = [
                 loadComponent: () => import('../../pages/donate/donate.page').then(p => p.DonatePage),
                 title: 'Quản lý donate | FMS',
                 data: {
-                    title: 'Quản lý donate',
+                    title: 'DONATE.TITLE',
                 },
             },
         ],

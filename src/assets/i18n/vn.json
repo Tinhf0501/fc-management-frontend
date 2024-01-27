@@ -1,25 +1,54 @@
 {
-    "COMMON": {
-        "STATUS": "trạng thái",
-        "FC": "đội bóng",
-        "SEARCH": "tìm kiếm",
-        "CREATE": "thêm mới",
-        "EXPORT_EXCEL": "xuất excel",
-        "TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
-        "RECORD_PER_PAGE": "số bản ghi trên trang",
-        "ACTION": "thao tác",
-        "NO": "stt",
-        "LANGUAGE": {
-            "VN": "Tiếng Việt",
-            "EN": "Tiếng Anh"
-        }
-    },
-    "DONATE": {
-        "NAME_DONATOR": "tên người donate",
-        "DATE_DONATE": "ngày donate",
-        "AMOUNT_DONATE": "số tiên donate",
-        "CONTENT": "nội dung",
-        "INPUT_NAME_DONATOR": "nhập người donate" 
-    }
+	"ACCOUNT": {
+		"ACC": "tài khoản",
+		"ACC_NAME": "tên tài khoản",
+		"SELECT_ACC": "chọn tài khoản"
+	},
+	"COMMON": {
+		"ACTION": "thao tác",
+		"CANCEL": "hủy bỏ",
+		"CREATE": "thêm mới",
+		"EXPORT_EXCEL": "xuất excel",
+		"FC": "đội bóng",
+		"LANGUAGE": {
+			"EN": "Tiếng Anh",
+			"VN": "Tiếng Việt"
+		},
+		"NO": "stt",
+		"POSITION": "vị trí",
+		"RECORD_PER_PAGE": "số bản ghi trên trang",
+		"SAVE": "lưu lại",
+		"SEARCH": "tìm kiếm",
+		"SELECT_FC": "chọn đội bóng",
+		"SELECT_POSITION": "chọn vị trí",
+		"STATUS": "trạng thái",
+		"TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}"
+	},
+	"DONATE": {
+		"AMOUNT_DONATE": "số tiên donate",
+		"CONTENT": "nội dung",
+		"CREATE_TITLE": "thêm mới donate",
+		"CURRENCY": "loại tiền",
+		"DATE_DONATE": "ngày donate",
+		"INPUT_AMOUNT_DONATE": "nhập số tiền donate",
+		"INPUT_NAME_DONATOR": "nhập người donate",
+		"NAME_DONATOR": "tên người donate",
+		"TITLE": "quản lý donate"
+	},
+	"MEMBER": {
+		"ADDRESS": "địa chỉ",
+		"AVATAR": "ảnh đại diện",
+		"CREATE_TITLE": "thêm mới thành viên",
+		"DOB": "ngày sinh",
+		"FULLNAME": "họ và tên",
+		"INPUT_FULLNAME": "",
+		"INPUT_PHONE": "nhập số điện thoại",
+		"INPUT_PRINTED_NAME": "nhập tên áo",
+		"INPUT_PRINTED_NUMBER": "nhập số áo",
+		"JOINED_DATE": "ngày tham gia",
+		"PHONE": "số điện thoại",
+		"PRINTED_NAME": "tên áo",
+		"PRINTED_NUMBER": "số áo",
+		"TITLE": "quản lý thành viên"
+	}
 }
-

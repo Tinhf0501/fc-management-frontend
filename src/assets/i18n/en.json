@@ -1,25 +1,54 @@
 {
-    "COMMON": {
-        "STATUS": "status",
-        "FC": "football club",
-        "SEARCH": "search",
-        "CREATE": "create",
-        "EXPORT_EXCEL": "export excel",
-        "TOTAL_RECORD": "total record: {{numberOfRecord}}",
-        "RECORD_PER_PAGE": "record/page",
-        "ACTION": "action",
-        "NO": "no",
-        "LANGUAGE": {
-            "VN": "Vietnamese",
-            "EN": "English"
-        }
-    },
-    "DONATE": {
-        "NAME_DONATOR": "donator's name",
-        "DATE_DONATE": "donated date",
-        "AMOUNT_DONATE": "amount of donate",
-        "CONTENT": "content",
-        "INPUT_NAME_DONATOR": "enter donator's name" 
-    }
+	"ACCOUNT": {
+		"ACC": "account",
+		"ACC_NAME": "account name",
+		"SELECT_ACC": "choose an account"
+	},
+	"COMMON": {
+		"ACTION": "action",
+		"CANCEL": "cancel",
+		"CREATE": "create",
+		"EXPORT_EXCEL": "export excel",
+		"FC": "football club",
+		"LANGUAGE": {
+			"EN": "English",
+			"VN": "Vietnamese"
+		},
+		"NO": "no",
+		"POSITION": "position",
+		"RECORD_PER_PAGE": "record/page",
+		"SAVE": "save",
+		"SEARCH": "search",
+		"SELECT_FC": "choose a football club",
+		"SELECT_POSITION": "choose a position",
+		"STATUS": "status",
+		"TOTAL_RECORD": "total record: {{numberOfRecord}}"
+	},
+	"DONATE": {
+		"AMOUNT_DONATE": "amount of donate",
+		"CONTENT": "content",
+		"CREATE_TITLE": "create a donation",
+		"CURRENCY": "currency",
+		"DATE_DONATE": "donated date",
+		"INPUT_AMOUNT_DONATE": "enter donation amount",
+		"INPUT_NAME_DONATOR": "enter donator's name",
+		"NAME_DONATOR": "donator's name",
+		"TITLE": "donate management"
+	},
+	"MEMBER": {
+		"ADDRESS": "address",
+		"AVATAR": "profile image",
+		"CREATE_TITLE": "create a member",
+		"DOB": "date of birth",
+		"FULLNAME": "fullname",
+		"INPUT_FULLNAME": "",
+		"INPUT_PHONE": "enter phone number",
+		"INPUT_PRINTED_NAME": "enter printed name",
+		"INPUT_PRINTED_NUMBER": "enter printed number",
+		"JOINED_DATE": "joined date",
+		"PHONE": "phone number",
+		"PRINTED_NAME": "printed name",
+		"PRINTED_NUMBER": "printed number",
+		"TITLE": "member management"
+	}
 }
-

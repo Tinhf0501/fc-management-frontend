@@ -1,34 +1,24 @@
 <form class="d-flex flex-column row-gap-3">
     <div class="row row-gap-3">
         <div class="col-md-4">
-            <label class="fw-semibold">Họ và tên</label>
-            <input
-                placeholder="Nhập họ và tên"
-                class="form-control"
-            />
+            <label class="fw-semibold text-capitalize">{{ 'MEMBER.FULLNAME' | translate }}</label>
+            <input [placeholder]="'MEMBER.INPUT_FULLNAME' | translate" class="form-control" />
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold">Trạng thái</label>
-            <ng-select
-            ></ng-select>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.STATUS' | translate }}</label>
+            <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold">Ngày tham gia</label>
+            <label class="fw-semibold text-capitalize">{{ 'MEMBER.JOINED_DATE' | translate }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
-                    <input
-                        type="date"
-                        class="form-control"
-                    />
+                    <input type="date" class="form-control" />
                 </div>
 
                 <div class="col-md-6">
-                    <input
-                        type="date"
-                        class="form-control"
-                    />
+                    <input type="date" class="form-control" />
                 </div>
             </div>
         </div>
@@ -36,21 +26,18 @@
 
     <div class="row row-gap-3">
         <div class="col-md-4">
-            <label class="fw-semibold">Football Club</label>
-            <ng-select
-            ></ng-select>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.FC' | translate }}</label>
+            <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold">Vị trí</label>
-            <ng-select
-            ></ng-select>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.POSITION' | translate }}</label>
+            <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold">Account</label>
-            <ng-select
-            ></ng-select>
+            <label class="fw-semibold text-capitalize">{{ 'ACCOUNT.ACC' | translate }}</label>
+            <ng-select></ng-select>
         </div>
     </div>
 </form>

@@ -1,8 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MenuService, BASE_MENU } from '@fms-common';
-import * as vn from '../assets/i18n/vn.json';
-import * as en from '../assets/i18n/en.json';
+import { MenuService, BASE_MENU, LANGUAGES } from '@fms-common';
 import { TranslateService } from '@ngx-translate/core';
+import { Language } from './layout/main/model/language.interface';
 
 @Component({
     selector: 'app-root',
@@ -15,7 +14,11 @@ export class AppComponent implements OnInit {
 
     public ngOnInit(): void {
         this.menuService.setMenu(BASE_MENU);
-        this.translateService.setTranslation('vn', vn);
-        this.translateService.setTranslation('en', en);
+        LANGUAGES.forEach(({ value, resourceUrl }: Language) => {
+            import(resourceUrl)
+                .then(resource => {
+                    this.translateService.setTranslation(value, resource);
+                })
+        })
     }
 }
