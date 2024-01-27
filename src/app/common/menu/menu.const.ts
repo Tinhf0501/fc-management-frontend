@@ -22,7 +22,7 @@ export const BASE_MENU: Menu[] = [
         ],
     },
     {
-        label: 'Quản lý đội bóng',
+        label: 'FOOTBALL_CLUB.TITLE',
         icon: 'fas fa-fw fa-table',
         link: '/football-club',
     },

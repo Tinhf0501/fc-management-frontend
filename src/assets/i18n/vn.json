@@ -8,8 +8,13 @@
 		"ACTION": "thao tác",
 		"CANCEL": "hủy bỏ",
 		"CREATE": "thêm mới",
+		"CREATED_BY": "người tạo",
+		"CREATED_DATE": "ngày tạo",
+		"DESC": "mô tả",
 		"EXPORT_EXCEL": "xuất excel",
 		"FC": "đội bóng",
+		"FROM_DATE": "từ ngày",
+		"INPUT_DESC": "nhập mô tả",
 		"LANGUAGE": {
 			"EN": "Tiếng Anh",
 			"VN": "Tiếng Việt"
@@ -21,7 +26,9 @@
 		"SEARCH": "tìm kiếm",
 		"SELECT_FC": "chọn đội bóng",
 		"SELECT_POSITION": "chọn vị trí",
+		"SELECT_STATUS": "chọn trạng thái",
 		"STATUS": "trạng thái",
+		"TO_DATE": "đến ngày",
 		"TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}"
 	},
 	"DONATE": {
@@ -35,9 +42,19 @@
 		"NAME_DONATOR": "tên người donate",
 		"TITLE": "quản lý donate"
 	},
+	"FOOTBALL_CLUB": {
+		"CODE": "mã đội bóng",
+		"CREATE": {
+			"TITLE": "tạo mới đội bóng"
+		},
+		"INPUT_NAME": "nhập tên đội bóng",
+		"NAME": "tên đội bóng",
+		"TITLE": "quản lý đội bóng"
+	},
 	"MEMBER": {
 		"ADDRESS": "địa chỉ",
 		"AVATAR": "ảnh đại diện",
+		"CREATE_MEMBER": "thêm thành viên",
 		"CREATE_TITLE": "thêm mới thành viên",
 		"DOB": "ngày sinh",
 		"FULLNAME": "họ và tên",
@@ -46,6 +63,7 @@
 		"INPUT_PRINTED_NAME": "nhập tên áo",
 		"INPUT_PRINTED_NUMBER": "nhập số áo",
 		"JOINED_DATE": "ngày tham gia",
+		"LIST_OF_MEMBER": "danh sách thành viên",
 		"PHONE": "số điện thoại",
 		"PRINTED_NAME": "tên áo",
 		"PRINTED_NUMBER": "số áo",

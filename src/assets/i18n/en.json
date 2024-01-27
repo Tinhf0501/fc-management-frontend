@@ -8,8 +8,13 @@
 		"ACTION": "action",
 		"CANCEL": "cancel",
 		"CREATE": "create",
+		"CREATED_BY": "created by",
+		"CREATED_DATE": "created date",
+		"DESC": "description",
 		"EXPORT_EXCEL": "export excel",
 		"FC": "football club",
+		"FROM_DATE": "from date",
+		"INPUT_DESC": "enter description",
 		"LANGUAGE": {
 			"EN": "English",
 			"VN": "Vietnamese"
@@ -21,7 +26,9 @@
 		"SEARCH": "search",
 		"SELECT_FC": "choose a football club",
 		"SELECT_POSITION": "choose a position",
+		"SELECT_STATUS": "choose a status",
 		"STATUS": "status",
+		"TO_DATE": "to date",
 		"TOTAL_RECORD": "total record: {{numberOfRecord}}"
 	},
 	"DONATE": {
@@ -35,9 +42,19 @@
 		"NAME_DONATOR": "donator's name",
 		"TITLE": "donate management"
 	},
+	"FOOTBALL_CLUB": {
+		"CODE": "football club code",
+		"CREATE": {
+			"TITLE": "create a football club"
+		},
+		"INPUT_NAME": "enter football club name",
+		"NAME": "football club name",
+		"TITLE": "football club management"
+	},
 	"MEMBER": {
 		"ADDRESS": "address",
 		"AVATAR": "profile image",
+		"CREATE_MEMBER": "create a member",
 		"CREATE_TITLE": "create a member",
 		"DOB": "date of birth",
 		"FULLNAME": "fullname",
@@ -46,6 +63,7 @@
 		"INPUT_PRINTED_NAME": "enter printed name",
 		"INPUT_PRINTED_NUMBER": "enter printed number",
 		"JOINED_DATE": "joined date",
+		"LIST_OF_MEMBER": "list of member",
 		"PHONE": "phone number",
 		"PRINTED_NAME": "printed name",
 		"PRINTED_NUMBER": "printed number",

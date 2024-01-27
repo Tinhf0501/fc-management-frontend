@@ -22,7 +22,7 @@ export const routes: Routes = [
                         loadComponent: () => import('../../pages/football-club/football-club.page').then(p => p.FootballClubPage),
                         title: 'Quản lý đội bóng | FMS',
                         data: {
-                            title: 'Quản lý đội bóng',
+                            title: 'FOOTBALL_CLUB.TITLE',
                         },
                     },
                     {
@@ -30,7 +30,7 @@ export const routes: Routes = [
                         loadComponent: () => import('../../pages/football-club/create-football-club/create-football-club.page').then(p => p.CreateFootballClubPage),
                         title: 'Tạo đội báo | FMS',
                         data: {
-                            title: 'Tạo mới đội bóng',
+                            title: 'FOOTBALL_CLUB.CREATE.TITLE',
                         },
                     },
 

@@ -5,18 +5,28 @@ import {
     GridApi,
     GridReadyEvent,
     GridSizeChangedEvent,
+    ColDef,
 } from 'ag-grid-community';
 
 @Component({
     template: ''
 })
-export class GridCore implements OnInit, OnDestroy {
+export abstract class GridCore<T> implements OnInit, OnDestroy {
+
+    protected columnDefs: ColDef[];
+    protected rowData: T[];
 
     protected unsubscribe$: Subject<void> = new Subject<void>();
     protected agGridApi: GridApi;
     protected translateService: TranslateService = inject(TranslateService);
 
     public ngOnInit(): void {
+        this.listenLangChange();
+        this.columnDefs = this.getColumnDefs();
+        this.rowData = this.getRowData();
+    }
+
+    private listenLangChange(): void {
         this.translateService.onLangChange
             .pipe(
                 takeUntil(this.unsubscribe$),
@@ -39,4 +49,7 @@ export class GridCore implements OnInit, OnDestroy {
         this.unsubscribe$.next();
         this.unsubscribe$.complete();
     }
+
+    public abstract getColumnDefs(): ColDef[];
+    public abstract getRowData(): T[];
 }

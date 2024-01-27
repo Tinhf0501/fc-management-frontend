@@ -1,14 +1,14 @@
 <form class="d-flex flex-column gap-3" [formGroup]="formGroup">
     <div class="row row-gap-3">
         <div class="col-md-3">
-            <label class="fw-semibold">Tên FC</label>
-            <input class="form-control" formControlName="name" placeholder="nhập tên fc" />
+            <label class="fw-semibold text-capitalize">{{ 'FOOTBALL_CLUB.NAME' | translate }}</label>
+            <input class="form-control" formControlName="name" [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate" />
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold">Trạng thái</label>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.STATUS' | translate }}</label>
             <ng-select
                 [items]="status"
-                placeholder="Chọn trạng thái"
+                [placeholder]="'COMMON.SELECT_STATUS' | translate"
                 formControlName="status"
                 bindValue="code"
                 bindLabel="name"
@@ -16,11 +16,11 @@
         </div>
 
         <div class="col-md-3">
-            <label class="fw-semibold">Từ ngày</label>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.FROM_DATE' | translate }}</label>
             <input type="date" class="form-control" formControlName="fromDate" />
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold">Đến ngày</label>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.TO_DATE' | translate }}</label>
             <input type="date" class="form-control" formControlName="toDate" />
         </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="d-flex justify-content-start justify-content-md-center">
         <button class="btn btn-primary">
             <i class="fas fa-search me-2"></i>
-            <span>Tìm kiếm</span>
+            <span class="text-capitalize">{{ 'COMMON.SEARCH' | translate }}</span>
         </button>
     </div>
 </form>

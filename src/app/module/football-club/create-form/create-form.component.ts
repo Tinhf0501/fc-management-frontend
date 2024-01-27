@@ -1,13 +1,19 @@
 import { NgIf } from '@angular/common';
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-fc-form',
     templateUrl: './create-form.component.html',
     styleUrls: ['./create-form.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NgIf],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        TranslateModule,
+    ],
 })
 export class CreateFcFormComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);

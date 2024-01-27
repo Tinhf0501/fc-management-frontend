@@ -1,91 +1,88 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridSizeChangedEvent } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
+import { GridCore } from '@fms-module/common';
 
 @Component({
     selector: 'fc-grid',
-    templateUrl: './football-club-grid.component.html',
+    templateUrl: '../../common/grid-core/grid-core.component.html',
     styleUrls: ['./football-club-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular],
 })
-export class FootballClubGridComponent implements OnInit {
-    public colDefs: ColDef[] = [
-        {
-            headerName: 'STT',
-            valueGetter: (param) => {
-                return param.node.rowIndex + 1;
+export class FootballClubGridComponent extends GridCore<any> {
+
+    public override getColumnDefs(): ColDef[] {
+        return [
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.NO'),
+                valueGetter: (param) => {
+                    return param.node.rowIndex + 1;
+                },
+                minWidth: 50,
+                pinned: 'left',
             },
-            minWidth: 50,
-            pinned: 'left',
-        },
-        {
-            headerName: 'Mã FC',
-            field: 'code',
-            tooltipField: 'code',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Tên FC',
-            field: 'name',
-            tooltipField: 'name',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Mô tả',
-            field: 'description',
-            tooltipField: 'description',
-            minWidth: 100,
-        },
-        {
-            headerName: 'logo',
-            field: 'logo',
-            tooltipField: 'logo',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Ngày tạo',
-            field: 'createdDate',
-            tooltipField: 'createdDate',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Người tạo',
-            field: 'createdBy',
-            tooltipField: 'createdBy',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Trạng thái',
-            field: 'status',
-            tooltipField: 'status',
-            minWidth: 100,
-        },
-        {
-            headerName: 'Thao tác',
-            minWidth: 100,
-            pinned: 'right',
-        },
-    ];
-
-    public rowData = [
-        {
-            code: '123',
-            name: 'FC Tình Lý Do',
-            description: 'Hay lý do',
-            logo: 'no image',
-            createdDate: '05/01/2000',
-            createdBy: 'tinhf0501',
-            status: 'Đang hoạt động',
-        },
-    ];
-    public ngOnInit(): void {}
-
-    public onGridReady(param): void {
-        param.api.sizeColumnsToFit();
+            {
+                headerValueGetter: param => this.translateService.instant('FOOTBALL_CLUB.CODE'),
+                field: 'code',
+                tooltipField: 'code',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('FOOTBALL_CLUB.NAME'),
+                field: 'name',
+                tooltipField: 'name',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.DESC'),
+                field: 'description',
+                tooltipField: 'description',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('MEMBER.AVATAR'),
+                field: 'logo',
+                tooltipField: 'logo',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.CREATED_DATE'),
+                field: 'createdDate',
+                tooltipField: 'createdDate',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.CREATED_BY'),
+                field: 'createdBy',
+                tooltipField: 'createdBy',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.STATUS'),
+                field: 'status',
+                tooltipField: 'status',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: param => this.translateService.instant('COMMON.ACTION'),
+                minWidth: 100,
+                pinned: 'right',
+            },
+        ];
     }
 
-    public onGridSizeChanged(param: GridSizeChangedEvent): void {
-        param.api.sizeColumnsToFit();
+    public override getRowData(): any[] {
+        return [
+            {
+                code: '123',
+                name: 'FC Tình Lý Do',
+                description: 'Hay lý do',
+                logo: 'no image',
+                createdDate: '05/01/2000',
+                createdBy: 'tinhf0501',
+                status: 'Đang hoạt động',
+            },
+        ];
     }
 }
