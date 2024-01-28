@@ -4,7 +4,8 @@ import { SsoButtonComponent } from '../sso-button/sso-button.component';
 import { SsoService } from 'src/app/module/auth/sso-button/service/sso.service';
 import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface';
 import { Subscription } from 'rxjs';
-import { CommonModule, JsonPipe, NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'login-form',
@@ -16,6 +17,7 @@ import { CommonModule, JsonPipe, NgFor } from '@angular/common';
         ReactiveFormsModule,
         FormsModule,
         NgFor,
+        TranslateModule,
 
         // components
         SsoButtonComponent,

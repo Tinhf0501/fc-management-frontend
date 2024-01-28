@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { LanguageComponent } from '@fms-module/common';
 
 const imports = [
     CommonModule,
@@ -17,6 +18,7 @@ const imports = [
     FormsModule,
     TranslateModule,
     NgSelectModule,
+    LanguageComponent
 ];
 
 const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
@@ -25,4 +27,4 @@ const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
     imports,
     declarations,
 })
-export class MainModule {}
+export class MainModule { }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface';
 
 @Component({
@@ -6,6 +7,9 @@ import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface
     templateUrl: './sso-button.component.html',
     styleUrls: ['./sso-button.component.scss'],
     standalone: true,
+    imports: [
+        TranslateModule,
+    ]
 })
 export class SsoButtonComponent {
     @Input()

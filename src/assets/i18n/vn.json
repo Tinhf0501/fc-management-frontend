@@ -4,6 +4,22 @@
 		"ACC_NAME": "tên tài khoản",
 		"SELECT_ACC": "chọn tài khoản"
 	},
+	"AUTH": {
+		"ALREADY_ACC": "đã có tài khoản?",
+		"CREATE_AN_ACC": "tạo mới tài khoản",
+		"EMAIL": "email",
+		"FIRST_NAME": "tên",
+		"FORGOT_PASS": "quên mật khẩu?",
+		"INPUT_EMAIL": "nhập email của bản",
+		"INPUT_PASSWORD": "nhập mật khẩu của bạn",
+		"LAST_NAME": "họ",
+		"LOGIN": "đăng nhập",
+		"LOGIN_WITH_FB": "đăng nhập bằng facebook",
+		"LOGIN_WITH_GOOGLE": "đăng nhập bằng google",
+		"PASSWORD": "mật khẩu",
+		"REGISTER": "đăng ký",
+		"WELCOME": "Xin chào!"
+	},
 	"COMMON": {
 		"ACTION": "thao tác",
 		"CANCEL": "hủy bỏ",

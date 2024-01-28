@@ -4,7 +4,7 @@
             <input
                 type="text"
                 class="form-control form-control-user"
-                placeholder="First Name"
+                [placeholder]="'AUTH.FIRST_NAME' | translate"
                 formControlName="firstName"
             />
         </div>
@@ -12,7 +12,7 @@
             <input
                 type="text"
                 class="form-control form-control-user"
-                placeholder="Last Name"
+                [placeholder]="'AUTH.LAST_NAME' | translate"
                 formControlName="lastName"
             />
         </div>
@@ -21,7 +21,7 @@
         <input
             type="email"
             class="form-control form-control-user"
-            placeholder="Email Address"
+            [placeholder]="'AUTH.EMAIL' | translate"
             formControlName="email"
         />
     </div>
@@ -29,9 +29,9 @@
         <input
             type="password"
             class="form-control form-control-user"
-            placeholder="Password"
+            [placeholder]="'AUTH.PASSWORD' | translate"
             formControlName="password"
         />
     </div>
-    <button class="btn btn-primary btn-user w-100">Register Account</button>
+    <button class="btn btn-primary btn-user w-100 text-capitalize">{{ 'AUTH.REGISTER' | translate }}</button>
 </form>

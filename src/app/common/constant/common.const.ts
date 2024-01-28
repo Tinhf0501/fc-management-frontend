@@ -1,4 +1,4 @@
-import { Language } from "src/app/layout/main/model/language.interface";
+import { Language } from "src/app/module/common/language/model/language.interface";
 
 export const LANGUAGES: Language[] = [
     {

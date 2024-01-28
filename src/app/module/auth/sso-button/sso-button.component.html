@@ -1,4 +1,4 @@
 <button class="btn btn-user w-100" [class]="ssoProperty.classes">
-    <i [class]="ssoProperty.icon"></i>
-    {{ ssoProperty.label }}
+    <i class="me-2" [class]="ssoProperty.icon"></i>
+    <span class="text-capitalize">{{ ssoProperty.label | translate }}</span>
 </button>

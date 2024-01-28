@@ -277,13 +277,8 @@ $sidebar-mobile-width: 6.5rem;
             i {
                 color: rgba(255, 255, 255, 0.3);
             }
-            &:active {
-                color: #fff;
-                i {
-                    color: #fff;
-                }
-            }
-            &:focus {
+
+            &.active {
                 color: #fff;
                 i {
                     color: #fff;

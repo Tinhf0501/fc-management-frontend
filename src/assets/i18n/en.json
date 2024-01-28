@@ -4,6 +4,22 @@
 		"ACC_NAME": "account name",
 		"SELECT_ACC": "choose an account"
 	},
+	"AUTH": {
+		"ALREADY_ACC": "already have an account?",
+		"CREATE_AN_ACC": "create an account",
+		"EMAIL": "email",
+		"FIRST_NAME": "first name",
+		"FORGOT_PASS": "forgot password?",
+		"INPUT_EMAIL": "enter your email",
+		"INPUT_PASSWORD": "enter your password",
+		"LAST_NAME": "last name",
+		"LOGIN": "login",
+		"LOGIN_WITH_FB": "login with facebook",
+		"LOGIN_WITH_GOOGLE": "login with google",
+		"PASSWORD": "password",
+		"REGISTER": "register",
+		"WELCOME": "welcome back!"
+	},
 	"COMMON": {
 		"ACTION": "action",
 		"CANCEL": "cancel",

@@ -10,26 +10,9 @@
     <ul class="navbar-nav ml-auto d-flex align-items-center">
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <ng-select
-                style="min-width: 150px"
-                [items]="languages"
-                [searchable]="false"
-                [clearable]="false"
-                bindLabel="label"
-                bindValue="value"
-                [(ngModel)]="language"
-                (change)="onChangeLanguage($event)"
-            >
-                <ng-template ng-label-tmp let-item="item">
-                    <img class="me-2" width="30px" height="30px" [src]="item.iconUrl" [alt]="item.label | translate" />
-                    <span>{{ item.label | translate }}</span>
-                </ng-template>
-
-                <ng-template ng-option-tmp let-item="item">
-                    <img class="me-2" width="30px" height="30px" [src]="item.iconUrl" [alt]="item.label | translate" />
-                    <span>{{ item.label | translate }}</span>
-                </ng-template>
-            </ng-select>
+            <div style="min-width: 150px">
+                <select-language></select-language>
+            </div>
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
             <button type="button" class="nav-link dropdown-toggle" (click)="toggleDropdown(alertsDropdown)">

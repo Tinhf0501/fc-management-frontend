@@ -1,42 +1,20 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { NavigationEnd, Router, Scroll, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable, Subject, filter, takeUntil, map } from 'rxjs';
+import { Component, OnInit, inject } from '@angular/core';
+import { Observable } from 'rxjs';
 import { SidebarService } from './service/sidebar.service';
+import { MenuService, BASE_MENU } from '@fms-common';
 
 @Component({
     selector: 'main-layout',
     templateUrl: './main.layout.html',
     styleUrls: ['./main.layout.scss'],
 })
-export class MainLayout implements OnInit, OnDestroy {
-    private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-    private router: Router = inject(Router);
+export class MainLayout implements OnInit {
     private sidebarService: SidebarService = inject(SidebarService);
-
-    private unsubscribe$: Subject<void> = new Subject();
+    private menuService: MenuService = inject(MenuService);
 
     public title$: Observable<string> = this.sidebarService.getValueTitle();
 
     public ngOnInit(): void {
-        this.router.events
-            .pipe(
-                filter((res) => res instanceof NavigationEnd || res instanceof Scroll),
-                map(_ => this.activatedRoute.snapshot),
-                map((snapshot: ActivatedRouteSnapshot) => {
-                    while (snapshot.firstChild) {
-                        snapshot = snapshot.firstChild;
-                    }
-                    return snapshot.data;
-                }),
-                takeUntil(this.unsubscribe$),
-            )
-            .subscribe((data) => {
-                this.sidebarService.changeTitle(data.title ?? '');
-            });
-    }
-
-    public ngOnDestroy(): void {
-        this.unsubscribe$.next();
-        this.unsubscribe$.complete();
+        this.menuService.setMenu(BASE_MENU);
     }
 }

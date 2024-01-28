@@ -3,7 +3,7 @@
         <input
             type="email"
             class="form-control form-control-user"
-            placeholder="Enter Email Address..."
+            [placeholder]="'AUTH.INPUT_EMAIL' | translate"
             formControlName="email"
         />
     </div>
@@ -11,11 +11,11 @@
         <input
             type="password"
             class="form-control form-control-user"
-            placeholder="Password"
+            [placeholder]="'AUTH.INPUT_PASSWORD' | translate"
             formControlName="password"
         />
     </div>
-    <button class="btn btn-primary btn-user w-100">Login</button>
+    <button class="btn btn-primary btn-user w-100 text-capitalize">{{ 'AUTH.LOGIN' | translate }}</button>
     <hr />
 
     <div class="d-flex flex-column gap-3">

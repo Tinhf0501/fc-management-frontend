@@ -2,13 +2,13 @@ import { SingleSignOn, SingleSignOnEnum } from '../model/sso.interface';
 
 export const SSO_LIST: SingleSignOn[] = [
     {
-        label: 'Login with Google',
+        label: 'AUTH.LOGIN_WITH_GOOGLE',
         icon: 'fab fa-google fa-fw',
         code: SingleSignOnEnum.GOOGLE,
         classes: ['btn-danger'],
     },
     {
-        label: 'Login with Facebook',
+        label: 'AUTH.LOGIN_WITH_FB',
         icon: 'fab fa-facebook-f fa-fw',
         code: SingleSignOnEnum.FACEBOOK,
         classes: ['btn-primary'],
