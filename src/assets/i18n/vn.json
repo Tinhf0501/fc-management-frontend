@@ -67,6 +67,11 @@
 		"NAME": "tên đội bóng",
 		"TITLE": "quản lý đội bóng"
 	},
+	"FORGOT_PASSWORD": {
+		"RESET_PASSWORD": "đặt lại mật khẩu",
+		"SUB_TITLE": "chúng tôi hiểu rồi, mọi thứ sẽ xảy ra. chỉ cần nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn",
+		"TITLE": "quên mật khẩu"
+	},
 	"MEMBER": {
 		"ADDRESS": "địa chỉ",
 		"AVATAR": "ảnh đại diện",
