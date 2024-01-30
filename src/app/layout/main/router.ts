@@ -47,6 +47,13 @@ export const routes: Routes = [
                     title: 'DONATE.TITLE',
                 },
             },
+            {
+                path: 'match-result',
+                loadComponent: () => import('../../pages/match-result/match-result.page').then(p => p.MatchResultPage),
+                data: {
+                    title: 'MATCH_RESULT.TITLE',
+                },
+            },
         ],
     },
 ];

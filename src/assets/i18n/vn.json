@@ -89,5 +89,12 @@
 		"PRINTED_NAME": "tên áo",
 		"PRINTED_NUMBER": "số áo",
 		"TITLE": "quản lý thành viên"
-	}
+	},
+    "MATCH_RESULT": {
+        "TITLE": "quản lý kết quả trận đấu",
+        "DATE": "thời gian thi đấu",
+        "RESULT": "kết quả",
+        "ADDRESS": "địa điểm thi đấu",
+        "NAME": "tên trận đấu"
+    }
 }
