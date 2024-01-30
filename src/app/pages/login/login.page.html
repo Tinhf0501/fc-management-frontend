@@ -1,14 +1,12 @@
-<div class="p-5">
+<div>
     <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+        <h1 class="h4 text-gray-900 mb-4 text-capitalize">{{ 'AUTH.WELCOME' | translate }}</h1>
     </div>
     <login-form></login-form>
     <div class="text-center">
-        <a class="small" [routerLink]="'/auth/forgot-password'"
-            >Forgot Password?</a
-        >
+        <a class="small text-capitalize" [routerLink]="'/auth/forgot-password'">{{ 'AUTH.FORGOT_PASS' | translate }}</a>
     </div>
     <div class="text-center">
-        <a class="small" [routerLink]="'/auth/register'">Create an Account!</a>
+        <a class="small text-capitalize" [routerLink]="'/auth/register'">{{ 'AUTH.CREATE_AN_ACC' | translate }}</a>
     </div>
 </div>

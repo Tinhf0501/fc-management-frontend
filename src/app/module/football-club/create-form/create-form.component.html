@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
+    <div class="row row-gap-2">
+        <div class="col-md-6">
+            <label class="fw-semibold required text-capitalize">{{ 'FOOTBALL_CLUB.NAME' | translate }}</label>
+            <input [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate" class="form-control" formControlName="name" />
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold required text-capitalize">{{ 'MEMBER.AVATAR' | translate }}</label>
+            <input class="form-control" type="file" accept="image/*" (change)="onChangeAvatar($event)" />
+        </div>
+    </div>
+
+    <div class="row row-gap-2 flex-column-reverse flex-md-row">
+        <div class="col-md-6">
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.DESC' | translate }}</label>
+            <textarea
+                style="min-height: 150px"
+                class="form-control"
+                [placeholder]="'COMMON.INPUT_DESC' | translate"
+                formControlName="description"
+            ></textarea>
+        </div>
+
+        <div class="col-md-6">
+            <img *ngIf="imageUrl" class="w-50" [src]="imageUrl" alt="image" height="180px" />
+        </div>
+    </div>
+</form>

@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
-import { ForgotPasswordFormComponent } from "src/app/module/auth/forgot-password-form/forgot-password-form.component";
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ForgotPasswordFormComponent } from '@fms-module/auth';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'forgot-password',
@@ -10,8 +11,7 @@ import { ForgotPasswordFormComponent } from "src/app/module/auth/forgot-password
     imports: [
         RouterLink,
         ForgotPasswordFormComponent,
-    ]
+        TranslateModule,
+    ],
 })
-export class ForgotPasswordPage {
-
-}
+export class ForgotPasswordPage { }

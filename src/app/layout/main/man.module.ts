@@ -1,26 +1,30 @@
-import { NgModule } from "@angular/core";
-import { MainLayout } from "./main.layout";
-import { MainHeaderComponent } from "./components/header/header.component";
-import { MainSidebarComponent } from "./components/sidebar/sidebar.component";
-import { RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { MainLayout } from './main.layout';
+import { MainHeaderComponent } from './components/header/header.component';
+import { MainSidebarComponent } from './components/sidebar/sidebar.component';
+import { RouterModule } from '@angular/router';
 import { routes } from './router';
-import { NgbCollapse } from "@ng-bootstrap/ng-bootstrap";
-import { CommonModule } from "@angular/common";
+import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { LanguageComponent } from '@fms-module/common';
 
 const imports = [
     CommonModule,
     RouterModule.forChild(routes),
     NgbCollapse,
+    FormsModule,
+    TranslateModule,
+    NgSelectModule,
+    LanguageComponent
 ];
 
-const declarations = [
-    MainLayout,
-    MainHeaderComponent,
-    MainSidebarComponent,
-];
+const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
 
 @NgModule({
     imports,
-    declarations
+    declarations,
 })
 export class MainModule { }

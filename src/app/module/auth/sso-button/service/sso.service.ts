@@ -1,12 +1,11 @@
-import { Injectable } from "@angular/core";
-import { SingleSignOn } from "./sso.interface";
-import { BehaviorSubject, Subscription } from "rxjs";
+import { Injectable } from '@angular/core';
+import { SingleSignOn } from '../model/sso.interface';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class SsoService {
-
     private ssoListCache = new BehaviorSubject<SingleSignOn[]>([]);
 
     public cacheSsoList(singleSignOnList: SingleSignOn[]) {

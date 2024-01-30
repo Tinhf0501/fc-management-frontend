@@ -1,40 +1,34 @@
 <form class="d-flex flex-column gap-3" [formGroup]="formGroup">
-    <div class="row">
+    <div class="row row-gap-3">
         <div class="col-md-3">
-            <label class="fw-semibold">Tên FC</label>
-            <input 
-                class="form-control"
-                formControlName="name"
-                placeholder="nhập tên fc" 
-            />
+            <label class="fw-semibold text-capitalize">{{ 'FOOTBALL_CLUB.NAME' | translate }}</label>
+            <input class="form-control" formControlName="name" [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate" />
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold">Trạng thái</label>
-            <select class="form-select" formControlName="status">
-                <option selected>Hoạt động</option>
-                <option>Không hoạt động</option>
-            </select>
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.STATUS' | translate }}</label>
+            <ng-select
+                [items]="status"
+                [placeholder]="'COMMON.SELECT_STATUS' | translate"
+                formControlName="status"
+                bindValue="code"
+                bindLabel="name"
+            ></ng-select>
         </div>
 
         <div class="col-md-3">
-            <label class="fw-semibold">Từ ngày</label>
-            <input
-                type="date"
-                class="form-control"
-                formControlName="fromDate"
-            />
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.FROM_DATE' | translate }}</label>
+            <input type="date" class="form-control" formControlName="fromDate" />
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold">Đến ngày</label>
-            <input
-                type="date"
-                class="form-control"
-                formControlName="toDate"
-            />
+            <label class="fw-semibold text-capitalize">{{ 'COMMON.TO_DATE' | translate }}</label>
+            <input type="date" class="form-control" formControlName="toDate" />
         </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-        <button class="btn btn-primary">Tìm kiếm</button>
+    <div class="d-flex justify-content-start justify-content-md-center">
+        <button class="btn btn-primary">
+            <i class="fas fa-search me-2"></i>
+            <span class="text-capitalize">{{ 'COMMON.SEARCH' | translate }}</span>
+        </button>
     </div>
 </form>

@@ -6,5 +6,6 @@ export interface SingleSignOn {
 }
 
 export enum SingleSignOnEnum {
-    GOOGLE, FACEBOOK
+    GOOGLE,
+    FACEBOOK,
 }

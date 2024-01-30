@@ -1,18 +1,18 @@
-import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { routes } from './router';
-import { AuthLayout } from "./auth.layout";
+import { AuthLayout } from './auth.layout';
+import { LanguageComponent } from '@fms-module/common';
 
 const imports = [
-    RouterModule.forChild(routes)
-]
+    RouterModule.forChild(routes),
+    LanguageComponent,
+];
 
-const declarations = [
-    AuthLayout
-]
+const declarations = [AuthLayout];
 
 @NgModule({
     imports,
-    declarations
+    declarations,
 })
 export class AuthModule { }

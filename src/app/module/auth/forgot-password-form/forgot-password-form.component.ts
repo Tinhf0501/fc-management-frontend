@@ -1,5 +1,6 @@
-import { Component, OnInit, inject } from "@angular/core";
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'forgot-password-form',
@@ -9,10 +10,10 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
     imports: [
         FormsModule,
         ReactiveFormsModule,
-    ]
+        TranslateModule
+    ],
 })
 export class ForgotPasswordFormComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public forgotPasswordFormGroup: FormGroup;
@@ -23,7 +24,7 @@ export class ForgotPasswordFormComponent implements OnInit {
 
     private buildForm(): void {
         this.forgotPasswordFormGroup = this.formBuilder.group({
-            email: [null, [Validators.required, Validators.email]]
-        })
+            email: [null, [Validators.required, Validators.email]],
+        });
     }
 }

@@ -1,12 +1,11 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subscription } from "rxjs";
-import { Menu } from "./menu.interface";
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { Menu } from './menu.interface';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MenuService {
-
     private menuCache: BehaviorSubject<Menu[]> = new BehaviorSubject<Menu[]>([]);
 
     public setMenu(menus: Menu[]) {
@@ -19,5 +18,9 @@ export class MenuService {
 
     public getMenu(): Observable<Menu[]> {
         return this.menuCache.asObservable();
+    }
+
+    public getValueMenu(): Menu[] {
+        return this.menuCache.getValue();
     }
 }

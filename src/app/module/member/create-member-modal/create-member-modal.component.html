@@ -1,0 +1,17 @@
+<div class="d-flex flex-column">
+    <div class="modal-header d-flex justify-content-between">
+        <span class="h4 text-capitalize">{{ 'MEMBER.CREATE_TITLE' | translate }}</span>
+        <i class="fas fa-times" (click)="closeModal()"></i>
+    </div>
+
+    <div class="modal-body">
+        <create-member-form></create-member-form>
+    </div>
+
+    <div class="modal-footer d-flex justify-content-center gap-2">
+        <button class="btn btn-primary text-capitalize">{{ 'COMMON.SAVE' | translate }}</button>
+        <button class="btn btn-secondary text-capitalize" (click)="closeModal()">
+            {{ 'COMMON.CANCEL' | translate }}
+        </button>
+    </div>
+</div>

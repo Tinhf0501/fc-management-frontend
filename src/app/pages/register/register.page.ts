@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
-import { RegisterFormComponent } from "src/app/module/auth/register-form/register-form.component";
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { RegisterFormComponent } from '@fms-module/auth';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'register',
@@ -9,8 +10,8 @@ import { RegisterFormComponent } from "src/app/module/auth/register-form/registe
     standalone: true,
     imports: [
         RouterLink,
-
         RegisterFormComponent,
-    ]
+        TranslateModule,
+    ],
 })
 export class RegisterPage { }
