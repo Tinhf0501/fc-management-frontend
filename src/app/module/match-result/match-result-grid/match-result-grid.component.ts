@@ -58,5 +58,5 @@ export class MatchResultGridComponent extends GridCore<any> {
 
     public override getRowData(): any[] {
         return [];
-    } 
+    }
 }
