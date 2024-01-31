@@ -47,6 +47,9 @@
       ],
       "@fms-module/match-result": [
         "src/app/module/match-result/index.ts"
+      ],
+      "@fms-module/scorer": [
+        "src/app/module/scorer/index.ts"
       ]
     }
   },

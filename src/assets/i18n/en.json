@@ -45,7 +45,8 @@
 		"SELECT_STATUS": "choose a status",
 		"STATUS": "status",
 		"TO_DATE": "to date",
-		"TOTAL_RECORD": "total record: {{numberOfRecord}}"
+		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
+        "GO_BACK": "go back" 
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "amount of donate",
@@ -95,7 +96,16 @@
         "DATE": "competition date", 
         "RESULT": "result",
         "ADDRESS": "stadium",
-        "NAME": "name"
+        "NAME": "name",
+        "SCORE": "score",
+        "CREATE": {
+            "TITLE": "create a match result"
+        }
 
+    },
+    "SCORER": {
+        "NAME": "scorer",
+        "GOAL": "goal",
+        "GOAL_OG": "goal og"
     }
 }
