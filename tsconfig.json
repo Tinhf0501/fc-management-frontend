@@ -50,6 +50,9 @@
       ],
       "@fms-module/scorer": [
         "src/app/module/scorer/index.ts"
+      ],
+      "@fms-module/funding": [
+        "src/app/module/funding/index.ts" 
       ]
     }
   },

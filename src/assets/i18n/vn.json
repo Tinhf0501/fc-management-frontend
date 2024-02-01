@@ -106,5 +106,13 @@
         "NAME": "người ghi bàn",
         "GOAL": "bàn thắng",
         "GOAL_OG": "phản lưới nhà"
-    }
+    },
+    "FUNDING": {
+        "TITLE": "quản lý quỹ",
+        "NAME": "tên quỹ",
+        "INPUT_NAME": "nhập tên quỹ",
+        "DATE": "ngày đóng quỹ",
+        "DESC": "mô tả",
+        "AMOUNT_PERSON": "số tiền/người"
+    } 
 }

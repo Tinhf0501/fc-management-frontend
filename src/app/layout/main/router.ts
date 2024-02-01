@@ -66,6 +66,13 @@ export const routes: Routes = [
                     }
                 ],
             },
+            {
+                path: 'funding',
+                loadComponent: () => import('../../pages/funding/funding.page').then(p => p.FundingPage),
+                data: {
+                    title: 'FUNDING.TITLE',
+                },
+            },
         ],
     },
 ];

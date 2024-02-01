@@ -107,5 +107,13 @@
         "NAME": "scorer",
         "GOAL": "goal",
         "GOAL_OG": "goal og"
+    },
+    "FUNDING": {
+        "TITLE": "funding management",
+        "NAME": "funding name",
+        "INPUT_NAME": "enter funding name",
+        "DATE": "funded date",
+        "DESC": "description",
+        "AMOUNT_PERSON": "amount/person"
     }
 }
