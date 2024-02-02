@@ -22,6 +22,7 @@
 	},
 	"COMMON": {
 		"ACTION": "action",
+        "NOT_FOUND": "not found",
 		"CANCEL": "cancel",
 		"CREATE": "create",
 		"CREATED_BY": "created by",

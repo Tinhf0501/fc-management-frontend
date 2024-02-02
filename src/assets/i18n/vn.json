@@ -22,6 +22,7 @@
 	},
 	"COMMON": {
 		"ACTION": "thao tác",
+        "NOT_FOUND": "không tìm thấy",
 		"CANCEL": "hủy bỏ",
 		"CREATE": "thêm mới",
 		"CREATED_BY": "người tạo",

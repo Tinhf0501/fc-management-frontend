@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { LANGUAGES } from '@fms-common';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from './module/common/language/model/language.interface';
 import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, Scroll } from '@angular/router';
 import { Subject, filter, map, takeUntil } from 'rxjs';
 import { SidebarService } from './layout/main/service/sidebar.service';
-import { Title } from "@angular/platform-browser";
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -26,16 +25,6 @@ export class AppComponent implements OnInit, OnDestroy {
     public ngOnInit(): void {
         this.listenRouteChange();
         this.listenLangChange();
-        this.initLanguages();
-    }
-
-    private initLanguages(): void {
-        LANGUAGES.forEach(({ value, resourceUrl }: Language) => {
-            import(resourceUrl)
-                .then(resource => {
-                    this.translateService.setTranslation(value, resource);
-                })
-        })
     }
 
     private listenLangChange(): void {
