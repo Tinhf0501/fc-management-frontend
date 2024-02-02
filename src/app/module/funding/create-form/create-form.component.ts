@@ -3,6 +3,8 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
     selector: 'funding-create-form',
@@ -12,7 +14,9 @@ import {
     imports: [
         FormsModule,
         ReactiveFormsModule,
+        TranslateModule,
+        NgSelectModule,
     ],
 })
-export class FundingCreateForm {
+export class FundingCreateFormComponent {
 }

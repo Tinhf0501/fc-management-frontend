@@ -46,6 +46,7 @@
 		"STATUS": "status",
 		"TO_DATE": "to date",
 		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
+        "START_DATE": "start date",
         "GO_BACK": "go back" 
 	},
 	"DONATE": {
@@ -110,10 +111,12 @@
     },
     "FUNDING": {
         "TITLE": "funding management",
+        "CREATE_TITLE": "create a funding",
         "NAME": "funding name",
         "INPUT_NAME": "enter funding name",
         "DATE": "funded date",
         "DESC": "description",
-        "AMOUNT_PERSON": "amount/person"
+        "AMOUNT_PERSON": "amount/person",
+        "INPUT_AMOUNT_PERSON": "enter amount/person"
     }
 }

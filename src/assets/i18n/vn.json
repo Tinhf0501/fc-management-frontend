@@ -46,6 +46,7 @@
 		"STATUS": "trạng thái",
 		"TO_DATE": "đến ngày",
 		"TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
+        "START_DATE": "ngày bắt đầu",
         "GO_BACK": "quay lại" 
 	},
 	"DONATE": {
@@ -109,10 +110,12 @@
     },
     "FUNDING": {
         "TITLE": "quản lý quỹ",
+        "CREATE_TITLE": "thêm mới quỹ",
         "NAME": "tên quỹ",
         "INPUT_NAME": "nhập tên quỹ",
         "DATE": "ngày đóng quỹ",
         "DESC": "mô tả",
-        "AMOUNT_PERSON": "số tiền/người"
+        "AMOUNT_PERSON": "số tiền/người",
+        "INPUT_AMOUNT_PERSON": "nhập số tiền/người"
     } 
 }
