@@ -53,6 +53,9 @@
       ],
       "@fms-module/funding": [
         "src/app/module/funding/index.ts" 
+      ],
+      "@fms-module/spending": [
+        "src/app/module/spending/index.ts"
       ]
     }
   },

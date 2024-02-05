@@ -22,6 +22,7 @@
 	},
 	"COMMON": {
 		"ACTION": "thao tác",
+        "AMT": "số tiền",
         "NOT_FOUND": "không tìm thấy",
 		"CANCEL": "hủy bỏ",
 		"CREATE": "thêm mới",
@@ -118,5 +119,9 @@
         "DESC": "mô tả",
         "AMOUNT_PERSON": "số tiền/người",
         "INPUT_AMOUNT_PERSON": "nhập số tiền/người"
-    } 
+    }, 
+    "SPENDING": {
+        "TITLE": "quản lý chi tiêu",
+        "DATE": "ngày chi tiêu"
+    }
 }
