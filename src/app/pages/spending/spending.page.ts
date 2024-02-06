@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
     SpendingFormSearchComponent,
     SpendingGridComponent,
@@ -8,6 +8,8 @@ import  {
     Pagination,
 } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SpendingCreateModalComponent } from '@fms-module/spending';
 
 @Component({
     selector: 'spending-page',
@@ -23,6 +25,14 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class SpendingPage {
     
+    private modalService: NgbModal = inject(NgbModal);
     public pagination: Pagination = new Pagination(1, 100);
 
+    
+    public openAddModal(): void {
+        this.modalService.open(SpendingCreateModalComponent, {
+            centered: true,
+            size: 'md',
+        });
+    }
 }

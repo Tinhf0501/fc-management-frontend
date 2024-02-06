@@ -123,6 +123,9 @@
     },
     "SPENDING": {
         "TITLE": "spending management",
+        "SPENDER": "spender",
+        "SELECT_SPENDER": "choose a spender",
+        "CREATE_TITLE": "create spending",
         "DATE": "spent date"
     }
 }

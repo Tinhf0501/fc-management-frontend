@@ -122,6 +122,9 @@
     }, 
     "SPENDING": {
         "TITLE": "quản lý chi tiêu",
+        "SPENDER": "người chi tiêu",
+        "SELECT_SPENDER": "chọn người chi tiêu",
+        "CREATE_TITLE": "thêm mới thông tin chi tiêu",
         "DATE": "ngày chi tiêu"
     }
 }
