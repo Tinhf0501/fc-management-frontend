@@ -36,10 +36,20 @@ export const BASE_MENU: Menu[] = [
         icon: 'fas fa-fw fa-table',
         link: 'donate',
     },
-{
+    {
         label: 'MATCH_RESULT.TITLE',
         icon: 'fas fa-fw fa-table',
         link: 'match-result',
+    },
+    {
+        label: 'FUNDING.TITLE',
+        icon: 'fas fa-fw fa-table',
+        link: 'funding',
+    },
+    {
+        label: 'SPENDING.TITLE',
+        icon: 'fas fa-fw fa-table',
+        link: 'spending',
     },
 
 ];

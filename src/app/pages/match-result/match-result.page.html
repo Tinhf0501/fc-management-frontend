@@ -1,19 +1,19 @@
 <div class="d-flex flex-column row-gap-3 h-100">
     <div class="bg-light p-3 rounded">
-        <div class="bg-white p-3 rounded">
+        <div class="bg-white p-3 rounded shadow">
             <match-result-form-search></match-result-form-search>
         </div>
     </div>
 
     <div class="bg-light p-3 rounded h-100">
-        <div class="bg-white p-3 rounded h-100 d-flex flex-column row-gap-2">
+        <div class="bg-white p-3 rounded h-100 d-flex flex-column row-gap-2 shadow">
             <div class="d-flex justify-content-between align-items-center">
                 <i class="fw-semibold text-capitalize">{{ 'COMMON.TOTAL_RECORD' | translate:{numberOfRecord: 1} }}</i>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-sm btn-success">
+                    <a [routerLink]="'/match-result/create'" class="btn btn-sm btn-success">
                         <i class="fas fa-plus me-2"></i>
                         <span class="text-capitalize">{{ 'COMMON.CREATE' | translate }}</span>
-                    </button>
+                    </a>
                     <button class="btn btn-sm btn-secondary">
                         <i class="fas fa-download me-2"></i>
                         <span class="text-capitalize">{{ 'COMMON.EXPORT_EXCEL' | translate }}</span>

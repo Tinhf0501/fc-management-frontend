@@ -49,9 +49,35 @@ export const routes: Routes = [
             },
             {
                 path: 'match-result',
-                loadComponent: () => import('../../pages/match-result/match-result.page').then(p => p.MatchResultPage),
+                children: [
+                    {
+                        path: '',
+                        loadComponent: () => import('../../pages/match-result/match-result.page').then(p => p.MatchResultPage),
+                        data: {
+                            title: 'MATCH_RESULT.TITLE',
+                        },
+                    },
+                    {
+                        path: 'create',
+                        loadComponent: () => import('../../pages/match-result/create/create-match-result.page').then(p => p.CreateMatchResultPage),
+                        data: {
+                            title: 'MATCH_RESULT.CREATE.TITLE',
+                        }, 
+                    }
+                ],
+            },
+            {
+                path: 'funding',
+                loadComponent: () => import('../../pages/funding/funding.page').then(p => p.FundingPage),
                 data: {
-                    title: 'MATCH_RESULT.TITLE',
+                    title: 'FUNDING.TITLE',
+                },
+            },
+            {
+                path: 'spending',
+                loadComponent: () => import('../../pages/spending/spending.page').then(p => p.SpendingPage),
+                data: {
+                    title: 'SPENDING.TITLE',
                 },
             },
         ],

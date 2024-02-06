@@ -22,6 +22,8 @@
 	},
 	"COMMON": {
 		"ACTION": "action",
+        "AMT": "amount",
+        "NOT_FOUND": "not found",
 		"CANCEL": "cancel",
 		"CREATE": "create",
 		"CREATED_BY": "created by",
@@ -45,7 +47,9 @@
 		"SELECT_STATUS": "choose a status",
 		"STATUS": "status",
 		"TO_DATE": "to date",
-		"TOTAL_RECORD": "total record: {{numberOfRecord}}"
+		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
+        "START_DATE": "start date",
+        "GO_BACK": "go back" 
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "amount of donate",
@@ -95,7 +99,33 @@
         "DATE": "competition date", 
         "RESULT": "result",
         "ADDRESS": "stadium",
-        "NAME": "name"
+        "NAME": "name",
+        "SCORE": "score",
+        "CREATE": {
+            "TITLE": "create a match result"
+        }
 
+    },
+    "SCORER": {
+        "NAME": "scorer",
+        "GOAL": "goal",
+        "GOAL_OG": "goal og"
+    },
+    "FUNDING": {
+        "TITLE": "funding management",
+        "CREATE_TITLE": "create a funding",
+        "NAME": "funding name",
+        "INPUT_NAME": "enter funding name",
+        "DATE": "funded date",
+        "DESC": "description",
+        "AMOUNT_PERSON": "amount/person",
+        "INPUT_AMOUNT_PERSON": "enter amount/person"
+    },
+    "SPENDING": {
+        "TITLE": "spending management",
+        "SPENDER": "spender",
+        "SELECT_SPENDER": "choose a spender",
+        "CREATE_TITLE": "create spending",
+        "DATE": "spent date"
     }
 }

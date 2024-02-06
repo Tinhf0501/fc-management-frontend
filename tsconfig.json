@@ -47,6 +47,15 @@
       ],
       "@fms-module/match-result": [
         "src/app/module/match-result/index.ts"
+      ],
+      "@fms-module/scorer": [
+        "src/app/module/scorer/index.ts"
+      ],
+      "@fms-module/funding": [
+        "src/app/module/funding/index.ts" 
+      ],
+      "@fms-module/spending": [
+        "src/app/module/spending/index.ts"
       ]
     }
   },

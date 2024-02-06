@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import {
-    ColDef,
-} from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 import { GridCore } from '@fms-module/common';
 
 @Component({
-    selector: 'match-result-grid',
+    selector: 'scorer-grid',
     templateUrl: '../../common/grid-core/grid-core.component.html',
-    styleUrls: ['./match-result-grid.component.scss'],
+    styleUrls: ['./scorer-grid.component.scss',],
     standalone: true,
     imports: [
         AgGridAngular,
     ],
 })
-export class MatchResultGridComponent extends GridCore<any> {
-
+export class ScorerGridComponent extends GridCore<any> {
+    
     public override getColumnDefs(): ColDef[] {
         return [
             {
@@ -25,38 +23,38 @@ export class MatchResultGridComponent extends GridCore<any> {
                 pinned: 'left',
             },
             {
-                headerValueGetter: param => this.translateService.instant('MATCH_RESULT.NAME'),
+                headerValueGetter: param => this.translateService.instant('SCORER.NAME'),
                 minWidth: 100,
                 field: 'name',
                 tooltipField: 'name',
             },
             {
-                headerValueGetter: param => this.translateService.instant('MATCH_RESULT.RESULT'),
+                headerValueGetter: param => this.translateService.instant('COMMON.FC'),
                 minWidth: 100,
-                field: 'result',
-                tooltipField: 'result',
+                field: 'fc',
+                tooltipField: 'fc',
             },
             {
-                headerValueGetter: param => this.translateService.instant('MATCH_RESULT.DATE'),
+                headerValueGetter: param => this.translateService.instant('SCORER.GOAL'),
                 minWidth: 100,
-                field: 'date',
-                tooltipField: 'date',
+                field: 'goal',
+                tooltipField: 'gold',
             },
             {
-                headerValueGetter: param => this.translateService.instant('MATCH_RESULT.ADDRESS'),
+                headerValueGetter: param => this.translateService.instant('SCORER.GOAL_OG'),
                 minWidth: 100,
-                field: 'address',
-                tooltipField: 'address',
+                field: 'goalOg',
+                tooltipField: 'goalOg',
             },
             {
                 headerValueGetter: param => this.translateService.instant('COMMON.ACTION'),
                 minWidth: 50,
                 pinned: 'right',
             }
-        ]
+        ];
     }
 
     public override getRowData(): any[] {
-        return [];
+        return[];
     }
 }

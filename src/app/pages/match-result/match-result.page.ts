@@ -8,6 +8,7 @@ import {
     Pagination,
 } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'match-result-page',
@@ -19,6 +20,8 @@ import { TranslateModule } from '@ngx-translate/core';
         MatchResultGridComponent,
         PaginationComponent,
         TranslateModule,
+
+        RouterLink,
     ],
 })
 export class MatchResultPage {

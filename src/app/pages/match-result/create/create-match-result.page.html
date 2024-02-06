@@ -1,0 +1,24 @@
+<div class="d-flex flex-column h-100 row-gap-4">
+    <match-result-create-form></match-result-create-form>
+    <div class="d-flex flex-column row-gap-3 h-100">
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="h4">Thông tin người ghi bản</span>
+            <button class="btn btn-sm btn-success">
+                <i class="fas fa-plus me-2"></i>
+                <span class="text-capitalize">{{ 'COMMON.CREATE' | translate }}</span>
+            </button>
+        </div>
+        <div class="flex-grow-1">
+            <scorer-grid></scorer-grid>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-sm btn-success">
+            <i class="fas fa-plus me-2"></i>
+            <span class="text-capitalize">{{ 'COMMON.SAVE' | translate }}</span>
+        </button>
+        <button-back></button-back>
+    </div>
+
+</div>
