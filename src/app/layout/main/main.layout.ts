@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SidebarService } from './service/sidebar.service';
-import { MenuService, BASE_MENU } from '@fms-common';
+import { MenuService, BASE_MENU } from '@fms-module/common';
 
 @Component({
     selector: 'main-layout',

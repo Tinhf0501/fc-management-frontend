@@ -1,0 +1,99 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
+    <div class="row">
+        <div class="col-md-12">
+            <fms-input
+                [label]="'MEMBER.FULLNAME' | translate"
+                [required]="true"
+                [variant]="'input'"
+                [placeholder]="'MEMBER.INPUT_FULLNAME' | translate"
+                formControlName="fullName"
+                [errorsMessage]="{
+                    required: 'MEMBER.ERRORS.FULL_NAME.REQUIRED',
+                    maxLength: 'MEMBER.ERRORS.FULL_NAME.MAX_LENGTH'
+                }"
+            ></fms-input>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <fms-input
+                [label]="'MEMBER.PRINTED_NAME' | translate"
+                [required]="false"
+                [variant]="'input'"
+                [placeholder]="'MEMBER.INPUT_PRINTED_NAME' | translate"
+                formControlName="nameShirt"
+                [errorsMessage]="{
+                    maxLength: 'MEMBER.ERRORS.PRINTED_NAME.MAX_LENGTH'
+                }"
+            ></fms-input>
+        </div>
+        <div class="col-md-6">
+            <fms-input
+                [label]="'MEMBER.PRINTED_NUMBER' | translate"
+                [required]="false"
+                [type]="'number'"
+                [variant]="'input'"
+                [placeholder]="'MEMBER.INPUT_PRINTED_NUMBER' | translate"
+                formControlName="numberShirt"
+            ></fms-input>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <fms-input
+                [label]="'MEMBER.PHONE' | translate"
+                [required]="true"
+                [type]="'text'"
+                [variant]="'input'"
+                [placeholder]="'MEMBER.INPUT_PHONE' | translate"
+                formControlName="phoneNumber"
+                [errorsMessage]="{
+                    required: 'MEMBER.ERRORS.PHONE.REQUIRED',
+                    maxLength: 'MEMBER.ERRORS.PHONE.MAX_LENGTH',
+                    pattern: 'MEMBER.ERRORS.PHONE.PATTERN'
+                }"
+            ></fms-input>
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold text-capitalize">{{
+                'COMMON.POSITION' | translate
+            }}</label>
+            <ng-select
+                [items]="positions"
+                bindLabel="name"
+                bindValue="code"
+                [placeholder]="'COMMON.SELECT_POSITION' | translate"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                formControlName="position"
+            ></ng-select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <fms-input
+                [label]="'MEMBER.ADDRESS' | translate"
+                [required]="false"
+                [type]="'text'"
+                [variant]="'textarea'"
+                formControlName="address"
+                [errorsMessage]="{
+                    maxLength: 'MEMBER.ERRORS.ADDRESS.MAX_LENGTH'
+                }"
+            ></fms-input>
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold text-capitalize">{{
+                'MEMBER.AVATAR' | translate
+            }}</label>
+            <input
+                type="file"
+                class="form-control"
+                (change)="onChangeAvatar($event)"
+            />
+        </div>
+    </div>
+</form>
