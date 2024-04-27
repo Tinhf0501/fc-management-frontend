@@ -6,8 +6,6 @@ name: Build for test env
 on:
     push:
         branches: ['dev']
-    pull_request:
-        branches: ['dev']
 
 env:
     artifactName: 'football-club'

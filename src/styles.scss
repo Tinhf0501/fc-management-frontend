@@ -29,6 +29,7 @@ label {
     text-transform: capitalize;
 }
 
+textarea,
 input {
     &::placeholder {
         text-transform: capitalize;

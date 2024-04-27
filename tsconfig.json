@@ -27,9 +27,6 @@
       "dom"
     ],
     "paths": {
-      "@fms-common": [
-        "src/app/common/index.ts"
-      ],
       "@fms-module/auth": [
         "src/app/module/auth/index.ts"
       ],
@@ -56,6 +53,18 @@
       ],
       "@fms-module/spending": [
         "src/app/module/spending/index.ts"
+      ],
+      "@fms-module/resource": [
+        "src/app/module/resource/index.ts"
+      ],
+      "@fms-layout/main": [
+        "src/app/layout/main/index.ts"
+      ],
+      "@fms-layout/auth": [
+        "src/app/layout/auth/index.ts"
+      ],
+      "environment": [
+        "src/environments/environment.ts"
       ]
     }
   },
