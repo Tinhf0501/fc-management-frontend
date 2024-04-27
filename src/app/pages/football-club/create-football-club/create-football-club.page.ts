@@ -63,8 +63,12 @@ export class CreateFootballClubPage implements OnInit {
     }
 
     public submitFormCreateFc(): void {
+        if (this.createFcForm.invalid) {
+            return;
+        }
         const data = this.createFcForm.getRawValue();
         const formData = new FormData();
+        formData.append('fcName', data.fcName);
         formData.append('description', data.description);
         formData.append('isGuest', 'false');
         if (this.avatar) {
