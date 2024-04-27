@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-2">
+    <div class="row row-gap-2">
+        <div class="col-md-6">
+            <fms-input
+                [label]="'FOOTBALL_CLUB.NAME' | translate"
+                [required]="true"
+                [variant]="'input'"
+                [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate"
+                formControlName="fcName"
+                [errorsMessage]="{
+                    required: 'FOOTBALL_CLUB.CREATE.ERRORS.FC_NAME.REQUIRED',
+                    maxLength: 'FOOTBALL_CLUB.CREATE.ERRORS.FC_NAME.MAX_LENGTH'
+                }"
+            ></fms-input>
+        </div>
+        <div class="col-md-6">
+            <label class="fw-semibold text-capitalize">{{ 'MEMBER.AVATAR' | translate }}</label>
+            <input
+                #avatarUploader
+                class="form-control"
+                type="file"
+                accept="image/*"
+                (change)="onChangeAvatar($event)"
+            />
+        </div>
+    </div>
+
+    <div class="row row-gap-2 flex-column-reverse flex-md-row">
+        <div class="col-md-6">
+            <fms-input
+                [label]="'COMMON.DESC' | translate"
+                [required]="false"
+                [variant]="'textarea'"
+                [placeholder]="'COMMON.INPUT_DESC' | translate"
+                formControlName="description"
+                [errorsMessage]="{
+                    maxLength: 'FOOTBALL_CLUB.CREATE.ERRORS.DESCRIPTION.MAX_LENGTH'
+                }"
+            ></fms-input>
+        </div>
+
+        <div class="col-md-6">
+            <img *ngIf="imageUrl" class="w-50" [src]="imageUrl" alt="image" height="180px" />
+        </div>
+    </div>
+</form>

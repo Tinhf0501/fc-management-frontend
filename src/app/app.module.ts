@@ -7,7 +7,20 @@ import { routes } from './router';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+    HTTP_INTERCEPTORS,
+    HttpClient,
+    HttpClientModule,
+} from '@angular/common/http';
+import { SpinnerComponent } from './module/common/components';
+import { AuthInterceptor, LoaderInterceptor } from './module/common/service';
+import { ToastrModule } from 'ngx-toastr';
+
+const translateLoaderFactory = (
+    httpClient: HttpClient,
+): TranslateHttpLoader => {
+    return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
+};
 
 @NgModule({
     declarations: [AppComponent],
@@ -19,14 +32,25 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
             defaultLanguage: localStorage.getItem('language') ?? 'vn',
             loader: {
                 provide: TranslateLoader,
-                useFactory: (httpClient: HttpClient): TranslateHttpLoader => {
-                    return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
-                },
+                useFactory: translateLoaderFactory,
                 deps: [HttpClient],
             },
         }),
+        ToastrModule.forRoot(),
+        SpinnerComponent,
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

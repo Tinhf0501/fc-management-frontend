@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration=production",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier": "prettier src --write"
@@ -27,6 +27,7 @@
     "ag-grid-angular": "^31.0.2",
     "bootstrap": "^5.2.3",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.10.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
   },
