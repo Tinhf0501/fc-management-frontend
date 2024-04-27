@@ -10,7 +10,6 @@ import {
 import { CreateMemberModal, MemberGridComponent } from '@fms-module/member';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { ToastrService } from 'ngx-toastr';
 import { takeUntil } from 'rxjs';
 import { NotifierService } from 'src/app/module/common/service/notifier.service';
 

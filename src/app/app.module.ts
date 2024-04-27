@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
 import { routes } from './router';
 
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
     HTTP_INTERCEPTORS,
     HttpClient,
     HttpClientModule,
 } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SpinnerComponent } from './module/common/components';
 import { AuthInterceptor, LoaderInterceptor } from './module/common/service';
-import { ToastrModule } from 'ngx-toastr';
 
 const translateLoaderFactory = (
     httpClient: HttpClient,
@@ -36,7 +35,6 @@ const translateLoaderFactory = (
                 deps: [HttpClient],
             },
         }),
-        ToastrModule.forRoot(),
         SpinnerComponent,
     ],
     providers: [
