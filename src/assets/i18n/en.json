@@ -22,8 +22,8 @@
 	},
 	"COMMON": {
 		"ACTION": "action",
-        "AMT": "amount",
-        "NOT_FOUND": "not found",
+		"AMT": "amount",
+		"NOT_FOUND": "not found",
 		"CANCEL": "cancel",
 		"CREATE": "create",
 		"CREATED_BY": "created by",
@@ -48,8 +48,8 @@
 		"STATUS": "status",
 		"TO_DATE": "to date",
 		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
-        "START_DATE": "start date",
-        "GO_BACK": "go back" 
+		"START_DATE": "start date",
+		"GO_BACK": "go back"
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "amount of donate",
@@ -65,7 +65,17 @@
 	"FOOTBALL_CLUB": {
 		"CODE": "football club code",
 		"CREATE": {
-			"TITLE": "create a football club"
+			"TITLE": "create a football club",
+			"BTN_CREATE": "create FC",
+			"ERRORS": {
+				"FC_NAME": {
+					"REQUIRED": "fc name is mandatory",
+					"MAX_LENGTH": "fc name's max length is 255"
+				},
+				"DESCRIPTION": {
+					"MAX_LENGTH": "description's max length is 2000"
+				}
+			}
 		},
 		"INPUT_NAME": "enter football club name",
 		"NAME": "football club name",
@@ -92,40 +102,56 @@
 		"PHONE": "phone number",
 		"PRINTED_NAME": "printed name",
 		"PRINTED_NUMBER": "printed number",
-		"TITLE": "member management"
+		"TITLE": "member management",
+		"ERRORS": {
+			"FULL_NAME": {
+				"REQUIRED": "Member name is mandatory",
+				"MAX_LENGTH": "Member name's max length is 255"
+			},
+			"PRINTED_NAME": {
+				"MAX_LENGTH": "Name shirt's max length is 255"
+			},
+			"PHONE": {
+				"REQUIRED": "Member phone is mandatory",
+				"MAX_LENGTH": "Member phone's max length is 10",
+				"PATTERN": "Member phone is invalid"
+			},
+			"ADDRESS": {
+				"MAX_LENGTH": "Member address's max length is 2000"
+			}
+		}
 	},
-    "MATCH_RESULT": {
-        "TITLE": "match result management",
-        "DATE": "competition date", 
-        "RESULT": "result",
-        "ADDRESS": "stadium",
-        "NAME": "name",
-        "SCORE": "score",
-        "CREATE": {
-            "TITLE": "create a match result"
-        }
-
-    },
-    "SCORER": {
-        "NAME": "scorer",
-        "GOAL": "goal",
-        "GOAL_OG": "goal og"
-    },
-    "FUNDING": {
-        "TITLE": "funding management",
-        "CREATE_TITLE": "create a funding",
-        "NAME": "funding name",
-        "INPUT_NAME": "enter funding name",
-        "DATE": "funded date",
-        "DESC": "description",
-        "AMOUNT_PERSON": "amount/person",
-        "INPUT_AMOUNT_PERSON": "enter amount/person"
-    },
-    "SPENDING": {
-        "TITLE": "spending management",
-        "SPENDER": "spender",
-        "SELECT_SPENDER": "choose a spender",
-        "CREATE_TITLE": "create spending",
-        "DATE": "spent date"
-    }
+	"MATCH_RESULT": {
+		"TITLE": "match result management",
+		"DATE": "competition date",
+		"RESULT": "result",
+		"ADDRESS": "stadium",
+		"NAME": "name",
+		"SCORE": "score",
+		"CREATE": {
+			"TITLE": "create a match result"
+		}
+	},
+	"SCORER": {
+		"NAME": "scorer",
+		"GOAL": "goal",
+		"GOAL_OG": "goal og"
+	},
+	"FUNDING": {
+		"TITLE": "funding management",
+		"CREATE_TITLE": "create a funding",
+		"NAME": "funding name",
+		"INPUT_NAME": "enter funding name",
+		"DATE": "funded date",
+		"DESC": "description",
+		"AMOUNT_PERSON": "amount/person",
+		"INPUT_AMOUNT_PERSON": "enter amount/person"
+	},
+	"SPENDING": {
+		"TITLE": "spending management",
+		"SPENDER": "spender",
+		"SELECT_SPENDER": "choose a spender",
+		"CREATE_TITLE": "create spending",
+		"DATE": "spent date"
+	}
 }

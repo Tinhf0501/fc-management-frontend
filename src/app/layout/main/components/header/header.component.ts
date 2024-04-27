@@ -1,6 +1,6 @@
 import { Component, QueryList, ViewChildren, inject } from '@angular/core';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarService } from '../../service/sidebar.service';
+import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
 
 @Component({

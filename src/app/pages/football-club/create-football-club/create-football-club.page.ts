@@ -1,8 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { MemberGridComponent, CreateMemberModal } from '@fms-module/member';
-import { CreateFcFormComponent } from '@fms-module/football-club';
+import { NgFor } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DestroyService } from '@fms-module/common';
+import {
+    CreateFcFormComponent,
+    FootballClubService,
+} from '@fms-module/football-club';
+import { CreateMemberModal, MemberGridComponent } from '@fms-module/member';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { takeUntil } from 'rxjs';
+import { NotifierService } from 'src/app/module/common/service/notifier.service';
 
 @Component({
     selector: 'create-fc-page',
@@ -13,16 +23,67 @@ import { TranslateModule } from '@ngx-translate/core';
         MemberGridComponent,
         CreateFcFormComponent,
         TranslateModule,
+        NgFor,
     ],
+    providers: [DestroyService],
 })
-export class CreateFootballClubPage {
+export class CreateFootballClubPage implements OnInit {
+    private readonly modalService: NgbModal = inject(NgbModal);
+    private readonly formBuilder: FormBuilder = inject(FormBuilder);
+    private readonly fcService: FootballClubService =
+        inject(FootballClubService);
+    private readonly destroyService: DestroyService = inject(DestroyService);
+    private readonly router: Router = inject(Router);
+    private readonly notifierService: NotifierService = inject(NotifierService);
 
-    private modalService: NgbModal = inject(NgbModal);
+    public createFcForm: FormGroup;
+    public avatar: File;
+    public members = [];
+
+    public ngOnInit(): void {
+        this.buildForm();
+    }
+
+    private buildForm(): void {
+        this.createFcForm = this.formBuilder.group({
+            fcName: [null, [Validators.required, Validators.maxLength(255)]],
+            description: [null, [Validators.maxLength(2000)]],
+        });
+    }
 
     public openAddMemberModal(): void {
-        this.modalService.open(CreateMemberModal, {
-            size: 'lg',
-            centered: true,
+        this.modalService
+            .open(CreateMemberModal, {
+                size: 'lg',
+                centered: true,
+            })
+            .closed.subscribe((res) => {
+                if (!res) return;
+                this.members = [res, ...this.members];
+            });
+    }
+
+    public submitFormCreateFc(): void {
+        const data = this.createFcForm.getRawValue();
+        const formData = new FormData();
+        formData.append('description', data.description);
+        formData.append('isGuest', 'false');
+        if (this.avatar) {
+            formData.append('fcResources.logo', this.avatar);
+        }
+        this.members.forEach((member, index) => {
+            Object.keys(member).forEach((key) => {
+                const value = member[key];
+                formData.append(`fcMembers[${index}].${key}`, value);
+            });
         });
+        this.fcService
+            .createFc(formData)
+            .pipe(takeUntil(this.destroyService.$destroy))
+            .subscribe((res) => {
+                this.notifierService.success(res.code.message).then((x) => {
+                    if (x.isConfirmed) this.router.navigate(['football-club']);
+                });
+            });
     }
 }
