@@ -42,7 +42,7 @@ input {
 }
 
 @for $i from 1 to 100 {
-    .gap-#{i}px {
-        gap: #{i}px;
+    .gap-#{$i}px {
+        gap: #{$i}px;
     }
 }

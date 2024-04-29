@@ -15,8 +15,9 @@ import {
     Validators,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { FmsInputComponent } from '@fms-module/common';
+import { fileToImageUrl, FmsInputComponent } from '@fms-module/common';
 import { CreateFCMemberRequest } from '@fms-module/member';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'create-member-form',
@@ -24,6 +25,7 @@ import { CreateFCMemberRequest } from '@fms-module/member';
     styleUrls: ['./create-member-form.component.scss'],
     standalone: true,
     imports: [
+        NgIf,
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
@@ -60,12 +62,14 @@ export class CreateMemberFormComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
+    public previewAvatarUrl: string;
 
     public ngOnInit(): void {
         this.buildFormGroup();
         if (this.member) {
             this.formGroup.patchValue(this.member);
             if (this.member.avatar) {
+                this.previewAvatarUrl = fileToImageUrl(this.member.avatar);
                 this.changeAvatar.emit(this.member.avatar);
             }
         }
@@ -75,6 +79,7 @@ export class CreateMemberFormComponent implements OnInit {
     public onChangeAvatar(event): void {
         const file = event.target.files[0];
         if (!file) return;
+        this.previewAvatarUrl = fileToImageUrl(file);
         this.changeAvatar.emit(file);
     }
 

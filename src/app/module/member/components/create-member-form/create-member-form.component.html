@@ -85,15 +85,24 @@
                 }"
             ></fms-input>
         </div>
-        <div class="col-md-6">
-            <label class="fw-semibold text-capitalize">{{
-                'MEMBER.AVATAR' | translate
-            }}</label>
-            <input
-                type="file"
-                class="form-control"
-                (change)="onChangeAvatar($event)"
-            />
+        <div class="col-md-6 d-flex flex-column gap-10px">
+            <div>
+                <label class="fw-semibold text-capitalize">{{
+                    'MEMBER.AVATAR' | translate
+                }}</label>
+                <input
+                    type="file"
+                    class="form-control"
+                    (change)="onChangeAvatar($event)"
+                />
+            </div>
+            <div *ngIf="previewAvatarUrl">
+                <img
+                    [src]="previewAvatarUrl"
+                    style="height: 100px; max-width: 100%"
+                    alt="preview avatar"
+                />
+            </div>
         </div>
     </div>
 </form>
