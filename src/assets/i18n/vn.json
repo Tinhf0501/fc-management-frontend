@@ -41,6 +41,7 @@
 		"POSITION": "vị trí",
 		"RECORD_PER_PAGE": "số bản ghi trên trang",
 		"SAVE": "lưu lại",
+		"ACCEPT": "đồng ý",
 		"SEARCH": "tìm kiếm",
 		"SELECT_FC": "chọn đội bóng",
 		"SELECT_POSITION": "chọn vị trí",
@@ -53,7 +54,8 @@
 		"NOTIFY": {
 			"SUCCESS": "Thành công",
 			"ERROR": "Oops..."
-		}
+		},
+		"CONFIRM": "xác nhận"
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "số tiên donate",
@@ -95,6 +97,7 @@
 		"AVATAR": "ảnh đại diện",
 		"CREATE_MEMBER": "thêm thành viên",
 		"CREATE_TITLE": "thêm mới thành viên",
+		"UPDATE_TITLE": "cập nhật thành viên",
 		"DOB": "ngày sinh",
 		"FULLNAME": "họ và tên",
 		"INPUT_FULLNAME": "",
@@ -107,6 +110,7 @@
 		"PRINTED_NAME": "tên áo",
 		"PRINTED_NUMBER": "số áo",
 		"TITLE": "quản lý thành viên",
+		"CONFIRM_DELETE": "bạn có chắc chắn muốn xóa thành viên?",
 		"ERRORS": {
 			"FULL_NAME": {
 				"REQUIRED": "Member name is mandatory",

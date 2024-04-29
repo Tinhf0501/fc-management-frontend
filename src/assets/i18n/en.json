@@ -41,6 +41,7 @@
 		"POSITION": "position",
 		"RECORD_PER_PAGE": "record/page",
 		"SAVE": "save",
+		"ACCEPT": "accept",
 		"SEARCH": "search",
 		"SELECT_FC": "choose a football club",
 		"SELECT_POSITION": "choose a position",
@@ -53,7 +54,8 @@
 		"NOTIFY": {
 			"SUCCESS": "Success",
 			"ERROR": "Oops..."
-		}
+		},
+		"CONFIRM": "confirmation"
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "amount of donate",
@@ -93,8 +95,9 @@
 	"MEMBER": {
 		"ADDRESS": "address",
 		"AVATAR": "profile image",
-		"CREATE_MEMBER": "create a member",
-		"CREATE_TITLE": "create a member",
+		"CREATE_MEMBER": "create member",
+		"CREATE_TITLE": "create member",
+		"UPDATE_TITLE": "update member",
 		"DOB": "date of birth",
 		"FULLNAME": "fullname",
 		"INPUT_FULLNAME": "",
@@ -107,6 +110,7 @@
 		"PRINTED_NAME": "printed name",
 		"PRINTED_NUMBER": "printed number",
 		"TITLE": "member management",
+		"CONFIRM_DELETE": "are you sure to delete this member?",
 		"ERRORS": {
 			"FULL_NAME": {
 				"REQUIRED": "Member name is mandatory",

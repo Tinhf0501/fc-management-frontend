@@ -14,7 +14,9 @@
             ></fms-input>
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold text-capitalize">{{ 'MEMBER.AVATAR' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'MEMBER.AVATAR' | translate
+            }}</label>
             <input
                 #avatarUploader
                 class="form-control"
@@ -34,13 +36,20 @@
                 [placeholder]="'COMMON.INPUT_DESC' | translate"
                 formControlName="description"
                 [errorsMessage]="{
-                    maxLength: 'FOOTBALL_CLUB.CREATE.ERRORS.DESCRIPTION.MAX_LENGTH'
+                    maxLength:
+                        'FOOTBALL_CLUB.CREATE.ERRORS.DESCRIPTION.MAX_LENGTH'
                 }"
             ></fms-input>
         </div>
 
         <div class="col-md-6">
-            <img *ngIf="imageUrl" class="w-50" [src]="imageUrl" alt="image" height="180px" />
+            <img
+                *ngIf="imageUrl"
+                class="w-50"
+                [src]="imageUrl"
+                alt="image"
+                height="180px"
+            />
         </div>
     </div>
 </form>

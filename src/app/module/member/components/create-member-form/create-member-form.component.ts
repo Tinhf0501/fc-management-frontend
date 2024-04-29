@@ -1,4 +1,11 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    inject,
+    Input,
+    OnInit,
+    Output,
+} from '@angular/core';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {
     FormsModule,
@@ -9,6 +16,7 @@ import {
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { FmsInputComponent } from '@fms-module/common';
+import { CreateFCMemberRequest } from '@fms-module/member';
 
 @Component({
     selector: 'create-member-form',
@@ -24,6 +32,8 @@ import { FmsInputComponent } from '@fms-module/common';
     ],
 })
 export class CreateMemberFormComponent implements OnInit {
+    @Input() member: CreateFCMemberRequest;
+
     @Output() formInitialized = new EventEmitter<FormGroup>();
 
     @Output() changeAvatar = new EventEmitter<File>();
@@ -53,6 +63,12 @@ export class CreateMemberFormComponent implements OnInit {
 
     public ngOnInit(): void {
         this.buildFormGroup();
+        if (this.member) {
+            this.formGroup.patchValue(this.member);
+            if (this.member.avatar) {
+                this.changeAvatar.emit(this.member.avatar);
+            }
+        }
         this.formInitialized.emit(this.formGroup);
     }
 

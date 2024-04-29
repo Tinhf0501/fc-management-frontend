@@ -6,6 +6,7 @@ import {
     GridReadyEvent,
     GridSizeChangedEvent,
     ColDef,
+    GridOptions,
 } from 'ag-grid-community';
 
 @Component({
@@ -13,7 +14,7 @@ import {
 })
 export abstract class GridCore<T> implements OnInit, OnDestroy {
     protected columnDefs: ColDef[];
-
+    protected gridOptions: GridOptions;
     @Input() rowData: T[];
 
     protected unsubscribe$: Subject<void> = new Subject<void>();

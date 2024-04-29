@@ -16,7 +16,11 @@
             </button>
         </div>
         <div style="height: 300px">
-            <member-grid [rowData]="members"></member-grid>
+            <member-grid
+                [rowData]="members"
+                (updateMember)="onUpdateMember($event)"
+                (deleteMember)="onDeleteMember($event)"
+            ></member-grid>
         </div>
     </div>
     <div class="d-flex justify-content-center">

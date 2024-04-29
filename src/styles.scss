@@ -40,3 +40,9 @@ input {
 .cursor-pointer {
     cursor: pointer !important;
 }
+
+@for $i from 1 to 100 {
+    .gap-#{i}px {
+        gap: #{i}px;
+    }
+}

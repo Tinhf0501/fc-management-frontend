@@ -7,7 +7,11 @@ import {
     CreateFcFormComponent,
     FootballClubService,
 } from '@fms-module/football-club';
-import { CreateMemberModal, MemberGridComponent } from '@fms-module/member';
+import {
+    CreateFCMemberRequest,
+    CreateMemberModal,
+    MemberGridComponent,
+} from '@fms-module/member';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
@@ -62,6 +66,18 @@ export class CreateFootballClubPage implements OnInit {
             });
     }
 
+    public onUpdateMember(param: {
+        data: CreateFCMemberRequest;
+        index: number;
+    }): void {
+        this.members[param.index] = param.data;
+        this.members = [...this.members];
+    }
+
+    public onDeleteMember(rowIndex: number): void {
+        this.members = this.members.filter((_, index) => index !== rowIndex);
+    }
+
     public submitFormCreateFc(): void {
         if (this.createFcForm.invalid) {
             return;
@@ -77,7 +93,7 @@ export class CreateFootballClubPage implements OnInit {
         this.members.forEach((member, index) => {
             Object.keys(member).forEach((key) => {
                 const value = member[key];
-                formData.append(`fcMembers[${index}].${key}`, value);
+                if (value) formData.append(`fcMembers[${index}].${key}`, value);
             });
         });
         this.fcService
@@ -85,7 +101,7 @@ export class CreateFootballClubPage implements OnInit {
             .pipe(takeUntil(this.destroyService.$destroy))
             .subscribe((res) => {
                 this.notifierService
-                    .success(res?.apiBody?.msg?.value)
+                    .success(res?.apiBody?.msg?.value, res.code.message)
                     .then((x) => {
                         if (x.isConfirmed)
                             this.router.navigate(['football-club']);

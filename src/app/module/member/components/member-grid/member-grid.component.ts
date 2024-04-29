@@ -1,7 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
+import {
+    ActionColumnComponent,
+    ActionColumnIcon,
+    ConfirmationComponent,
+    GridCore,
+    fileToImageUrl,
+} from '@fms-module/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms-module/common';
+import { ColDef, GridReadyEvent, ICellRendererParams } from 'ag-grid-community';
+import { CreateFCMemberRequest, CreateMemberModal } from '@fms-module/member';
 
 @Component({
     selector: 'member-grid',
@@ -12,8 +20,33 @@ import { GridCore } from '@fms-module/common';
     imports: [AgGridAngular],
 })
 export class MemberGridComponent extends GridCore<any> {
+    @Output() updateMember = new EventEmitter<{
+        data: CreateFCMemberRequest;
+        index: number;
+    }>();
+
+    @Output() deleteMember = new EventEmitter<number>();
+
+    private readonly modalService = inject(NgbModal);
+
+    constructor() {
+        super();
+        this.gridOptions = {
+            rowHeight: 100,
+        };
+    }
+
     public override getColumnDefs(): ColDef[] {
         return [
+            {
+                headerValueGetter: (param) =>
+                    this.translateService.instant('MEMBER.AVATAR'),
+                minWidth: 200,
+                cellRenderer: (params) => {
+                    const imageUrl = fileToImageUrl(params.data.avatar);
+                    return `<img src='${imageUrl}' style='width: 200px; height: 100px' />`;
+                },
+            },
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.NO'),
@@ -72,16 +105,25 @@ export class MemberGridComponent extends GridCore<any> {
                 field: 'address',
                 tooltipField: 'address',
             },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.AVATAR'),
-                minWidth: 100,
-                field: 'avatar',
-                tooltipField: 'avatar',
-            },
+
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.ACTION'),
+                cellRenderer: ActionColumnComponent,
+                cellEditorParams: {
+                    actions: [
+                        {
+                            icon: ActionColumnIcon.EDIT,
+                            classes: 'text-warning',
+                            onClick: this.onEditMember.bind(this),
+                        },
+                        {
+                            icon: ActionColumnIcon.DELETE,
+                            classes: 'text-danger',
+                            onClick: this.onDeleteMember.bind(this),
+                        },
+                    ],
+                },
                 minWidth: 50,
                 pinned: 'right',
             },
@@ -90,18 +132,37 @@ export class MemberGridComponent extends GridCore<any> {
 
     public override getRowData(): any[] {
         return null;
-        // return [
-        //     {
-        //         printedName: 'TINHNH',
-        //         printedNumber: 21,
-        //         position: 'ST/Captain/CB',
-        //         fullName: 'Nguyễn Hùng Tình',
-        //         dob: '05-01-2000',
-        //         phone: '0387958475',
-        //         address: 'Hà Nội',
-        //         avatar: 'no image',
-        //         account: 'tinhf0501',
-        //     },
-        // ];
+    }
+
+    public onEditMember(param: ICellRendererParams): void {
+        const member = param.data;
+        const modalRef = this.modalService.open(CreateMemberModal, {
+            centered: true,
+            size: 'lg',
+        });
+        modalRef.componentInstance.member = member;
+        modalRef.closed.subscribe((res) => {
+            if (res) {
+                this.updateMember.emit({
+                    data: res,
+                    index: param.node.rowIndex,
+                });
+            }
+        });
+    }
+
+    public onDeleteMember(param: ICellRendererParams): void {
+        const modalRef = this.modalService.open(ConfirmationComponent, {
+            centered: true,
+            size: 'md',
+        });
+        modalRef.componentInstance.confirmation = {
+            content: this.translateService.instant('MEMBER.CONFIRM_DELETE'),
+            isHtml: false,
+        };
+        modalRef.closed.subscribe((isAccept) => {
+            if (!isAccept) return;
+            this.deleteMember.emit(param.node.rowIndex);
+        });
     }
 }

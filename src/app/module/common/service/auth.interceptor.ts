@@ -25,10 +25,19 @@ export class AuthInterceptor implements HttpInterceptor {
             catchError((err) => {
                 if (err instanceof HttpErrorResponse) {
                     const traceId = err.error.traceId;
-                    const messages = Object.entries(err.error.apiError.errors)
-                        .map((x) => x[1])
-                        .join(', ');
-                    this.notifierService.error(messages, traceId);
+                    if (err.error.apiError.errors) {
+                        const messages = Object.entries(
+                            err.error.apiError.errors,
+                        )
+                            .map((x) => x[1])
+                            .join(', ');
+                        this.notifierService.error(messages, traceId);
+                    } else if (err.error.apiError.message) {
+                        this.notifierService.error(
+                            err.error.apiError.message,
+                            traceId,
+                        );
+                    }
                 } else {
                     this.notifierService.error(err.message, 'nothing');
                 }

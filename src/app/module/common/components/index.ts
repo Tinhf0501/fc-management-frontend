@@ -4,3 +4,5 @@ export * from './grid-core/grid-core.component';
 export * from './language-select/language-select.component';
 export * from './pagination/pagination.component';
 export * from './spinner/spinner.component';
+export * from './action-column/action-column.component';
+export * from './confirmation/confirmation.component';

@@ -1,6 +1,20 @@
 import { NgIf } from '@angular/common';
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    OnInit,
+    Output,
+    ViewChild,
+    inject
+} from '@angular/core';
+import {
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { FmsInputComponent, fileToImageUrl } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -9,7 +23,13 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './create-form.component.html',
     styleUrls: ['./create-form.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NgIf, TranslateModule, FmsInputComponent],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        TranslateModule,
+        FmsInputComponent,
+    ],
 })
 export class CreateFcFormComponent implements OnInit {
     @Output() changeAvatar = new EventEmitter<File>();

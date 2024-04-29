@@ -1,6 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { CreateMemberFormComponent } from '@fms-module/member';
+import {
+    CreateFCMemberRequest,
+    CreateMemberFormComponent,
+} from '@fms-module/member';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -12,11 +15,12 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [CreateMemberFormComponent, TranslateModule],
 })
 export class CreateMemberModal {
+    public member: CreateFCMemberRequest;
     public formGroup: FormGroup;
     public avatar: File;
     private activeModal: NgbActiveModal = inject(NgbActiveModal);
 
-    public saveMember() {
+    public onSaveMember() {
         if (this.formGroup.invalid) {
             this.formGroup.markAllAsTouched();
             return;
@@ -28,7 +32,7 @@ export class CreateMemberModal {
         this.activeModal.close(member);
     }
 
-    public closeModal(): void {
+    public onCloseModal(): void {
         this.activeModal.dismiss();
     }
 }
