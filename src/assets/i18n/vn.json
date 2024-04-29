@@ -49,7 +49,11 @@
 		"TO_DATE": "đến ngày",
 		"TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
 		"START_DATE": "ngày bắt đầu",
-		"GO_BACK": "quay lại"
+		"GO_BACK": "quay lại",
+		"NOTIFY": {
+			"SUCCESS": "Thành công",
+			"ERROR": "Oops..."
+		}
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "số tiên donate",
