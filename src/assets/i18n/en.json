@@ -49,7 +49,11 @@
 		"TO_DATE": "to date",
 		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
 		"START_DATE": "start date",
-		"GO_BACK": "go back"
+		"GO_BACK": "go back",
+		"NOTIFY": {
+			"SUCCESS": "Success",
+			"ERROR": "Oops..."
+		}
 	},
 	"DONATE": {
 		"AMOUNT_DONATE": "amount of donate",
