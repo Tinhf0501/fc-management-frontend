@@ -55,7 +55,8 @@
             "SUCCESS": "Success",
             "ERROR": "Oops..."
         },
-        "CONFIRM": "confirmation"
+        "CONFIRM": "confirmation",
+        "NO_ROWS": "no rows to show"
     },
     "DONATE": {
         "AMOUNT_DONATE": "amount of donate",
@@ -113,26 +114,26 @@
         "CONFIRM_DELETE": "are you sure to delete this member?",
         "ERRORS": {
             "FULL_NAME": {
-                "REQUIRED": "Member name is mandatory",
-                "MAX_LENGTH": "Member name's max length is 255"
+                "REQUIRED": "member name is mandatory",
+                "MAX_LENGTH": "member name's max length is 255"
             },
             "PRINTED_NAME": {
-                "REQUIRED": "Name shirt is mandatory",
-                "MAX_LENGTH": "Name shirt's max length is 255"
+                "REQUIRED": "printed name is mandatory",
+                "MAX_LENGTH": "printed name's max length is 255"
             },
             "PHONE": {
-                "REQUIRED": "Member phone is mandatory",
-                "MAX_LENGTH": "Member phone's max length is 10",
-                "PATTERN": "Member phone is invalid"
+                "REQUIRED": "member phone is mandatory",
+                "MAX_LENGTH": "member phone's max length is 10",
+                "PATTERN": "member phone is invalid"
             },
             "ADDRESS": {
-                "MAX_LENGTH": "Member address's max length is 2000"
+                "MAX_LENGTH": "member address's max length is 2000"
             },
             "PRINTED_NUMBER": {
-                "REQUIRED": "Number shirt is mandatory"
+                "REQUIRED": "printed Number is mandatory"
             },
             "POSITION": {
-                "REQUIRED": "Position is mandatory"
+                "REQUIRED": "position is mandatory"
             }
         },
         "POSITION": {
@@ -140,7 +141,7 @@
             "CB": "central back",
             "DF": "defender",
             "RB": "right back",
-            "LR": "left back",
+            "LB": "left back",
             "MF": "midfielder",
             "CDM": "central defensive midfielder",
             "CM": "central midfielder",

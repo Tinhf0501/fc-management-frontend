@@ -61,26 +61,10 @@
             ></fms-input>
         </div>
         <div class="col-md-6">
-            <fms-select
-                [label]="'COMMON.POSITION' | translate"
-                [required]="true"
-                [items]="positions"
-                [bindValue]="'code'"
-                [bindLabel]="'name'"
-                [multiple]="true"
-                [placeholder]="'COMMON.SELECT_POSITION' | translate"
-                formControlName="position"
-                [errorsMessage]="{
-                    required: 'MEMBER.ERRORS.POSITION.REQUIRED'
-                }"
-            >
-                <ng-template ng-label-tmp let-item="item">
-                    <span>{{ item.name | translate }}</span>
-                </ng-template>
-                <ng-template ng-option-tmp let-item="item" let-index="index">
-                    <span>{{ item.name | translate }}</span>
-                </ng-template>
-            </fms-select>
+            <position-select
+                [value]="formGroup.controls.position.value"
+                (change)="formGroup.controls.position.setValue($event)"
+            ></position-select>
         </div>
     </div>
 

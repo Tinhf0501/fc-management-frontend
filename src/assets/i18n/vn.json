@@ -55,7 +55,8 @@
             "SUCCESS": "Thành công",
             "ERROR": "Oops..."
         },
-        "CONFIRM": "xác nhận"
+        "CONFIRM": "xác nhận",
+        "NO_ROWS": "không có bản ghi"
     },
     "DONATE": {
         "AMOUNT_DONATE": "số tiên donate",
@@ -75,11 +76,11 @@
             "BTN_CREATE": "tạo mới",
             "ERRORS": {
                 "FC_NAME": {
-                    "REQUIRED": "fc name is mandatory",
-                    "MAX_LENGTH": "fc name's max length is 255"
+                    "REQUIRED": "tên đội bóng không được trống",
+                    "MAX_LENGTH": "tên đội bóng tối đa 255 ký tự"
                 },
                 "DESCRIPTION": {
-                    "MAX_LENGTH": "description's max length is 2000"
+                    "MAX_LENGTH": "mô tả đội bóng tối đa 2000 ký tự"
                 }
             }
         },
@@ -113,20 +114,20 @@
         "CONFIRM_DELETE": "bạn có chắc chắn muốn xóa thành viên?",
         "ERRORS": {
             "FULL_NAME": {
-                "REQUIRED": "Member name is mandatory",
-                "MAX_LENGTH": "Member name's max length is 255"
+                "REQUIRED": "tên thành viên không được trống",
+                "MAX_LENGTH": "tên thành viên tối đa 255 ký tự"
             },
             "PRINTED_NAME": {
                 "REQUIRED": "Tên áo không được trống",
                 "MAX_LENGTH": "Tên áo tối đa 255 ký tự"
             },
             "PHONE": {
-                "REQUIRED": "Member phone is mandatory",
-                "MAX_LENGTH": "Member phone's max length is 10",
-                "PATTERN": "Member phone is invalid"
+                "REQUIRED": "số điện thoại không được trống",
+                "MAX_LENGTH": "số điện thoại tối đã 10 ký tự",
+                "PATTERN": "số điện thoại không hợp lệ"
             },
             "ADDRESS": {
-                "MAX_LENGTH": "Member address's max length is 2000"
+                "MAX_LENGTH": "địa chỉ tối đa 2000 ký tự"
             },
             "PRINTED_NUMBER": {
                 "REQUIRED": "Số áo không được trống"

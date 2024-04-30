@@ -1,19 +1,22 @@
 import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Subject, takeUntil } from 'rxjs';
 import {
+    ColDef,
     GridApi,
+    GridOptions,
     GridReadyEvent,
     GridSizeChangedEvent,
-    ColDef,
-    GridOptions,
 } from 'ag-grid-community';
+import { Subject, takeUntil } from 'rxjs';
+import { NoRowComponent } from './no-row/no-row.component';
 
 @Component({
     template: '',
 })
 export abstract class GridCore<T> implements OnInit, OnDestroy {
     @Input() rowData: T[];
+
+    public noRowComponent = NoRowComponent;
 
     protected columnDefs: ColDef[];
     protected gridOptions: GridOptions;
@@ -33,6 +36,7 @@ export abstract class GridCore<T> implements OnInit, OnDestroy {
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((lang) => {
                 this.agGridApi.refreshHeader();
+                this.agGridApi.refreshCells();
             });
     }
 

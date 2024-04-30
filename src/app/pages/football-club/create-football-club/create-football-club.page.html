@@ -10,9 +10,9 @@
             </h4>
             <button class="btn btn-success" (click)="openAddMemberModal()">
                 <i class="fas fa-plus me-2"></i>
-                <span class="text-capitalize"
-                    >{{ 'MEMBER.CREATE_MEMBER' | translate }}</span
-                >
+                <span class="text-capitalize">
+                    {{ 'MEMBER.CREATE_MEMBER' | translate }}
+                </span>
             </button>
         </div>
         <div style="height: 300px">
@@ -23,10 +23,13 @@
             ></member-grid>
         </div>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center gap-10px">
         <button class="btn btn-success" (click)="submitFormCreateFc()">
-            {{ 'FOOTBALL_CLUB.CREATE.BTN_CREATE' | translate }}
+            <i class="fas fa-plus me-2"></i>
+            <span class="text-capitalize">
+                {{ 'FOOTBALL_CLUB.CREATE.BTN_CREATE' | translate }}
+            </span>
         </button>
-        <button-back></button-back>
+        <button-back [class]="['btn', 'btn-md', 'btn-danger']"></button-back>
     </div>
 </div>

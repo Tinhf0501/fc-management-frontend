@@ -19,8 +19,9 @@ import {
     FmsInputComponent,
     FmsSelectComponent,
 } from '@fms-module/common';
-import { CreateFCMemberRequest } from '@fms-module/member';
+import { CreateFCMemberRequest } from './../../interface';
 import { TranslateModule } from '@ngx-translate/core';
+import { PositionSelectComponent } from '../position-select/position-select.component';
 
 @Component({
     selector: 'create-member-form',
@@ -34,6 +35,8 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
         FmsInputComponent,
         FmsSelectComponent,
+
+        PositionSelectComponent,
     ],
 })
 export class CreateMemberFormComponent implements OnInit {
@@ -42,25 +45,6 @@ export class CreateMemberFormComponent implements OnInit {
     @Output() formInitialized = new EventEmitter<FormGroup>();
 
     @Output() changeAvatar = new EventEmitter<File>();
-
-    public positions = [
-        {
-            code: 'GK',
-            name: 'Thủ môn',
-        },
-        {
-            code: 'CB',
-            name: 'Trung vệ',
-        },
-        {
-            code: 'CAM',
-            name: 'Tiền vệ trung tâm',
-        },
-        {
-            code: 'ST',
-            name: 'Tiền đạo cắm',
-        },
-    ];
 
     private formBuilder: FormBuilder = inject(FormBuilder);
 
