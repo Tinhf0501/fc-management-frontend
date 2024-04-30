@@ -5,5 +5,10 @@
     [columnDefs]="columnDefs"
     [rowData]="rowData"
     (gridReady)="onGridReady($event)"
+    [noRowsOverlayComponent]="noRowComponent"
+    [tooltipShowDelay]="0"
+    [tooltipShowMode]="'whenTruncated'"
+    [copyHeadersToClipboard]="true"
+    [copyGroupHeadersToClipboard]="true"
     (gridSizeChanged)="onGridSizeChanged($event)"
 ></ag-grid-angular>

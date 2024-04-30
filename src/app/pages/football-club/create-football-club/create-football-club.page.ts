@@ -81,6 +81,7 @@ export class CreateFootballClubPage implements OnInit {
 
     public submitFormCreateFc(): void {
         if (this.createFcForm.invalid) {
+            this.createFcForm.markAllAsTouched();
             return;
         }
         const data = this.createFcForm.getRawValue();

@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {
-    CreateFCMemberRequest,
-    CreateMemberFormComponent,
-} from '@fms-module/member';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { CreateMemberFormComponent } from '../create-member-form/create-member-form.component';
+import { CreateFCMemberRequest } from '../../interface';
 
 @Component({
     selector: 'create-member-modal',
@@ -21,8 +19,8 @@ export class CreateMemberModal {
     private activeModal: NgbActiveModal = inject(NgbActiveModal);
 
     public onSaveMember() {
+        this.formGroup.markAllAsTouched();
         if (this.formGroup.invalid) {
-            this.formGroup.markAllAsTouched();
             return;
         }
         const member = this.formGroup.getRawValue();

@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
-import { FmsInputComponent } from '../fms-input/fms-input.component';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
     KeyValuePipe,
     NgFor,
     NgIf,
     NgSwitch,
     NgSwitchCase,
+    NgTemplateOutlet,
 } from '@angular/common';
+import { Component, Input, TemplateRef } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
+import { FmsInputComponent } from '../fms-input/fms-input.component';
 
 @Component({
     selector: 'fms-select',
@@ -23,7 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
         NgSelectModule,
         TranslateModule,
         FormsModule,
-
+        NgTemplateOutlet,
         KeyValuePipe,
     ],
     providers: [
@@ -39,4 +40,10 @@ export class FmsSelectComponent extends FmsInputComponent {
     @Input() bindLabel: string;
     @Input() bindValue: string;
     @Input() multiple: boolean = false;
+    @Input() group: string;
+
+    @Input() templates: Array<{
+        name: string;
+        templateRef: TemplateRef<any>;
+    }>;
 }

@@ -6,10 +6,15 @@ import {
     GridCore,
     fileToImageUrl,
 } from '@fms-module/common';
+import {
+    CreateFCMemberRequest,
+    CreateMemberModal,
+    POSITION_MAP,
+} from '@fms-module/member';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, GridReadyEvent, ICellRendererParams } from 'ag-grid-community';
-import { CreateFCMemberRequest, CreateMemberModal } from '@fms-module/member';
+import { ColDef, ICellRendererParams } from 'ag-grid-community';
 
 @Component({
     selector: 'member-grid',
@@ -17,7 +22,7 @@ import { CreateFCMemberRequest, CreateMemberModal } from '@fms-module/member';
         '../../../common/components/grid-core/grid-core.component.html',
     styleUrls: ['./member-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [AgGridAngular, TranslateModule],
 })
 export class MemberGridComponent extends GridCore<any> {
     @Output() updateMember = new EventEmitter<{
@@ -75,8 +80,22 @@ export class MemberGridComponent extends GridCore<any> {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.POSITION'),
                 minWidth: 100,
-                field: 'position',
-                tooltipField: 'position',
+                valueGetter: (params) => {
+                    const { position } = params.data;
+                    if (!position) return;
+                    return position.map((pos) => {
+                        const { name } = POSITION_MAP.get(pos);
+                        return this.translateService.instant(name);
+                    });
+                },
+                tooltipValueGetter: (params) => {
+                    const { position } = params.data;
+                    if (!position) return;
+                    return position.map((pos) => {
+                        const { name } = POSITION_MAP.get(pos);
+                        return this.translateService.instant(name);
+                    });
+                },
             },
             {
                 headerValueGetter: (param) =>

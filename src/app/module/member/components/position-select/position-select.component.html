@@ -1,0 +1,57 @@
+<form [formGroup]="formGroup">
+    <fms-select
+        [label]="'COMMON.POSITION' | translate"
+        [required]="true"
+        [items]="positions"
+        [bindValue]="'code'"
+        [bindLabel]="'name'"
+        [multiple]="true"
+        [placeholder]="'COMMON.SELECT_POSITION' | translate"
+        formControlName="position"
+        [errorsMessage]="{
+            required: 'MEMBER.ERRORS.POSITION.REQUIRED'
+        }"
+        [group]="'group'"
+        [templates]="[
+            {
+                name: 'ng-label-tmp',
+                templateRef: templateLabel
+            },
+            {
+                name: 'ng-option-tmp',
+                templateRef: templateOption
+            },
+            {
+                name: 'ng-optgroup-tmp',
+                templateRef: templateGroup
+            }
+        ]"
+    >
+        <ng-template
+            #templateLabel
+            let-item="item"
+            let-index="index"
+            let-clear="clear"
+        >
+            <div class="ng-value">
+                <span class="ng-value-icon left" (click)="clear(item)">
+                    &times;
+                </span>
+                <span class="ng-value-label text-capitalize">{{
+                    item.name | translate
+                }}</span>
+            </div>
+        </ng-template>
+        <ng-template #templateOption let-item="item" let-index="index">
+            <span class="text-capitalize ng-option-label">{{
+                item.name | translate
+            }}</span>
+        </ng-template>
+
+        <ng-template #templateGroup let-item="item" let-index="index">
+            <span class="ng-option-label text-capitalize">{{
+                item.group | translate
+            }}</span>
+        </ng-template>
+    </fms-select>
+</form>
