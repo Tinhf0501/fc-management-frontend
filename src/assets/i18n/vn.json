@@ -117,7 +117,8 @@
 				"MAX_LENGTH": "Member name's max length is 255"
 			},
 			"PRINTED_NAME": {
-				"MAX_LENGTH": "Name shirt's max length is 255"
+				"REQUIRED": "Tên áo không được trống",
+				"MAX_LENGTH": "Tên áo tối đa 255 ký tự"
 			},
 			"PHONE": {
 				"REQUIRED": "Member phone is mandatory",
@@ -126,7 +127,32 @@
 			},
 			"ADDRESS": {
 				"MAX_LENGTH": "Member address's max length is 2000"
+			},
+			"PRINTED_NUMBER": {
+				"REQUIRED": "Số áo không được trống"
+			},
+			"POSITION": {
+				"REQUIRED": "vị trí không được trống"
 			}
+		},
+		"POSITION": {
+			"GK": "thủ môn",
+			"CB": "trung vệ",
+			"DF": "hậu vệ",
+			"RB": "hậu vệ phải",
+			"LB": "hậu vệ trái",
+			"MF": "tiền vệ",
+			"CDM": "tiền vệ phòng ngự",
+			"CM": "tiền vệ trung tâm",
+			"CAM": "tiền vệ tấn công",
+			"LM": "tiền vệ trái",
+			"RM": "tiền vệ phải",
+			"FW": "tiền đạo",
+			"CF": "tiền đạo trung tâm",
+			"SS": "hộ công",
+			"RW": "tiền đạo phải",
+			"LW": "tiền đạo trái",
+			"ST": "tiền đạo cắm"
 		}
 	},
 	"MATCH_RESULT": {

@@ -1,4 +1,10 @@
-import { KeyValuePipe, NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
+import {
+    KeyValuePipe,
+    NgFor,
+    NgIf,
+    NgSwitch,
+    NgSwitchCase,
+} from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import {
     ControlContainer,
@@ -15,7 +21,16 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './fms-input.component.html',
     styleUrls: ['./fms-input.component.scss'],
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, NgIf, NgSwitch, NgSwitchCase, NgFor, KeyValuePipe, TranslateModule],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        NgSwitch,
+        NgSwitchCase,
+        NgFor,
+        KeyValuePipe,
+        TranslateModule,
+    ],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -41,7 +56,7 @@ export class FmsInputComponent implements ControlValueAccessor {
 
     public controlContainer = inject(ControlContainer);
 
-    public value: string;
+    public value: any;
 
     onChangeFn: (value) => void;
     onTouchedFn: () => void;

@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import {
     Component,
     EventEmitter,
@@ -6,18 +7,20 @@ import {
     OnInit,
     Output,
 } from '@angular/core';
-import { NgSelectModule } from '@ng-select/ng-select';
 import {
-    FormsModule,
-    ReactiveFormsModule,
     FormBuilder,
     FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
-import { fileToImageUrl, FmsInputComponent } from '@fms-module/common';
+import {
+    fileToImageUrl,
+    FmsInputComponent,
+    FmsSelectComponent,
+} from '@fms-module/common';
 import { CreateFCMemberRequest } from '@fms-module/member';
-import { NgIf } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-member-form',
@@ -28,9 +31,9 @@ import { NgIf } from '@angular/common';
         NgIf,
         FormsModule,
         ReactiveFormsModule,
-        NgSelectModule,
         TranslateModule,
         FmsInputComponent,
+        FmsSelectComponent,
     ],
 })
 export class CreateMemberFormComponent implements OnInit {
@@ -86,8 +89,8 @@ export class CreateMemberFormComponent implements OnInit {
     private buildFormGroup(): void {
         this.formGroup = this.formBuilder.group({
             fullName: [null, [Validators.required, Validators.maxLength(255)]],
-            nameShirt: [null, [Validators.maxLength(255)]],
-            numberShirt: [null],
+            nameShirt: [null, [Validators.required, Validators.maxLength(255)]],
+            numberShirt: [null, [Validators.required]],
             phoneNumber: [
                 null,
                 [

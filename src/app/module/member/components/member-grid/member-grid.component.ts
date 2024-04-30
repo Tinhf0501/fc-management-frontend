@@ -44,6 +44,7 @@ export class MemberGridComponent extends GridCore<any> {
                 minWidth: 200,
                 cellRenderer: (params) => {
                     const imageUrl = fileToImageUrl(params.data.avatar);
+                    if (!imageUrl) return '';
                     return `<img src='${imageUrl}' style='width: 200px; height: 100px' />`;
                 },
             },
@@ -83,13 +84,6 @@ export class MemberGridComponent extends GridCore<any> {
                 minWidth: 100,
                 field: 'fullName',
                 tooltipField: 'fullName',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.DOB'),
-                minWidth: 100,
-                field: 'dob',
-                tooltipField: 'dob',
             },
             {
                 headerValueGetter: (param) =>

@@ -2,7 +2,7 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DestroyService } from '@fms-module/common';
+import { ButtonBackComponent, DestroyService } from '@fms-module/common';
 import {
     CreateFcFormComponent,
     FootballClubService,
@@ -27,6 +27,7 @@ import { NotifierService } from 'src/app/module/common/service/notifier.service'
         CreateFcFormComponent,
         TranslateModule,
         NgFor,
+        ButtonBackComponent,
     ],
     providers: [DestroyService],
 })

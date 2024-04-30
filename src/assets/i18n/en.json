@@ -117,6 +117,7 @@
 				"MAX_LENGTH": "Member name's max length is 255"
 			},
 			"PRINTED_NAME": {
+				"REQUIRED": "Name shirt is mandatory",
 				"MAX_LENGTH": "Name shirt's max length is 255"
 			},
 			"PHONE": {
@@ -126,7 +127,32 @@
 			},
 			"ADDRESS": {
 				"MAX_LENGTH": "Member address's max length is 2000"
+			},
+			"PRINTED_NUMBER": {
+				"REQUIRED": "Number shirt is mandatory"
+			},
+			"POSITION": {
+				"REQUIRED": "Position is mandatory"
 			}
+		},
+		"POSITION": {
+			"GK": "goalkeeper",
+			"CB": "central back",
+			"DF": "defender",
+			"RB": "right back",
+			"LR": "left back",
+			"MF": "midfielder",
+			"CDM": "central defensive midfielder",
+			"CM": "central midfielder",
+			"CAM": "central attacking midfielder",
+			"LM": "left midfielder",
+			"RM": "right midfielder",
+			"FW": "forward",
+			"CF": "central forward",
+			"SS": "second striker",
+			"RW": "right winger",
+			"LW": "left winger",
+			"ST": "striker"
 		}
 	},
 	"MATCH_RESULT": {

@@ -6,3 +6,4 @@ export * from './pagination/pagination.component';
 export * from './spinner/spinner.component';
 export * from './action-column/action-column.component';
 export * from './confirmation/confirmation.component';
+export * from './fms-select/fms-select.component';

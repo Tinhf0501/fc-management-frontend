@@ -13,9 +13,10 @@ import {
     template: '',
 })
 export abstract class GridCore<T> implements OnInit, OnDestroy {
+    @Input() rowData: T[];
+
     protected columnDefs: ColDef[];
     protected gridOptions: GridOptions;
-    @Input() rowData: T[];
 
     protected unsubscribe$: Subject<void> = new Subject<void>();
     protected agGridApi: GridApi;
