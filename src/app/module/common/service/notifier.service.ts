@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
 @Injectable({
     providedIn: 'root',
 })
 export class NotifierService {
+
     public async success(
         message: string,
         title: string = 'Success',
