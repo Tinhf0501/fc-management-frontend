@@ -1,14 +1,21 @@
 <form [formGroup]="formGroup" class="d-flex flex-column row-gap-3">
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required text-capitalize">{{ 'DONATE.NAME_DONATOR' | translate }}</label>
-            <input [placeholder]="'DONATE.INPUT_NAME_DONATOR' | translate" class="form-control" />
+            <label class="fw-semibold required text-capitalize">{{
+                'DONATE.NAME_DONATOR' | translate
+            }}</label>
+            <input
+                [placeholder]="'DONATE.INPUT_NAME_DONATOR' | translate"
+                class="form-control"
+            />
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required text-capitalize">{{ 'DONATE.AMOUNT_DONATE' | translate }}</label>
+            <label class="fw-semibold required text-capitalize">{{
+                'DONATE.AMOUNT_DONATE' | translate
+            }}</label>
             <div class="row">
                 <div class="col-md-9">
                     <input
@@ -30,14 +37,20 @@
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required text-capitalize">{{ 'COMMON.FC' | translate }}</label>
-            <ng-select [placeholder]="'COMMON.SELECT_FC' | translate"></ng-select>
+            <label class="fw-semibold required text-capitalize">{{
+                'COMMON.FC' | translate
+            }}</label>
+            <ng-select
+                [placeholder]="'COMMON.SELECT_FC' | translate"
+            ></ng-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{ 'DONATE.CONTENT' | translate }}</label>
+            <label class="fw-semibold required">{{
+                'DONATE.CONTENT' | translate
+            }}</label>
             <textarea class="form-control"></textarea>
         </div>
     </div>

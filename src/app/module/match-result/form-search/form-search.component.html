@@ -2,16 +2,22 @@
     <div class="row row-gap-3">
         <div class="col-md-3">
             <label class="fw-semibold">{{ 'COMMON.FC' | translate }}</label>
-            <ng-select [placeholder]="'COMMON.SELECT_FC' | translate"></ng-select>
+            <ng-select
+                [placeholder]="'COMMON.SELECT_FC' | translate"
+            ></ng-select>
         </div>
 
         <div class="col-md-3">
             <label class="fw-semibold">{{ 'COMMON.STATUS' | translate }}</label>
-            <ng-select [placeholder]="'COMMON.SELECT_STATUS' | translate"></ng-select>
+            <ng-select
+                [placeholder]="'COMMON.SELECT_STATUS' | translate"
+            ></ng-select>
         </div>
 
         <div class="col-md-6">
-            <label class="fw-semibold">{{ 'MATCH_RESULT.DATE' | translate }}</label>
+            <label class="fw-semibold">{{
+                'MATCH_RESULT.DATE' | translate
+            }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
                     <input type="date" class="form-control" />
@@ -28,7 +34,9 @@
         <div class="d-flex justify-content-start justify-content-md-center">
             <button class="btn btn-primary">
                 <i class="fas fa-search me-2"></i>
-                <span class="text-capitalize">{{ 'COMMON.SEARCH' | translate }}</span>
+                <span class="text-capitalize">{{
+                    'COMMON.SEARCH' | translate
+                }}</span>
             </button>
         </div>
     </div>

@@ -1,17 +1,26 @@
 <form class="d-flex flex-column row-gap-3">
     <div class="row row-gap-3">
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'MEMBER.FULLNAME' | translate }}</label>
-            <input [placeholder]="'MEMBER.INPUT_FULLNAME' | translate" class="form-control" />
+            <label class="fw-semibold text-capitalize">{{
+                'MEMBER.FULLNAME' | translate
+            }}</label>
+            <input
+                [placeholder]="'MEMBER.INPUT_FULLNAME' | translate"
+                class="form-control"
+            />
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'COMMON.STATUS' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'COMMON.STATUS' | translate
+            }}</label>
             <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'MEMBER.JOINED_DATE' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'MEMBER.JOINED_DATE' | translate
+            }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
                     <input type="date" class="form-control" />
@@ -26,17 +35,23 @@
 
     <div class="row row-gap-3">
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'COMMON.FC' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'COMMON.FC' | translate
+            }}</label>
             <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'COMMON.POSITION' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'COMMON.POSITION' | translate
+            }}</label>
             <ng-select></ng-select>
         </div>
 
         <div class="col-md-4">
-            <label class="fw-semibold text-capitalize">{{ 'ACCOUNT.ACC' | translate }}</label>
+            <label class="fw-semibold text-capitalize">{{
+                'ACCOUNT.ACC' | translate
+            }}</label>
             <ng-select></ng-select>
         </div>
     </div>

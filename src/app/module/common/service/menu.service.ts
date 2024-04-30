@@ -6,7 +6,9 @@ import { Menu } from '@fms-module/common';
     providedIn: 'root',
 })
 export class MenuService {
-    private menuCache: BehaviorSubject<Menu[]> = new BehaviorSubject<Menu[]>([]);
+    private menuCache: BehaviorSubject<Menu[]> = new BehaviorSubject<Menu[]>(
+        [],
+    );
 
     public setMenu(menus: Menu[]) {
         this.menuCache.next(menus);

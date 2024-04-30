@@ -14,43 +14,50 @@ export class SpendingGridComponent extends GridCore<any> {
     public override getColumnDefs(): ColDef[] {
         return [
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.NO'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.NO'),
                 minWidth: 50,
                 valueGetter: (param) => param.node.rowIndex + 1,
                 pinned: 'left',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.FC'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.FC'),
                 minWidth: 100,
                 field: 'fc',
                 tooltipField: 'fc',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.AMT'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.AMT'),
                 minWidth: 100,
                 field: 'amount',
                 tooltipField: 'amount',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('SPENDING.DATE'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('SPENDING.DATE'),
                 minWidth: 100,
                 field: 'date',
                 tooltipField: 'date',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.DESC'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.DESC'),
                 minWidth: 100,
                 field: 'desc',
                 tooltipField: 'desc',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.STATUS'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.STATUS'),
                 minWidth: 100,
                 field: 'status',
                 tooltipField: 'status',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.ACTION'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.ACTION'),
                 minWidth: 50,
                 pinned: 'right',
             },

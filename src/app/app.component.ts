@@ -1,6 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, Scroll } from '@angular/router';
+import {
+    ActivatedRoute,
+    ActivatedRouteSnapshot,
+    NavigationEnd,
+    Router,
+    Scroll,
+} from '@angular/router';
 import { DestroyService, SpinnerService } from '@fms-module/common';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, map, takeUntil } from 'rxjs';
@@ -31,15 +37,22 @@ export class AppComponent implements OnInit {
     }
 
     private listenLangChange(): void {
-        this.translateService.onLangChange.pipe(takeUntil(this.destroyService.$destroy)).subscribe((lang) => {
-            this.titleService.setTitle(`${this.translateService.instant(this.title).toUpperCase()} | FMS`);
-        });
+        this.translateService.onLangChange
+            .pipe(takeUntil(this.destroyService.$destroy))
+            .subscribe((lang) => {
+                this.titleService.setTitle(
+                    `${this.translateService.instant(this.title).toUpperCase()} | FMS`,
+                );
+            });
     }
 
     private listenRouteChange(): void {
         this.router.events
             .pipe(
-                filter((res) => res instanceof NavigationEnd || res instanceof Scroll),
+                filter(
+                    (res) =>
+                        res instanceof NavigationEnd || res instanceof Scroll,
+                ),
                 map((_) => this.activatedRoute.snapshot),
                 map((snapshot: ActivatedRouteSnapshot) => {
                     while (snapshot.firstChild) {
@@ -52,7 +65,9 @@ export class AppComponent implements OnInit {
             .subscribe((data) => {
                 this.sidebarService.changeTitle(data.title ?? '');
                 this.title = data.title;
-                this.titleService.setTitle(`${this.translateService.instant(data.title).toUpperCase()} | FMS`);
+                this.titleService.setTitle(
+                    `${this.translateService.instant(data.title).toUpperCase()} | FMS`,
+                );
             });
     }
 }

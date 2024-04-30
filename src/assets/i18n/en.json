@@ -1,191 +1,191 @@
 {
-	"ACCOUNT": {
-		"ACC": "account",
-		"ACC_NAME": "account name",
-		"SELECT_ACC": "choose an account"
-	},
-	"AUTH": {
-		"ALREADY_ACC": "already have an account?",
-		"CREATE_AN_ACC": "create an account",
-		"EMAIL": "email",
-		"FIRST_NAME": "first name",
-		"FORGOT_PASS": "forgot password?",
-		"INPUT_EMAIL": "enter your email",
-		"INPUT_PASSWORD": "enter your password",
-		"LAST_NAME": "last name",
-		"LOGIN": "login",
-		"LOGIN_WITH_FB": "login with facebook",
-		"LOGIN_WITH_GOOGLE": "login with google",
-		"PASSWORD": "password",
-		"REGISTER": "register",
-		"WELCOME": "welcome back!"
-	},
-	"COMMON": {
-		"ACTION": "action",
-		"AMT": "amount",
-		"NOT_FOUND": "not found",
-		"CANCEL": "cancel",
-		"CREATE": "create",
-		"CREATED_BY": "created by",
-		"CREATED_DATE": "created date",
-		"DESC": "description",
-		"EXPORT_EXCEL": "export excel",
-		"FC": "football club",
-		"FROM_DATE": "from date",
-		"INPUT_DESC": "enter description",
-		"LANGUAGE": {
-			"EN": "English",
-			"VN": "Vietnamese"
-		},
-		"NO": "no",
-		"POSITION": "position",
-		"RECORD_PER_PAGE": "record/page",
-		"SAVE": "save",
-		"ACCEPT": "accept",
-		"SEARCH": "search",
-		"SELECT_FC": "choose a football club",
-		"SELECT_POSITION": "choose a position",
-		"SELECT_STATUS": "choose a status",
-		"STATUS": "status",
-		"TO_DATE": "to date",
-		"TOTAL_RECORD": "total record: {{numberOfRecord}}",
-		"START_DATE": "start date",
-		"GO_BACK": "go back",
-		"NOTIFY": {
-			"SUCCESS": "Success",
-			"ERROR": "Oops..."
-		},
-		"CONFIRM": "confirmation"
-	},
-	"DONATE": {
-		"AMOUNT_DONATE": "amount of donate",
-		"CONTENT": "content",
-		"CREATE_TITLE": "create a donation",
-		"CURRENCY": "currency",
-		"DATE_DONATE": "donated date",
-		"INPUT_AMOUNT_DONATE": "enter donation amount",
-		"INPUT_NAME_DONATOR": "enter donator's name",
-		"NAME_DONATOR": "donator's name",
-		"TITLE": "donate management"
-	},
-	"FOOTBALL_CLUB": {
-		"CODE": "football club code",
-		"CREATE": {
-			"TITLE": "create a football club",
-			"BTN_CREATE": "create FC",
-			"ERRORS": {
-				"FC_NAME": {
-					"REQUIRED": "fc name is mandatory",
-					"MAX_LENGTH": "fc name's max length is 255"
-				},
-				"DESCRIPTION": {
-					"MAX_LENGTH": "description's max length is 2000"
-				}
-			}
-		},
-		"INPUT_NAME": "enter football club name",
-		"NAME": "football club name",
-		"TITLE": "football club management"
-	},
-	"FORGOT_PASSWORD": {
-		"RESET_PASSWORD": "reset password",
-		"SUB_TITLE": "we get it, stuff happens. just enter your email address below and we'll send you a link to reset your password",
-		"TITLE": "forgot your password"
-	},
-	"MEMBER": {
-		"ADDRESS": "address",
-		"AVATAR": "profile image",
-		"CREATE_MEMBER": "create member",
-		"CREATE_TITLE": "create member",
-		"UPDATE_TITLE": "update member",
-		"DOB": "date of birth",
-		"FULLNAME": "fullname",
-		"INPUT_FULLNAME": "",
-		"INPUT_PHONE": "enter phone number",
-		"INPUT_PRINTED_NAME": "enter printed name",
-		"INPUT_PRINTED_NUMBER": "enter printed number",
-		"JOINED_DATE": "joined date",
-		"LIST_OF_MEMBER": "list of member",
-		"PHONE": "phone number",
-		"PRINTED_NAME": "printed name",
-		"PRINTED_NUMBER": "printed number",
-		"TITLE": "member management",
-		"CONFIRM_DELETE": "are you sure to delete this member?",
-		"ERRORS": {
-			"FULL_NAME": {
-				"REQUIRED": "Member name is mandatory",
-				"MAX_LENGTH": "Member name's max length is 255"
-			},
-			"PRINTED_NAME": {
-				"REQUIRED": "Name shirt is mandatory",
-				"MAX_LENGTH": "Name shirt's max length is 255"
-			},
-			"PHONE": {
-				"REQUIRED": "Member phone is mandatory",
-				"MAX_LENGTH": "Member phone's max length is 10",
-				"PATTERN": "Member phone is invalid"
-			},
-			"ADDRESS": {
-				"MAX_LENGTH": "Member address's max length is 2000"
-			},
-			"PRINTED_NUMBER": {
-				"REQUIRED": "Number shirt is mandatory"
-			},
-			"POSITION": {
-				"REQUIRED": "Position is mandatory"
-			}
-		},
-		"POSITION": {
-			"GK": "goalkeeper",
-			"CB": "central back",
-			"DF": "defender",
-			"RB": "right back",
-			"LR": "left back",
-			"MF": "midfielder",
-			"CDM": "central defensive midfielder",
-			"CM": "central midfielder",
-			"CAM": "central attacking midfielder",
-			"LM": "left midfielder",
-			"RM": "right midfielder",
-			"FW": "forward",
-			"CF": "central forward",
-			"SS": "second striker",
-			"RW": "right winger",
-			"LW": "left winger",
-			"ST": "striker"
-		}
-	},
-	"MATCH_RESULT": {
-		"TITLE": "match result management",
-		"DATE": "competition date",
-		"RESULT": "result",
-		"ADDRESS": "stadium",
-		"NAME": "name",
-		"SCORE": "score",
-		"CREATE": {
-			"TITLE": "create a match result"
-		}
-	},
-	"SCORER": {
-		"NAME": "scorer",
-		"GOAL": "goal",
-		"GOAL_OG": "goal og"
-	},
-	"FUNDING": {
-		"TITLE": "funding management",
-		"CREATE_TITLE": "create a funding",
-		"NAME": "funding name",
-		"INPUT_NAME": "enter funding name",
-		"DATE": "funded date",
-		"DESC": "description",
-		"AMOUNT_PERSON": "amount/person",
-		"INPUT_AMOUNT_PERSON": "enter amount/person"
-	},
-	"SPENDING": {
-		"TITLE": "spending management",
-		"SPENDER": "spender",
-		"SELECT_SPENDER": "choose a spender",
-		"CREATE_TITLE": "create spending",
-		"DATE": "spent date"
-	}
+    "ACCOUNT": {
+        "ACC": "account",
+        "ACC_NAME": "account name",
+        "SELECT_ACC": "choose an account"
+    },
+    "AUTH": {
+        "ALREADY_ACC": "already have an account?",
+        "CREATE_AN_ACC": "create an account",
+        "EMAIL": "email",
+        "FIRST_NAME": "first name",
+        "FORGOT_PASS": "forgot password?",
+        "INPUT_EMAIL": "enter your email",
+        "INPUT_PASSWORD": "enter your password",
+        "LAST_NAME": "last name",
+        "LOGIN": "login",
+        "LOGIN_WITH_FB": "login with facebook",
+        "LOGIN_WITH_GOOGLE": "login with google",
+        "PASSWORD": "password",
+        "REGISTER": "register",
+        "WELCOME": "welcome back!"
+    },
+    "COMMON": {
+        "ACTION": "action",
+        "AMT": "amount",
+        "NOT_FOUND": "not found",
+        "CANCEL": "cancel",
+        "CREATE": "create",
+        "CREATED_BY": "created by",
+        "CREATED_DATE": "created date",
+        "DESC": "description",
+        "EXPORT_EXCEL": "export excel",
+        "FC": "football club",
+        "FROM_DATE": "from date",
+        "INPUT_DESC": "enter description",
+        "LANGUAGE": {
+            "EN": "English",
+            "VN": "Vietnamese"
+        },
+        "NO": "no",
+        "POSITION": "position",
+        "RECORD_PER_PAGE": "record/page",
+        "SAVE": "save",
+        "ACCEPT": "accept",
+        "SEARCH": "search",
+        "SELECT_FC": "choose a football club",
+        "SELECT_POSITION": "choose a position",
+        "SELECT_STATUS": "choose a status",
+        "STATUS": "status",
+        "TO_DATE": "to date",
+        "TOTAL_RECORD": "total record: {{numberOfRecord}}",
+        "START_DATE": "start date",
+        "GO_BACK": "go back",
+        "NOTIFY": {
+            "SUCCESS": "Success",
+            "ERROR": "Oops..."
+        },
+        "CONFIRM": "confirmation"
+    },
+    "DONATE": {
+        "AMOUNT_DONATE": "amount of donate",
+        "CONTENT": "content",
+        "CREATE_TITLE": "create a donation",
+        "CURRENCY": "currency",
+        "DATE_DONATE": "donated date",
+        "INPUT_AMOUNT_DONATE": "enter donation amount",
+        "INPUT_NAME_DONATOR": "enter donator's name",
+        "NAME_DONATOR": "donator's name",
+        "TITLE": "donate management"
+    },
+    "FOOTBALL_CLUB": {
+        "CODE": "football club code",
+        "CREATE": {
+            "TITLE": "create a football club",
+            "BTN_CREATE": "create FC",
+            "ERRORS": {
+                "FC_NAME": {
+                    "REQUIRED": "fc name is mandatory",
+                    "MAX_LENGTH": "fc name's max length is 255"
+                },
+                "DESCRIPTION": {
+                    "MAX_LENGTH": "description's max length is 2000"
+                }
+            }
+        },
+        "INPUT_NAME": "enter football club name",
+        "NAME": "football club name",
+        "TITLE": "football club management"
+    },
+    "FORGOT_PASSWORD": {
+        "RESET_PASSWORD": "reset password",
+        "SUB_TITLE": "we get it, stuff happens. just enter your email address below and we'll send you a link to reset your password",
+        "TITLE": "forgot your password"
+    },
+    "MEMBER": {
+        "ADDRESS": "address",
+        "AVATAR": "profile image",
+        "CREATE_MEMBER": "create member",
+        "CREATE_TITLE": "create member",
+        "UPDATE_TITLE": "update member",
+        "DOB": "date of birth",
+        "FULLNAME": "fullname",
+        "INPUT_FULLNAME": "",
+        "INPUT_PHONE": "enter phone number",
+        "INPUT_PRINTED_NAME": "enter printed name",
+        "INPUT_PRINTED_NUMBER": "enter printed number",
+        "JOINED_DATE": "joined date",
+        "LIST_OF_MEMBER": "list of member",
+        "PHONE": "phone number",
+        "PRINTED_NAME": "printed name",
+        "PRINTED_NUMBER": "printed number",
+        "TITLE": "member management",
+        "CONFIRM_DELETE": "are you sure to delete this member?",
+        "ERRORS": {
+            "FULL_NAME": {
+                "REQUIRED": "Member name is mandatory",
+                "MAX_LENGTH": "Member name's max length is 255"
+            },
+            "PRINTED_NAME": {
+                "REQUIRED": "Name shirt is mandatory",
+                "MAX_LENGTH": "Name shirt's max length is 255"
+            },
+            "PHONE": {
+                "REQUIRED": "Member phone is mandatory",
+                "MAX_LENGTH": "Member phone's max length is 10",
+                "PATTERN": "Member phone is invalid"
+            },
+            "ADDRESS": {
+                "MAX_LENGTH": "Member address's max length is 2000"
+            },
+            "PRINTED_NUMBER": {
+                "REQUIRED": "Number shirt is mandatory"
+            },
+            "POSITION": {
+                "REQUIRED": "Position is mandatory"
+            }
+        },
+        "POSITION": {
+            "GK": "goalkeeper",
+            "CB": "central back",
+            "DF": "defender",
+            "RB": "right back",
+            "LR": "left back",
+            "MF": "midfielder",
+            "CDM": "central defensive midfielder",
+            "CM": "central midfielder",
+            "CAM": "central attacking midfielder",
+            "LM": "left midfielder",
+            "RM": "right midfielder",
+            "FW": "forward",
+            "CF": "central forward",
+            "SS": "second striker",
+            "RW": "right winger",
+            "LW": "left winger",
+            "ST": "striker"
+        }
+    },
+    "MATCH_RESULT": {
+        "TITLE": "match result management",
+        "DATE": "competition date",
+        "RESULT": "result",
+        "ADDRESS": "stadium",
+        "NAME": "name",
+        "SCORE": "score",
+        "CREATE": {
+            "TITLE": "create a match result"
+        }
+    },
+    "SCORER": {
+        "NAME": "scorer",
+        "GOAL": "goal",
+        "GOAL_OG": "goal og"
+    },
+    "FUNDING": {
+        "TITLE": "funding management",
+        "CREATE_TITLE": "create a funding",
+        "NAME": "funding name",
+        "INPUT_NAME": "enter funding name",
+        "DATE": "funded date",
+        "DESC": "description",
+        "AMOUNT_PERSON": "amount/person",
+        "INPUT_AMOUNT_PERSON": "enter amount/person"
+    },
+    "SPENDING": {
+        "TITLE": "spending management",
+        "SPENDER": "spender",
+        "SELECT_SPENDER": "choose a spender",
+        "CREATE_TITLE": "create spending",
+        "DATE": "spent date"
+    }
 }

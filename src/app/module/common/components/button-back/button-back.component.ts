@@ -7,19 +7,15 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './button-back.component.html',
     styleUrls: ['./button-back.component.scss'],
     standalone: true,
-    imports: [
-        TranslateModule,
-    ],
+    imports: [TranslateModule],
 })
 export class ButtonBackComponent {
-
     @Input()
     public class: string[] = ['btn', 'btn-sm', 'btn-danger'];
 
     private location: Location = inject(Location);
 
     public goBack(): void {
-       this.location.back();
-    } 
-
+        this.location.back();
+    }
 }

@@ -15,7 +15,9 @@
         [(ngModel)]="value"
         (blur)="markAsTouched()"
         (ngModelChange)="onChangeValue()"
-    ></ng-select>
+    >
+        <ng-content></ng-content>
+    </ng-select>
 </div>
 <div *ngIf="control.touched && control.invalid">
     <div *ngFor="let err of control.errors | keyvalue">

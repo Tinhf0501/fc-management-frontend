@@ -1,10 +1,14 @@
 <div>
     <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4 text-capitalize">{{ 'AUTH.CREATE_AN_ACC' | translate }}</h1>
+        <h1 class="h4 text-gray-900 mb-4 text-capitalize">
+            {{ 'AUTH.CREATE_AN_ACC' | translate }}
+        </h1>
     </div>
     <register-form></register-form>
     <hr />
     <div class="text-center">
-        <a class="small text-capitalize" [routerLink]="'/auth/login'">{{ 'AUTH.ALREADY_ACC' | translate }} </a>
+        <a class="small text-capitalize" [routerLink]="'/auth/login'"
+            >{{ 'AUTH.ALREADY_ACC' | translate }}
+        </a>
     </div>
 </div>

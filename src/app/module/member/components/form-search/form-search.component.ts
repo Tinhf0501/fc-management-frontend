@@ -21,7 +21,6 @@ import { TranslateModule } from '@ngx-translate/core';
     ],
 })
 export class MemberFormSearchComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
@@ -31,7 +30,6 @@ export class MemberFormSearchComponent implements OnInit {
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({
-        });
+        this.formGroup = this.formBuilder.group({});
     }
 }

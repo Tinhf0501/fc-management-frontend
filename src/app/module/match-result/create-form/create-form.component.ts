@@ -11,7 +11,7 @@ import {
 @Component({
     selector: 'match-result-create-form',
     templateUrl: './create-form.component.html',
-    styleUrls: ['./create-form.component.scss',],
+    styleUrls: ['./create-form.component.scss'],
     standalone: true,
     imports: [
         TranslateModule,
@@ -21,7 +21,6 @@ import {
     ],
 })
 export class MatchResultCreateFormComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
@@ -29,9 +28,8 @@ export class MatchResultCreateFormComponent implements OnInit {
     public ngOnInit(): void {
         this.buildFormGroup();
     }
-    
+
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({
-        });
+        this.formGroup = this.formBuilder.group({});
     }
 }

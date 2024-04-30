@@ -8,10 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './create-donate-modal.component.html',
     styleUrls: ['./create-donate-modal.component.scss'],
     standalone: true,
-    imports: [
-        CreateDonateFormComponent,
-        TranslateModule
-    ],
+    imports: [CreateDonateFormComponent, TranslateModule],
 })
 export class CreateDonateModalComponent {
     private activeModal: NgbActiveModal = inject(NgbActiveModal);

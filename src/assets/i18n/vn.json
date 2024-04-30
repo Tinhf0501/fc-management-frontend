@@ -1,191 +1,191 @@
 {
-	"ACCOUNT": {
-		"ACC": "tài khoản",
-		"ACC_NAME": "tên tài khoản",
-		"SELECT_ACC": "chọn tài khoản"
-	},
-	"AUTH": {
-		"ALREADY_ACC": "đã có tài khoản?",
-		"CREATE_AN_ACC": "tạo mới tài khoản",
-		"EMAIL": "email",
-		"FIRST_NAME": "tên",
-		"FORGOT_PASS": "quên mật khẩu?",
-		"INPUT_EMAIL": "nhập email của bản",
-		"INPUT_PASSWORD": "nhập mật khẩu của bạn",
-		"LAST_NAME": "họ",
-		"LOGIN": "đăng nhập",
-		"LOGIN_WITH_FB": "đăng nhập bằng facebook",
-		"LOGIN_WITH_GOOGLE": "đăng nhập bằng google",
-		"PASSWORD": "mật khẩu",
-		"REGISTER": "đăng ký",
-		"WELCOME": "Xin chào!"
-	},
-	"COMMON": {
-		"ACTION": "thao tác",
-		"AMT": "số tiền",
-		"NOT_FOUND": "không tìm thấy",
-		"CANCEL": "hủy bỏ",
-		"CREATE": "thêm mới",
-		"CREATED_BY": "người tạo",
-		"CREATED_DATE": "ngày tạo",
-		"DESC": "mô tả",
-		"EXPORT_EXCEL": "xuất excel",
-		"FC": "đội bóng",
-		"FROM_DATE": "từ ngày",
-		"INPUT_DESC": "nhập mô tả",
-		"LANGUAGE": {
-			"EN": "Tiếng Anh",
-			"VN": "Tiếng Việt"
-		},
-		"NO": "stt",
-		"POSITION": "vị trí",
-		"RECORD_PER_PAGE": "số bản ghi trên trang",
-		"SAVE": "lưu lại",
-		"ACCEPT": "đồng ý",
-		"SEARCH": "tìm kiếm",
-		"SELECT_FC": "chọn đội bóng",
-		"SELECT_POSITION": "chọn vị trí",
-		"SELECT_STATUS": "chọn trạng thái",
-		"STATUS": "trạng thái",
-		"TO_DATE": "đến ngày",
-		"TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
-		"START_DATE": "ngày bắt đầu",
-		"GO_BACK": "quay lại",
-		"NOTIFY": {
-			"SUCCESS": "Thành công",
-			"ERROR": "Oops..."
-		},
-		"CONFIRM": "xác nhận"
-	},
-	"DONATE": {
-		"AMOUNT_DONATE": "số tiên donate",
-		"CONTENT": "nội dung",
-		"CREATE_TITLE": "thêm mới donate",
-		"CURRENCY": "loại tiền",
-		"DATE_DONATE": "ngày donate",
-		"INPUT_AMOUNT_DONATE": "nhập số tiền donate",
-		"INPUT_NAME_DONATOR": "nhập người donate",
-		"NAME_DONATOR": "tên người donate",
-		"TITLE": "quản lý donate"
-	},
-	"FOOTBALL_CLUB": {
-		"CODE": "mã đội bóng",
-		"CREATE": {
-			"TITLE": "tạo mới đội bóng",
-			"BTN_CREATE": "tạo mới",
-			"ERRORS": {
-				"FC_NAME": {
-					"REQUIRED": "fc name is mandatory",
-					"MAX_LENGTH": "fc name's max length is 255"
-				},
-				"DESCRIPTION": {
-					"MAX_LENGTH": "description's max length is 2000"
-				}
-			}
-		},
-		"INPUT_NAME": "nhập tên đội bóng",
-		"NAME": "tên đội bóng",
-		"TITLE": "quản lý đội bóng"
-	},
-	"FORGOT_PASSWORD": {
-		"RESET_PASSWORD": "đặt lại mật khẩu",
-		"SUB_TITLE": "chúng tôi hiểu rồi, mọi thứ sẽ xảy ra. chỉ cần nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn",
-		"TITLE": "quên mật khẩu"
-	},
-	"MEMBER": {
-		"ADDRESS": "địa chỉ",
-		"AVATAR": "ảnh đại diện",
-		"CREATE_MEMBER": "thêm thành viên",
-		"CREATE_TITLE": "thêm mới thành viên",
-		"UPDATE_TITLE": "cập nhật thành viên",
-		"DOB": "ngày sinh",
-		"FULLNAME": "họ và tên",
-		"INPUT_FULLNAME": "",
-		"INPUT_PHONE": "nhập số điện thoại",
-		"INPUT_PRINTED_NAME": "nhập tên áo",
-		"INPUT_PRINTED_NUMBER": "nhập số áo",
-		"JOINED_DATE": "ngày tham gia",
-		"LIST_OF_MEMBER": "danh sách thành viên",
-		"PHONE": "số điện thoại",
-		"PRINTED_NAME": "tên áo",
-		"PRINTED_NUMBER": "số áo",
-		"TITLE": "quản lý thành viên",
-		"CONFIRM_DELETE": "bạn có chắc chắn muốn xóa thành viên?",
-		"ERRORS": {
-			"FULL_NAME": {
-				"REQUIRED": "Member name is mandatory",
-				"MAX_LENGTH": "Member name's max length is 255"
-			},
-			"PRINTED_NAME": {
-				"REQUIRED": "Tên áo không được trống",
-				"MAX_LENGTH": "Tên áo tối đa 255 ký tự"
-			},
-			"PHONE": {
-				"REQUIRED": "Member phone is mandatory",
-				"MAX_LENGTH": "Member phone's max length is 10",
-				"PATTERN": "Member phone is invalid"
-			},
-			"ADDRESS": {
-				"MAX_LENGTH": "Member address's max length is 2000"
-			},
-			"PRINTED_NUMBER": {
-				"REQUIRED": "Số áo không được trống"
-			},
-			"POSITION": {
-				"REQUIRED": "vị trí không được trống"
-			}
-		},
-		"POSITION": {
-			"GK": "thủ môn",
-			"CB": "trung vệ",
-			"DF": "hậu vệ",
-			"RB": "hậu vệ phải",
-			"LB": "hậu vệ trái",
-			"MF": "tiền vệ",
-			"CDM": "tiền vệ phòng ngự",
-			"CM": "tiền vệ trung tâm",
-			"CAM": "tiền vệ tấn công",
-			"LM": "tiền vệ trái",
-			"RM": "tiền vệ phải",
-			"FW": "tiền đạo",
-			"CF": "tiền đạo trung tâm",
-			"SS": "hộ công",
-			"RW": "tiền đạo phải",
-			"LW": "tiền đạo trái",
-			"ST": "tiền đạo cắm"
-		}
-	},
-	"MATCH_RESULT": {
-		"TITLE": "quản lý kết quả trận đấu",
-		"DATE": "thời gian thi đấu",
-		"RESULT": "kết quả",
-		"ADDRESS": "địa điểm thi đấu",
-		"NAME": "tên trận đấu",
-		"SCORE": "tý số",
-		"CREATE": {
-			"TITLE": "thêm mới kết quả trận đấu"
-		}
-	},
-	"SCORER": {
-		"NAME": "người ghi bàn",
-		"GOAL": "bàn thắng",
-		"GOAL_OG": "phản lưới nhà"
-	},
-	"FUNDING": {
-		"TITLE": "quản lý quỹ",
-		"CREATE_TITLE": "thêm mới quỹ",
-		"NAME": "tên quỹ",
-		"INPUT_NAME": "nhập tên quỹ",
-		"DATE": "ngày đóng quỹ",
-		"DESC": "mô tả",
-		"AMOUNT_PERSON": "số tiền/người",
-		"INPUT_AMOUNT_PERSON": "nhập số tiền/người"
-	},
-	"SPENDING": {
-		"TITLE": "quản lý chi tiêu",
-		"SPENDER": "người chi tiêu",
-		"SELECT_SPENDER": "chọn người chi tiêu",
-		"CREATE_TITLE": "thêm mới thông tin chi tiêu",
-		"DATE": "ngày chi tiêu"
-	}
+    "ACCOUNT": {
+        "ACC": "tài khoản",
+        "ACC_NAME": "tên tài khoản",
+        "SELECT_ACC": "chọn tài khoản"
+    },
+    "AUTH": {
+        "ALREADY_ACC": "đã có tài khoản?",
+        "CREATE_AN_ACC": "tạo mới tài khoản",
+        "EMAIL": "email",
+        "FIRST_NAME": "tên",
+        "FORGOT_PASS": "quên mật khẩu?",
+        "INPUT_EMAIL": "nhập email của bản",
+        "INPUT_PASSWORD": "nhập mật khẩu của bạn",
+        "LAST_NAME": "họ",
+        "LOGIN": "đăng nhập",
+        "LOGIN_WITH_FB": "đăng nhập bằng facebook",
+        "LOGIN_WITH_GOOGLE": "đăng nhập bằng google",
+        "PASSWORD": "mật khẩu",
+        "REGISTER": "đăng ký",
+        "WELCOME": "Xin chào!"
+    },
+    "COMMON": {
+        "ACTION": "thao tác",
+        "AMT": "số tiền",
+        "NOT_FOUND": "không tìm thấy",
+        "CANCEL": "hủy bỏ",
+        "CREATE": "thêm mới",
+        "CREATED_BY": "người tạo",
+        "CREATED_DATE": "ngày tạo",
+        "DESC": "mô tả",
+        "EXPORT_EXCEL": "xuất excel",
+        "FC": "đội bóng",
+        "FROM_DATE": "từ ngày",
+        "INPUT_DESC": "nhập mô tả",
+        "LANGUAGE": {
+            "EN": "Tiếng Anh",
+            "VN": "Tiếng Việt"
+        },
+        "NO": "stt",
+        "POSITION": "vị trí",
+        "RECORD_PER_PAGE": "số bản ghi trên trang",
+        "SAVE": "lưu lại",
+        "ACCEPT": "đồng ý",
+        "SEARCH": "tìm kiếm",
+        "SELECT_FC": "chọn đội bóng",
+        "SELECT_POSITION": "chọn vị trí",
+        "SELECT_STATUS": "chọn trạng thái",
+        "STATUS": "trạng thái",
+        "TO_DATE": "đến ngày",
+        "TOTAL_RECORD": "tổng số bản ghi: {{numberOfRecord}}",
+        "START_DATE": "ngày bắt đầu",
+        "GO_BACK": "quay lại",
+        "NOTIFY": {
+            "SUCCESS": "Thành công",
+            "ERROR": "Oops..."
+        },
+        "CONFIRM": "xác nhận"
+    },
+    "DONATE": {
+        "AMOUNT_DONATE": "số tiên donate",
+        "CONTENT": "nội dung",
+        "CREATE_TITLE": "thêm mới donate",
+        "CURRENCY": "loại tiền",
+        "DATE_DONATE": "ngày donate",
+        "INPUT_AMOUNT_DONATE": "nhập số tiền donate",
+        "INPUT_NAME_DONATOR": "nhập người donate",
+        "NAME_DONATOR": "tên người donate",
+        "TITLE": "quản lý donate"
+    },
+    "FOOTBALL_CLUB": {
+        "CODE": "mã đội bóng",
+        "CREATE": {
+            "TITLE": "tạo mới đội bóng",
+            "BTN_CREATE": "tạo mới",
+            "ERRORS": {
+                "FC_NAME": {
+                    "REQUIRED": "fc name is mandatory",
+                    "MAX_LENGTH": "fc name's max length is 255"
+                },
+                "DESCRIPTION": {
+                    "MAX_LENGTH": "description's max length is 2000"
+                }
+            }
+        },
+        "INPUT_NAME": "nhập tên đội bóng",
+        "NAME": "tên đội bóng",
+        "TITLE": "quản lý đội bóng"
+    },
+    "FORGOT_PASSWORD": {
+        "RESET_PASSWORD": "đặt lại mật khẩu",
+        "SUB_TITLE": "chúng tôi hiểu rồi, mọi thứ sẽ xảy ra. chỉ cần nhập địa chỉ email của bạn bên dưới và chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu của bạn",
+        "TITLE": "quên mật khẩu"
+    },
+    "MEMBER": {
+        "ADDRESS": "địa chỉ",
+        "AVATAR": "ảnh đại diện",
+        "CREATE_MEMBER": "thêm thành viên",
+        "CREATE_TITLE": "thêm mới thành viên",
+        "UPDATE_TITLE": "cập nhật thành viên",
+        "DOB": "ngày sinh",
+        "FULLNAME": "họ và tên",
+        "INPUT_FULLNAME": "",
+        "INPUT_PHONE": "nhập số điện thoại",
+        "INPUT_PRINTED_NAME": "nhập tên áo",
+        "INPUT_PRINTED_NUMBER": "nhập số áo",
+        "JOINED_DATE": "ngày tham gia",
+        "LIST_OF_MEMBER": "danh sách thành viên",
+        "PHONE": "số điện thoại",
+        "PRINTED_NAME": "tên áo",
+        "PRINTED_NUMBER": "số áo",
+        "TITLE": "quản lý thành viên",
+        "CONFIRM_DELETE": "bạn có chắc chắn muốn xóa thành viên?",
+        "ERRORS": {
+            "FULL_NAME": {
+                "REQUIRED": "Member name is mandatory",
+                "MAX_LENGTH": "Member name's max length is 255"
+            },
+            "PRINTED_NAME": {
+                "REQUIRED": "Tên áo không được trống",
+                "MAX_LENGTH": "Tên áo tối đa 255 ký tự"
+            },
+            "PHONE": {
+                "REQUIRED": "Member phone is mandatory",
+                "MAX_LENGTH": "Member phone's max length is 10",
+                "PATTERN": "Member phone is invalid"
+            },
+            "ADDRESS": {
+                "MAX_LENGTH": "Member address's max length is 2000"
+            },
+            "PRINTED_NUMBER": {
+                "REQUIRED": "Số áo không được trống"
+            },
+            "POSITION": {
+                "REQUIRED": "vị trí không được trống"
+            }
+        },
+        "POSITION": {
+            "GK": "thủ môn",
+            "CB": "trung vệ",
+            "DF": "hậu vệ",
+            "RB": "hậu vệ phải",
+            "LB": "hậu vệ trái",
+            "MF": "tiền vệ",
+            "CDM": "tiền vệ phòng ngự",
+            "CM": "tiền vệ trung tâm",
+            "CAM": "tiền vệ tấn công",
+            "LM": "tiền vệ trái",
+            "RM": "tiền vệ phải",
+            "FW": "tiền đạo",
+            "CF": "tiền đạo trung tâm",
+            "SS": "hộ công",
+            "RW": "tiền đạo phải",
+            "LW": "tiền đạo trái",
+            "ST": "tiền đạo cắm"
+        }
+    },
+    "MATCH_RESULT": {
+        "TITLE": "quản lý kết quả trận đấu",
+        "DATE": "thời gian thi đấu",
+        "RESULT": "kết quả",
+        "ADDRESS": "địa điểm thi đấu",
+        "NAME": "tên trận đấu",
+        "SCORE": "tý số",
+        "CREATE": {
+            "TITLE": "thêm mới kết quả trận đấu"
+        }
+    },
+    "SCORER": {
+        "NAME": "người ghi bàn",
+        "GOAL": "bàn thắng",
+        "GOAL_OG": "phản lưới nhà"
+    },
+    "FUNDING": {
+        "TITLE": "quản lý quỹ",
+        "CREATE_TITLE": "thêm mới quỹ",
+        "NAME": "tên quỹ",
+        "INPUT_NAME": "nhập tên quỹ",
+        "DATE": "ngày đóng quỹ",
+        "DESC": "mô tả",
+        "AMOUNT_PERSON": "số tiền/người",
+        "INPUT_AMOUNT_PERSON": "nhập số tiền/người"
+    },
+    "SPENDING": {
+        "TITLE": "quản lý chi tiêu",
+        "SPENDER": "người chi tiêu",
+        "SELECT_SPENDER": "chọn người chi tiêu",
+        "CREATE_TITLE": "thêm mới thông tin chi tiêu",
+        "DATE": "ngày chi tiêu"
+    }
 }

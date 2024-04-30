@@ -1,6 +1,8 @@
 <div class="d-flex flex-column">
     <div class="modal-header d-flex justify-content-between align-items-center">
-        <span class="h4 text-capitalize">{{ 'FUNDING.CREATE_TITLE' | translate }}</span>
+        <span class="h4 text-capitalize">{{
+            'FUNDING.CREATE_TITLE' | translate
+        }}</span>
         <i class="fas fa-times" (click)="closeModal()"></i>
     </div>
 
@@ -9,8 +11,13 @@
     </div>
 
     <div class="modal-footer d-flex justify-content-center gap-2">
-        <button class="btn btn-primary text-capitalize">{{ 'COMMON.SAVE' | translate }}</button>
-        <button class="btn btn-secondary text-capitalize" (click)="closeModal()">
+        <button class="btn btn-primary text-capitalize">
+            {{ 'COMMON.SAVE' | translate }}
+        </button>
+        <button
+            class="btn btn-secondary text-capitalize"
+            (click)="closeModal()"
+        >
             {{ 'COMMON.CANCEL' | translate }}
         </button>
     </div>

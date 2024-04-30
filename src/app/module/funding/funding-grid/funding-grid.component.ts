@@ -14,49 +14,57 @@ export class FundingGridComponent extends GridCore<any> {
     public override getColumnDefs(): ColDef[] {
         return [
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.NO'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.NO'),
                 minWidth: 50,
                 valueGetter: (param) => param.node.rowIndex + 1,
                 pinned: 'left',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('FUNDING.NAME'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('FUNDING.NAME'),
                 minWidth: 100,
                 field: 'name',
                 tooltipField: 'name',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.FC'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.FC'),
                 minWidth: 100,
                 field: 'fc',
                 tooltipField: 'fc',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('FUNDING.AMOUNT_PERSON'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('FUNDING.AMOUNT_PERSON'),
                 minWidth: 100,
                 field: 'amount',
                 tooltipField: 'amount',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('FUNDING.DATE'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('FUNDING.DATE'),
                 minWidth: 100,
                 field: 'fundedDate',
                 tooltipField: 'fundedDate',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('FUNDING.DESC'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('FUNDING.DESC'),
                 minWidth: 100,
                 field: 'desc',
                 tooltipField: 'desc',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.STATUS'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.STATUS'),
                 minWidth: 100,
                 field: 'status',
                 tooltipField: 'status',
             },
             {
-                headerValueGetter: (p) => this.translateService.instant('COMMON.ACTION'),
+                headerValueGetter: (p) =>
+                    this.translateService.instant('COMMON.ACTION'),
                 minWidth: 50,
                 pinned: 'right',
             },

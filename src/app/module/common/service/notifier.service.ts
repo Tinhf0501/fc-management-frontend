@@ -6,7 +6,6 @@ import Swal, { SweetAlertResult } from 'sweetalert2';
     providedIn: 'root',
 })
 export class NotifierService {
-
     public async success(
         message: string,
         title: string = 'Success',

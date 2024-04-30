@@ -12,7 +12,9 @@ export class SsoService {
         this.ssoListCache.next(singleSignOnList);
     }
 
-    public listenSsoListChange(consumer: (sso: SingleSignOn[]) => void): Subscription {
+    public listenSsoListChange(
+        consumer: (sso: SingleSignOn[]) => void,
+    ): Subscription {
         return this.ssoListCache.asObservable().subscribe(consumer);
     }
 }

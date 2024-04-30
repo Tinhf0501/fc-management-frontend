@@ -27,7 +27,8 @@ export class DonateGridComponent extends GridCore<any> {
     public override getColumnDefs(): ColDef[] {
         return [
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.NO'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.NO'),
                 minWidth: 50,
                 pinned: 'left',
                 valueGetter: (param) => {
@@ -35,43 +36,50 @@ export class DonateGridComponent extends GridCore<any> {
                 },
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('DONATE.NAME_DONATOR'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('DONATE.NAME_DONATOR'),
                 minWidth: 100,
                 field: 'name',
                 tooltipField: 'name',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('DONATE.AMOUNT_DONATE'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('DONATE.AMOUNT_DONATE'),
                 minWidth: 100,
                 field: 'amount',
                 tooltipField: 'amount',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('DONATE.CONTENT'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('DONATE.CONTENT'),
                 minWidth: 100,
                 field: 'note',
                 tooltipField: 'note',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.FC'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.FC'),
                 minWidth: 100,
                 field: 'fcName',
                 tooltipField: 'fcName',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('DONATE.DATE_DONATE'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('DONATE.DATE_DONATE'),
                 minWidth: 100,
                 field: 'createdDate',
                 tooltipField: 'createdDate',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.STATUS'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.STATUS'),
                 minWidth: 100,
                 field: 'status',
                 tooltipField: 'status',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.ACTION'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.ACTION'),
                 minWidth: 50,
                 pinned: 'right',
             },

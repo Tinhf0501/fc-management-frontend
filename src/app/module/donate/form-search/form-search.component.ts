@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './form-search.component.html',
     styleUrls: ['./form-search.component.scss'],
     standalone: true,
-    imports:[
+    imports: [
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
@@ -21,7 +21,6 @@ import { TranslateModule } from '@ngx-translate/core';
     ],
 })
 export class DonateFormSearchComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
@@ -31,7 +30,6 @@ export class DonateFormSearchComponent implements OnInit {
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({
-        });
+        this.formGroup = this.formBuilder.group({});
     }
 }

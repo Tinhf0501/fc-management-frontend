@@ -9,58 +9,58 @@ export const POSITIONS = [
     },
     {
         code: 'RF',
-        name: 'Hậu vệ cánh phải',
+        name: 'MEMBER.POSITION.RF',
     },
     {
         code: 'LF',
-        name: 'Hậu vệ cánh trái',
+        name: 'MEMBER.POSITION.LF',
     },
     {
         code: 'MF',
-        name: 'Tiền vệ',
+        name: 'MEMBER.POSITION.MF',
     },
     {
         code: 'CDM',
-        name: 'Tiền vệ phòng ngự',
+        name: 'MEMBER.POSITION.CDM',
     },
     {
         code: 'CM',
-        name: 'Tiền vệ trung tâm',
+        name: 'MEMBER.POSITION.CM',
     },
     {
         code: 'CAM',
-        name: 'Tiền vệ tấn công',
+        name: 'MEMBER.POSITION.CAM',
     },
     {
         code: 'LM',
-        name: 'Tiền vệ trái',
+        name: 'MEMBER.POSITION.LM',
     },
     {
         code: 'RM',
-        name: 'Tiền vệ phải',
+        name: 'MEMBER.POSITION.RM',
     },
     {
         code: 'FW',
-        name: 'Tiền đạo',
+        name: 'MEMBER.POSITION.FW',
     },
     {
         code: 'CF',
-        name: 'Tiền đạo trung tâm',
+        name: 'MEMBER.POSITION.CF',
     },
     {
         code: 'SS',
-        name: 'Hộ công',
+        name: 'MEMBER.POSITION.SS',
     },
     {
         code: 'RW',
-        name: 'Tiền đạo cánh phải',
+        name: 'MEMBER.POSITION.RW',
     },
     {
         code: 'LW',
-        name: 'Tiền đạo cánh trái',
+        name: 'MEMBER.POSITION.LW',
     },
     {
         code: 'ST',
-        name: 'Tiền đạo cắm',
+        name: 'MEMBER.POSITION.ST',
     },
 ];

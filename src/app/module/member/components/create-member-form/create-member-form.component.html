@@ -73,7 +73,14 @@
                 [errorsMessage]="{
                     required: 'MEMBER.ERRORS.POSITION.REQUIRED'
                 }"
-            ></fms-select>
+            >
+                <ng-template ng-label-tmp let-item="item">
+                    <span>{{ item.name | translate }}</span>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-index="index">
+                    <span>{{ item.name | translate }}</span>
+                </ng-template>
+            </fms-select>
         </div>
     </div>
 

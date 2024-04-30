@@ -1,5 +1,11 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { SsoButtonComponent } from '../sso-button/sso-button.component';
 import { SsoService } from 'src/app/module/auth/sso-button/service/sso.service';
 import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface';

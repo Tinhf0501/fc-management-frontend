@@ -6,7 +6,7 @@ import {
     OnInit,
     Output,
     ViewChild,
-    inject
+    inject,
 } from '@angular/core';
 import {
     FormBuilder,

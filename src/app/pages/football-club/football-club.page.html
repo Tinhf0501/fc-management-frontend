@@ -5,20 +5,30 @@
         </div>
     </div>
     <div class="p-3 bg-light rounded h-100">
-        <div class="d-flex flex-column row-gap-4 h-100 bg-white p-3 rounded shadow">
+        <div
+            class="d-flex flex-column row-gap-4 h-100 bg-white p-3 rounded shadow"
+        >
             <div class="d-flex justify-content-between align-items-center">
                 <span class="font-italic fw-semibold text-capitalize"
-                    >{{ 'COMMON.TOTAL_RECORD' | translate:{numberOfRecord: 1} }}</span
+                    >{{ 'COMMON.TOTAL_RECORD' | translate:{numberOfRecord: 1}
+                    }}</span
                 >
                 <div class="d-flex gap-2">
-                    <a [routerLink]="'/football-club/create-football-club'" class="btn btn-sm btn-success">
+                    <a
+                        [routerLink]="'/football-club/create-football-club'"
+                        class="btn btn-sm btn-success"
+                    >
                         <i class="fas fa-plus me-2"></i>
-                        <span class="text-capitalize">{{ 'COMMON.CREATE' | translate }}</span>
+                        <span class="text-capitalize"
+                            >{{ 'COMMON.CREATE' | translate }}</span
+                        >
                     </a>
 
                     <button class="btn btn-sm btn-secondary">
                         <i class="fas fa-download me-2"></i>
-                        <span class="text-capitalize">{{ 'COMMON.EXPORT_EXCEL' | translate }}</span>
+                        <span class="text-capitalize"
+                            >{{ 'COMMON.EXPORT_EXCEL' | translate }}</span
+                        >
                     </button>
                 </div>
             </div>

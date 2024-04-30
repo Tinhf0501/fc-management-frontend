@@ -6,12 +6,9 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     selector: 'spending-create-modal',
     templateUrl: './create-modal.component.html',
-    styleUrls: ['./create-modal.component.scss',],
+    styleUrls: ['./create-modal.component.scss'],
     standalone: true,
-    imports: [
-        TranslateModule,
-        SpendingCreateFormComponent,
-    ],
+    imports: [TranslateModule, SpendingCreateFormComponent],
 })
 export class SpendingCreateModalComponent {
     private activeModal: NgbActiveModal = inject(NgbActiveModal);

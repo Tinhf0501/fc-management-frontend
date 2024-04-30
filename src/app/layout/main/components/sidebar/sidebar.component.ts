@@ -12,7 +12,8 @@ export class MainSidebarComponent {
     private sidebarService: SidebarService = inject(SidebarService);
     private menuService: MenuService = inject(MenuService);
 
-    public sidebarStatus$: Observable<boolean> = this.sidebarService.getSidebarStatus();
+    public sidebarStatus$: Observable<boolean> =
+        this.sidebarService.getSidebarStatus();
     public menu$: Observable<Menu[]> = this.menuService.getMenu();
 
     public routeLink(link: string, li: HTMLElement): void {}

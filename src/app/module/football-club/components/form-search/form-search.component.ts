@@ -4,7 +4,7 @@ import {
     ReactiveFormsModule,
     FormBuilder,
     FormGroup,
-    Validators
+    Validators,
 } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';

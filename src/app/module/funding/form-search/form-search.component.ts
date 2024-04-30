@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
 } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
     selector: 'funding-form-search',
     templateUrl: './form-search.component.html',
-    styleUrls: ['./form-search.component.scss',],
+    styleUrls: ['./form-search.component.scss'],
     standalone: true,
     imports: [
         FormsModule,
@@ -21,7 +21,6 @@ import { TranslateModule } from '@ngx-translate/core';
     ],
 })
 export class FundingFormSearchComponent implements OnInit {
-    
     private formBuilder: FormBuilder = inject(FormBuilder);
     public formGroup: FormGroup;
 
@@ -30,7 +29,6 @@ export class FundingFormSearchComponent implements OnInit {
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({
-        });
+        this.formGroup = this.formBuilder.group({});
     }
 }

@@ -8,10 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './forgot-password.page.html',
     styleUrls: ['./forgot-password.page.scss'],
     standalone: true,
-    imports: [
-        RouterLink,
-        ForgotPasswordFormComponent,
-        TranslateModule,
-    ],
+    imports: [RouterLink, ForgotPasswordFormComponent, TranslateModule],
 })
-export class ForgotPasswordPage { }
+export class ForgotPasswordPage {}

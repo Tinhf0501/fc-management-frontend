@@ -1,12 +1,9 @@
-import { Component }from '@angular/core';
+import { Component } from '@angular/core';
 import {
     MatchResultFormSearchComponent,
     MatchResultGridComponent,
 } from '@fms-module/match-result';
-import {
-    PaginationComponent,
-    Pagination,
-} from '@fms-module/common';
+import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 
@@ -25,6 +22,5 @@ import { RouterLink } from '@angular/router';
     ],
 })
 export class MatchResultPage {
-  
     public pagination: Pagination = new Pagination(1, 100);
 }

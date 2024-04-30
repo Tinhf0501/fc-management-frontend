@@ -4,10 +4,7 @@ import { routes } from './router';
 import { AuthLayout } from './auth.layout';
 import { LanguageComponent } from '@fms-module/common';
 
-const imports = [
-    RouterModule.forChild(routes),
-    LanguageComponent,
-];
+const imports = [RouterModule.forChild(routes), LanguageComponent];
 
 const declarations = [AuthLayout];
 
@@ -15,4 +12,4 @@ const declarations = [AuthLayout];
     imports,
     declarations,
 })
-export class AuthModule { }
+export class AuthModule {}

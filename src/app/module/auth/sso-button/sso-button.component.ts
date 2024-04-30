@@ -7,9 +7,7 @@ import { SingleSignOn } from 'src/app/module/auth/sso-button/model/sso.interface
     templateUrl: './sso-button.component.html',
     styleUrls: ['./sso-button.component.scss'],
     standalone: true,
-    imports: [
-        TranslateModule,
-    ]
+    imports: [TranslateModule],
 })
 export class SsoButtonComponent {
     @Input()

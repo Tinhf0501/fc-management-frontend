@@ -18,7 +18,7 @@ const imports = [
     FormsModule,
     TranslateModule,
     NgSelectModule,
-    LanguageComponent
+    LanguageComponent,
 ];
 
 const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
@@ -27,4 +27,4 @@ const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];
     imports,
     declarations,
 })
-export class MainModule { }
+export class MainModule {}

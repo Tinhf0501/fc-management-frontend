@@ -8,11 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './login.page.html',
     styleUrls: ['./login.page.scss'],
     standalone: true,
-    imports: [
-        RouterLink,
-        LoginFormComponent,
-        TranslateModule,
-    ],
+    imports: [RouterLink, LoginFormComponent, TranslateModule],
 })
 export class LoginPage implements OnInit {
     private ssoService: SsoService = inject(SsoService);

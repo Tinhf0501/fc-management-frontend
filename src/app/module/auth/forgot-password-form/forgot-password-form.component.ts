@@ -1,5 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -7,11 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './forgot-password-form.component.html',
     styleUrls: ['./forgot-password-form.component.scss'],
     standalone: true,
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        TranslateModule
-    ],
+    imports: [FormsModule, ReactiveFormsModule, TranslateModule],
 })
 export class ForgotPasswordFormComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);

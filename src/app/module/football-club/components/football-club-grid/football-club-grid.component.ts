@@ -5,7 +5,8 @@ import { GridCore } from '@fms-module/common';
 
 @Component({
     selector: 'fc-grid',
-    templateUrl: '../../../common/components/grid-core/grid-core.component.html',
+    templateUrl:
+        '../../../common/components/grid-core/grid-core.component.html',
     styleUrls: ['./football-club-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular],
@@ -14,7 +15,8 @@ export class FootballClubGridComponent extends GridCore<any> {
     public override getColumnDefs(): ColDef[] {
         return [
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.NO'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.NO'),
                 valueGetter: (param) => {
                     return param.node.rowIndex + 1;
                 },
@@ -22,49 +24,57 @@ export class FootballClubGridComponent extends GridCore<any> {
                 pinned: 'left',
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('FOOTBALL_CLUB.CODE'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('FOOTBALL_CLUB.CODE'),
                 field: 'code',
                 tooltipField: 'code',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('FOOTBALL_CLUB.NAME'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('FOOTBALL_CLUB.NAME'),
                 field: 'name',
                 tooltipField: 'name',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.DESC'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.DESC'),
                 field: 'description',
                 tooltipField: 'description',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('MEMBER.AVATAR'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('MEMBER.AVATAR'),
                 field: 'logo',
                 tooltipField: 'logo',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.CREATED_DATE'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.CREATED_DATE'),
                 field: 'createdDate',
                 tooltipField: 'createdDate',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.CREATED_BY'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.CREATED_BY'),
                 field: 'createdBy',
                 tooltipField: 'createdBy',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.STATUS'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.STATUS'),
                 field: 'status',
                 tooltipField: 'status',
                 minWidth: 100,
             },
             {
-                headerValueGetter: (param) => this.translateService.instant('COMMON.ACTION'),
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.ACTION'),
                 minWidth: 100,
                 pinned: 'right',
             },

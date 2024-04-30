@@ -11,6 +11,9 @@ export class FootballClubService {
     private httpClient = inject(HttpClient);
 
     public createFc(formData: FormData): Observable<ApiResponse> {
-        return this.httpClient.post<ApiResponse>(`${environment.FMS_BE_URL}/fc`, formData);
+        return this.httpClient.post<ApiResponse>(
+            `${environment.FMS_BE_URL}/fc`,
+            formData,
+        );
     }
 }

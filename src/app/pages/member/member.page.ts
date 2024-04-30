@@ -4,10 +4,7 @@ import {
     MemberFormSearchComponent,
     CreateMemberModal,
 } from '@fms-module/member';
-import {
-    PaginationComponent,
-    Pagination,
-} from '@fms-module/common';
+import { PaginationComponent, Pagination } from '@fms-module/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -24,14 +21,11 @@ import { TranslateModule } from '@ngx-translate/core';
     ],
 })
 export class MemberPage implements OnInit {
-
     public pagination: Pagination = new Pagination(1, 70);
 
     private modalService: NgbModal = inject(NgbModal);
 
-    public ngOnInit(): void {
-
-    }
+    public ngOnInit(): void {}
 
     public openAddMemberModal(): void {
         this.modalService.open(CreateMemberModal, {

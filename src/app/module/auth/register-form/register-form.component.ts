@@ -4,7 +4,7 @@ import {
     FormGroup,
     FormsModule,
     ReactiveFormsModule,
-    Validators
+    Validators,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -13,11 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './register-form.component.html',
     styleUrls: ['./register-form.component.scss'],
     standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        FormsModule,
-        TranslateModule,
-    ],
+    imports: [ReactiveFormsModule, FormsModule, TranslateModule],
 })
 export class RegisterFormComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);

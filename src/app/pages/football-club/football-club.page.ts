@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FcFormSearchComponent, FootballClubGridComponent } from '@fms-module/football-club';
+import {
+    FcFormSearchComponent,
+    FootballClubGridComponent,
+} from '@fms-module/football-club';
 import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 @Component({
@@ -13,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
         FootballClubGridComponent,
         PaginationComponent,
         RouterLink,
-        TranslateModule
+        TranslateModule,
     ],
 })
 export class FootballClubPage {

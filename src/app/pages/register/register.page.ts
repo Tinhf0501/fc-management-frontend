@@ -8,10 +8,6 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './register.page.html',
     styleUrls: ['./register.page.scss'],
     standalone: true,
-    imports: [
-        RouterLink,
-        RegisterFormComponent,
-        TranslateModule,
-    ],
+    imports: [RouterLink, RegisterFormComponent, TranslateModule],
 })
-export class RegisterPage { }
+export class RegisterPage {}

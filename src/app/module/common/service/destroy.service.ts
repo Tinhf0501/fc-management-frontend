@@ -1,9 +1,8 @@
-import { Injectable, OnDestroy } from "@angular/core";
-import { Subject } from "rxjs";
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class DestroyService implements OnDestroy {
-
     public $destroy = new Subject<any>();
 
     public ngOnDestroy(): void {

@@ -17,11 +17,10 @@ import { TranslateModule } from '@ngx-translate/core';
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
-        TranslateModule
+        TranslateModule,
     ],
 })
 export class CreateDonateFormComponent implements OnInit {
-
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
