@@ -2,20 +2,22 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ButtonBackComponent, DestroyService } from '@fms-module/common';
+import {
+    ButtonBackComponent,
+    DestroyService,
+    NotifierService,
+} from '@fms-module/common';
 import {
     CreateFcFormComponent,
     FootballClubService,
 } from '@fms-module/football-club';
 import {
     CreateFCMemberRequest,
-    CreateMemberModal,
-    MemberGridComponent,
+    MemberGridWrapperComponent,
 } from '@fms-module/member';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ListMediaComponent, Media } from '@fms-module/resource';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
-import { NotifierService } from 'src/app/module/common/service/notifier.service';
 
 @Component({
     selector: 'create-fc-page',
@@ -23,26 +25,30 @@ import { NotifierService } from 'src/app/module/common/service/notifier.service'
     styleUrls: ['./create-football-club.page.scss'],
     standalone: true,
     imports: [
-        MemberGridComponent,
-        CreateFcFormComponent,
-        TranslateModule,
         NgFor,
+        TranslateModule,
+
+        CreateFcFormComponent,
         ButtonBackComponent,
+        ListMediaComponent,
+        MemberGridWrapperComponent,
     ],
     providers: [DestroyService],
 })
 export class CreateFootballClubPage implements OnInit {
-    private readonly modalService: NgbModal = inject(NgbModal);
-    private readonly formBuilder: FormBuilder = inject(FormBuilder);
-    private readonly fcService: FootballClubService =
-        inject(FootballClubService);
-    private readonly destroyService: DestroyService = inject(DestroyService);
-    private readonly router: Router = inject(Router);
-    private readonly notifierService: NotifierService = inject(NotifierService);
+    private readonly formBuilder = inject(FormBuilder);
+    private readonly fcService = inject(FootballClubService);
+    private readonly destroyService = inject(DestroyService);
+    private readonly router = inject(Router);
+    private readonly notifierService = inject(NotifierService);
 
     public createFcForm: FormGroup;
     public avatar: File;
-    public members = [];
+    public members: CreateFCMemberRequest[] = [];
+    public media: Media = {
+        files: [],
+        url: [],
+    };
 
     public ngOnInit(): void {
         this.buildForm();
@@ -55,30 +61,6 @@ export class CreateFootballClubPage implements OnInit {
         });
     }
 
-    public openAddMemberModal(): void {
-        this.modalService
-            .open(CreateMemberModal, {
-                size: 'lg',
-                centered: true,
-            })
-            .closed.subscribe((res) => {
-                if (!res) return;
-                this.members = [res, ...this.members];
-            });
-    }
-
-    public onUpdateMember(param: {
-        data: CreateFCMemberRequest;
-        index: number;
-    }): void {
-        this.members[param.index] = param.data;
-        this.members = [...this.members];
-    }
-
-    public onDeleteMember(rowIndex: number): void {
-        this.members = this.members.filter((_, index) => index !== rowIndex);
-    }
-
     public submitFormCreateFc(): void {
         if (this.createFcForm.invalid) {
             this.createFcForm.markAllAsTouched();
@@ -88,9 +70,13 @@ export class CreateFootballClubPage implements OnInit {
         const formData = new FormData();
         formData.append('fcName', data.fcName);
         formData.append('description', data.description);
-        formData.append('isGuest', 'false');
         if (this.avatar) {
-            formData.append('fcResources.logo', this.avatar);
+            formData.append('logo', this.avatar);
+        }
+        if (this.media?.files) {
+            this.media.files.forEach((file, index) => {
+                formData.append(`media[${index}]`, file);
+            });
         }
         this.members.forEach((member, index) => {
             Object.keys(member).forEach((key) => {

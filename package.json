@@ -26,6 +26,7 @@
     "@popperjs/core": "^2.11.6",
     "ag-grid-angular": "^31.0.2",
     "bootstrap": "^5.2.3",
+    "ngx-toastr": "^17.0.2",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.10.8",
     "tslib": "^2.3.0",

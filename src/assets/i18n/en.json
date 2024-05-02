@@ -188,5 +188,10 @@
         "SELECT_SPENDER": "choose a spender",
         "CREATE_TITLE": "create spending",
         "DATE": "spent date"
+    },
+    "RESOURCE": {
+        "MAX_LENGTH_FILE": "max number of files is {{maxLengthFile}}",
+        "MEDIA": "media",
+        "ADD_MEDIA": "add media"
     }
 }
