@@ -14,6 +14,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SpinnerComponent } from './module/common/components';
 import { AuthInterceptor, LoaderInterceptor } from './module/common/service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const translateLoaderFactory = (
     httpClient: HttpClient,
@@ -25,6 +27,7 @@ const translateLoaderFactory = (
     declarations: [AppComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
         HttpClientModule,
         TranslateModule.forRoot({
@@ -36,6 +39,7 @@ const translateLoaderFactory = (
             },
         }),
         SpinnerComponent,
+        ToastrModule.forRoot(),
     ],
     providers: [
         {

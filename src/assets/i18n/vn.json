@@ -188,5 +188,10 @@
         "SELECT_SPENDER": "chọn người chi tiêu",
         "CREATE_TITLE": "thêm mới thông tin chi tiêu",
         "DATE": "ngày chi tiêu"
+    },
+    "RESOURCE": {
+        "MAX_LENGTH_FILE": "tối đa {{maxLengthFile}} tập tin",
+        "MEDIA": "media",
+        "ADD_MEDIA": "thêm media"
     }
 }

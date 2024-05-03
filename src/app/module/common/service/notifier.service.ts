@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
 @Injectable({
@@ -26,7 +25,9 @@ export class NotifierService {
             icon: 'error',
             title: title,
             text: message,
-            footer: `<a href="javascript:void(0)">trace-id: ${traceId}</a>`,
+            footer: traceId
+                ? `<a href="javascript:void(0)">trace-id: ${traceId}</a>`
+                : '',
         });
     }
 }
