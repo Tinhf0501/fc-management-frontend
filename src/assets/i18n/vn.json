@@ -71,6 +71,9 @@
     },
     "FOOTBALL_CLUB": {
         "CODE": "mã đội bóng",
+        "UPDATE": {
+            "TITLE": "cập nhật đội bóng"
+        },
         "CREATE": {
             "TITLE": "tạo mới đội bóng",
             "BTN_CREATE": "tạo mới",

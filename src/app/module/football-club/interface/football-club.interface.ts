@@ -13,7 +13,7 @@ export interface CreateFcRequest {
 
 export interface UpdateFcRequest extends CreateFcRequest {
     fcId: number;
-    fcMemberUpdate: UpdateFCMemberRequest[];
-    fcMemberIdsDelete: number[];
-    pathMediaIdsDelete: number[];
+    fcMemberUpdate?: UpdateFCMemberRequest[];
+    fcMemberIdsDelete?: number[];
+    pathMediaIdsDelete?: string[];
 }

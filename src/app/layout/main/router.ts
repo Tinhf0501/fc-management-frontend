@@ -39,6 +39,17 @@ export const routes: Routes = [
                             title: 'FOOTBALL_CLUB.CREATE.TITLE',
                         },
                     },
+
+                    {
+                        path: 'update-football-club',
+                        loadComponent: () =>
+                            import(
+                                '../../pages/football-club/update-football-club/update-football-club.page'
+                            ).then((p) => p.UpdateFootballClubPage),
+                        data: {
+                            title: 'FOOTBALL_CLUB.UPDATE.TITLE',
+                        },
+                    },
                 ],
             },
             {

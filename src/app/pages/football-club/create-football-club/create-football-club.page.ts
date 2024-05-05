@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,7 +25,6 @@ import { takeUntil } from 'rxjs';
     styleUrls: ['./create-football-club.page.scss'],
     standalone: true,
     imports: [
-        NgFor,
         TranslateModule,
 
         CreateFcFormComponent,
@@ -38,10 +36,10 @@ import { takeUntil } from 'rxjs';
 })
 export class CreateFootballClubPage implements OnInit {
     private readonly formBuilder = inject(FormBuilder);
-    private readonly fcService = inject(FootballClubService);
-    private readonly destroyService = inject(DestroyService);
     private readonly router = inject(Router);
-    private readonly notifierService = inject(NotifierService);
+    protected readonly fcService = inject(FootballClubService);
+    protected readonly destroyService = inject(DestroyService);
+    protected readonly notifierService = inject(NotifierService);
 
     public createFcForm: FormGroup;
     public avatar: File;
@@ -62,7 +60,7 @@ export class CreateFootballClubPage implements OnInit {
         });
     }
 
-    public submitFormCreateFc(): void {
+    public onSubmitForm(): void {
         if (this.createFcForm.invalid) {
             this.createFcForm.markAllAsTouched();
             return;

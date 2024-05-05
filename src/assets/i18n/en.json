@@ -71,8 +71,11 @@
     },
     "FOOTBALL_CLUB": {
         "CODE": "football club code",
+        "UPDATE": {
+            "TITLE": "update football club"
+        },
         "CREATE": {
-            "TITLE": "create a football club",
+            "TITLE": "create football club",
             "BTN_CREATE": "create FC",
             "ERRORS": {
                 "FC_NAME": {
