@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { fileToImageUrl } from '../../common/utils/utils';
+import { fileToImageUrl } from '../../common/utils/file.utils';
 
 @Pipe({
     name: 'image',

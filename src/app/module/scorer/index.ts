@@ -1,1 +1,1 @@
-export { ScorerGridComponent } from './scorer-grid/scorer-grid.component';
+export * from './components';
