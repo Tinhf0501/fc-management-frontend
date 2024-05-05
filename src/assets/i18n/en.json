@@ -190,8 +190,13 @@
         "DATE": "spent date"
     },
     "RESOURCE": {
-        "MAX_LENGTH_FILE": "max number of files is {{maxLengthFile}}",
         "MEDIA": "media",
-        "ADD_MEDIA": "add media"
+        "ADD_MEDIA": "add media",
+        "UPLOAD_FILE_TITLE": "upload file",
+        "UPLOAD_FILE": "drag and drop files here, or your computer.",
+        "ERRORS": {
+            "MAX_LENGTH_FILE": "max number of files is {{maxLengthFile}}",
+            "INVALID_FILE": "file is invalid!"
+        }
     }
 }

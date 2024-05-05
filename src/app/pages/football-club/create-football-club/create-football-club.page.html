@@ -3,7 +3,11 @@
         (formInitialized)="createFcForm = $event"
         (changeAvatar)="avatar = $event"
     ></create-fc-form>
-    <list-media [media]="media" (changeMedia)="media = $event"></list-media>
+    <list-media
+        [allowsFile]="['.png', '.jpg', '.jpeg', '.mp4']"
+        [media]="media"
+        (changeMedia)="media = $event"
+    ></list-media>
     <member-grid-wrapper
         [members]="members"
         (changeMember)="members = $event"

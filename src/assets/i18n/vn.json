@@ -190,8 +190,13 @@
         "DATE": "ngày chi tiêu"
     },
     "RESOURCE": {
-        "MAX_LENGTH_FILE": "tối đa {{maxLengthFile}} tập tin",
         "MEDIA": "media",
-        "ADD_MEDIA": "thêm media"
+        "ADD_MEDIA": "thêm media",
+        "UPLOAD_FILE_TITLE": "tải lên tập tin",
+        "UPLOAD_FILE": "kéo và thả tập tin vào đây hoặc máy tính của bạn.",
+        "ERRORS": {
+            "MAX_LENGTH_FILE": "tối đa {{maxLengthFile}} tập tin",
+            "INVALID_EXTENSION": "file không hợp lệ!"
+        }
     }
 }

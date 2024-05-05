@@ -9,6 +9,7 @@ import {
 } from '@fms-module/common';
 import {
     CreateFcFormComponent,
+    CreateFcRequest,
     FootballClubService,
 } from '@fms-module/football-club';
 import {
@@ -66,26 +67,18 @@ export class CreateFootballClubPage implements OnInit {
             this.createFcForm.markAllAsTouched();
             return;
         }
+
         const data = this.createFcForm.getRawValue();
-        const formData = new FormData();
-        formData.append('fcName', data.fcName);
-        formData.append('description', data.description);
-        if (this.avatar) {
-            formData.append('logo', this.avatar);
-        }
-        if (this.media?.files) {
-            this.media.files.forEach((file, index) => {
-                formData.append(`media[${index}]`, file);
-            });
-        }
-        this.members.forEach((member, index) => {
-            Object.keys(member).forEach((key) => {
-                const value = member[key];
-                if (value) formData.append(`fcMembers[${index}].${key}`, value);
-            });
-        });
+        const createFcRequest: CreateFcRequest = {
+            fcName: data.fcName,
+            description: data.description,
+            logo: this.avatar,
+            media: this.media.files,
+            fcMembers: this.members,
+        };
+
         this.fcService
-            .createFc(formData)
+            .createFc(createFcRequest)
             .pipe(takeUntil(this.destroyService.$destroy))
             .subscribe((res) => {
                 this.notifierService
