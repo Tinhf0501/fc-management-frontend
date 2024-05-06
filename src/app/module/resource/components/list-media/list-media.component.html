@@ -1,15 +1,11 @@
 <div class="d-flex flex-column row-gap-2">
     <div class="d-flex justify-content-between align-items-center">
         <h4 class="text-capitalize">{{ 'RESOURCE.MEDIA' | translate }}</h4>
-        <input
-            #uploader
-            type="file"
-            multiple
-            hidden
-            accept=".png,.jpg,.jpeg,.mp4"
-            (change)="onUploadFile($event)"
-        />
-        <button class="btn btn-success" (click)="uploader.click()">
+        <button
+            class="btn btn-sm btn-success"
+            (click)="onOpenUploadModal()"
+            [disabled]="media.files.length >= maxNumberFile"
+        >
             <i class="fas fa-plus me-2"></i>
             <span class="text-capitalize">{{
                 'RESOURCE.ADD_MEDIA' | translate
@@ -19,7 +15,7 @@
 
     <div class="d-flex gap-3 flex-wrap w-100">
         <div
-            class="position-relative"
+            class="position-relative image-preview"
             *ngFor="let u of media.url; let i = index"
         >
             <img
@@ -27,10 +23,10 @@
                 [src]="u"
                 width="100px"
                 height="100px"
-                alt="image"
+                alt="preview image"
             />
             <button
-                class="border-0 position-absolute remove-image rounded-circle d-flex justify-content-center align-items-center fw-bolder bg-dark text-white"
+                class="d-none border-0 position-absolute remove-image rounded-circle d-flex justify-content-center align-items-center fw-bolder bg-dark text-white"
                 (click)="onRemoveImage(i)"
             >
                 &times;

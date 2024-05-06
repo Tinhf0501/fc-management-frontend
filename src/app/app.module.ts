@@ -28,7 +28,10 @@ const translateLoaderFactory = (
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+        RouterModule.forRoot(routes, {
+            scrollPositionRestoration: 'enabled',
+            bindToComponentInputs: true,
+        }),
         HttpClientModule,
         TranslateModule.forRoot({
             defaultLanguage: localStorage.getItem('language') ?? 'vn',

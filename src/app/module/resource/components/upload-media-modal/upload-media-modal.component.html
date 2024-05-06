@@ -1,0 +1,94 @@
+<div class="d-flex flex-column">
+    <div class="modal-header d-flex justify-content-between">
+        <span class="h4 text-capitalize">{{
+            'RESOURCE.UPLOAD_FILE_TITLE' | translate
+        }}</span>
+        <button class="bg-transparent border-0" (click)="onCloseModal()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <ng-container *ngIf="files.length < maxNumberFile">
+            <input
+                #uploader
+                id="uploader"
+                type="file"
+                hidden
+                multiple
+                (change)="onUploadFile($event)"
+            />
+            <label for="uploader" class="border-container text-center w-100">
+                <div class="icons fa-4x d-flex justify-content-center gap-10px">
+                    <i
+                        class="fas fa-file-image"
+                        data-fa-transform="shrink-3 down-2 left-6 rotate--45"
+                    ></i>
+                    <i
+                        class="fas fa-file-alt"
+                        data-fa-transform="shrink-2 up-4"
+                    ></i>
+                    <i
+                        class="fas fa-file-pdf"
+                        data-fa-transform="shrink-3 down-2 right-6 rotate-45"
+                    ></i>
+                </div>
+                <p class="text-capitalize">
+                    {{ 'RESOURCE.UPLOAD_FILE' | translate }}
+                    {{
+                        'RESOURCE.ERRORS.MAX_LENGTH_FILE'
+                            | translate: { maxLengthFile: maxNumberFile }
+                    }}
+                </p>
+            </label>
+        </ng-container>
+
+        <div class="d-flex gap-10px flex-wrap w-100">
+            <div
+                class="position-relative image-preview"
+                *ngFor="let file of files; let i = index"
+            >
+                <ng-container [ngSwitch]="isInvalidFile(file)">
+                    <div
+                        *ngSwitchCase="true"
+                        class="rounded bg-danger text-white fw-bold preview text-center text-truncate"
+                        style="white-space: pre-wrap"
+                        placement="bottom"
+                        [ngbTooltip]="file.name"
+                    >
+                        {{ file.name }}
+                    </div>
+                    <ng-container *ngSwitchCase="false">
+                        <img
+                            class="rounded preview"
+                            [src]="file | image"
+                            alt="image"
+                        />
+                    </ng-container>
+                </ng-container>
+                <button
+                    class="d-none border-0 position-absolute remove-image rounded-circle justify-content-center align-items-center fw-bolder bg-secondary text-white"
+                    (click)="onRemoveImage(i)"
+                >
+                    &times;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer d-flex justify-content-center gap-2">
+        <button
+            class="btn btn-primary text-capitalize"
+            [disabled]="isInvalid"
+            (click)="onSave()"
+        >
+            {{ 'COMMON.SAVE' | translate }}
+        </button>
+        <button
+            class="btn btn-secondary text-capitalize"
+            (click)="onCloseModal()"
+        >
+            {{ 'COMMON.CANCEL' | translate }}
+        </button>
+    </div>
+</div>

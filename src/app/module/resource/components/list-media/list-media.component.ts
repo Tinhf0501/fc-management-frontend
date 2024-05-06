@@ -1,18 +1,11 @@
 import { NgFor } from '@angular/common';
-import {
-    Component,
-    ElementRef,
-    EventEmitter,
-    Input,
-    Output,
-    ViewChild,
-    inject,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { fileToImageUrl } from '@fms-module/common';
-import { ToastrService } from 'ngx-toastr';
-import { Media } from '../../interface';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { MAX_NUMBER_FILES } from '../../constant';
+import { Media } from '../../interface';
+import { UploadMediaModalComponent } from '../upload-media-modal/upload-media-modal.component';
 
 @Component({
     selector: 'list-media',
@@ -22,44 +15,32 @@ import { MAX_NUMBER_FILES } from '../../constant';
     imports: [NgFor, TranslateModule],
 })
 export class ListMediaComponent {
-    private readonly toastrService = inject(ToastrService);
-    private readonly translateService = inject(TranslateService);
-
-    @ViewChild('uploader') uploader: ElementRef;
-
+    @Input() allowsFile: string[];
     @Input() media: Media = {
         files: [],
         url: [],
     };
     @Output() changeMedia = new EventEmitter<Media>();
 
-    public onUploadFile(event): void {
-        if (this.media.files.length === MAX_NUMBER_FILES) {
-            this.toastrService.error(
-                this.translateService.instant('RESOURCE.MAX_LENGTH_FILE', {
-                    maxLengthFile: MAX_NUMBER_FILES,
-                }),
-            );
-            return;
-        }
-        const files = event.target.files as FileList;
-        if (!files) return;
+    private readonly modalService = inject(NgbModal);
 
-        if (files.length + this.media.files.length > MAX_NUMBER_FILES) {
-            this.toastrService.error(
-                this.translateService.instant('RESOURCE.MAX_LENGTH_FILE', {
-                    maxLengthFile: MAX_NUMBER_FILES,
-                }),
-            );
-            return;
-        }
+    public maxNumberFile = MAX_NUMBER_FILES;
 
-        Array.from(files).forEach((file) => {
-            this.media.files.push(file);
-            this.media.url.push(fileToImageUrl(file));
+    public onOpenUploadModal(): void {
+        const modalRef = this.modalService.open(UploadMediaModalComponent, {
+            centered: true,
+            size: 'lg',
         });
-        this.uploader.nativeElement.value = '';
-        this.changeMedia.emit(this.media);
+        modalRef.componentInstance.allowsFile = this.allowsFile;
+        modalRef.componentInstance.maxNumberFile =
+            this.maxNumberFile - this.media.url.length;
+        modalRef.closed.subscribe((files) => {
+            files.forEach((file) => {
+                this.media.files.push(file);
+                this.media.url.push(fileToImageUrl(file));
+            });
+            this.changeMedia.emit(this.media);
+        });
     }
 
     public onRemoveImage(index: number): void {

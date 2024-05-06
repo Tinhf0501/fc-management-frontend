@@ -9,3 +9,7 @@ export interface CreateFCMemberRequest {
     position: string[];
     avatar?: File;
 }
+
+export interface UpdateFCMemberRequest extends CreateFCMemberRequest {
+    memberId: number;
+}
