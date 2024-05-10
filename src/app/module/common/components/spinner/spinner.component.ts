@@ -9,4 +9,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
     standalone: true,
     imports: [NgIf, AsyncPipe],
 })
-export class SpinnerComponent {}
+export class SpinnerComponent {
+    private spinnerService = inject(SpinnerService);
+
+    public $spinner = this.spinnerService.spinnerObservable;
+}

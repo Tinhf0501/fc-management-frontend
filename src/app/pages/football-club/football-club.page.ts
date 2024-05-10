@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {
+    DestroyService,
+    Pagination,
+    PaginationComponent,
+} from '@fms-module/common';
 import {
     FcFormSearchComponent,
     FootballClubGridComponent,
+    FootballClubService,
+    SearchFcRequest,
+    SearchFcResponse,
 } from '@fms-module/football-club';
-import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { takeUntil } from 'rxjs';
 @Component({
     selector: 'football-club',
     templateUrl: './football-club.page.html',
@@ -18,7 +26,38 @@ import { TranslateModule } from '@ngx-translate/core';
         RouterLink,
         TranslateModule,
     ],
+    providers: [DestroyService],
 })
-export class FootballClubPage {
-    public pagination: Pagination = new Pagination(1, 100);
+export class FootballClubPage implements OnInit {
+    private readonly fcService = inject(FootballClubService);
+    private readonly destroyService = inject(DestroyService);
+
+    public pagination: Pagination = new Pagination(1, 0);
+    public footballClubs: SearchFcResponse[];
+
+    private searchFcRequest: SearchFcRequest = {};
+
+    public ngOnInit(): void {
+        this.paginate(this.pagination);
+    }
+
+    public ngOnSearch(searchFcRequest: SearchFcRequest): void {
+        this.searchFcRequest = searchFcRequest;
+        this.paginate(this.pagination);
+    }
+
+    public paginate(pagination: Pagination): void {
+        this.pagination = pagination;
+        this.fcService
+            .searchFc({
+                data: this.searchFcRequest,
+                pageNo: pagination.page,
+                pageSize: pagination.pageSize,
+            })
+            .pipe(takeUntil(this.destroyService.$destroy))
+            .subscribe((response) => {
+                this.pagination.total = response.totalItems;
+                this.footballClubs = response.items;
+            });
+    }
 }

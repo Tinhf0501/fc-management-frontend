@@ -2,8 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { ApiResponse } from '@fms-module/common';
 import { environment } from 'environment';
-import { Observable } from 'rxjs';
-import { CreateFcRequest, UpdateFcRequest } from '../interface';
+import { Observable, map } from 'rxjs';
+import {
+    CreateFcRequest,
+    SearchFcRequest,
+    SearchFcResponse,
+    UpdateFcRequest,
+} from '../interface';
+import {
+    PagingRequest,
+    PagingResponse,
+} from '../../common/interface/paging.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -37,5 +46,16 @@ export class FootballClubService {
 
     public updateFc(updateFcRequest: UpdateFcRequest): Observable<ApiResponse> {
         return null;
+    }
+
+    public searchFc(
+        searchFcRequest: PagingRequest<SearchFcRequest>,
+    ): Observable<PagingResponse<SearchFcResponse>> {
+        return this.httpClient
+            .post<ApiResponse>(
+                `${environment.FMS_BE_URL}/fc/search`,
+                searchFcRequest,
+            )
+            .pipe(map((x) => x.apiBody.data));
     }
 }

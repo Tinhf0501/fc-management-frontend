@@ -28,6 +28,8 @@
         "CREATE": "thêm mới",
         "CREATED_BY": "người tạo",
         "CREATED_DATE": "ngày tạo",
+        "UPDATED_DATE": "ngày cập nhật",
+        "UPDATED_BY": "người cập nhật",
         "DESC": "mô tả",
         "EXPORT_EXCEL": "xuất excel",
         "FC": "đội bóng",
@@ -89,7 +91,12 @@
         },
         "INPUT_NAME": "nhập tên đội bóng",
         "NAME": "tên đội bóng",
-        "TITLE": "quản lý đội bóng"
+        "TITLE": "quản lý đội bóng",
+        "STATUS": {
+            "ACTIVE": "hoạt động",
+            "INACTIVE": "chưa hoạt động",
+            "CLOSE": "đóng"
+        }
     },
     "FORGOT_PASSWORD": {
         "RESET_PASSWORD": "đặt lại mật khẩu",

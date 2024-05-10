@@ -123,7 +123,7 @@ export class MemberGridComponent extends GridCore<any> {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.ACTION'),
                 cellRenderer: ActionColumnComponent,
-                cellEditorParams: {
+                cellRendererParams: {
                     actions: [
                         {
                             icon: ActionColumnIcon.EDIT,

@@ -47,12 +47,6 @@ input {
     text-transform: capitalize;
 }
 
-@for $i from 1 to 100 {
-    .gap-#{$i}px {
-        gap: #{$i}px;
-    }
-}
-
 .image-preview {
     .remove-image {
         width: 20px;
@@ -71,4 +65,9 @@ input {
 button:disabled {
     cursor: not-allowed !important;
     pointer-events: unset !important;
+}
+
+.ag-header-cell-label {
+    display: flex;
+    justify-content: center;
 }

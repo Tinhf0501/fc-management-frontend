@@ -18,6 +18,6 @@
         [pageSize]="pagination.pageSize"
         [ellipses]="true"
         [maxSize]="5"
-        (pageChange)="paginate.emit(pagination)"
+        (pageChange)="ngOnPageChange($event)"
     />
 </div>

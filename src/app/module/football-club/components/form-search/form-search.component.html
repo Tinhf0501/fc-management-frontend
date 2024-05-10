@@ -1,43 +1,52 @@
-<form class="d-flex flex-column gap-3" [formGroup]="formGroup">
+<form
+    class="d-flex flex-column gap-3"
+    [formGroup]="formGroup"
+    (submit)="ngOnSearch()"
+>
     <div class="row row-gap-3">
         <div class="col-md-3">
-            <label class="fw-semibold text-capitalize">{{
-                'FOOTBALL_CLUB.NAME' | translate
-            }}</label>
-            <input
-                class="form-control"
-                formControlName="name"
+            <fms-input
+                type="text"
+                formControlName="fcName"
+                [label]="'FOOTBALL_CLUB.NAME' | translate"
                 [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate"
-            />
+            ></fms-input>
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold text-capitalize">{{
-                'COMMON.STATUS' | translate
-            }}</label>
-            <ng-select
+            <fms-select
                 [items]="status"
+                [label]="'COMMON.STATUS' | translate"
+                [bindLabel]="'name'"
+                [bindValue]="'code'"
+                [multiple]="false"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
-                formControlName="status"
-                bindValue="code"
-                bindLabel="name"
-            ></ng-select>
+                formControlName="fcStatus"
+                [templates]="[
+                    {
+                        name: 'ng-label-tmp',
+                        templateRef: templateOption
+                    },
+                    {
+                        name: 'ng-option-tmp',
+                        templateRef: templateOption
+                    }
+                ]"
+            ></fms-select>
         </div>
 
         <div class="col-md-3">
-            <label class="fw-semibold text-capitalize">{{
-                'COMMON.FROM_DATE' | translate
-            }}</label>
-            <input
+            <fms-input
                 type="date"
-                class="form-control"
+                [label]="'COMMON.FROM_DATE' | translate"
                 formControlName="fromDate"
-            />
+            ></fms-input>
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold text-capitalize">{{
-                'COMMON.TO_DATE' | translate
-            }}</label>
-            <input type="date" class="form-control" formControlName="toDate" />
+            <fms-input
+                type="date"
+                [label]="'COMMON.TO_DATE' | translate"
+                formControlName="toDate"
+            ></fms-input>
         </div>
     </div>
 
@@ -50,3 +59,9 @@
         </button>
     </div>
 </form>
+
+<ng-template #templateOption let-item="item" let-index="index">
+    <span class="text-capitalize ng-option-label">{{
+        'FOOTBALL_CLUB.STATUS.' + item.desc | translate
+    }}</span>
+</ng-template>

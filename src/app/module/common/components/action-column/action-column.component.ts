@@ -18,7 +18,7 @@ export class ActionColumnComponent implements ICellRendererAngularComp {
 
     agInit(params: ICellRendererParams<any, any, any>): void {
         this.params = params;
-        this.actions = this.params.colDef.cellEditorParams.actions;
+        this.actions = this.params.colDef.cellRendererParams.actions;
     }
 
     refresh(params: ICellRendererParams<any, any, any>): boolean {

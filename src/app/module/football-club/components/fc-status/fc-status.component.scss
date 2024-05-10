@@ -1,0 +1,13 @@
+.status-box {
+    > div.ACTIVE {
+        color: var(--bs-success);
+    }
+
+    > div.INACTIVE {
+        color: var(--bs-danger);
+    }
+
+    > div.CLOSE {
+        color: var(--bs-warning);
+    }
+}
