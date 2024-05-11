@@ -1,5 +1,26 @@
 $sidebar-mobile-width: 6.5rem;
 
+:host ::ng-deep {
+    .nav-item {
+        .nav-link {
+            &.active,
+            &:hover {
+                color: #fff !important;
+                svg {
+                    color: #fff !important;
+                }
+            }
+
+            &.active {
+                color: #fff !important;
+                svg {
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}
+
 .sidebar {
     width: 0;
     min-height: 100vh;
@@ -167,11 +188,7 @@ $sidebar-mobile-width: 6.5rem;
         text-transform: uppercase;
         letter-spacing: 0.05rem;
         z-index: 1;
-        .sidebar-brand-icon {
-            i {
-                font-size: 2rem;
-            }
-        }
+
         .sidebar-brand-text {
             display: none;
         }
@@ -211,56 +228,7 @@ $sidebar-mobile-width: 6.5rem;
         display: none;
     }
 }
-.sidebar-light {
-    .sidebar-brand {
-        color: #6e707e;
-    }
-    hr.sidebar-divider {
-        border-top: 1px solid #eaecf4;
-    }
-    .sidebar-heading {
-        color: #b7b9cc;
-    }
-    .nav-item {
-        .nav-link {
-            color: #858796;
-            i {
-                color: #d1d3e2;
-            }
-            &:active {
-                color: #6e707e;
-                i {
-                    color: #6e707e;
-                }
-            }
-            &:focus {
-                color: #6e707e;
-                i {
-                    color: #6e707e;
-                }
-            }
-            &:hover {
-                color: #6e707e;
-                i {
-                    color: #6e707e;
-                }
-            }
-        }
-        .nav-link[data-toggle='collapse'] {
-            &::after {
-                color: #b7b9cc;
-            }
-        }
-    }
-    .nav-item.active {
-        .nav-link {
-            color: #6e707e;
-            i {
-                color: #6e707e;
-            }
-        }
-    }
-}
+
 .sidebar-dark {
     .sidebar-brand {
         color: #fff;
@@ -274,35 +242,6 @@ $sidebar-mobile-width: 6.5rem;
     .nav-item {
         .nav-link {
             color: rgba(255, 255, 255, 0.8);
-            i {
-                color: rgba(255, 255, 255, 0.3);
-            }
-
-            &.active {
-                color: #fff;
-                i {
-                    color: #fff;
-                }
-            }
-            &:hover {
-                color: #fff;
-                i {
-                    color: #fff;
-                }
-            }
-        }
-        .nav-link[data-toggle='collapse'] {
-            &::after {
-                color: rgba(255, 255, 255, 0.5);
-            }
-        }
-    }
-    .nav-item.active {
-        .nav-link {
-            color: #fff;
-            i {
-                color: #fff;
-            }
         }
     }
 }
@@ -338,39 +277,13 @@ $sidebar-mobile-width: 6.5rem;
                 display: block;
                 text-align: left;
                 width: 14rem;
-                i {
-                    font-size: 0.85rem;
-                    margin-right: 0.25rem;
-                }
                 span {
                     font-size: 0.85rem;
                     display: inline;
                 }
             }
-            .nav-link[data-toggle='collapse'] {
-                &::after {
-                    width: 1rem;
-                    text-align: center;
-                    float: right;
-                    vertical-align: 0;
-                    border: 0;
-                    font-weight: 900;
-                    content: '\f107';
-                    font-family: 'Font Awesome 5 Free';
-                }
-            }
-            .nav-link[data-toggle='collapse'].collapsed {
-                &::after {
-                    content: '\f105';
-                }
-            }
         }
         .sidebar-brand {
-            .sidebar-brand-icon {
-                i {
-                    font-size: 2rem;
-                }
-            }
             .sidebar-brand-text {
                 display: inline;
             }
@@ -415,22 +328,9 @@ $sidebar-mobile-width: 6.5rem;
                     font-size: 0.65rem;
                     display: block;
                 }
-                i {
-                    margin-right: 0;
-                }
-            }
-            .nav-link[data-toggle='collapse'] {
-                &::after {
-                    display: none;
-                }
             }
         }
         .sidebar-brand {
-            .sidebar-brand-icon {
-                i {
-                    font-size: 2rem;
-                }
-            }
             .sidebar-brand-text {
                 display: none;
             }

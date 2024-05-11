@@ -11,6 +11,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 import { CreateFootballClubPage } from '../create-football-club/create-football-club.page';
 import { SidebarService } from '@fms-layout/main';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'update-football-club',
@@ -19,6 +20,7 @@ import { SidebarService } from '@fms-layout/main';
     standalone: true,
     imports: [
         TranslateModule,
+        FontAwesomeModule,
 
         CreateFcFormComponent,
         ButtonBackComponent,

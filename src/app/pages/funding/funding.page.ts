@@ -7,6 +7,7 @@ import {
 import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'funding-page',
@@ -18,6 +19,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
         FundingGridComponent,
         PaginationComponent,
         TranslateModule,
+        FontAwesomeModule,
     ],
 })
 export class FundingPage {

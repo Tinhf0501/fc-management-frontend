@@ -5,6 +5,7 @@ import {
     FormBuilder,
     FormGroup,
 } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -18,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
         ReactiveFormsModule,
         NgSelectModule,
         TranslateModule,
+        FontAwesomeModule,
     ],
 })
 export class DonateFormSearchComponent implements OnInit {

@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <span class="h4">Thông tin người ghi bản</span>
             <button class="btn btn-sm btn-success">
-                <i class="fas fa-plus me-2"></i>
+                <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
                 <span class="text-capitalize"
                     >{{ 'COMMON.CREATE' | translate }}</span
                 >
@@ -17,7 +17,7 @@
 
     <div class="d-flex justify-content-center gap-2">
         <button class="btn btn-sm btn-success">
-            <i class="fas fa-plus me-2"></i>
+            <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
             <span class="text-capitalize">{{ 'COMMON.SAVE' | translate }}</span>
         </button>
         <button-back></button-back>

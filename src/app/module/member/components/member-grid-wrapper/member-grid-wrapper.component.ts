@@ -4,12 +4,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CreateMemberModal } from '../create-member-modal/create-member-modal.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateFCMemberRequest } from '../../interface';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'member-grid-wrapper',
     templateUrl: './member-grid-wrapper.component.html',
     standalone: true,
-    imports: [MemberGridComponent, TranslateModule],
+    imports: [MemberGridComponent, TranslateModule, FontAwesomeModule],
 })
 export class MemberGridWrapperComponent {
     private readonly modalService = inject(NgbModal);

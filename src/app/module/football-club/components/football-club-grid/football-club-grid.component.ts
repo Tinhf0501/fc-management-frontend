@@ -1,17 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { Router } from '@angular/router';
 import {
     ActionColumnComponent,
-    ActionColumnIcon,
     GridCore,
-    formatDate,
+    formatDate
 } from '@fms-module/common';
-import { SearchFcResponse } from '../../interface';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { AgGridAngular } from 'ag-grid-angular';
+import { ColDef, ICellRendererParams } from 'ag-grid-community';
 import { FC_STATUS } from '../../constant';
+import { SearchFcResponse } from '../../interface';
 import { FcStatusComponent } from '../fc-status/fc-status.component';
-import { Router } from '@angular/router';
-
 @Component({
     selector: 'fc-grid',
     templateUrl:
@@ -99,7 +98,7 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
                 cellRendererParams: {
                     actions: [
                         {
-                            icon: ActionColumnIcon.EDIT,
+                            icon: faEdit,
                             classes: 'text-warning',
                             onClick: this.onClickEditFc.bind(this),
                         },

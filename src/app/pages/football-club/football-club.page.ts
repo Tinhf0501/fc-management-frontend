@@ -12,6 +12,7 @@ import {
     SearchFcRequest,
     SearchFcResponse,
 } from '@fms-module/football-club';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 @Component({
@@ -25,6 +26,7 @@ import { takeUntil } from 'rxjs';
         PaginationComponent,
         RouterLink,
         TranslateModule,
+        FontAwesomeModule,
     ],
     providers: [DestroyService],
 })

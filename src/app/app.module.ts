@@ -16,6 +16,11 @@ import { SpinnerComponent } from './module/common/components';
 import { AuthInterceptor, LoaderInterceptor } from './module/common/service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+    FontAwesomeModule,
+    FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 const translateLoaderFactory = (
     httpClient: HttpClient,
@@ -43,6 +48,7 @@ const translateLoaderFactory = (
         }),
         SpinnerComponent,
         ToastrModule.forRoot(),
+        FontAwesomeModule,
     ],
     providers: [
         {
@@ -58,4 +64,8 @@ const translateLoaderFactory = (
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas);
+    }
+}

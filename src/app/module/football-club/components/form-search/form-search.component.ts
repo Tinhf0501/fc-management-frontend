@@ -9,6 +9,7 @@ import { FmsInputComponent, FmsSelectComponent } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchFcRequest } from '../../interface';
 import { FC_STATUS } from '../../constant';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'fc-form-search',
@@ -19,6 +20,7 @@ import { FC_STATUS } from '../../constant';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
+        FontAwesomeModule,
 
         FmsInputComponent,
         FmsSelectComponent,
