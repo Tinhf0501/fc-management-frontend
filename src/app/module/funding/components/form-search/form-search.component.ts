@@ -5,6 +5,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { SearchWrapperComponent } from '@fms-module/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
@@ -19,8 +20,9 @@ import { TranslateModule } from '@ngx-translate/core';
         ReactiveFormsModule,
         TranslateModule,
         NgSelectModule,
-
         FontAwesomeModule,
+
+        SearchWrapperComponent,
     ],
 })
 export class FundingFormSearchComponent implements OnInit {

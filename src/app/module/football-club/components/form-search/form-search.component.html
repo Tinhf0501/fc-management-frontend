@@ -1,8 +1,4 @@
-<form
-    class="d-flex flex-column gap-3"
-    [formGroup]="formGroup"
-    (submit)="ngOnSearch()"
->
+<search-wrapper [formGroup]="formGroup" (search)="ngOnSearch($event)">
     <div class="row row-gap-3">
         <div class="col-md-3">
             <fms-input
@@ -49,16 +45,7 @@
             ></fms-input>
         </div>
     </div>
-
-    <div class="d-flex justify-content-start justify-content-md-center">
-        <button class="btn btn-primary">
-            <fa-icon [icon]="['fas', 'search']" class="me-2"></fa-icon>
-            <span class="text-capitalize">{{
-                'COMMON.SEARCH' | translate
-            }}</span>
-        </button>
-    </div>
-</form>
+</search-wrapper>
 
 <ng-template #templateOption let-item="item" let-index="index">
     <span class="text-capitalize ng-option-label">{{

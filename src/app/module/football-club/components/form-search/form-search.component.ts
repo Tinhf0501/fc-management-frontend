@@ -5,7 +5,11 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import { FmsInputComponent, FmsSelectComponent } from '@fms-module/common';
+import {
+    FmsInputComponent,
+    FmsSelectComponent,
+    SearchWrapperComponent,
+} from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchFcRequest } from '../../interface';
 import { FC_STATUS } from '../../constant';
@@ -24,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
         FmsInputComponent,
         FmsSelectComponent,
+        SearchWrapperComponent,
     ],
 })
 export class FcFormSearchComponent implements OnInit {
@@ -41,8 +46,8 @@ export class FcFormSearchComponent implements OnInit {
         this.formInitialized.emit(this.formGroup);
     }
 
-    public ngOnSearch(): void {
-        const searchFcRequest = this.formGroup.getRawValue() as SearchFcRequest;
+    public ngOnSearch(formGroup: FormGroup): void {
+        const searchFcRequest = formGroup.getRawValue() as SearchFcRequest;
         this.search.emit(searchFcRequest);
     }
 

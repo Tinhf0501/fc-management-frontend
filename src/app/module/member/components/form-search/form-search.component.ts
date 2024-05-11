@@ -7,6 +7,7 @@ import {
     FormBuilder,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { SearchWrapperComponent } from '@fms-module/common';
 
 @Component({
     selector: 'member-form-search',
@@ -18,6 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
         ReactiveFormsModule,
         NgSelectModule,
         TranslateModule,
+
+        SearchWrapperComponent,
     ],
 })
 export class MemberFormSearchComponent implements OnInit {
