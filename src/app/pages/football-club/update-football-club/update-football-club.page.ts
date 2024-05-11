@@ -5,7 +5,10 @@ import {
     CreateFcFormComponent,
     UpdateFcRequest,
 } from '@fms-module/football-club';
-import { MemberGridWrapperComponent } from '@fms-module/member';
+import {
+    MemberGridWrapperComponent,
+    UpdateFCMemberRequest,
+} from '@fms-module/member';
 import { ListMediaComponent } from '@fms-module/resource';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
@@ -37,6 +40,8 @@ export class UpdateFootballClubPage extends CreateFootballClubPage {
     private readonly sidebarService = inject(SidebarService);
     private readonly translateService = inject(TranslateService);
 
+    public updateMember: UpdateFCMemberRequest[];
+
     public override ngOnInit(): void {
         super.ngOnInit();
         this.fcName ??= 'FOOTBALL_CLUB.UPDATE.TITLE';
@@ -48,14 +53,18 @@ export class UpdateFootballClubPage extends CreateFootballClubPage {
     }
 
     public override onSubmitForm(): void {
+        const data = this.createFcForm.getRawValue();
+
         const updateFcRequest: UpdateFcRequest = {
             fcId: this.fcId,
-            fcName: '',
-            description: '',
+            fcName: data.fcName,
+            description: data.description,
             fcMembers: this.members,
             logo: this.avatar,
             media: this.media.files,
-            pathMediaIdsDelete: [''],
+            fcMemberUpdate: this.updateMember,
+            pathLogoDel: '',
+            pathMediaDelete: [''],
             fcMemberIdsDelete: [1],
         };
 
