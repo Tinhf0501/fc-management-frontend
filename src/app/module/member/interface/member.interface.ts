@@ -12,4 +12,6 @@ export interface CreateFCMemberRequest {
 
 export interface UpdateFCMemberRequest extends CreateFCMemberRequest {
     memberId: number;
+    fcId: number;
+    pathAvatarDel?: string;
 }

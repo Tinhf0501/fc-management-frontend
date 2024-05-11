@@ -7,6 +7,7 @@ import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SpendingCreateModalComponent } from '@fms-module/spending';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'spending-page',
@@ -18,6 +19,7 @@ import { SpendingCreateModalComponent } from '@fms-module/spending';
         SpendingGridComponent,
         TranslateModule,
         PaginationComponent,
+        FontAwesomeModule,
     ],
 })
 export class SpendingPage {

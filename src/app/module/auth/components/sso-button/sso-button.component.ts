@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { SingleSignOn } from 'src/app/module/auth/interface/sso.interface';
 
@@ -7,7 +8,7 @@ import { SingleSignOn } from 'src/app/module/auth/interface/sso.interface';
     templateUrl: './sso-button.component.html',
     styleUrls: ['./sso-button.component.scss'],
     standalone: true,
-    imports: [TranslateModule],
+    imports: [TranslateModule, FontAwesomeModule],
 })
 export class SsoButtonComponent {
     @Input()

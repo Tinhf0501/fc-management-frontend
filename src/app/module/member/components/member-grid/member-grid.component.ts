@@ -1,21 +1,20 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import {
     ActionColumnComponent,
-    ActionColumnIcon,
     ConfirmationComponent,
     GridCore,
-    fileToImageUrl,
+    fileToImageUrl
 } from '@fms-module/common';
 import {
     CreateFCMemberRequest,
     CreateMemberModal,
     POSITION_MAP,
 } from '@fms-module/member';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, ICellRendererParams } from 'ag-grid-community';
-
 @Component({
     selector: 'member-grid',
     templateUrl:
@@ -123,15 +122,15 @@ export class MemberGridComponent extends GridCore<any> {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.ACTION'),
                 cellRenderer: ActionColumnComponent,
-                cellEditorParams: {
+                cellRendererParams: {
                     actions: [
                         {
-                            icon: ActionColumnIcon.EDIT,
+                            icon: faEdit,
                             classes: 'text-warning',
                             onClick: this.onEditMember.bind(this),
                         },
                         {
-                            icon: ActionColumnIcon.DELETE,
+                            icon: faTrash,
                             classes: 'text-danger',
                             onClick: this.onDeleteMember.bind(this),
                         },

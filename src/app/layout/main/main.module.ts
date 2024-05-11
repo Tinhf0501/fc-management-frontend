@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LanguageComponent } from '@fms-module/common';
+import {
+    FaIconComponent,
+    FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
 
 const imports = [
     CommonModule,
@@ -19,6 +23,7 @@ const imports = [
     TranslateModule,
     NgSelectModule,
     LanguageComponent,
+    FontAwesomeModule,
 ];
 
 const declarations = [MainLayout, MainHeaderComponent, MainSidebarComponent];

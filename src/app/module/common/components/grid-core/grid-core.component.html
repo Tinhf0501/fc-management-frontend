@@ -8,7 +8,9 @@
     [noRowsOverlayComponent]="noRowComponent"
     [tooltipShowDelay]="0"
     [tooltipShowMode]="'whenTruncated'"
+    [enableCellTextSelection]="true"
     [copyHeadersToClipboard]="true"
+    [suppressMovableColumns]="true"
     [copyGroupHeadersToClipboard]="true"
     (gridSizeChanged)="onGridSizeChanged($event)"
 ></ag-grid-angular>

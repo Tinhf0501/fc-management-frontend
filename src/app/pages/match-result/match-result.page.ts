@@ -6,6 +6,7 @@ import {
 import { PaginationComponent, Pagination } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'match-result-page',
@@ -17,6 +18,7 @@ import { RouterLink } from '@angular/router';
         MatchResultGridComponent,
         PaginationComponent,
         TranslateModule,
+        FontAwesomeModule,
 
         RouterLink,
     ],

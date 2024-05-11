@@ -1,13 +1,19 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import {
-    FormsModule,
-    ReactiveFormsModule,
     FormBuilder,
     FormGroup,
-    Validators,
+    FormsModule,
+    ReactiveFormsModule,
 } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
+import {
+    FmsInputComponent,
+    FmsSelectComponent,
+    SearchWrapperComponent,
+} from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { SearchFcRequest } from '../../interface';
+import { FC_STATUS } from '../../constant';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'fc-form-search',
@@ -17,35 +23,40 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        NgSelectModule,
         TranslateModule,
+        FontAwesomeModule,
+
+        FmsInputComponent,
+        FmsSelectComponent,
+        SearchWrapperComponent,
     ],
 })
 export class FcFormSearchComponent implements OnInit {
+    @Output() formInitialized = new EventEmitter<FormGroup>();
+
+    @Output() search = new EventEmitter<SearchFcRequest>();
+
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
-    public status = [
-        {
-            code: 0,
-            name: 'Không hoạt đông',
-        },
-        {
-            code: 1,
-            name: 'Hoạt động',
-        },
-    ];
+    public status = FC_STATUS;
 
     public ngOnInit(): void {
         this.buildFormGroup();
+        this.formInitialized.emit(this.formGroup);
+    }
+
+    public ngOnSearch(formGroup: FormGroup): void {
+        const searchFcRequest = formGroup.getRawValue() as SearchFcRequest;
+        this.search.emit(searchFcRequest);
     }
 
     private buildFormGroup(): void {
         this.formGroup = this.formBuilder.group({
-            name: [null, [Validators.required]],
-            status: [null, [Validators.required]],
-            fromDate: [null, [Validators.required]],
-            toDate: [null, [Validators.required]],
+            fcName: [null],
+            fcStatus: [null],
+            fromDate: [null],
+            toDate: [null],
         });
     }
 }

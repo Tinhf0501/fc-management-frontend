@@ -29,4 +29,9 @@ export class PaginationComponent implements OnInit {
     public ngOnInit(): void {
         this.currentPageSize = this.pagination.pageSize;
     }
+
+    public ngOnPageChange(page: number): void {
+        this.pagination.page = page;
+        this.paginate.emit(this.pagination);
+    }
 }

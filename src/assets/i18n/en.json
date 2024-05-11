@@ -26,8 +26,10 @@
         "NOT_FOUND": "not found",
         "CANCEL": "cancel",
         "CREATE": "create",
-        "CREATED_BY": "created by",
+        "CREATED_BY": "creator",
         "CREATED_DATE": "created date",
+        "UPDATED_DATE": "updated date",
+        "UPDATED_BY": "updater",
         "DESC": "description",
         "EXPORT_EXCEL": "export excel",
         "FC": "football club",
@@ -89,7 +91,12 @@
         },
         "INPUT_NAME": "enter football club name",
         "NAME": "football club name",
-        "TITLE": "football club management"
+        "TITLE": "football club management",
+        "STATUS": {
+            "ACTIVE": "active",
+            "INACTIVE": "inactive",
+            "CLOSE": "close"
+        }
     },
     "FORGOT_PASSWORD": {
         "RESET_PASSWORD": "reset password",

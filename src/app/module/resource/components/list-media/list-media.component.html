@@ -6,7 +6,7 @@
             (click)="onOpenUploadModal()"
             [disabled]="media.files.length >= maxNumberFile"
         >
-            <i class="fas fa-plus me-2"></i>
+            <fa-icon [icon]="'plus'" class="me-2"></fa-icon>
             <span class="text-capitalize">{{
                 'RESOURCE.ADD_MEDIA' | translate
             }}</span>

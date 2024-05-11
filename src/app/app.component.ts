@@ -7,7 +7,7 @@ import {
     Router,
     Scroll,
 } from '@angular/router';
-import { DestroyService, SpinnerService } from '@fms-module/common';
+import { DestroyService } from '@fms-module/common';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, map, takeUntil } from 'rxjs';
 import { SidebarService } from './layout/main/service/sidebar.service';
@@ -25,9 +25,6 @@ export class AppComponent implements OnInit {
     private sidebarService: SidebarService = inject(SidebarService);
     private titleService: Title = inject(Title);
     private destroyService = inject(DestroyService);
-    private spinnerService = inject(SpinnerService);
-
-    public $spinner = this.spinnerService.spinnerObservable;
 
     public title: string;
 
@@ -60,13 +57,14 @@ export class AppComponent implements OnInit {
                     }
                     return snapshot.data;
                 }),
+                filter((data) => data?.title),
                 takeUntil(this.destroyService.$destroy),
             )
             .subscribe((data) => {
-                this.sidebarService.changeTitle(data.title ?? '');
                 this.title = data.title;
+                this.sidebarService.changeTitle(this.title);
                 this.titleService.setTitle(
-                    `${this.translateService.instant(data.title).toUpperCase()} | FMS`,
+                    `${this.translateService.instant(this.title).toUpperCase()} | FMS`,
                 );
             });
     }

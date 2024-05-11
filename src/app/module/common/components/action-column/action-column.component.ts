@@ -5,12 +5,19 @@ import { ActionColumn } from '@fms-module/common';
 import { NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'action-column',
     templateUrl: './action-column.component.html',
     standalone: true,
-    imports: [NgIf, NgFor, TranslateModule, NgbTooltipModule],
+    imports: [
+        NgIf,
+        NgFor,
+        TranslateModule,
+        NgbTooltipModule,
+        FontAwesomeModule,
+    ],
 })
 export class ActionColumnComponent implements ICellRendererAngularComp {
     public params: ICellRendererParams;
@@ -18,7 +25,7 @@ export class ActionColumnComponent implements ICellRendererAngularComp {
 
     agInit(params: ICellRendererParams<any, any, any>): void {
         this.params = params;
-        this.actions = this.params.colDef.cellEditorParams.actions;
+        this.actions = this.params.colDef.cellRendererParams.actions;
     }
 
     refresh(params: ICellRendererParams<any, any, any>): boolean {

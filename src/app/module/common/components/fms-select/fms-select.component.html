@@ -12,7 +12,7 @@
         [bindValue]="bindValue"
         [placeholder]="placeholder"
         [multiple]="multiple"
-        [closeOnSelect]="false"
+        [closeOnSelect]="!multiple"
         [(ngModel)]="value"
         (blur)="markAsTouched()"
         (ngModelChange)="onChangeValue()"

@@ -16,6 +16,7 @@ import {
     MemberGridWrapperComponent,
 } from '@fms-module/member';
 import { ListMediaComponent, Media } from '@fms-module/resource';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 
@@ -26,6 +27,7 @@ import { takeUntil } from 'rxjs';
     standalone: true,
     imports: [
         TranslateModule,
+        FontAwesomeModule,
 
         CreateFcFormComponent,
         ButtonBackComponent,

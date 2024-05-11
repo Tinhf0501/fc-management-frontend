@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import {
+    ActionColumnComponent,
+    GridCore,
+    formatDate
+} from '@fms-module/common';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms-module/common';
-
+import { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { FC_STATUS } from '../../constant';
+import { SearchFcResponse } from '../../interface';
+import { FcStatusComponent } from '../fc-status/fc-status.component';
 @Component({
     selector: 'fc-grid',
     templateUrl:
@@ -11,51 +19,51 @@ import { GridCore } from '@fms-module/common';
     standalone: true,
     imports: [AgGridAngular],
 })
-export class FootballClubGridComponent extends GridCore<any> {
+export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
+    private readonly router = inject(Router);
+
     public override getColumnDefs(): ColDef[] {
         return [
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.NO'),
                 valueGetter: (param) => {
-                    return param.node.rowIndex + 1;
+                    const { page, pageSize } = this.pagination;
+                    const rowNumber = param.node.rowIndex + 1;
+                    return (page - 1) * pageSize + rowNumber;
                 },
                 minWidth: 50,
+                maxWidth: 50,
                 pinned: 'left',
             },
             {
                 headerValueGetter: (param) =>
-                    this.translateService.instant('FOOTBALL_CLUB.CODE'),
-                field: 'code',
-                tooltipField: 'code',
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
                     this.translateService.instant('FOOTBALL_CLUB.NAME'),
-                field: 'name',
-                tooltipField: 'name',
+                field: 'fcName',
+                tooltipField: 'fcName',
                 minWidth: 100,
             },
             {
                 headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.DESC'),
-                field: 'description',
-                tooltipField: 'description',
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.AVATAR'),
-                field: 'logo',
-                tooltipField: 'logo',
+                    this.translateService.instant('COMMON.STATUS'),
+                cellRenderer: FcStatusComponent,
+                tooltipValueGetter: (params) => {
+                    const { status } = params.data;
+                    return this.translateService.instant(
+                        `FOOTBALL_CLUB.STATUS.${FC_STATUS[status - 1].desc}`,
+                    );
+                },
                 minWidth: 100,
             },
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.CREATED_DATE'),
-                field: 'createdDate',
-                tooltipField: 'createdDate',
+                valueGetter: (param) => {
+                    return formatDate(param.data.createdDate);
+                },
+                tooltipValueGetter: (param) => {
+                    return formatDate(param.data.createdDate);
+                },
                 minWidth: 100,
             },
             {
@@ -67,31 +75,55 @@ export class FootballClubGridComponent extends GridCore<any> {
             },
             {
                 headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.STATUS'),
-                field: 'status',
-                tooltipField: 'status',
+                    this.translateService.instant('COMMON.UPDATED_DATE'),
+                valueGetter: (param) => {
+                    return formatDate(param.data.updatedDate);
+                },
+                tooltipValueGetter: (param) => {
+                    return formatDate(param.data.updatedDate);
+                },
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: (param) =>
+                    this.translateService.instant('COMMON.UPDATED_BY'),
+                field: 'updatedBy',
+                tooltipField: 'updatedBy',
                 minWidth: 100,
             },
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('COMMON.ACTION'),
-                minWidth: 100,
+                cellRenderer: ActionColumnComponent,
+                cellRendererParams: {
+                    actions: [
+                        {
+                            icon: faEdit,
+                            classes: 'text-warning',
+                            onClick: this.onClickEditFc.bind(this),
+                        },
+                    ],
+                },
+                minWidth: 50,
                 pinned: 'right',
             },
         ];
     }
 
     public override getRowData(): any[] {
-        return [
+        return null;
+    }
+
+    public onClickEditFc(params: ICellRendererParams): void {
+        const data = params.data;
+        this.router.navigate(
+            ['football-club', 'update-football-club', data.slug],
             {
-                code: '123',
-                name: 'FC Tình Lý Do',
-                description: 'Hay lý do',
-                logo: 'no image',
-                createdDate: '05/01/2000',
-                createdBy: 'tinhf0501',
-                status: 'Đang hoạt động',
+                queryParams: {
+                    fcId: data.fcId,
+                    fcName: data.fcName,
+                },
             },
-        ];
+        );
     }
 }

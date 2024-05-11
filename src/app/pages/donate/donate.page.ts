@@ -7,6 +7,7 @@ import {
 import { PaginationComponent, Pagination } from '@fms-module/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'donate-page',
@@ -18,6 +19,8 @@ import { TranslateModule } from '@ngx-translate/core';
         DonateGridComponent,
         PaginationComponent,
         TranslateModule,
+
+        FontAwesomeModule,
     ],
 })
 export class DonatePage {

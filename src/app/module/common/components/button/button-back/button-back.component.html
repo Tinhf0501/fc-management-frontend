@@ -1,4 +1,4 @@
 <button [class]="class" (click)="goBack()">
-    <i class="fas fa-backspace me-2"></i>
+    <fa-icon [icon]="['fas', 'arrow-left']" [classes]="['me-2']"></fa-icon>
     <span class="text-capitalize">{{ 'COMMON.GO_BACK' | translate }}</span>
 </button>

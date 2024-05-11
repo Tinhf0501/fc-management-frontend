@@ -9,12 +9,14 @@ import {
 } from 'ag-grid-community';
 import { Subject, takeUntil } from 'rxjs';
 import { NoRowComponent } from './no-row/no-row.component';
+import { Pagination } from '../../interface';
 
 @Component({
     template: '',
 })
 export abstract class GridCore<T> implements OnInit, OnDestroy {
     @Input() rowData: T[];
+    @Input() pagination: Pagination;
 
     public noRowComponent = NoRowComponent;
 
