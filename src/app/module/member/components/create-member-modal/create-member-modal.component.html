@@ -1,30 +1,12 @@
-<div class="d-flex flex-column">
-    <div class="modal-header d-flex justify-content-between">
-        <span class="h4 text-capitalize">{{
-            (member ? 'MEMBER.UPDATE_TITLE' : 'MEMBER.CREATE_TITLE') | translate
-        }}</span>
-    </div>
-
-    <div class="modal-body">
-        <create-member-form
-            [member]="member"
-            (formInitialized)="formGroup = $event"
-            (changeAvatar)="avatar = $event"
-        ></create-member-form>
-    </div>
-
-    <div class="modal-footer d-flex justify-content-center gap-2">
-        <button
-            class="btn btn-primary text-capitalize"
-            (click)="onSaveMember()"
-        >
-            {{ 'COMMON.SAVE' | translate }}
-        </button>
-        <button
-            class="btn btn-secondary text-capitalize"
-            (click)="onCloseModal()"
-        >
-            {{ 'COMMON.CANCEL' | translate }}
-        </button>
-    </div>
-</div>
+<modal-wrapper
+    [headerTitle]="
+        (member ? 'MEMBER.UPDATE_TITLE' : 'MEMBER.CREATE_TITLE') | translate
+    "
+    (save)="onSaveMember()"
+>
+    <create-member-form
+        [member]="member"
+        (formInitialized)="formGroup = $event"
+        (changeAvatar)="avatar = $event"
+    ></create-member-form>
+</modal-wrapper>

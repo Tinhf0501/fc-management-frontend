@@ -7,3 +7,4 @@ export * from './spinner/spinner.component';
 export * from './action-column/action-column.component';
 export * from './confirmation/confirmation.component';
 export * from './fms-select/fms-select.component';
+export * from './modal-wrapper/modal-wrapper.component';

@@ -1,19 +1,17 @@
-import { Component, inject } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateDonateFormComponent } from '../create-donate-form/create-donate-form.component';
+import { Component } from '@angular/core';
+import { ModalWrapperComponent } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { CreateDonateFormComponent } from '../create-donate-form/create-donate-form.component';
 
 @Component({
     selector: 'create-donate-modal',
     templateUrl: './create-donate-modal.component.html',
     styleUrls: ['./create-donate-modal.component.scss'],
     standalone: true,
-    imports: [TranslateModule, CreateDonateFormComponent],
+    imports: [
+        TranslateModule,
+        CreateDonateFormComponent,
+        ModalWrapperComponent,
+    ],
 })
-export class CreateDonateModalComponent {
-    private activeModal: NgbActiveModal = inject(NgbActiveModal);
-
-    public closeModal(): void {
-        this.activeModal.dismiss();
-    }
-}
+export class CreateDonateModalComponent {}
