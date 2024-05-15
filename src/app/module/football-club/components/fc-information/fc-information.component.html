@@ -1,0 +1,49 @@
+<div class="row" *ngIf="footballClub">
+    <div class="col-md-5 border-end border-2 p-3">
+        <img
+            [src]="footballClub.logo"
+            [alt]="footballClub.fcName"
+            class="w-100 h-100"
+        />
+    </div>
+    <div class="col-md-7 d-flex flex-column row-gap-10px">
+        <div class="row">
+            <div class="col-sm-6 d-flex gap-10px">
+                <span class="fw-bold">Mã FC:</span>
+                <span>{{ footballClub.fcId }}</span>
+            </div>
+            <div class="col-sm-6 d-flex gap-10px">
+                <span class="fw-bold">Trạng thái:</span>
+                <span>{{ footballClub.status }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 d-flex gap-10px">
+                <span class="fw-bold">Tên FC:</span>
+                <span>{{ footballClub.fcName }}</span>
+            </div>
+            <div class="col-sm-6 d-flex gap-10px">
+                <span class="fw-bold">Người tạo:</span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 d-flex gap-10px">
+                <span class="fw-bold">Ngày tạo:</span>
+                <span>{{ footballClub.createdDate | date: 'dd/MM/yyyy' }}</span>
+            </div>
+            <div class="col-sm-6 d-flex gap-10px"></div>
+        </div>
+
+        <div class="row flex-grow-1">
+            <div class="col-md-12 d-flex flex-column row-gap-5px h-100">
+                <span class="fw-bold">Mô tả</span>
+                <span class="border p-3 flex-grow-1">{{
+                    footballClub.description
+                }}</span>
+            </div>
+        </div>
+    </div>
+</div>

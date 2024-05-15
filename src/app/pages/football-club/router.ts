@@ -14,6 +14,13 @@ export const router: Route = {
             },
         },
         {
+            path: 'detail/:slug',
+            loadComponent: () =>
+                import(
+                    '../../pages/football-club/detail-football-club/detail-football-club.page'
+                ).then((p) => p.DetailFootballClubPage),
+        },
+        {
             path: 'create-football-club',
             loadComponent: () =>
                 import(

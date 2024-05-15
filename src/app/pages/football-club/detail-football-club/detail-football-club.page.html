@@ -1,0 +1,17 @@
+<div
+    class="d-flex flex-column row-gap-20px"
+    *ngIf="$detailFc | async as detailFc"
+>
+    <fms-box label="Thông tin câu lạc bộ">
+        <fc-information [footballClub]="detailFc"></fc-information>
+    </fms-box>
+
+    <fms-box label="Danh sách thành viên">
+        <div style="height: 300px">
+            <member-grid
+                [rowData]="detailFc.listMembers"
+                [readonly]="true"
+            ></member-grid>
+        </div>
+    </fms-box>
+</div>

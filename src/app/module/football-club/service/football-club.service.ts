@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ApiResponse } from '@fms-module/common';
+import { ApiBody, ApiResponse } from '@fms-module/common';
 import { environment } from 'environment';
 import { Observable, map } from 'rxjs';
 import {
     CreateFcRequest,
+    DetailFCResponse,
     SearchFcRequest,
     SearchFcResponse,
     UpdateFcRequest,
@@ -57,5 +58,17 @@ export class FootballClubService {
                 searchFcRequest,
             )
             .pipe(map((x) => x.apiBody.data));
+    }
+
+    public getDetailFc(fcId: number): Observable<DetailFCResponse> {
+        return this.httpClient.get<DetailFCResponse>(`${environment.FMS_BE_URL}/fc/detail`, {
+            params: {
+                fcId: fcId
+            }
+        })
+        .pipe(
+            map<any, ApiBody>((x: ApiResponse) => x.apiBody),
+            map<ApiBody, DetailFCResponse>(x => x.data)
+        )
     }
 }

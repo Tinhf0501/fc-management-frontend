@@ -9,3 +9,4 @@ export * from './confirmation/confirmation.component';
 export * from './fms-select/fms-select.component';
 export * from './modal-wrapper/modal-wrapper.component';
 export * from './search-wrapper/search-wrapper.component';
+export * from './fms-box/fms-box.component';
