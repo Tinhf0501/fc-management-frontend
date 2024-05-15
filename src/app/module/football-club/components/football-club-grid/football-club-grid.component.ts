@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {
     ActionColumnComponent,
     GridCore,
-    formatDate
+    formatDate,
 } from '@fms-module/common';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -42,6 +42,13 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
                 field: 'fcName',
                 tooltipField: 'fcName',
                 minWidth: 100,
+            },
+            {
+                headerValueGetter: (param) =>
+                    this.translateService.instant('MEMBER.TEXT'),
+                field: 'totalMembers',
+                tooltipField: 'totalMembers',
+                minWidth: 150,
             },
             {
                 headerValueGetter: (param) =>

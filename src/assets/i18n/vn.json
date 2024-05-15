@@ -104,6 +104,7 @@
         "TITLE": "quên mật khẩu"
     },
     "MEMBER": {
+        "TEXT": "thành viên",
         "ADDRESS": "địa chỉ",
         "AVATAR": "ảnh đại diện",
         "CREATE_MEMBER": "thêm thành viên",

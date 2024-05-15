@@ -104,6 +104,7 @@
         "TITLE": "forgot your password"
     },
     "MEMBER": {
+        "TEXT": "member",
         "ADDRESS": "address",
         "AVATAR": "profile image",
         "CREATE_MEMBER": "create member",
