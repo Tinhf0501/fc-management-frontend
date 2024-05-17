@@ -191,7 +191,15 @@
         "DATE": "funded date",
         "DESC": "description",
         "AMOUNT_PERSON": "amount/person",
-        "INPUT_AMOUNT_PERSON": "enter amount/person"
+        "INPUT_AMOUNT_PERSON": "enter amount/person",
+        "TOTAL_PAID": "total closed funds",
+        "TOTAL_SPENT": "total amount spent",
+        "TOTAL_DONATED": "total amount donated",
+        "AVAILABEL": "total remaining funds",
+        "TOTAL_MEMBER_PAID": "The members who have fully paid the fund",
+        "TOTAL_MEMBER_UNPAID": "member have not paid the fund",
+        "TOTAL_AMOUNT_UNPAID": "total amount of missing funds",
+        "STATISTIC_FUNDING": "fund statistics"
     },
     "SPENDING": {
         "TITLE": "spending management",

@@ -191,7 +191,15 @@
         "DATE": "ngày đóng quỹ",
         "DESC": "mô tả",
         "AMOUNT_PERSON": "số tiền/người",
-        "INPUT_AMOUNT_PERSON": "nhập số tiền/người"
+        "INPUT_AMOUNT_PERSON": "nhập số tiền/người",
+        "TOTAL_PAID": "tổng số quỹ đã đóng",
+        "TOTAL_SPENT": "tổng số tiền đã chi",
+        "TOTAL_DONATED": "tổng số tiền đã được donate",
+        "AVAILABEL": "tổng số quỹ còn lại",
+        "TOTAL_MEMBER_PAID": "số người đã đóng quỹ đủ",
+        "TOTAL_MEMBER_UNPAID": "số người chưa đóng quỹ",
+        "TOTAL_AMOUNT_UNPAID": "tổng số tiền quỹ còn thiếu",
+        "STATISTIC_FUNDING": "thống kê quỹ"
     },
     "SPENDING": {
         "TITLE": "quản lý chi tiêu",

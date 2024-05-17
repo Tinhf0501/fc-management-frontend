@@ -2,7 +2,7 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SidebarService } from '@fms-layout/main';
-import { DestroyService, FmsBoxComponent } from '@fms-module/common';
+import { FmsBoxComponent } from '@fms-module/common';
 import {
     DetailFCResponse,
     FcInformationComponent,
@@ -10,6 +10,8 @@ import {
 } from '@fms-module/football-club';
 import { MemberGridComponent } from '@fms-module/member';
 import { Observable } from 'rxjs';
+import { FundingInformationComponent } from '@fms-module/funding';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'detail-football-club',
@@ -18,6 +20,9 @@ import { Observable } from 'rxjs';
     imports: [
         FcInformationComponent,
         MemberGridComponent,
+        FundingInformationComponent,
+
+        TranslateModule,
         AsyncPipe,
         NgIf,
         FmsBoxComponent,
