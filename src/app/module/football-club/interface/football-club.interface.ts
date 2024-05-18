@@ -1,5 +1,6 @@
 import {
     CreateFCMemberRequest,
+    DetailMemberResponse,
     UpdateFCMemberRequest,
 } from '@fms-module/member';
 
@@ -17,4 +18,16 @@ export interface UpdateFcRequest extends CreateFcRequest {
     pathLogoDel?: string;
     fcMemberIdsDelete?: number[];
     pathMediaDelete?: string[];
+}
+
+export interface DetailFCResponse {
+    fcId: number;
+    fcName: string;
+    description?: string;
+    status: number;
+    slug: string;
+    createdDate: number;
+    logo: string;
+    listResource?: string[];
+    listMembers?: DetailMemberResponse[];
 }

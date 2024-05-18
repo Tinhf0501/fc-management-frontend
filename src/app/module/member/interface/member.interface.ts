@@ -15,3 +15,14 @@ export interface UpdateFCMemberRequest extends CreateFCMemberRequest {
     fcId: number;
     pathAvatarDel?: string;
 }
+
+export interface DetailMemberResponse {
+    memberId: number;
+    avatar?: string;
+    nameShirt: string;
+    numberShirt: number;
+    position: string;
+    fullName: string;
+    phoneNumber: string;
+    address?: string;
+}

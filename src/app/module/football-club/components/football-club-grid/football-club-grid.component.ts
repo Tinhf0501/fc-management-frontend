@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import {
     ActionColumnComponent,
     GridCore,
-    formatDate
+    formatDate,
 } from '@fms-module/common';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, ICellRendererParams } from 'ag-grid-community';
 import { FC_STATUS } from '../../constant';
@@ -41,6 +41,13 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
                     this.translateService.instant('FOOTBALL_CLUB.NAME'),
                 field: 'fcName',
                 tooltipField: 'fcName',
+                minWidth: 100,
+            },
+            {
+                headerValueGetter: (param) =>
+                    this.translateService.instant('MEMBER.TEXT'),
+                field: 'totalMembers',
+                tooltipField: 'totalMembers',
                 minWidth: 100,
             },
             {
@@ -98,6 +105,11 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
                 cellRendererParams: {
                     actions: [
                         {
+                            icon: faEye,
+                            classes: 'text-dark',
+                            onClick: this.onClickViewDetailFc.bind(this),
+                        },
+                        {
                             icon: faEdit,
                             classes: 'text-warning',
                             onClick: this.onClickEditFc.bind(this),
@@ -114,7 +126,19 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
         return null;
     }
 
-    public onClickEditFc(params: ICellRendererParams): void {
+    public onClickViewDetailFc(
+        params: ICellRendererParams<SearchFcResponse>,
+    ): void {
+        const data = params.data;
+        this.router.navigate(['football-club', 'detail', data.slug], {
+            queryParams: {
+                fcId: data.fcId,
+                fcName: data.fcName,
+            },
+        });
+    }
+
+    public onClickEditFc(params: ICellRendererParams<SearchFcResponse>): void {
         const data = params.data;
         this.router.navigate(
             ['football-club', 'update-football-club', data.slug],

@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import {
     ActionColumnComponent,
     ConfirmationComponent,
     GridCore,
-    fileToImageUrl
+    fileToImageUrl,
 } from '@fms-module/common';
 import {
     CreateFCMemberRequest,
@@ -15,6 +15,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, ICellRendererParams } from 'ag-grid-community';
+
 @Component({
     selector: 'member-grid',
     templateUrl:
@@ -24,6 +25,8 @@ import { ColDef, ICellRendererParams } from 'ag-grid-community';
     imports: [AgGridAngular, TranslateModule],
 })
 export class MemberGridComponent extends GridCore<any> {
+    @Input() readonly: boolean = false;
+
     @Output() updateMember = new EventEmitter<{
         data: CreateFCMemberRequest;
         index: number;
@@ -41,7 +44,7 @@ export class MemberGridComponent extends GridCore<any> {
     }
 
     public override getColumnDefs(): ColDef[] {
-        return [
+        const column: ColDef[] = [
             {
                 headerValueGetter: (param) =>
                     this.translateService.instant('MEMBER.AVATAR'),
@@ -140,6 +143,10 @@ export class MemberGridComponent extends GridCore<any> {
                 pinned: 'right',
             },
         ];
+        if (this.readonly) {
+            column.splice(column.length - 1, 1);
+        }
+        return column;
     }
 
     public override getRowData(): any[] {

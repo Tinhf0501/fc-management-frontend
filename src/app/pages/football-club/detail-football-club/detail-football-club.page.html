@@ -1,0 +1,37 @@
+<div
+    class="d-flex flex-column row-gap-20px"
+    *ngIf="$detailFc | async as detailFc"
+>
+    <fms-box label="Thông tin câu lạc bộ">
+        <fc-information [footballClub]="detailFc"></fc-information>
+    </fms-box>
+
+    <fms-box label="Danh sách thành viên">
+        <div style="height: 300px">
+            <member-grid
+                [rowData]="detailFc.listMembers"
+                [readonly]="true"
+            ></member-grid>
+        </div>
+    </fms-box>
+
+    <fms-box [label]="'FUNDING.STATISTIC_FUNDING' | translate">
+        <funding-information></funding-information>
+    </fms-box>
+
+    <fms-box [label]="'MATCH_RESULT.STATISTIC' | translate">
+        <match-result-information></match-result-information>
+        <h6 class="fst-italic my-3">Kết quả 10 trận gần nhất</h6>
+        <div style="height: 300px">
+            <match-result-grid></match-result-grid>
+        </div>
+    </fms-box>
+
+    <fms-box [label]="'RESOURCE.MEDIA' | translate ">
+        <list-media
+            [media]="{url: detailFc.listResource, files: []}"
+            [readonly]="true"
+            [showTitle]="false"
+        ></list-media>
+    </fms-box>
+</div>

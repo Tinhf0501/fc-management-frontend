@@ -104,6 +104,7 @@
         "TITLE": "quên mật khẩu"
     },
     "MEMBER": {
+        "TEXT": "thành viên",
         "ADDRESS": "địa chỉ",
         "AVATAR": "ảnh đại diện",
         "CREATE_MEMBER": "thêm thành viên",
@@ -175,7 +176,15 @@
         "SCORE": "tý số",
         "CREATE": {
             "TITLE": "thêm mới kết quả trận đấu"
-        }
+        },
+        "STATISTIC": "thống kê kết quả thi đấu",
+        "TOTAL_WIN": "số trận thắng",
+        "TOTAL_LOSE": "số trận thua",
+        "TOTAL_DRAWS": "số trận hòa",
+        "LOSE_GOAL": "số bàn thua",
+        "TOTAL_GOAL": "số bàn thắng",
+        "GOAL_SCORER": "vua phá lưới",
+        "WIN_RATE": "tỷ lệ thắng"
     },
     "SCORER": {
         "NAME": "người ghi bàn",
@@ -190,7 +199,15 @@
         "DATE": "ngày đóng quỹ",
         "DESC": "mô tả",
         "AMOUNT_PERSON": "số tiền/người",
-        "INPUT_AMOUNT_PERSON": "nhập số tiền/người"
+        "INPUT_AMOUNT_PERSON": "nhập số tiền/người",
+        "TOTAL_PAID": "tổng số quỹ đã đóng",
+        "TOTAL_SPENT": "tổng số tiền đã chi",
+        "TOTAL_DONATED": "tổng số tiền đã được donate",
+        "AVAILABLE": "tổng số quỹ còn lại",
+        "TOTAL_MEMBER_PAID": "số người đã đóng quỹ đủ",
+        "TOTAL_MEMBER_UNPAID": "số người chưa đóng quỹ",
+        "TOTAL_AMOUNT_UNPAID": "tổng số tiền quỹ còn thiếu",
+        "STATISTIC_FUNDING": "thống kê quỹ"
     },
     "SPENDING": {
         "TITLE": "quản lý chi tiêu",

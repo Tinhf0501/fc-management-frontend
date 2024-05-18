@@ -4,3 +4,9 @@
         gap: #{$i}px;
     }
 }
+
+@for $i from 1 to 100 {
+    .row-gap-#{$i}px {
+        row-gap: #{$i}px;
+    }
+}
