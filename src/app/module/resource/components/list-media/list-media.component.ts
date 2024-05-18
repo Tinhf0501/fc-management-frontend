@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { fileToImageUrl } from '@fms-module/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     templateUrl: './list-media.component.html',
     styleUrls: ['./list-media.component.scss'],
     standalone: true,
-    imports: [NgFor, TranslateModule, FontAwesomeModule],
+    imports: [NgFor, TranslateModule, FontAwesomeModule, NgIf],
 })
 export class ListMediaComponent {
     @Input() allowsFile: string[];
@@ -21,6 +21,9 @@ export class ListMediaComponent {
         files: [],
         url: [],
     };
+    @Input() readonly: boolean = false;
+    @Input() showTitle: boolean = true;
+
     @Output() changeMedia = new EventEmitter<Media>();
 
     private readonly modalService = inject(NgbModal);

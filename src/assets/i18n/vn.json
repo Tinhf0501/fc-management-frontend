@@ -176,7 +176,15 @@
         "SCORE": "tý số",
         "CREATE": {
             "TITLE": "thêm mới kết quả trận đấu"
-        }
+        },
+        "STATISTIC": "thống kê kết quả thi đấu",
+        "TOTAL_WIN": "số trận thắng",
+        "TOTAL_LOSE": "số trận thua",
+        "TOTAL_DRAWS": "số trận hòa",
+        "LOSE_GOAL": "số bàn thua",
+        "TOTAL_GOAL": "số bàn thắng",
+        "GOAL_SCORER": "vua phá lưới",
+        "WIN_RATE": "tỷ lệ thắng"
     },
     "SCORER": {
         "NAME": "người ghi bàn",
@@ -195,7 +203,7 @@
         "TOTAL_PAID": "tổng số quỹ đã đóng",
         "TOTAL_SPENT": "tổng số tiền đã chi",
         "TOTAL_DONATED": "tổng số tiền đã được donate",
-        "AVAILABEL": "tổng số quỹ còn lại",
+        "AVAILABLE": "tổng số quỹ còn lại",
         "TOTAL_MEMBER_PAID": "số người đã đóng quỹ đủ",
         "TOTAL_MEMBER_UNPAID": "số người chưa đóng quỹ",
         "TOTAL_AMOUNT_UNPAID": "tổng số tiền quỹ còn thiếu",

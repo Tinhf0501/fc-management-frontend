@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
     DestroyService,
+    FmsBoxComponent,
     Pagination,
     PaginationComponent,
 } from '@fms-module/common';
@@ -24,6 +25,8 @@ import { takeUntil } from 'rxjs';
         FcFormSearchComponent,
         FootballClubGridComponent,
         PaginationComponent,
+        FmsBoxComponent,
+
         RouterLink,
         TranslateModule,
         FontAwesomeModule,

@@ -12,6 +12,11 @@ import { MemberGridComponent } from '@fms-module/member';
 import { Observable } from 'rxjs';
 import { FundingInformationComponent } from '@fms-module/funding';
 import { TranslateModule } from '@ngx-translate/core';
+import {
+    MatchResultInformationComponent,
+    MatchResultGridComponent,
+} from '@fms-module/match-result';
+import { ListMediaComponent } from '@fms-module/resource';
 
 @Component({
     selector: 'detail-football-club',
@@ -21,6 +26,9 @@ import { TranslateModule } from '@ngx-translate/core';
         FcInformationComponent,
         MemberGridComponent,
         FundingInformationComponent,
+        MatchResultInformationComponent,
+        MatchResultGridComponent,
+        ListMediaComponent,
 
         TranslateModule,
         AsyncPipe,

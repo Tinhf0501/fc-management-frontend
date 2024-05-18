@@ -18,4 +18,20 @@
     <fms-box [label]="'FUNDING.STATISTIC_FUNDING' | translate">
         <funding-information></funding-information>
     </fms-box>
+
+    <fms-box [label]="'MATCH_RESULT.STATISTIC' | translate">
+        <match-result-information></match-result-information>
+        <h6 class="fst-italic my-3">Kết quả 10 trận gần nhất</h6>
+        <div style="height: 300px">
+            <match-result-grid></match-result-grid>
+        </div>
+    </fms-box>
+
+    <fms-box [label]="'RESOURCE.MEDIA' | translate ">
+        <list-media
+            [media]="{url: detailFc.listResource, files: []}"
+            [readonly]="true"
+            [showTitle]="false"
+        ></list-media>
+    </fms-box>
 </div>

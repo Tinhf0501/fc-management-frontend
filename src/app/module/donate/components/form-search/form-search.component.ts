@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {
-    FormsModule,
-    ReactiveFormsModule,
     FormBuilder,
     FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
 } from '@angular/forms';
 import { SearchWrapperComponent } from '@fms-module/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
