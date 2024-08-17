@@ -1,41 +1,53 @@
-<div>
-    <label
-        *ngIf="label"
-        class="fw-semibold text-capitalize"
-        [class.required]="required"
-        >{{ label }}</label
-    >
-    <ng-container [ngSwitch]="variant">
-        <input
-            *ngSwitchCase="'input'"
-            [type]="type"
-            [disabled]="isDisabled"
-            [placeholder]="placeholder"
-            class="form-control"
-            [(ngModel)]="value"
-            (blur)="markAsTouched()"
-            (ngModelChange)="onChangeValue()"
-        />
-
-        <textarea
-            *ngSwitchCase="'textarea'"
-            style="min-height: 150px"
-            class="form-control"
-            [placeholder]="placeholder"
-            [disabled]="isDisabled"
-            [(ngModel)]="value"
-            (blur)="markAsTouched()"
-            (ngModelChange)="onChangeValue()"
-        ></textarea>
-    </ng-container>
-</div>
-<div *ngIf="control.touched && control.invalid">
-    <div *ngFor="let err of control.errors | keyvalue">
-        <div
-            *ngIf="err.value && errorsMessage[err.key]"
-            class="text-danger fw-semibold text-capitalize"
+<fms-message-error
+    [isError]="control.touched && control.invalid"
+    [errors]="control.errors"
+    [errorsMessage]="errorsMessage"
+>
+    <div>
+        <label
+            *ngIf="label"
+            class="fw-semibold text-capitalize"
+            [class.required]="required"
+            >{{ label }}</label
         >
-            {{ errorsMessage[err.key] | translate }}
-        </div>
+        <nz-input-group [nzSuffix]="inputClearTpl">
+            <ng-container [ngSwitch]="variant">
+                <input
+                    *ngSwitchCase="'input'"
+                    nz-input
+                    [type]="type"
+                    [disabled]="isDisabled"
+                    [placeholder]="placeholder"
+                    [(ngModel)]="value"
+                    [nzStatus]="
+                        control.touched && control.invalid ? 'error' : ''
+                    "
+                    (blur)="markAsTouched()"
+                    (ngModelChange)="onChangeValue()"
+                />
+
+                <textarea
+                    *ngSwitchCase="'textarea'"
+                    nz-input
+                    style="min-height: 150px"
+                    [placeholder]="placeholder"
+                    [disabled]="isDisabled"
+                    [nzStatus]="
+                        control.touched && control.invalid ? 'error' : ''
+                    "
+                    [(ngModel)]="value"
+                    (blur)="markAsTouched()"
+                    (ngModelChange)="onChangeValue()"
+                ></textarea>
+            </ng-container>
+        </nz-input-group>
+
+        <ng-template #inputClearTpl>
+            <fms-icon
+                *ngIf="value"
+                [iconName]="'close-circle'"
+                (click)="value = null"
+            ></fms-icon>
+        </ng-template>
     </div>
-</div>
+</fms-message-error>

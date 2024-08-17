@@ -1,73 +1,70 @@
-<div>
-    <label
-        *ngIf="label"
-        class="fw-semibold text-capitalize"
-        [class.required]="required"
-        >{{ label }}</label
-    >
-    <ng-select
-        [items]="items"
-        [groupBy]="group"
-        [bindLabel]="bindLabel"
-        [bindValue]="bindValue"
-        [placeholder]="placeholder"
-        [multiple]="multiple"
-        [closeOnSelect]="!multiple"
-        [(ngModel)]="value"
-        (blur)="markAsTouched()"
-        (ngModelChange)="onChangeValue()"
-    >
-        <ng-container *ngFor="let tmp of templates" [ngSwitch]="tmp.name">
-            <ng-template
-                *ngSwitchCase="'ng-option-tmp'"
-                ng-option-tmp
-                let-item="item"
-                let-index="index"
-            >
-                <ng-container
-                    [ngTemplateOutlet]="tmp.templateRef"
-                    [ngTemplateOutletContext]="{ item: item, index: index }"
-                ></ng-container>
-            </ng-template>
-
-            <ng-template
-                *ngSwitchCase="'ng-optgroup-tmp'"
-                ng-optgroup-tmp
-                let-item="item"
-                let-index="index"
-            >
-                <ng-container
-                    [ngTemplateOutlet]="tmp.templateRef"
-                    [ngTemplateOutletContext]="{ item: item, index: index }"
-                ></ng-container>
-            </ng-template>
-
-            <ng-template
-                *ngSwitchCase="'ng-label-tmp'"
-                ng-label-tmp
-                let-item="item"
-                let-index="index"
-                let-clear="clear"
-            >
-                <ng-container
-                    [ngTemplateOutlet]="tmp.templateRef"
-                    [ngTemplateOutletContext]="{
-                        item: item,
-                        index: index,
-                        clear: clear
-                    }"
-                ></ng-container>
-            </ng-template>
-        </ng-container>
-    </ng-select>
-</div>
-<div *ngIf="control.touched && control.invalid">
-    <div *ngFor="let err of control.errors | keyvalue">
-        <div
-            *ngIf="err.value && errorsMessage[err.key]"
-            class="text-danger fw-semibold text-capitalize"
+<fms-message-error
+    [isError]="control.touched && control.invalid"
+    [errorsMessage]="errorsMessage"
+    [errors]="control.errors"
+>
+    <div>
+        <label
+            *ngIf="label"
+            class="fw-semibold text-capitalize"
+            [class.required]="required"
+            >{{ label }}</label
         >
-            {{ errorsMessage[err.key] | translate }}
-        </div>
+
+        <nz-select
+            class="w-100"
+            [nzMode]="multiple ? 'multiple' : 'default'"
+            [nzShowArrow]="true"
+            [nzPlaceHolder]="placeholder"
+            [(ngModel)]="value"
+            [nzDisabled]="isDisabled"
+            [nzAllowClear]="true"
+            [nzShowSearch]="true"
+            [nzStatus]="control.touched && control.invalid ? 'error' : ''"
+            (ngModelChange)="onChangeValue()"
+            (nzBlur)="markAsTouched()"
+        >
+            <ng-container *ngFor="let x of options()">
+                <nz-option-group
+                    *ngIf="group; else nonGroup"
+                    [nzLabel]="x.groupLabel"
+                >
+                    <ng-container
+                        *ngFor="let item of x.items"
+                        [ngTemplateOutlet]="optionTemplate"
+                        [ngTemplateOutletContext]="{ item: item }"
+                    >
+                    </ng-container>
+                </nz-option-group>
+
+                <ng-template #nonGroup>
+                    <ng-container
+                        [ngTemplateOutlet]="optionTemplate"
+                        [ngTemplateOutletContext]="{ item: x }"
+                    ></ng-container>
+                </ng-template>
+
+                <ng-template #optionTemplate let-item="item">
+                    <nz-option
+                        nzCustomContent
+                        [nzValue]="item.value"
+                        [nzLabel]="
+                            item.i18key ? (item.i18key | translate) : item.label
+                        "
+                    >
+                        <ng-container
+                            [ngTemplateOutlet]="
+                                customOptionTemplate ?? nonCustomOptionTemplate
+                            "
+                            [ngTemplateOutletContext]="{ item: item }"
+                        ></ng-container>
+                    </nz-option>
+                </ng-template>
+
+                <ng-template #nonCustomOptionTemplate let-item="item">
+                    {{ item.i18key ? (item.i18key | translate) : item.label }}
+                </ng-template>
+            </ng-container>
+        </nz-select>
     </div>
-</div>
+</fms-message-error>

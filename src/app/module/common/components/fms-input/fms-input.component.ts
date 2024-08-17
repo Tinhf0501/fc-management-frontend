@@ -1,10 +1,4 @@
-import {
-    KeyValuePipe,
-    NgFor,
-    NgIf,
-    NgSwitch,
-    NgSwitchCase,
-} from '@angular/common';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import {
     ControlContainer,
@@ -12,9 +6,10 @@ import {
     FormGroup,
     FormsModule,
     NG_VALUE_ACCESSOR,
-    ReactiveFormsModule,
 } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { FmsIconComponent } from '../fms-icon/fms-icon.component';
+import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error.component';
 
 @Component({
     selector: 'fms-input',
@@ -22,14 +17,13 @@ import { TranslateModule } from '@ngx-translate/core';
     styleUrls: ['./fms-input.component.scss'],
     standalone: true,
     imports: [
-        FormsModule,
-        ReactiveFormsModule,
         NgIf,
+        FormsModule,
         NgSwitch,
         NgSwitchCase,
-        NgFor,
-        KeyValuePipe,
-        TranslateModule,
+        NzInputModule,
+        FmsIconComponent,
+        FmsMessageErrorComponent,
     ],
     providers: [
         {

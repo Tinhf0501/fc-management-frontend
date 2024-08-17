@@ -19,16 +19,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         FontAwesomeModule,
     ],
 })
-export class ActionColumnComponent implements ICellRendererAngularComp {
-    public params: ICellRendererParams;
+export class ActionColumnComponent {
     public actions: ActionColumn[];
-
-    agInit(params: ICellRendererParams<any, any, any>): void {
-        this.params = params;
-        this.actions = this.params.colDef.cellRendererParams.actions;
-    }
-
-    refresh(params: ICellRendererParams<any, any, any>): boolean {
-        return false;
-    }
 }

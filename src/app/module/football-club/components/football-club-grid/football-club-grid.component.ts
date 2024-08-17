@@ -1,135 +1,107 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {
     ActionColumnComponent,
-    GridCore,
-    formatDate,
+    ColumnTable,
+    FmsTableComponent,
+    Pagination,
 } from '@fms-module/common';
 import { faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { TranslateService } from '@ngx-translate/core';
 import { FC_STATUS } from '../../constant';
 import { SearchFcResponse } from '../../interface';
-import { FcStatusComponent } from '../fc-status/fc-status.component';
 @Component({
     selector: 'fc-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    templateUrl: './football-club-grid.component.html',
     styleUrls: ['./football-club-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [FmsTableComponent],
 })
-export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
+export class FootballClubGridComponent {
+    @Input() rowData: SearchFcResponse[];
+    @Input() pagination: Pagination;
+
     private readonly router = inject(Router);
+    private readonly translateService = inject(TranslateService);
 
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                valueGetter: (param) => {
-                    const { page, pageSize } = this.pagination;
-                    const rowNumber = param.node.rowIndex + 1;
-                    return (page - 1) * pageSize + rowNumber;
-                },
-                minWidth: 50,
-                maxWidth: 50,
-                pinned: 'left',
+    readonly columns: ColumnTable<SearchFcResponse>[] = [
+        {
+            label: 'COMMON.NO',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
             },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('FOOTBALL_CLUB.NAME'),
-                field: 'fcName',
-                tooltipField: 'fcName',
-                minWidth: 100,
+        },
+        {
+            label: 'FOOTBALL_CLUB.NAME',
+            name: 'fcName',
+        },
+        {
+            label: 'MEMBER.TEXT',
+            name: 'totalMembers',
+        },
+        {
+            label: 'COMMON.STATUS',
+            name: 'status',
+            valueGetter: (data) => {
+                return this.translateService.instant(
+                    `FOOTBALL_CLUB.STATUS.${FC_STATUS[data.status - 1].desc}`,
+                );
             },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.TEXT'),
-                field: 'totalMembers',
-                tooltipField: 'totalMembers',
-                minWidth: 100,
+        },
+        {
+            label: 'COMMON.CREATED_DATE',
+            name: 'createdDate',
+        },
+        {
+            label: 'COMMON.CREATED_BY',
+            name: 'createdBy',
+        },
+        {
+            label: 'COMMON.UPDATED_DATE',
+            name: 'updatedDate',
+        },
+        {
+            label: 'COMMON.UPDATED_BY',
+            name: 'updatedBy',
+        },
+        {
+            label: '',
+            customColumn: ActionColumnComponent,
+            customColumnParams: {
+                actions: [
+                    {
+                        icon: faEye,
+                        classes: 'text-dark',
+                        onClick: this.onClickViewDetailFc.bind(this),
+                    },
+                    {
+                        icon: faEdit,
+                        classes: 'text-warning',
+                        onClick: this.onClickEditFc.bind(this),
+                    },
+                ],
             },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.STATUS'),
-                cellRenderer: FcStatusComponent,
-                tooltipValueGetter: (params) => {
-                    const { status } = params.data;
-                    return this.translateService.instant(
-                        `FOOTBALL_CLUB.STATUS.${FC_STATUS[status - 1].desc}`,
-                    );
-                },
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.CREATED_DATE'),
-                valueGetter: (param) => {
-                    return formatDate(param.data.createdDate);
-                },
-                tooltipValueGetter: (param) => {
-                    return formatDate(param.data.createdDate);
-                },
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.CREATED_BY'),
-                field: 'createdBy',
-                tooltipField: 'createdBy',
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.UPDATED_DATE'),
-                valueGetter: (param) => {
-                    return formatDate(param.data.updatedDate);
-                },
-                tooltipValueGetter: (param) => {
-                    return formatDate(param.data.updatedDate);
-                },
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.UPDATED_BY'),
-                field: 'updatedBy',
-                tooltipField: 'updatedBy',
-                minWidth: 100,
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                cellRenderer: ActionColumnComponent,
-                cellRendererParams: {
-                    actions: [
-                        {
-                            icon: faEye,
-                            classes: 'text-dark',
-                            onClick: this.onClickViewDetailFc.bind(this),
-                        },
-                        {
-                            icon: faEdit,
-                            classes: 'text-warning',
-                            onClick: this.onClickEditFc.bind(this),
-                        },
-                    ],
-                },
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+        },
+    ];
 
-    public override getRowData(): any[] {
-        return null;
-    }
+    readonly rows: SearchFcResponse[] = [
+        {
+            fcId: 1,
+            fcName: 'ssss',
+            desc: 'sdfs',
+            totalMembers: 10,
+            createdDate: 10,
+            createdBy: 'suongnv',
+            updatedDate: 10,
+            updatedBy: 'suongnv',
+            status: 1,
+            slug: 'asdfasdf',
+        },
+    ];
 
-    public onClickViewDetailFc(
-        params: ICellRendererParams<SearchFcResponse>,
-    ): void {
-        const data = params.data;
+    public onClickViewDetailFc(data: SearchFcResponse): void {
         this.router.navigate(['football-club', 'detail', data.slug], {
             queryParams: {
                 fcId: data.fcId,
@@ -138,8 +110,7 @@ export class FootballClubGridComponent extends GridCore<SearchFcResponse> {
         });
     }
 
-    public onClickEditFc(params: ICellRendererParams<SearchFcResponse>): void {
-        const data = params.data;
+    public onClickEditFc(data: SearchFcResponse): void {
         this.router.navigate(
             ['football-club', 'update-football-club', data.slug],
             {

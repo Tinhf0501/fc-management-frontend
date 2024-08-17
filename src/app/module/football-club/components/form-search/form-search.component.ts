@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnInit,
+    Output,
+    inject,
+    signal,
+} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
@@ -6,6 +13,8 @@ import {
     ReactiveFormsModule,
 } from '@angular/forms';
 import {
+    FmsButtonComponent,
+    FmsDateComponent,
     FmsInputComponent,
     FmsSelectComponent,
     SearchWrapperComponent,
@@ -13,7 +22,6 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchFcRequest } from '../../interface';
 import { FC_STATUS } from '../../constant';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'fc-form-search',
@@ -24,11 +32,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        FontAwesomeModule,
-
         FmsInputComponent,
         FmsSelectComponent,
         SearchWrapperComponent,
+        FmsDateComponent,
     ],
 })
 export class FcFormSearchComponent implements OnInit {
@@ -39,8 +46,7 @@ export class FcFormSearchComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
-    public status = FC_STATUS;
-
+    public status = signal(FC_STATUS);
     public ngOnInit(): void {
         this.buildFormGroup();
         this.formInitialized.emit(this.formGroup);
@@ -55,7 +61,7 @@ export class FcFormSearchComponent implements OnInit {
         this.formGroup = this.formBuilder.group({
             fcName: [null],
             fcStatus: [null],
-            fromDate: [null],
+            fromDate: [],
             toDate: [null],
         });
     }

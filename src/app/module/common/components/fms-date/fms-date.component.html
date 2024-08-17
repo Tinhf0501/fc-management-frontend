@@ -1,0 +1,22 @@
+<fms-message-error
+    [isError]="control.touched && control.invalid"
+    [errors]="control.errors"
+    [errorsMessage]="errorsMessage"
+>
+    <label
+        *ngIf="label"
+        class="fw-semibold text-capitalize"
+        [class.required]="required"
+        >{{ label }}</label
+    >
+    <nz-date-picker
+        class="w-100"
+        [(ngModel)]="value"
+        [nzDisabled]="disabled"
+        [nzFormat]="'dd-MM-yyyy'"
+        [nzPlaceHolder]="placeholder ?? 'dd-MM-yyyy'"
+        [nzDisabledDate]="disableDateFn"
+        [nzStatus]="control.touched && control.invalid ? 'error' : ''"
+        (ngModelChange)="onChange($event)"
+    ></nz-date-picker>
+</fms-message-error>

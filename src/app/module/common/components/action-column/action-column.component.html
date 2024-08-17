@@ -4,7 +4,6 @@
 >
     <button
         *ngFor="let action of actions"
-        (click)="action.onClick(this.params)"
         [title]="action.label || (action.i18Key | translate) || ''"
         class="bg-transparent border-0"
         [class]="action.classes"

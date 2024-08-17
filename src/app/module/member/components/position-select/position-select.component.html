@@ -12,20 +12,7 @@
             required: 'MEMBER.ERRORS.POSITION.REQUIRED'
         }"
         [group]="'group'"
-        [templates]="[
-            {
-                name: 'ng-label-tmp',
-                templateRef: templateLabel
-            },
-            {
-                name: 'ng-option-tmp',
-                templateRef: templateOption
-            },
-            {
-                name: 'ng-optgroup-tmp',
-                templateRef: templateGroup
-            }
-        ]"
+        [customOptionTemplate]="templateLabel"
     >
         <ng-template
             #templateLabel

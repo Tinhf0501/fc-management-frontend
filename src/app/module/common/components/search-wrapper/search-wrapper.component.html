@@ -6,11 +6,9 @@
     <ng-content></ng-content>
 
     <div class="d-flex justify-content-start justify-content-md-center">
-        <button class="btn btn-primary">
-            <fa-icon [icon]="['fas', 'search']" class="me-2"></fa-icon>
-            <span class="text-capitalize">{{
-                'COMMON.SEARCH' | translate
-            }}</span>
-        </button>
+        <fms-button
+            [label]="'COMMON.SEARCH' | translate"
+            [icon]="'search'"
+        ></fms-button>
     </div>
 </form>

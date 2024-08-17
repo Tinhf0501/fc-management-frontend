@@ -5,6 +5,7 @@ import {
     OnInit,
     Output,
     inject,
+    signal,
 } from '@angular/core';
 import { DestroyService, FmsSelectComponent } from '@fms-module/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -38,7 +39,7 @@ export class PositionSelectComponent implements OnInit {
     private readonly destroyService = inject(DestroyService);
 
     public formGroup: FormGroup;
-    public positions = POSITIONS;
+    public positions = signal(POSITIONS);
 
     ngOnInit(): void {
         this.formGroup = this.formBuilder.group({

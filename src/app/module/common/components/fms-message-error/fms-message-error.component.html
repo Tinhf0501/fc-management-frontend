@@ -1,0 +1,13 @@
+<div>
+    <ng-content></ng-content>
+    <div *ngIf="isError">
+        <div *ngFor="let err of errors | keyvalue">
+            <div
+                *ngIf="err.value && errorsMessage?.[err.key]"
+                class="text-danger fw-semibold text-capitalize"
+            >
+                {{ errorsMessage[err.key] | translate }}
+            </div>
+        </div>
+    </div>
+</div>

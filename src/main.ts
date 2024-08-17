@@ -1,13 +1,5 @@
 /// <reference types="@angular/localize" />
 
-import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-import {
-    provideRouter,
-    withComponentInputBinding,
-    withInMemoryScrolling,
-} from '@angular/router';
-import { routes } from './app/router';
 import {
     HTTP_INTERCEPTORS,
     HttpClient,
@@ -15,12 +7,21 @@ import {
     withInterceptorsFromDi,
 } from '@angular/common/http';
 import { APP_INITIALIZER, importProvidersFrom } from '@angular/core';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ToastrModule } from 'ngx-toastr';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withInMemoryScrolling,
+} from '@angular/router';
 import { AuthInterceptor, LoaderInterceptor } from '@fms-module/common';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/router';
 
 const translateLoaderFactory = (
     httpClient: HttpClient,
@@ -30,6 +31,8 @@ const translateLoaderFactory = (
 
 bootstrapApplication(AppComponent, {
     providers: [
+        provideNzI18n(en_US),
+        provideAnimations(),
         provideRouter(
             routes,
             withComponentInputBinding(),
@@ -39,7 +42,6 @@ bootstrapApplication(AppComponent, {
         ),
         provideHttpClient(withInterceptorsFromDi()),
         importProvidersFrom([
-            ToastrModule.forRoot(),
             TranslateModule.forRoot({
                 defaultLanguage: localStorage.getItem('language') ?? 'vn',
                 loader: {

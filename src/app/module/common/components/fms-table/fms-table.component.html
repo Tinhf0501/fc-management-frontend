@@ -1,0 +1,48 @@
+<nz-table
+    #table
+    [nzShowPagination]="!!pagination"
+    [nzShowSizeChanger]="!!pagination"
+    [nzData]="rows"
+    (nzPageIndexChange)="paginate.emit($event)"
+    (nzPageSizeChange)="pageSizeChange.emit($event)"
+    [nzPageIndex]="pagination?.page"
+    [nzPageSize]="pagination?.pageSize"
+    [nzBordered]="true"
+>
+    <thead>
+        <tr>
+            <th
+                *ngFor="let header of columns"
+                [nzShowCheckbox]="header.showCheckbox"
+            >
+                {{ header.label | translate }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of table.data; let i = index">
+            <td
+                *ngFor="let header of columns"
+                [nzShowCheckbox]="header.showCheckbox"
+                [nzChecked]="!!data[header.name]"
+            >
+                <ng-container
+                    *ngIf="header.customColumn; else orignal"
+                    asDynamicView
+                    [component]="header.customColumn"
+                    [params]="header.customColumnParams"
+                >
+                </ng-container>
+                <ng-template #orignal>
+                    <div
+                        *ngIf="header.valueGetter"
+                        [innerHTML]="header.valueGetter(data, i)"
+                    ></div>
+                    <ng-container *ngIf="!header.valueGetter">
+                        {{ data[header.name] }}
+                    </ng-container>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

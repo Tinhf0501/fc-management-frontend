@@ -10,3 +10,8 @@ export * from './fms-select/fms-select.component';
 export * from './modal-wrapper/modal-wrapper.component';
 export * from './search-wrapper/search-wrapper.component';
 export * from './fms-box/fms-box.component';
+export * from './fms-icon/fms-icon.component';
+export * from './fms-message-error/fms-message-error.component';
+export * from './fms-date/fms-date.component';
+export * from './fms-button/fms-button.component';
+export * from './fms-table/fms-table.component';
