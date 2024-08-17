@@ -5,9 +5,10 @@ import {
     ActivatedRouteSnapshot,
     NavigationEnd,
     Router,
+    RouterOutlet,
     Scroll,
 } from '@angular/router';
-import { DestroyService } from '@fms-module/common';
+import { DestroyService, SpinnerComponent } from '@fms-module/common';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, map, takeUntil } from 'rxjs';
 import { SidebarService } from './layout/main/service/sidebar.service';
@@ -17,6 +18,8 @@ import { SidebarService } from './layout/main/service/sidebar.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     providers: [DestroyService],
+    standalone: true,
+    imports: [RouterOutlet, SpinnerComponent],
 })
 export class AppComponent implements OnInit {
     private translateService: TranslateService = inject(TranslateService);

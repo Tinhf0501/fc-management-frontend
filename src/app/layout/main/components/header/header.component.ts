@@ -2,11 +2,23 @@ import { Component, QueryList, ViewChildren, inject } from '@angular/core';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
+import { AsyncPipe } from '@angular/common';
+import { LanguageComponent } from '@fms-module/common';
 
 @Component({
     selector: 'main-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
+    standalone: true,
+    imports: [
+        FontAwesomeModule,
+        NgbCollapse,
+        TranslateModule,
+        AsyncPipe,
+        LanguageComponent,
+    ],
 })
 export class MainHeaderComponent {
     @ViewChildren(NgbCollapse) ngbCollapses: QueryList<NgbCollapse>;

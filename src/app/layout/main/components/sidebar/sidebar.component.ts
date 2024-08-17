@@ -2,11 +2,35 @@ import { Component, inject } from '@angular/core';
 import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
 import { MenuService, Menu } from '@fms-module/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+    AsyncPipe,
+    NgFor,
+    NgIf,
+    NgStyle,
+    NgTemplateOutlet,
+} from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'main-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss'],
+    standalone: true,
+    imports: [
+        RouterLink,
+        FontAwesomeModule,
+        NgTemplateOutlet,
+        RouterLinkActive,
+        AsyncPipe,
+        TranslateModule,
+        NgbCollapse,
+        NgStyle,
+        NgIf,
+        NgFor,
+    ],
 })
 export class MainSidebarComponent {
     private sidebarService: SidebarService = inject(SidebarService);
