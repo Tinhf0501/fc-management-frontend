@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { MatchResultCreateFormComponent } from '@fms-module/match-result';
 import { ScorerGridComponent } from '@fms-module/scorer';
-import { TranslateModule } from '@ngx-translate/core';
-import { ButtonBackComponent } from '@fms-module/common';
+import { FmsButtonComponent } from '@fms/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'create-match-result-page',
@@ -14,8 +15,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         MatchResultCreateFormComponent,
         ScorerGridComponent,
         TranslateModule,
-        ButtonBackComponent,
         FontAwesomeModule,
+
+        FmsButtonComponent,
     ],
 })
-export class CreateMatchResultPage {}
+export class CreateMatchResultPage {
+    private readonly location = inject(Location);
+
+    public goBack(): void {
+        this.location.back();
+    }
+}

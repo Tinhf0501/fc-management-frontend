@@ -14,14 +14,12 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import {
-    fileToImageUrl,
-    FmsInputComponent,
-    FmsSelectComponent,
-} from '@fms-module/common';
-import { CreateFCMemberRequest } from './../../interface';
+import { fileToImageUrl } from '@fms/core';
+import { FmsInputComponent } from '@fms/input';
+import { FmsSelectComponent } from '@fms/select';
 import { TranslateModule } from '@ngx-translate/core';
 import { PositionSelectComponent } from '../position-select/position-select.component';
+import { CreateFCMemberRequest } from './../../interface';
 
 @Component({
     selector: 'create-member-form',

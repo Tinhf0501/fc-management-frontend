@@ -14,7 +14,7 @@ import {
     withComponentInputBinding,
     withInMemoryScrolling,
 } from '@angular/router';
-import { AuthInterceptor, LoaderInterceptor } from '@fms-module/common';
+import { AuthInterceptor, LoaderInterceptor } from '@fms/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
-import { MenuService, Menu } from '@fms-module/common';
+import { MenuService, Menu } from '@fms/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {

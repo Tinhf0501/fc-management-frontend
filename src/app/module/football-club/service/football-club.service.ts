@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ApiBody, ApiResponse } from '@fms-module/common';
+import { ApiBody, ApiResponse, PagingRequest, PagingResponse } from '@fms/core';
 import { environment } from 'environment';
 import { Observable, map } from 'rxjs';
 import {
@@ -10,10 +10,6 @@ import {
     SearchFcResponse,
     UpdateFcRequest,
 } from '../interface';
-import {
-    PagingRequest,
-    PagingResponse,
-} from '../../common/interface/paging.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -61,14 +57,15 @@ export class FootballClubService {
     }
 
     public getDetailFc(fcId: number): Observable<DetailFCResponse> {
-        return this.httpClient.get<DetailFCResponse>(`${environment.FMS_BE_URL}/fc/detail`, {
-            params: {
-                fcId: fcId
-            }
-        })
-        .pipe(
-            map<any, ApiBody>((x: ApiResponse) => x.apiBody),
-            map<ApiBody, DetailFCResponse>(x => x.data)
-        )
+        return this.httpClient
+            .get<DetailFCResponse>(`${environment.FMS_BE_URL}/fc/detail`, {
+                params: {
+                    fcId: fcId,
+                },
+            })
+            .pipe(
+                map<any, ApiBody>((x: ApiResponse) => x.apiBody),
+                map<ApiBody, DetailFCResponse>((x) => x.data),
+            );
     }
 }

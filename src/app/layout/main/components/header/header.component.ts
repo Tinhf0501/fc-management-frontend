@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { AsyncPipe } from '@angular/common';
-import { LanguageComponent } from '@fms-module/common';
+import { LanguageComponent } from '@fms/select/language';
 
 @Component({
     selector: 'main-header',

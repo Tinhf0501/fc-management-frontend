@@ -1,13 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {
-    MemberGridComponent,
-    MemberFormSearchComponent,
     CreateMemberModal,
+    MemberFormSearchComponent,
+    MemberGridComponent,
 } from '@fms-module/member';
-import { PaginationComponent, Pagination } from '@fms-module/common';
+import { Pagination } from '@fms/core';
+import { PaginationComponent } from '@fms/pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'member-page',

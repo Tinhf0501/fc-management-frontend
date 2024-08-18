@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalWrapperComponent } from '@fms-module/common';
+import { ModalWrapperComponent } from '@fms/modal';
 import { TranslateModule } from '@ngx-translate/core';
 import { FundingCreateFormComponent } from '../create-form/create-form.component';
 
@@ -14,6 +14,4 @@ import { FundingCreateFormComponent } from '../create-form/create-form.component
         ModalWrapperComponent,
     ],
 })
-export class FundingCreateModalComponent {
-    
-}
+export class FundingCreateModalComponent {}

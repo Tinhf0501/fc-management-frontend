@@ -1,11 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-    ButtonBackComponent,
-    DestroyService,
-    NotifierService,
-} from '@fms-module/common';
 import {
     CreateFcFormComponent,
     CreateFcRequest,
@@ -16,7 +12,8 @@ import {
     MemberGridWrapperComponent,
 } from '@fms-module/member';
 import { ListMediaComponent, Media } from '@fms-module/resource';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FmsButtonComponent } from '@fms/button';
+import { DestroyService, NotifierService } from '@fms/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 
@@ -27,12 +24,12 @@ import { takeUntil } from 'rxjs';
     standalone: true,
     imports: [
         TranslateModule,
-        FontAwesomeModule,
 
         CreateFcFormComponent,
-        ButtonBackComponent,
         ListMediaComponent,
         MemberGridWrapperComponent,
+
+        FmsButtonComponent,
     ],
     providers: [DestroyService],
 })
@@ -42,6 +39,7 @@ export class CreateFootballClubPage implements OnInit {
     protected readonly fcService = inject(FootballClubService);
     protected readonly destroyService = inject(DestroyService);
     protected readonly notifierService = inject(NotifierService);
+    private readonly location = inject(Location);
 
     public createFcForm: FormGroup;
     public avatar: File;
@@ -88,5 +86,9 @@ export class CreateFootballClubPage implements OnInit {
                             this.router.navigate(['football-club']);
                     });
             });
+    }
+
+    public goBack(): void {
+        this.location.back();
     }
 }

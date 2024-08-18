@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { GridCore } from '@fms-module/common';
+import { GridCore } from '@fms/grid';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 
 @Component({
     selector: 'spending-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    template: '',
     styleUrls: ['./spending-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular],

@@ -1,0 +1,16 @@
+<button
+    nz-button
+    nz-tooltip
+    [nzTooltipTitle]="tooltip"
+    nzType="primary"
+    [disabled]="disabled"
+    [nzGhost]="transparent"
+    (click)="click.emit()"
+>
+    <nz-space [nzSize]="icon && label ? 8 : 0">
+        <ng-container *ngIf="icon">
+            <fms-icon *nzSpaceItem [iconName]="icon"></fms-icon>
+        </ng-container>
+        <span *nzSpaceItem class="text-capitalize">{{ label }}</span>
+    </nz-space>
+</button>

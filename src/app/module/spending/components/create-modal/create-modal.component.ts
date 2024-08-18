@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalWrapperComponent } from '@fms-module/common';
+import { ModalWrapperComponent } from '@fms/modal';
 import { TranslateModule } from '@ngx-translate/core';
 import { SpendingCreateFormComponent } from '../create-form/create-form.component';
 

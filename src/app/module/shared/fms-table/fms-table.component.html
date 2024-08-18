@@ -1,0 +1,100 @@
+<div class="d-flex flex-column row-gap-4 h-100">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="font-italic fw-semibold text-capitalize">
+            {{ title }}
+        </span>
+        <nz-space>
+            <ng-container *ngIf="options.isCreate">
+                <fms-button
+                    *nzSpaceItem
+                    [label]="'COMMON.CREATE' | translate"
+                    [icon]="'v'"
+                    (click)="clickAction.emit({ event: actionEvent.CREATE })"
+                ></fms-button>
+            </ng-container>
+
+            <ng-container *ngIf="options.isExport">
+                <fms-button
+                    *nzSpaceItem
+                    [label]="'COMMON.EXPORT_EXCEL' | translate"
+                    [icon]="'download'"
+                    (click)="clickAction.emit({ event: actionEvent.EXPORT })"
+                ></fms-button>
+            </ng-container>
+
+            <ng-container *ngFor="let act of options.action">
+                <fms-button
+                    *nzSpaceItem
+                    [label]="act.text | translate"
+                    [icon]="act.icon"
+                    (click)="
+                        clickAction.emit({
+                            event: act.event,
+                            data: act.data
+                        })
+                    "
+                ></fms-button>
+            </ng-container>
+        </nz-space>
+    </div>
+    <nz-table
+        class="flex-grow-1"
+        #table
+        [nzShowPagination]="!!pagination"
+        [nzShowSizeChanger]="!!pagination"
+        [nzData]="rows"
+        (nzPageIndexChange)="paginate.emit($event)"
+        (nzPageSizeChange)="pageSizeChange.emit($event)"
+        [nzPageIndex]="pagination?.page"
+        [nzPageSize]="pagination?.pageSize"
+        [nzBordered]="true"
+    >
+        <thead>
+            <tr>
+                <th
+                    *ngFor="let header of columns"
+                    [nzShowCheckbox]="header.showCheckbox"
+                    [nzRight]="header.pinned === 'right'"
+                >
+                    {{ header.label | translate }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="
+                    let data of table.data;
+                    trackBy: trackByFn;
+                    let i = index
+                "
+            >
+                <td
+                    *ngFor="let header of columns"
+                    [nzShowCheckbox]="header.showCheckbox"
+                    [nzChecked]="!!data[header.name]"
+                    [nzRight]="header.pinned === 'right'"
+                >
+                    <ng-container
+                        *ngIf="header.customColumn; else orignal"
+                        asDynamicView
+                        [component]="header.customColumn"
+                        [context]="{
+                            params: header.customColumnParams,
+                            data: data
+                        }"
+                    >
+                    </ng-container>
+                    <ng-template #orignal>
+                        <div
+                            *ngIf="header.valueGetter"
+                            [innerHTML]="header.valueGetter(data, i)"
+                        ></div>
+                        <ng-container *ngIf="!header.valueGetter">
+                            {{ data[header.name] }}
+                        </ng-container>
+                    </ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

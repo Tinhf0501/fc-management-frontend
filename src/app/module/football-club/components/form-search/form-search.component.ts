@@ -12,16 +12,15 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import {
-    FmsButtonComponent,
-    FmsDateComponent,
-    FmsInputComponent,
-    FmsSelectComponent,
-    SearchWrapperComponent,
-} from '@fms-module/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchFcRequest } from '../../interface';
 import { FC_STATUS } from '../../constant';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { FmsInputComponent } from '@fms/input';
+import { FmsSelectComponent } from '@fms/select';
+import { SearchWrapperComponent } from '@fms/search-form';
+import { FmsDateComponent } from '@fms/date-picker';
 
 @Component({
     selector: 'fc-form-search',
@@ -36,6 +35,7 @@ import { FC_STATUS } from '../../constant';
         FmsSelectComponent,
         SearchWrapperComponent,
         FmsDateComponent,
+        NzGridModule,
     ],
 })
 export class FcFormSearchComponent implements OnInit {

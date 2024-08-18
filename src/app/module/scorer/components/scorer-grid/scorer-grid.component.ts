@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms-module/common';
+import { GridCore } from '@fms/grid';
 
 @Component({
     selector: 'scorer-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    template: '',
     styleUrls: ['./scorer-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular],

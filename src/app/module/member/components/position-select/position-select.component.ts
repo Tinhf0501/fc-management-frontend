@@ -7,7 +7,7 @@ import {
     inject,
     signal,
 } from '@angular/core';
-import { DestroyService, FmsSelectComponent } from '@fms-module/common';
+import { DestroyService } from '@fms/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { POSITIONS } from '../../constant';
 import {
@@ -18,6 +18,7 @@ import {
     Validators,
 } from '@angular/forms';
 import { takeUntil } from 'rxjs';
+import { FmsSelectComponent } from '@fms/select';
 
 @Component({
     selector: 'position-select',

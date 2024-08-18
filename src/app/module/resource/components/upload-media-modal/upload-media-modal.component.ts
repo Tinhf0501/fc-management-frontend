@@ -1,6 +1,6 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, ElementRef, Input, ViewChild, inject } from '@angular/core';
-import { getExtension } from '@fms-module/common';
+import { getExtension } from '@fms/core';
 import { NgbActiveModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { ImagePipe } from '../../pipe';

@@ -4,11 +4,11 @@ import {
     DonateGridComponent,
     CreateDonateModalComponent,
 } from '@fms-module/donate';
-import { PaginationComponent, Pagination } from '@fms-module/common';
+import { Pagination } from '@fms/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { PaginationComponent } from '@fms/pagination';
 @Component({
     selector: 'donate-page',
     templateUrl: './donate.page.html',

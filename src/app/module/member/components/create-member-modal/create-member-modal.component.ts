@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreateMemberFormComponent } from '../create-member-form/create-member-form.component';
 import { CreateFCMemberRequest } from '../../interface';
-import { ModalWrapperComponent } from '@fms-module/common';
+import { ModalWrapperComponent } from '@fms/modal';
 
 @Component({
     selector: 'create-member-modal',

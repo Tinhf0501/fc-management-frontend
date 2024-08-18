@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LanguageComponent } from '@fms-module/common';
+import { LanguageComponent } from '@fms/select/language';
 
 @Component({
     selector: 'auth-layout',

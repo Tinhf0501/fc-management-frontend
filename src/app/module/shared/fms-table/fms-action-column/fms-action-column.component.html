@@ -1,0 +1,16 @@
+<nz-space
+    *ngIf="actions"
+    class="w-100 justify-content-center"
+    [nzAlign]="'center'"
+    [nzWrap]="true"
+>
+    <ng-container *ngFor="let action of actions">
+        <fms-button
+            *nzSpaceItem
+            [icon]="action.icon"
+            [transparent]="true"
+            [tooltip]="action.label || (action.i18Key | translate) || ''"
+            (click)="action.onClick(data)"
+        ></fms-button>
+    </ng-container>
+</nz-space>

@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { fileToImageUrl } from '@fms-module/common';
+import { fileToImageUrl } from '@fms/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { MAX_NUMBER_FILES } from '../../constant';

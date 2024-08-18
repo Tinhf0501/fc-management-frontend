@@ -1,5 +1,12 @@
 <fms-table
     [columns]="columns"
+    [title]="
+        'COMMON.TOTAL_RECORD' | translate: { numberOfRecord: pagination.total }
+    "
+    [options]="tableOptions"
     [rows]="rows"
     [pagination]="pagination"
+    (paginate)="pagination.page = $event; paginate.emit(pagination)"
+    (pageSizeChange)="pagination.pageSize = $event; paginate.emit(pagination)"
+    (clickAction)="clickAction.emit($event)"
 ></fms-table>

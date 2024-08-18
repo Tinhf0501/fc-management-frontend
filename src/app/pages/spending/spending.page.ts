@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import {
+    SpendingCreateModalComponent,
     SpendingFormSearchComponent,
     SpendingGridComponent,
 } from '@fms-module/spending';
-import { PaginationComponent, Pagination } from '@fms-module/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SpendingCreateModalComponent } from '@fms-module/spending';
+import { Pagination } from '@fms/core';
+import { PaginationComponent } from '@fms/pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'spending-page',

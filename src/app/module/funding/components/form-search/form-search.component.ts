@@ -5,7 +5,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import { SearchWrapperComponent } from '@fms-module/common';
+import { SearchWrapperComponent } from '@fms/search-form';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';

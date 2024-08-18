@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { BASE_MENU, MenuService } from '@fms-module/common';
+import { BASE_MENU, MenuService } from '@fms/core';
 import { Observable, take } from 'rxjs';
 import { SidebarService } from './service/sidebar.service';
 import { RouterOutlet } from '@angular/router';

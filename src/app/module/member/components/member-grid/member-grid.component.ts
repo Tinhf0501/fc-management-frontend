@@ -1,25 +1,17 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import {
-    ActionColumnComponent,
-    ConfirmationComponent,
-    GridCore,
-    fileToImageUrl,
-} from '@fms-module/common';
-import {
-    CreateFCMemberRequest,
-    CreateMemberModal,
-    POSITION_MAP,
-} from '@fms-module/member';
+import { CreateFCMemberRequest, POSITION_MAP } from '@fms-module/member';
+import { fileToImageUrl } from '@fms/core';
+import { GridCore } from '@fms/grid';
+import { ModalService } from '@fms/modal';
+import { ActionColumnComponent } from '@fms/table';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, ICellRendererParams } from 'ag-grid-community';
 
 @Component({
     selector: 'member-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    template: '',
     styleUrls: ['./member-grid.component.scss'],
     standalone: true,
     imports: [AgGridAngular, TranslateModule],
@@ -34,7 +26,7 @@ export class MemberGridComponent extends GridCore<any> {
 
     @Output() deleteMember = new EventEmitter<number>();
 
-    private readonly modalService = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
 
     constructor() {
         super();
@@ -154,34 +146,27 @@ export class MemberGridComponent extends GridCore<any> {
     }
 
     public onEditMember(param: ICellRendererParams): void {
-        const member = param.data;
-        const modalRef = this.modalService.open(CreateMemberModal, {
-            centered: true,
-            size: 'lg',
-        });
-        modalRef.componentInstance.member = member;
-        modalRef.closed.subscribe((res) => {
-            if (res) {
-                this.updateMember.emit({
-                    data: res,
-                    index: param.node.rowIndex,
-                });
-            }
-        });
+        // const member = param.data;
+        // const modalRef = this.modalService.open(CreateMemberModal, {
+        //     centered: true,
+        //     size: 'lg',
+        // });
+        // modalRef.componentInstance.member = member;
+        // modalRef.closed.subscribe((res) => {
+        //     if (res) {
+        //         this.updateMember.emit({
+        //             data: res,
+        //             index: param.node.rowIndex,
+        //         });
+        //     }
+        // });
     }
 
     public onDeleteMember(param: ICellRendererParams): void {
-        const modalRef = this.modalService.open(ConfirmationComponent, {
-            centered: true,
-            size: 'md',
-        });
-        modalRef.componentInstance.confirmation = {
+        this.modalService.open('confirm', {
+            title: this.translateService.instant('COMMON.CONFIRM'),
             content: this.translateService.instant('MEMBER.CONFIRM_DELETE'),
-            isHtml: false,
-        };
-        modalRef.closed.subscribe((isAccept) => {
-            if (!isAccept) return;
-            this.deleteMember.emit(param.node.rowIndex);
+            onOk: () => this.deleteMember.emit(param.node.rowIndex),
         });
     }
 }

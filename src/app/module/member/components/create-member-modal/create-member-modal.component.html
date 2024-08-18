@@ -1,4 +1,4 @@
-<modal-wrapper
+<fms-modal
     [headerTitle]="
         (member ? 'MEMBER.UPDATE_TITLE' : 'MEMBER.CREATE_TITLE') | translate
     "
@@ -9,4 +9,4 @@
         (formInitialized)="formGroup = $event"
         (changeAvatar)="avatar = $event"
     ></create-member-form>
-</modal-wrapper>
+</fms-modal>

@@ -20,6 +20,10 @@
             <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
             <span class="text-capitalize">{{ 'COMMON.SAVE' | translate }}</span>
         </button>
-        <button-back></button-back>
+        <fms-button
+            [icon]="'arrow-left'"
+            [label]="'COMMON.GO_BACK' | translate"
+            (click)="goBack()"
+        ></fms-button>
     </div>
 </div>
