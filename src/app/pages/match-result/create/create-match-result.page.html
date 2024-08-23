@@ -3,12 +3,10 @@
     <div class="d-flex flex-column row-gap-3 h-100">
         <div class="d-flex justify-content-between align-items-center">
             <span class="h4">Thông tin người ghi bản</span>
-            <button class="btn btn-sm btn-success">
-                <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
-                <span class="text-capitalize"
-                    >{{ 'COMMON.CREATE' | translate }}</span
-                >
-            </button>
+            <fms-button
+                [icon]="'plus'"
+                [label]="'COMMON.CREATE' | translate"
+            ></fms-button>
         </div>
         <div class="flex-grow-1">
             <scorer-grid></scorer-grid>
@@ -16,10 +14,10 @@
     </div>
 
     <div class="d-flex justify-content-center gap-2">
-        <button class="btn btn-sm btn-success">
-            <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
-            <span class="text-capitalize">{{ 'COMMON.SAVE' | translate }}</span>
-        </button>
+        <fms-button
+            [icon]="'plus'"
+            [label]="'COMMON.SAVE' | translate"
+        ></fms-button>
         <fms-button
             [icon]="'arrow-left'"
             [label]="'COMMON.GO_BACK' | translate"

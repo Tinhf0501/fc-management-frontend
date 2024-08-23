@@ -3,7 +3,6 @@ import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
 import { MenuService, Menu } from '@fms/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
     AsyncPipe,
     NgFor,
@@ -13,6 +12,7 @@ import {
 } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { FmsIconComponent } from '@fms/icon';
 
 @Component({
     selector: 'main-sidebar',
@@ -21,7 +21,6 @@ import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
     standalone: true,
     imports: [
         RouterLink,
-        FontAwesomeModule,
         NgTemplateOutlet,
         RouterLinkActive,
         AsyncPipe,
@@ -30,6 +29,7 @@ import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
         NgStyle,
         NgIf,
         NgFor,
+        FmsIconComponent,
     ],
 })
 export class MainSidebarComponent {

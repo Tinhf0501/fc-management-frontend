@@ -1,8 +1,6 @@
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-
 export interface Menu {
     title?: string;
-    icon: IconDefinition;
+    icon: string;
     label: string;
     role?: string[];
     link?: string;

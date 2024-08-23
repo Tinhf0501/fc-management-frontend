@@ -4,9 +4,8 @@ import {
     MatchResultFormSearchComponent,
     MatchResultGridComponent,
 } from '@fms-module/match-result';
+import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
-import { PaginationComponent } from '@fms/pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -17,11 +16,11 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [
         MatchResultFormSearchComponent,
         MatchResultGridComponent,
-        PaginationComponent,
         TranslateModule,
-        FontAwesomeModule,
 
         RouterLink,
+
+        FmsButtonComponent,
     ],
 })
 export class MatchResultPage {

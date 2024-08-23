@@ -3,7 +3,6 @@ import { Component, inject } from '@angular/core';
 import { MatchResultCreateFormComponent } from '@fms-module/match-result';
 import { ScorerGridComponent } from '@fms-module/scorer';
 import { FmsButtonComponent } from '@fms/button';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
         MatchResultCreateFormComponent,
         ScorerGridComponent,
         TranslateModule,
-        FontAwesomeModule,
 
         FmsButtonComponent,
     ],

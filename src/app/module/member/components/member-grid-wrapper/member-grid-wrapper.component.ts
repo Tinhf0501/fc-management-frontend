@@ -1,16 +1,16 @@
-import { Component, EventEmitter, Output, inject, Input } from '@angular/core';
-import { MemberGridComponent } from '../member-grid/member-grid.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { CreateMemberModal } from '../create-member-modal/create-member-modal.component';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { FmsButtonComponent } from '@fms/button';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { CreateFCMemberRequest } from '../../interface';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CreateMemberModal } from '../create-member-modal/create-member-modal.component';
+import { MemberGridComponent } from '../member-grid/member-grid.component';
 
 @Component({
     selector: 'member-grid-wrapper',
     templateUrl: './member-grid-wrapper.component.html',
     standalone: true,
-    imports: [MemberGridComponent, TranslateModule, FontAwesomeModule],
+    imports: [MemberGridComponent, TranslateModule, FmsButtonComponent],
 })
 export class MemberGridWrapperComponent {
     private readonly modalService = inject(NgbModal);

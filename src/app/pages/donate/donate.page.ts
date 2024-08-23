@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import {
+    CreateDonateFormComponent,
     DonateFormSearchComponent,
     DonateGridComponent,
-    CreateDonateModalComponent,
 } from '@fms-module/donate';
+import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PaginationComponent } from '@fms/pagination';
+import { ModalService } from '@fms/modal';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
     selector: 'donate-page',
     templateUrl: './donate.page.html',
@@ -17,21 +16,20 @@ import { PaginationComponent } from '@fms/pagination';
     imports: [
         DonateFormSearchComponent,
         DonateGridComponent,
-        PaginationComponent,
         TranslateModule,
-
-        FontAwesomeModule,
+        FmsButtonComponent,
     ],
 })
 export class DonatePage {
-    private modalService: NgbModal = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService);
 
     public pagination: Pagination = new Pagination(1, 100);
 
     public openAddDonate(): void {
-        this.modalService.open(CreateDonateModalComponent, {
-            size: 'md',
-            centered: true,
+        this.modalService.openModal({
+            title: this.translateService.instant('DONATE.CREATE_TITLE'),
+            content: CreateDonateFormComponent,
         });
     }
 }

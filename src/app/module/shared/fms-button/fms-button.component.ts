@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, inject, Input } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { FmsIconComponent } from '../fms-icon/fms-icon.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { NgIf } from '@angular/common';
+import { FmsIconComponent } from '@fms/icon';
 
 @Component({
     selector: 'fms-button',
@@ -15,14 +16,25 @@ import { NgIf } from '@angular/common';
         FmsIconComponent,
         NzSpaceModule,
         NzToolTipModule,
+
+        RouterLink,
     ],
 })
 export class FmsButtonComponent {
     @Input() label: string;
+    @Input() link: string;
     @Input() icon: string;
     @Input() disabled: boolean;
     @Input() tooltip: string;
     @Input() transparent: boolean;
 
-    @Output() click = new EventEmitter<void>();
+    private readonly router = inject(Router);
+
+    onClick(event: Event): void {
+        if (this.link) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.router.navigateByUrl(this.link);
+        }
+    }
 }

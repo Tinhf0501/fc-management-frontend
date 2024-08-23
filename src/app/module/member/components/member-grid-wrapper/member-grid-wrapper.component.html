@@ -3,12 +3,11 @@
         <h4 class="text-capitalize">
             {{ 'MEMBER.LIST_OF_MEMBER' | translate }}
         </h4>
-        <button class="btn btn-sm btn-success" (click)="openAddMemberModal()">
-            <fa-icon [icon]="'plus'" class="me-2"></fa-icon>
-            <span class="text-capitalize">
-                {{ 'MEMBER.CREATE_MEMBER' | translate }}
-            </span>
-        </button>
+        <fms-button
+            [icon]="'plus'"
+            [label]="'MEMBER.CREATE_MEMBER' | translate"
+            (click)="openAddMemberModal()"
+        ></fms-button>
     </div>
     <div style="height: 300px">
         <member-grid

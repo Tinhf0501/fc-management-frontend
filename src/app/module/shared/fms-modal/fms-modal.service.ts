@@ -1,6 +1,8 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, Type } from '@angular/core';
 import { Confirmation } from '@fms/core';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { ModalOptions, ModalSize } from './model';
+import { FmsModalComponent } from './fms-modal.component';
 
 export type ConfirmType = 'confirm' | 'warning' | 'error' | 'success';
 
@@ -25,6 +27,16 @@ export class ModalService {
             nzOnCancel: () => {
                 confirmation.onCancel?.();
             },
+        });
+    }
+
+    public openModal(options: ModalOptions): NzModalRef {
+        return this.modal.create({
+            nzTitle: options.title,
+            nzContent: FmsModalComponent,
+            nzData: options,
+            nzCentered: true,
+            nzWidth: options.size ?? ModalSize.MEDIUM,
         });
     }
 }

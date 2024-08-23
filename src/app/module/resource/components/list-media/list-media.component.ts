@@ -1,19 +1,19 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { FmsButtonComponent } from '@fms/button';
 import { fileToImageUrl } from '@fms/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { MAX_NUMBER_FILES } from '../../constant';
 import { Media } from '../../interface';
 import { UploadMediaModalComponent } from '../upload-media-modal/upload-media-modal.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'list-media',
     templateUrl: './list-media.component.html',
     styleUrls: ['./list-media.component.scss'],
     standalone: true,
-    imports: [NgFor, TranslateModule, FontAwesomeModule, NgIf],
+    imports: [NgFor, TranslateModule, NgIf, FmsButtonComponent],
 })
 export class ListMediaComponent {
     @Input() allowsFile: string[];

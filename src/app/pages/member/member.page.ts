@@ -4,9 +4,8 @@ import {
     MemberFormSearchComponent,
     MemberGridComponent,
 } from '@fms-module/member';
+import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
-import { PaginationComponent } from '@fms/pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -18,9 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [
         MemberGridComponent,
         MemberFormSearchComponent,
-        PaginationComponent,
         TranslateModule,
-        FontAwesomeModule,
+        FmsButtonComponent,
     ],
 })
 export class MemberPage implements OnInit {

@@ -1,59 +1,54 @@
 import { Menu } from '../interface/menu.interface';
-import {
-    faTachometerAlt,
-    faCog,
-    faTable,
-} from '@fortawesome/free-solid-svg-icons';
 
 export const BASE_MENU: Menu[] = [
     {
         label: 'Dashboard',
-        icon: faTachometerAlt,
+        icon: 'dashboard',
         link: '/dashboard',
     },
     {
         title: 'Interface',
         label: 'Components',
-        icon: faCog,
+        icon: 'setting',
         children: [
             {
-                icon: faCog,
+                icon: 'setting',
                 label: 'Buttons',
             },
             {
-                icon: faCog,
+                icon: 'setting',
                 label: 'Cards',
             },
         ],
     },
     {
         label: 'FOOTBALL_CLUB.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: '/football-club',
     },
     {
         label: 'MEMBER.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: '/member',
     },
     {
         label: 'DONATE.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: 'donate',
     },
     {
         label: 'MATCH_RESULT.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: 'match-result',
     },
     {
         label: 'FUNDING.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: 'funding',
     },
     {
         label: 'SPENDING.TITLE',
-        icon: faTable,
+        icon: 'table',
         link: 'spending',
     },
 ];

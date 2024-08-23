@@ -54,6 +54,9 @@
       "@fms/grid": [
         "src/app/module/shared/grid-core/index.ts"
       ],
+      "@fms/icon": [
+        "src/app/module/shared/fms-icon/index.ts"
+      ],
       "@fms/button": [
         "src/app/module/shared/fms-button/index.ts"
       ],

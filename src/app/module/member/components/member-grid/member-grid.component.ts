@@ -4,7 +4,6 @@ import { fileToImageUrl } from '@fms/core';
 import { GridCore } from '@fms/grid';
 import { ModalService } from '@fms/modal';
 import { ActionColumnComponent } from '@fms/table';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, ICellRendererParams } from 'ag-grid-community';
@@ -120,12 +119,12 @@ export class MemberGridComponent extends GridCore<any> {
                 cellRendererParams: {
                     actions: [
                         {
-                            icon: faEdit,
+                            icon: 'edit',
                             classes: 'text-warning',
                             onClick: this.onEditMember.bind(this),
                         },
                         {
-                            icon: faTrash,
+                            icon: 'delete',
                             classes: 'text-danger',
                             onClick: this.onDeleteMember.bind(this),
                         },

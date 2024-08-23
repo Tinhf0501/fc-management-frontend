@@ -1,14 +1,13 @@
 import { Component, inject } from '@angular/core';
 import {
-    FundingCreateModalComponent,
+    FundingCreateFormComponent,
     FundingFormSearchComponent,
     FundingGridComponent,
 } from '@fms-module/funding';
+import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
-import { PaginationComponent } from '@fms/pagination';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { ModalService } from '@fms/modal';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'funding-page',
@@ -18,20 +17,20 @@ import { TranslateModule } from '@ngx-translate/core';
     imports: [
         FundingFormSearchComponent,
         FundingGridComponent,
-        PaginationComponent,
         TranslateModule,
-        FontAwesomeModule,
+        FmsButtonComponent,
     ],
 })
 export class FundingPage {
-    private modalService: NgbModal = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService);
 
     public pagination: Pagination = new Pagination(1, 100);
 
     public openAddFunding(): void {
-        this.modalService.open(FundingCreateModalComponent, {
-            centered: true,
-            size: 'md',
+        this.modalService.openModal({
+            title: this.translateService.instant('FUNDING.CREATE_TITLE'),
+            content: FundingCreateFormComponent,
         });
     }
 }

@@ -1,8 +1,11 @@
 import {
+    ComponentRef,
     Directive,
+    EventEmitter,
     inject,
     Input,
     OnInit,
+    Output,
     Type,
     ViewContainerRef,
 } from '@angular/core';
@@ -14,6 +17,8 @@ import {
 export class DynamicViewDirective implements OnInit {
     @Input() component: Type<any>;
     @Input() context: any;
+
+    @Output() afterGenerateView = new EventEmitter<ComponentRef<any>>();
 
     private readonly viewContainerRef = inject(ViewContainerRef);
 
@@ -28,6 +33,7 @@ export class DynamicViewDirective implements OnInit {
                     componentRef.instance[key] = this.context[key];
                 });
             }
+            this.afterGenerateView.emit(componentRef);
         }
     }
 }

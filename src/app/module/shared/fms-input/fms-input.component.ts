@@ -8,7 +8,7 @@ import {
     NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { FmsIconComponent } from '../fms-icon/fms-icon.component';
+import { FmsIconComponent } from '@fms/icon';
 import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error.component';
 
 @Component({

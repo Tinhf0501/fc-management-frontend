@@ -4,18 +4,14 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { CreateMemberFormComponent } from '../create-member-form/create-member-form.component';
 import { CreateFCMemberRequest } from '../../interface';
-import { ModalWrapperComponent } from '@fms/modal';
+import { FmsModalComponent } from '@fms/modal';
 
 @Component({
     selector: 'create-member-modal',
     templateUrl: './create-member-modal.component.html',
     styleUrls: ['./create-member-modal.component.scss'],
     standalone: true,
-    imports: [
-        CreateMemberFormComponent,
-        TranslateModule,
-        ModalWrapperComponent,
-    ],
+    imports: [CreateMemberFormComponent, TranslateModule, FmsModalComponent],
 })
 export class CreateMemberModal {
     public member: CreateFCMemberRequest;

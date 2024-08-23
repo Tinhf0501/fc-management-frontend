@@ -1,17 +1,19 @@
 <fms-search-form [formGroup]="formGroup">
     <div class="row row-gap-3">
         <div class="col-md-6">
-            <label class="fw-semibold">{{ 'COMMON.FC' | translate }}</label>
-            <ng-select
+            <fms-select
+                [items]=""
+                [label]="'COMMON.FC' | translate"
                 [placeholder]="'COMMON.SELECT_FC' | translate"
-            ></ng-select>
+            ></fms-select>
         </div>
 
         <div class="col-md-6">
-            <label class="fw-semibold">{{ 'COMMON.STATUS' | translate }}</label>
-            <ng-select
+            <fms-select
+                [items]=""
+                [label]="'COMMON.STATUS' | translate"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
-            ></ng-select>
+            ></fms-select>
         </div>
     </div>
 

@@ -9,9 +9,7 @@ import {
 } from '@fms-module/football-club';
 import { FmsBoxComponent } from '@fms/box';
 import { DestroyService, Pagination } from '@fms/core';
-import { PaginationComponent } from '@fms/pagination';
 import { ActionEvent } from '@fms/table';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 @Component({
@@ -22,12 +20,10 @@ import { takeUntil } from 'rxjs';
     imports: [
         FcFormSearchComponent,
         FootballClubGridComponent,
-        PaginationComponent,
         FmsBoxComponent,
 
         RouterLink,
         TranslateModule,
-        FontAwesomeModule,
     ],
     providers: [DestroyService],
 })

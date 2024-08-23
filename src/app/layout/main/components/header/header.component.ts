@@ -2,10 +2,10 @@ import { Component, QueryList, ViewChildren, inject } from '@angular/core';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { AsyncPipe } from '@angular/common';
 import { LanguageComponent } from '@fms/select/language';
+import { FmsButtonComponent } from '@fms/button';
 
 @Component({
     selector: 'main-header',
@@ -13,11 +13,11 @@ import { LanguageComponent } from '@fms/select/language';
     styleUrls: ['./header.component.scss'],
     standalone: true,
     imports: [
-        FontAwesomeModule,
         NgbCollapse,
         TranslateModule,
         AsyncPipe,
         LanguageComponent,
+        FmsButtonComponent,
     ],
 })
 export class MainHeaderComponent {

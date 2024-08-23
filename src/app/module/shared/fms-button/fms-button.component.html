@@ -5,7 +5,7 @@
     nzType="primary"
     [disabled]="disabled"
     [nzGhost]="transparent"
-    (click)="click.emit()"
+    (click)="onClick($event)"
 >
     <nz-space [nzSize]="icon && label ? 8 : 0">
         <ng-container *ngIf="icon">
@@ -13,4 +13,5 @@
         </ng-container>
         <span *nzSpaceItem class="text-capitalize">{{ label }}</span>
     </nz-space>
+    <ng-content></ng-content>
 </button>
