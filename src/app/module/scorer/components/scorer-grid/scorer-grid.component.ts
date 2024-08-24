@@ -1,63 +1,62 @@
-import { Component } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms/grid';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pagination } from '@fms/core';
+import { ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'scorer-grid',
-    template: '',
+    templateUrl: './scorer-grid.component.html',
     styleUrls: ['./scorer-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [FmsTableComponent, TranslateModule],
 })
-export class ScorerGridComponent extends GridCore<any> {
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                valueGetter: (param) => param.node.rowIndex + 1,
-                pinned: 'left',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('SCORER.NAME'),
-                minWidth: 100,
-                field: 'name',
-                tooltipField: 'name',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.FC'),
-                minWidth: 100,
-                field: 'fc',
-                tooltipField: 'fc',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('SCORER.GOAL'),
-                minWidth: 100,
-                field: 'goal',
-                tooltipField: 'gold',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('SCORER.GOAL_OG'),
-                minWidth: 100,
-                field: 'goalOg',
-                tooltipField: 'goalOg',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+export class ScorerGridComponent {
 
-    public override getRowData(): any[] {
-        return [];
-    }
+    @Input() rows: any[] = [];
+
+    @Input() pagination: Pagination;
+
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
+
+    public readonly columns: ColumnTable<any>[] = [
+        {
+            label: 'COMMON.NO',
+            pinned: 'left',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
+            },
+        },
+        {
+            label: 'SCORER.NAME',
+            name: 'name',
+        },
+        {
+            label: 'COMMON.FC',
+            name: 'fc',
+        },
+        {
+            label: 'SCORER.GOAL',
+            name: 'goal',
+        },
+        {
+            label: 'SCORER.GOAL_OG',
+            name: 'goalOg',
+        },
+        {
+            label: 'COMMON.ACTION',
+            pinned: 'right',
+        },
+    ]
 }

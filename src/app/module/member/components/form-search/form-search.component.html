@@ -5,6 +5,7 @@
                 [label]="'MEMBER.FULLNAME' | translate"
                 [placeholder]="'MEMBER.INPUT_FULLNAME' | translate"
                 formControlName="fullName"
+                [control]="formGroup.get('fullName')"
             ></fms-input>
         </div>
 
@@ -13,6 +14,7 @@
                 [label]="'COMMON.STATUS' | translate"
                 formControlName="status"
                 [items]="items"
+                [control]="formGroup.get('status')"
             ></fms-select>
         </div>
 
@@ -22,11 +24,15 @@
                     <fms-date
                         formControlName="fromDate"
                         [label]="'MEMBER.JOINED_DATE' | translate"
+                        [control]="formGroup.get('fromDate')"
                     ></fms-date>
                 </div>
 
                 <div nz-col nzMd="12" nzSm="24" nzXs="24">
-                    <fms-date formControlName="toDate"></fms-date>
+                    <fms-date
+                        formControlName="toDate"
+                        [control]="formGroup.get('toDate')"
+                    ></fms-date>
                 </div>
             </div>
         </div>
@@ -36,19 +42,15 @@
                 [label]="'COMMON.FC' | translate"
                 formControlName="fc"
                 [items]="items"
+                [control]="formGroup.get('fc')"
             ></fms-select>
         </div>
 
         <div nz-col nzLg="8" nzMd="12" nzSm="24" nzXs="24">
-            <fms-select
-                formControlName="position"
-                [label]="'COMMON.POSITION' | translate"
-                [items]="positions"
-                [multiple]="true"
-                [bindLabel]="'name'"
-                [bindValue]="'code'"
-                [group]="'group'"
-            ></fms-select>
+            <position-select
+                [value]="formGroup.get('position').value"
+                (change)="formGroup.get('position').setValue($event)"
+            ></position-select>
         </div>
 
         <div nz-col nzLg="8" nzMd="12" nzSm="24" nzXs="24">
@@ -56,6 +58,7 @@
                 [label]="'ACCOUNT.ACC' | translate"
                 formControlName="account"
                 [items]="items"
+                [control]="formGroup.get('account')"
             ></fms-select>
         </div>
     </div>

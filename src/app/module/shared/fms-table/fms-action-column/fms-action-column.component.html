@@ -10,7 +10,7 @@
             [icon]="action.icon"
             [transparent]="true"
             [tooltip]="action.label || (action.i18Key | translate) || ''"
-            (click)="action.onClick(data)"
+            (click)="action.onClick(data, rowIndex)"
         ></fms-button>
     </ng-container>
 </nz-space>

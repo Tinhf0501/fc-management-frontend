@@ -79,12 +79,11 @@ export class CreateFootballClubPage implements OnInit {
             .createFc(createFcRequest)
             .pipe(takeUntil(this.destroyService.$destroy))
             .subscribe((res) => {
-                this.notifierService
-                    .success(res?.apiBody?.msg?.value, res.code.message)
-                    .then((x) => {
-                        if (x.isConfirmed)
-                            this.router.navigate(['football-club']);
-                    });
+                this.notifierService.success(
+                    res?.apiBody?.msg?.value,
+                    res.code.message,
+                );
+                this.router.navigate(['football-club']);
             });
     }
 

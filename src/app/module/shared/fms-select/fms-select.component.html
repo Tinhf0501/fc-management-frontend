@@ -17,8 +17,8 @@
             [nzShowArrow]="true"
             [nzPlaceHolder]="placeholder"
             [(ngModel)]="value"
-            [nzDisabled]="isDisabled"
-            [nzAllowClear]="true"
+            [nzDisabled]="disabled"
+            [nzAllowClear]="clearable"
             [nzShowSearch]="true"
             [nzStatus]="control.touched && control.invalid ? 'error' : ''"
             (ngModelChange)="onChangeValue()"
@@ -34,7 +34,7 @@
                         nzCustomContent
                         [nzValue]="item.value"
                         [nzLabel]="
-                            item.i18key ? (item.i18key | translate) : item.label
+                            (item.i18key ?? item.label | translate)
                         "
                     >
                         <ng-container
@@ -50,7 +50,7 @@
                     <nz-option
                         nzCustomContent
                         [nzValue]="x.value"
-                        [nzLabel]="x.i18key ? (x.i18key | translate) : x.label"
+                        [nzLabel]="(x.i18key ?? x.label | translate)"
                     >
                         <ng-container
                             [ngTemplateOutlet]="
@@ -65,5 +65,5 @@
     </div>
 </fms-message-error>
 <ng-template #nonCustomOptionTemplate let-item="item">
-    {{ item.i18key ? (item.i18key | translate) : item.label }}
+    {{ (item.i18key ?? item.label | translate) }}
 </ng-template>

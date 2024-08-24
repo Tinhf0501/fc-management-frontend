@@ -2,17 +2,21 @@
     <div class="row row-gap-3">
         <div class="col-md-3">
             <fms-select
-                [items]=""
+                [items]="items | signal"
                 [label]="'COMMON.FC' | translate"
                 [placeholder]="'COMMON.SELECT_FC' | translate"
+                formControlName="fc"
+                [control]="formGroup.get('fc')"
             ></fms-select>
         </div>
 
         <div class="col-md-3">
             <fms-select
-                [items]=""
+                [items]="items | signal"
                 [label]="'COMMON.STATUS' | translate"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
+                formControlName="status"
+                [control]="formGroup.get('status')"
             ></fms-select>
         </div>
 
@@ -22,11 +26,17 @@
             }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="fromDate"
+                        [control]="formGroup.get('fromDate')"
+                    ></fms-date>
                 </div>
 
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="toDate"
+                        [control]="formGroup.get('toDate')"
+                    ></fms-date>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@
             <fms-input
                 type="text"
                 formControlName="fcName"
+                [control]="formGroup.get('fcName')"
                 [label]="'FOOTBALL_CLUB.NAME' | translate"
                 [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate"
             ></fms-input>
@@ -17,18 +18,21 @@
                 [multiple]="false"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
                 formControlName="fcStatus"
+                [control]="formGroup.get('fcStatus')"
             ></fms-select>
         </div>
 
         <div class="col-md-3">
             <fms-date
                 formControlName="fromDate"
+                [control]="formGroup.get('fromDate')"
                 [label]="'COMMON.FROM_DATE' | translate"
             ></fms-date>
         </div>
         <div class="col-md-3">
             <fms-date
                 formControlName="toDate"
+                [control]="formGroup.get('toDate')"
                 [label]="'COMMON.TO_DATE' | translate"
             ></fms-date>
         </div>

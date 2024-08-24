@@ -1,9 +1,11 @@
+import { ActionEvent } from '@fms/table';
 import { Component, inject } from '@angular/core';
 import {
     FundingCreateFormComponent,
     FundingFormSearchComponent,
     FundingGridComponent,
 } from '@fms-module/funding';
+import { FmsBoxComponent } from '@fms/box';
 import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
 import { ModalService } from '@fms/modal';
@@ -19,6 +21,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         FundingGridComponent,
         TranslateModule,
         FmsButtonComponent,
+        FmsBoxComponent
     ],
 })
 export class FundingPage {
@@ -32,5 +35,12 @@ export class FundingPage {
             title: this.translateService.instant('FUNDING.CREATE_TITLE'),
             content: FundingCreateFormComponent,
         });
+    }
+
+    public clickAction(data: {event: ActionEvent, data?: any}): void {
+        if (data.event === ActionEvent.CREATE) {
+            this.openAddFunding();
+            return;
+        }
     }
 }

@@ -11,7 +11,6 @@ import {
     NgTemplateOutlet,
 } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 import { FmsIconComponent } from '@fms/icon';
 
 @Component({
@@ -25,7 +24,6 @@ import { FmsIconComponent } from '@fms/icon';
         RouterLinkActive,
         AsyncPipe,
         TranslateModule,
-        NgbCollapse,
         NgStyle,
         NgIf,
         NgFor,

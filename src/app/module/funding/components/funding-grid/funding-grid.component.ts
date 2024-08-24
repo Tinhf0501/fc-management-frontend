@@ -1,77 +1,70 @@
-import { Component } from '@angular/core';
-import { GridCore } from '@fms/grid';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pagination } from '@fms/core';
+import { ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'funding-grid',
-    template: '',
+    templateUrl: './funding-grid.component.html',
     styleUrls: ['./funding-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [FmsTableComponent, TranslateModule],
 })
-export class FundingGridComponent extends GridCore<any> {
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                valueGetter: (param) => param.node.rowIndex + 1,
-                pinned: 'left',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('FUNDING.NAME'),
-                minWidth: 100,
-                field: 'name',
-                tooltipField: 'name',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.FC'),
-                minWidth: 100,
-                field: 'fc',
-                tooltipField: 'fc',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('FUNDING.AMOUNT_PERSON'),
-                minWidth: 100,
-                field: 'amount',
-                tooltipField: 'amount',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('FUNDING.DATE'),
-                minWidth: 100,
-                field: 'fundedDate',
-                tooltipField: 'fundedDate',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('FUNDING.DESC'),
-                minWidth: 100,
-                field: 'desc',
-                tooltipField: 'desc',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.STATUS'),
-                minWidth: 100,
-                field: 'status',
-                tooltipField: 'status',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+export class FundingGridComponent {
 
-    public override getRowData(): any[] {
-        return [];
-    }
+    @Input() rows: any[] = [];
+
+    @Input() pagination: Pagination;
+
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
+
+    public readonly columns: ColumnTable<any>[] = [
+        {
+            label: 'COMMON.NO',
+            pinned: 'left',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
+            },
+        },
+        {
+            label: 'FUNDING.NAME',
+            name: 'name',
+        },
+        {
+            label: 'COMMON.FC',
+            name: 'fc',
+        },
+        {
+            label: 'FUNDING.AMOUNT_PERSON',
+            name: 'amount',
+        },
+        {
+            label: 'FUNDING.DATE',
+            name: 'fundedDate',
+        },
+        {
+            label: 'FUNDING.DESC',
+            name: 'desc',
+        },
+        {
+            label: 'COMMON.STATUS',
+            name: 'status',
+        },
+        {
+            label: 'COMMON.ACTION',
+            pinned: 'right',
+        },
+    ]
 }

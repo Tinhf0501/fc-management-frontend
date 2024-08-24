@@ -1,9 +1,9 @@
 import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormGroup, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { AbstractControl, FormControl, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DefaultControlValueAccessor, formatDate } from '@fms/core';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error.component';
-import { DefaultControlValueAccessor, formatDate } from '@fms/core';
 
 const OUTPUT_FORMAT = 'yyyy-MM-dd';
 
@@ -22,6 +22,7 @@ const OUTPUT_FORMAT = 'yyyy-MM-dd';
     ],
 })
 export class FmsDateComponent extends DefaultControlValueAccessor {
+    @Input({ required: true }) control: AbstractControl;
     @Input() label: string;
     @Input() formControlName: string;
     @Input() required: boolean;
@@ -46,11 +47,6 @@ export class FmsDateComponent extends DefaultControlValueAccessor {
         }
         return false;
     };
-
-    get control() {
-        const formGroup = this.controlContainer.control as FormGroup;
-        return formGroup.controls[this.formControlName];
-    }
 
     onChange(value): void {
         this.onChangeFn(formatDate(value, OUTPUT_FORMAT));

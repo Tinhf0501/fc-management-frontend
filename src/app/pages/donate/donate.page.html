@@ -1,33 +1,8 @@
 <div class="d-flex flex-column row-gap-3 h-100">
-    <div class="bg-light p-3 rounded">
-        <div class="bg-white p-3 rounded shadow">
-            <donate-form-search></donate-form-search>
-        </div>
-    </div>
-
-    <div class="bg-light p-3 rounded h-100">
-        <div
-            class="bg-white p-3 rounded h-100 d-flex flex-column row-gap-2 shadow"
-        >
-            <div class="d-flex justify-content-between align-items-center">
-                <i class="fw-semibold text-capitalize">
-                    {{ 'COMMON.TOTAL_RECORD' | translate:{numberOfRecord: 1} }}
-                </i>
-                <div class="d-flex gap-2">
-                    <fms-button
-                        [icon]="'plus'"
-                        [label]="'COMMON.CREATE' | translate"
-                        (click)="openAddDonate()"
-                    ></fms-button>
-                    <fms-button
-                        [icon]="'download'"
-                        [label]="'COMMON.EXPORT_EXCEL' | translate"
-                    ></fms-button>
-                </div>
-            </div>
-            <div class="flex-grow-1">
-                <donate-grid></donate-grid>
-            </div>
-        </div>
-    </div>
+    <fms-box>
+        <donate-form-search></donate-form-search>
+    </fms-box>
+    <fms-box class="flex-grow-1">
+        <donate-grid [pagination]="pagination" (clickAction)="clickAction($event)"></donate-grid>
+    </fms-box>
 </div>

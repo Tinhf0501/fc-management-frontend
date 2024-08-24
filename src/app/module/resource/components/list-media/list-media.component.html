@@ -5,7 +5,6 @@
         </h4>
         <fms-button
             *ngIf="!readonly"
-            class="btn btn-sm btn-success"
             (click)="onOpenUploadModal()"
             [disabled]="media.files.length >= maxNumberFile"
             [icon]="'plus'"

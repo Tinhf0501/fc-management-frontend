@@ -1,41 +1,50 @@
-<form class="d-flex flex-column row-gap-3">
+<form [formGroup]="formGroup" class="d-flex flex-column row-gap-3">
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{
-                'SPENDING.SPENDER' | translate
-            }}</label>
-            <ng-select
+            <fms-select
+                [items]="items | signal"
+                [label]="'SPENDING.SPENDER' | translate"
                 [placeholder]="'SPENDING.SELECT_SPENDER' | translate"
-            ></ng-select>
+                formControlName="spender"
+                [required]="true"
+                [control]="formGroup.get('spender')"
+            ></fms-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{
-                'COMMON.AMT' | translate
-            }}</label>
-            <input class="form-control" />
+            <fms-input
+                [label]="'COMMON.AMT' | translate"
+                [required]="true"
+                formControlName="amt"
+                [control]="formGroup.get('amt')"
+            ></fms-input>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{
-                'COMMON.FC' | translate
-            }}</label>
-            <ng-select
+            <fms-select
+                [items]="items | signal"
+                [label]="'COMMON.FC' | translate"
                 [placeholder]="'COMMON.SELECT_FC' | translate"
-            ></ng-select>
+                formControlName="fc"
+                [required]="true"
+                [control]="formGroup.get('fc')"
+            ></fms-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{
-                'COMMON.DESC' | translate
-            }}</label>
-            <textarea class="form-control"></textarea>
+            <fms-input
+                [variant]="'textarea'"
+                [label]="'COMMON.DESC' | translate"
+                [required]="true"
+                formControlName="desc"
+                [control]="formGroup.get('desc')"
+            ></fms-input>
         </div>
     </div>
 </form>

@@ -1,9 +1,6 @@
-import { inject } from '@angular/core';
-import { ControlContainer, ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor } from '@angular/forms';
 
 export class DefaultControlValueAccessor implements ControlValueAccessor {
-    protected controlContainer = inject(ControlContainer);
-
     protected value: any;
     protected disabled: boolean;
     protected onChangeFn: Function;

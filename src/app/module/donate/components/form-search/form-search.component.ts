@@ -5,6 +5,9 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
+import { SignalPipe } from '@fms/core';
+import { FmsDateComponent } from '@fms/date-picker';
+import { FmsInputComponent } from '@fms/input';
 import { SearchWrapperComponent } from '@fms/search-form';
 import { FmsSelectComponent } from '@fms/select';
 import { TranslateModule } from '@ngx-translate/core';
@@ -20,7 +23,10 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
 
         FmsSelectComponent,
+        FmsInputComponent,
+        FmsDateComponent,
         SearchWrapperComponent,
+        SignalPipe
     ],
 })
 export class DonateFormSearchComponent implements OnInit {
@@ -28,11 +34,18 @@ export class DonateFormSearchComponent implements OnInit {
 
     public formGroup: FormGroup;
 
+    items = []
     public ngOnInit(): void {
         this.buildFormGroup();
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({});
+        this.formGroup = this.formBuilder.group({
+            donator: [null],
+            status: [null],
+            fc: [null],
+            fromDate: [null],
+            toDate: [null]
+        });
     }
 }

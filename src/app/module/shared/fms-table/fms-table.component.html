@@ -8,7 +8,7 @@
                 <fms-button
                     *nzSpaceItem
                     [label]="'COMMON.CREATE' | translate"
-                    [icon]="'v'"
+                    [icon]="'plus'"
                     (click)="clickAction.emit({ event: actionEvent.CREATE })"
                 ></fms-button>
             </ng-container>
@@ -80,7 +80,8 @@
                         [component]="header.customColumn"
                         [context]="{
                             params: header.customColumnParams,
-                            data: data
+                            data: data,
+                            rowIndex: i
                         }"
                     >
                     </ng-container>

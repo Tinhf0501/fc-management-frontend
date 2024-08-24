@@ -1,24 +1,31 @@
 <fms-search-form [formGroup]="formGroup">
     <div class="row row-gap-3">
         <div class="col-md-6">
-            <label class="fw-semibold text-capitalize">{{
-                'DONATE.NAME_DONATOR' | translate
-            }}</label>
-            <input
+            <fms-input
+                [label]="'DONATE.NAME_DONATOR' | translate"
                 [placeholder]="'DONATE.INPUT_NAME_DONATOR' | translate"
-                class="form-control"
-            />
+                formControlName="donator"
+                [control]="formGroup.get('donator')"
+            ></fms-input>
         </div>
         <div class="col-md-6">
-            <label class="fw-semibold">{{ 'COMMON.STATUS' | translate }}</label>
-            <fms-select [items]=""></fms-select>
+            <fms-select 
+                [items]="items | signal"
+                [label]="'COMMON.STATUS' | translate"
+                formControlName="status"
+                [control]="formGroup.get('status')"
+            ></fms-select>
         </div>
     </div>
 
     <div class="row row-gap-3">
         <div class="col-md-6">
-            <label class="fw-semibold">{{ 'COMMON.FC' | translate }}</label>
-            <fms-select [items]=""></fms-select>
+            <fms-select 
+                [items]="items | signal"
+                [label]="'COMMON.FC' | translate"
+                formControlName="fc"
+                [control]="formGroup.get('fc')"
+            ></fms-select>
         </div>
 
         <div class="col-md-6">
@@ -27,10 +34,16 @@
             }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="fromDate"
+                        [control]="formGroup.get('fromDate')"
+                    ></fms-date>
                 </div>
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="toDate"
+                        [control]="formGroup.get('toDate')"
+                    ></fms-date>
                 </div>
             </div>
         </div>

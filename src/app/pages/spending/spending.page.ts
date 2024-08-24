@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import {
-    SpendingCreateModalComponent,
+    SpendingCreateFormComponent,
     SpendingFormSearchComponent,
-    SpendingGridComponent,
+    SpendingGridComponent
 } from '@fms-module/spending';
-import { FmsButtonComponent } from '@fms/button';
+import { FmsBoxComponent } from '@fms/box';
 import { Pagination } from '@fms/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { ModalService } from '@fms/modal';
+import { ActionEvent } from '@fms/table';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'spending-page',
@@ -18,17 +19,26 @@ import { TranslateModule } from '@ngx-translate/core';
         SpendingFormSearchComponent,
         SpendingGridComponent,
         TranslateModule,
-        FmsButtonComponent,
+
+        FmsBoxComponent
     ],
 })
 export class SpendingPage {
-    private modalService: NgbModal = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService)
     public pagination: Pagination = new Pagination(1, 100);
 
     public openAddModal(): void {
-        this.modalService.open(SpendingCreateModalComponent, {
-            centered: true,
-            size: 'md',
+        this.modalService.openModal({
+            title: this.translateService.instant('SPENDING.CREATE_TITLE'),
+            content: SpendingCreateFormComponent
         });
+    }
+
+    public clickAction(data: {event: ActionEvent, data?: any}): void {
+        if (data.event === ActionEvent.CREATE) {
+            this.openAddModal();
+            return;
+        }
     }
 }

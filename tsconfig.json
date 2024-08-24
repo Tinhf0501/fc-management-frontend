@@ -48,12 +48,6 @@
       "@fms/spinner": [
         "src/app/module/shared/fms-spinner/index.ts"
       ],
-      "@fms/pagination": [
-        "src/app/module/shared/fms-pagination/index.ts"
-      ],
-      "@fms/grid": [
-        "src/app/module/shared/grid-core/index.ts"
-      ],
       "@fms/icon": [
         "src/app/module/shared/fms-icon/index.ts"
       ],
@@ -62,6 +56,9 @@
       ],
       "@fms/input": [
         "src/app/module/shared/fms-input/index.ts"
+      ],
+      "@fms/upload": [
+        "src/app/module/shared/fms-upload/index.ts"
       ],
       "@fms/select": [
         "src/app/module/shared/fms-select/index.ts"

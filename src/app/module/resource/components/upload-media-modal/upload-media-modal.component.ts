@@ -1,9 +1,11 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { getExtension } from '@fms/core';
-import { NgbActiveModal, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
+import { NzModalRef } from 'ng-zorro-antd/modal';
+import { OnModalInit, OnModalSave } from 'src/app/module/shared/fms-modal/hook';
 import { ImagePipe } from '../../pipe';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 @Component({
     selector: 'upload-media-modal',
@@ -16,25 +18,24 @@ import { ImagePipe } from '../../pipe';
         NgSwitchCase,
         NgIf,
         TranslateModule,
-        NgbTooltip,
         ImagePipe,
+        NzToolTipModule
     ],
 })
-export class UploadMediaModalComponent {
+export class UploadMediaModalComponent implements OnModalInit, OnModalSave {
     @Input() allowsFile: string[] = [];
     @ViewChild('uploader') uploader: ElementRef;
 
-    private readonly modal = inject(NgbActiveModal);
-
     public files: File[] = [];
     public maxNumberFile: number;
+    private modalRef: NzModalRef;
 
     public get isInvalid(): boolean {
         return this.files.some(this.isInvalidFile.bind(this));
     }
 
-    public onCloseModal(): void {
-        this.modal.close();
+    public ngOnModalInit(ref: NzModalRef): void | Promise<void> {
+        this.modalRef = ref;
     }
 
     public onUploadFile(event): void {
@@ -47,9 +48,9 @@ export class UploadMediaModalComponent {
         this.uploader.nativeElement.value = '';
     }
 
-    public onSave(): void {
+    public ngOnModalSave(): void {
         if (this.isInvalid) return;
-        this.modal.close(this.files);
+        this.modalRef.close(this.files);
     }
 
     public onRemoveImage(index: number): void {

@@ -1,14 +1,13 @@
 import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
-    ControlContainer,
-    ControlValueAccessor,
-    FormGroup,
+    AbstractControl,
     FormsModule,
-    NG_VALUE_ACCESSOR,
+    NG_VALUE_ACCESSOR
 } from '@angular/forms';
-import { NzInputModule } from 'ng-zorro-antd/input';
+import { DefaultControlValueAccessor } from '@fms/core';
 import { FmsIconComponent } from '@fms/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
 import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error.component';
 
 @Component({
@@ -30,10 +29,11 @@ import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error
             provide: NG_VALUE_ACCESSOR,
             multi: true,
             useExisting: FmsInputComponent,
-        },
+        }
     ],
 })
-export class FmsInputComponent implements ControlValueAccessor {
+export class FmsInputComponent extends DefaultControlValueAccessor {
+    @Input({ required: true }) control: AbstractControl;
     @Input() label: string;
 
     @Input() type: string = 'text';
@@ -44,44 +44,15 @@ export class FmsInputComponent implements ControlValueAccessor {
 
     @Input() errorsMessage: { [name: string]: string };
 
-    @Input() formControlName: string;
-
     @Input() required: boolean = false;
 
-    public controlContainer = inject(ControlContainer);
 
-    public value: any;
-
-    onChangeFn: (value) => void;
-    onTouchedFn: () => void;
-
-    isDisabled: boolean = false;
     touched = false;
-
-    get control() {
-        const formGroup = this.controlContainer.control as FormGroup;
-        return formGroup.controls[this.formControlName];
-    }
+    
 
     onChangeValue(): void {
         this.onChangeFn(this.value);
         this.markAsTouched();
-    }
-
-    writeValue(obj: any): void {
-        this.value = obj;
-    }
-
-    registerOnChange(fn: any): void {
-        this.onChangeFn = fn;
-    }
-
-    registerOnTouched(fn: any): void {
-        this.onTouchedFn = fn;
-    }
-
-    setDisabledState?(isDisabled: boolean): void {
-        this.isDisabled = isDisabled;
     }
 
     markAsTouched() {

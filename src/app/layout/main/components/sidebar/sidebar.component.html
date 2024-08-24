@@ -59,8 +59,6 @@
             </a>
             <ng-container *ngIf="item.children">
                 <div
-                    #collapse="ngbCollapse"
-                    [ngbCollapse]="true"
                     class="collapse-inner rounded collapse show bg-primary my-0"
                     [ngStyle]="{ margin: (level + 1) * 20 + 'px' }"
                 >

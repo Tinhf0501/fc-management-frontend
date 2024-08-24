@@ -1,21 +1,16 @@
 import { inject, Injectable } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Injectable({
     providedIn: 'root',
 })
 export class NotifierService {
     private readonly modalService = inject(NzModalService);
+    private readonly messageService = inject(NzMessageService);
 
-    public async success(
-        message: string,
-        title: string = 'Success',
-    ): Promise<void> {
-        const ref = this.modalService.success({
-            nzTitle: title,
-            nzContent: message,
-        });
-        return ref.afterClose.asObservable().toPromise();
+    public success(message: string, title: string = 'Success'): void {
+        this.messageService.success(`${title}<br>${message}`);
     }
 
     public error(

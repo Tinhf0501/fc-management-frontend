@@ -1,4 +1,4 @@
-<div class="d-flex flex-column row-gap-4">
+<div class="d-flex flex-column row-gap-4 h-100">
     <create-fc-form
         (formInitialized)="createFcForm = $event"
         (changeAvatar)="avatar = $event"
@@ -9,6 +9,7 @@
         (changeMedia)="media = $event"
     ></list-media>
     <member-grid-wrapper
+        class="flex-grow-1"
         [members]="members"
         (changeMember)="members = $event"
     ></member-grid-wrapper>

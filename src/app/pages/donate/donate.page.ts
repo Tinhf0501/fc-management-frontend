@@ -4,9 +4,11 @@ import {
     DonateFormSearchComponent,
     DonateGridComponent,
 } from '@fms-module/donate';
+import { FmsBoxComponent } from '@fms/box';
 import { FmsButtonComponent } from '@fms/button';
 import { Pagination } from '@fms/core';
 import { ModalService } from '@fms/modal';
+import { ActionEvent } from '@fms/table';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
     selector: 'donate-page',
@@ -17,7 +19,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
         DonateFormSearchComponent,
         DonateGridComponent,
         TranslateModule,
-        FmsButtonComponent,
+        FmsBoxComponent
     ],
 })
 export class DonatePage {
@@ -31,5 +33,12 @@ export class DonatePage {
             title: this.translateService.instant('DONATE.CREATE_TITLE'),
             content: CreateDonateFormComponent,
         });
+    }
+
+    public clickAction(data: {event: ActionEvent, data?: any}): void {
+        if (data.event === ActionEvent.CREATE) {
+            this.openAddDonate();
+            return;
+        }
     }
 }

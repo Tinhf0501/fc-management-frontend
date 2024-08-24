@@ -2,10 +2,8 @@ import { NgIf } from '@angular/common';
 import {
     Component,
     ComponentRef,
-    EventEmitter,
     inject,
-    Input,
-    Output,
+    Input
 } from '@angular/core';
 import { DynamicViewDirective } from '@fms/core';
 import { TranslateModule } from '@ngx-translate/core';
@@ -22,22 +20,16 @@ import { ModalOptions } from './model';
 export class FmsModalComponent {
     @Input() headerTitle: string;
 
-    @Output() cancel = new EventEmitter<void>();
-    @Output() save = new EventEmitter<void>();
-
     public readonly options: ModalOptions = inject(NZ_MODAL_DATA);
     private readonly modalRef = inject(NzModalRef);
 
-    public ngOnSave(): void {
-        this.save.emit();
-    }
-
-    public ngOnCancel(): void {
-        this.cancel.emit();
-    }
-
     public generatedView(componentRef: ComponentRef<any>): void {
         const { instance } = componentRef;
+        if (this.options.data) {
+            Object.entries(this.options.data).forEach(([key, value]) => {
+                instance[key] = value;
+            });
+        }
         instance?.ngOnModalInit?.(this.modalRef);
         this.modalRef.updateConfig({
             nzOnOk: () => {

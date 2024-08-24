@@ -1,4 +1,4 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { NgFor, NgTemplateOutlet } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
     FormBuilder,
@@ -7,6 +7,8 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { FmsButtonComponent } from '@fms/button';
+import { FmsInputComponent } from '@fms/input';
 import { TranslateModule } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { SingleSignOn } from '../../interface/sso.interface';
@@ -19,7 +21,7 @@ import { SsoButtonComponent } from '../sso-button/sso-button.component';
     styleUrls: ['./login-form.component.scss'],
     standalone: true,
     imports: [
-        CommonModule,
+        NgTemplateOutlet,
         ReactiveFormsModule,
         FormsModule,
         NgFor,
@@ -27,6 +29,8 @@ import { SsoButtonComponent } from '../sso-button/sso-button.component';
 
         // components
         SsoButtonComponent,
+        FmsInputComponent,
+        FmsButtonComponent
     ],
 })
 export class LoginFormComponent implements OnInit, OnDestroy {

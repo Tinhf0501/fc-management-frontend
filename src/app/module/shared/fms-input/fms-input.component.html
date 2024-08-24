@@ -16,7 +16,7 @@
                     *ngSwitchCase="'input'"
                     nz-input
                     [type]="type"
-                    [disabled]="isDisabled"
+                    [disabled]="disabled"
                     [placeholder]="placeholder"
                     [(ngModel)]="value"
                     [nzStatus]="
@@ -31,7 +31,7 @@
                     nz-input
                     style="min-height: 150px"
                     [placeholder]="placeholder"
-                    [disabled]="isDisabled"
+                    [disabled]="disabled"
                     [nzStatus]="
                         control.touched && control.invalid ? 'error' : ''
                     "

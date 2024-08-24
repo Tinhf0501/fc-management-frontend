@@ -1,4 +1,9 @@
-import { Language } from '../interface/language.interface';
+export interface Language {
+    label: string;
+    value: string;
+    iconUrl: string;
+    resourceUrl: string;
+}
 
 export const LANGUAGES: Language[] = [
     {

@@ -1,31 +1,43 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { LANGUAGES } from '@fms/core';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { Language } from '@fms/core';
+import { NgIf } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignalPipe } from '@fms/core';
+import { FmsSelectComponent } from '@fms/select';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
+import { Language, LANGUAGES } from './model';
 
 @Component({
     selector: 'select-language',
     templateUrl: './language-select.component.html',
     styleUrls: ['./language-select.component.scss'],
     standalone: true,
-    imports: [NgSelectModule, TranslateModule, FormsModule],
+    imports: [
+        NgIf,
+        FmsSelectComponent,
+        TranslateModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SignalPipe
+    ],
 })
 export class LanguageComponent implements OnInit {
     private translateService: TranslateService = inject(TranslateService);
+    private formBuilder = inject(FormBuilder)
 
     public languages: Language[] = LANGUAGES;
-    public language: string;
+    public formGroup: FormGroup;
 
     public ngOnInit(): void {
-        this.language =
+        const language =
             localStorage.getItem('language') ??
             this.translateService.getDefaultLang();
+        this.formGroup = this.formBuilder.group({
+            language: [language]
+        })
     }
 
-    public onChangeLanguage(language: Language): void {
-        this.translateService.use(language.value);
-        localStorage.setItem('language', language.value);
+    public onChangeLanguage(language: string): void {
+        this.translateService.use(language);
+        localStorage.setItem('language', language);
     }
 }

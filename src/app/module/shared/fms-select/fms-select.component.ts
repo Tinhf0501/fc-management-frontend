@@ -1,6 +1,6 @@
 import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, computed, Input, Signal, TemplateRef } from '@angular/core';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, computed, forwardRef, Input, Signal, TemplateRef } from '@angular/core';
+import { ControlContainer, FormGroupDirective, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { FmsInputComponent } from '../fms-input/fms-input.component';
@@ -25,7 +25,7 @@ import { FmsMessageErrorComponent } from '../fms-message-error/fms-message-error
             provide: NG_VALUE_ACCESSOR,
             useExisting: FmsSelectComponent,
             multi: true,
-        },
+        }
     ],
 })
 export class FmsSelectComponent<T> extends FmsInputComponent {
@@ -33,6 +33,7 @@ export class FmsSelectComponent<T> extends FmsInputComponent {
     @Input() bindLabel: string;
     @Input() bindValue: string;
     @Input() multiple: boolean = false;
+    @Input() clearable: boolean = true;
     @Input() group: keyof T;
 
     @Input() customOptionTemplate: TemplateRef<any>;

@@ -5,7 +5,6 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { FmsDateComponent } from '@fms/date-picker';
@@ -14,6 +13,7 @@ import { SearchWrapperComponent } from '@fms/search-form';
 import { FmsSelectComponent } from '@fms/select';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { POSITIONS } from '../../constant';
+import { PositionSelectComponent } from '../position-select/position-select.component';
 
 @Component({
     selector: 'member-form-search',
@@ -23,13 +23,14 @@ import { POSITIONS } from '../../constant';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        NgSelectModule,
         TranslateModule,
-
+        
         SearchWrapperComponent,
+        FmsSelectComponent,
         FmsInputComponent,
         FmsSelectComponent,
         FmsDateComponent,
+        PositionSelectComponent,
         NzGridModule,
     ],
 })

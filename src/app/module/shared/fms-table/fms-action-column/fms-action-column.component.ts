@@ -15,6 +15,7 @@ export class ActionColumnComponent<T> implements OnInit {
     public actions: ActionColumn<T>[];
     public data: T;
     public params: any;
+    public rowIndex: number;
 
     public ngOnInit(): void {
         this.actions = this.params.actions;

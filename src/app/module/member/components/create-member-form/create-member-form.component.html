@@ -7,6 +7,7 @@
                 [variant]="'input'"
                 [placeholder]="'MEMBER.INPUT_FULLNAME' | translate"
                 formControlName="fullName"
+                [control]="formGroup.get('fullName')"
                 [errorsMessage]="{
                     required: 'MEMBER.ERRORS.FULL_NAME.REQUIRED',
                     maxLength: 'MEMBER.ERRORS.FULL_NAME.MAX_LENGTH'
@@ -23,6 +24,7 @@
                 [variant]="'input'"
                 [placeholder]="'MEMBER.INPUT_PRINTED_NAME' | translate"
                 formControlName="nameShirt"
+                [control]="formGroup.get('nameShirt')"
                 [errorsMessage]="{
                     required: 'MEMBER.ERRORS.PRINTED_NAME.REQUIRED',
                     maxLength: 'MEMBER.ERRORS.PRINTED_NAME.MAX_LENGTH'
@@ -37,6 +39,7 @@
                 [variant]="'input'"
                 [placeholder]="'MEMBER.INPUT_PRINTED_NUMBER' | translate"
                 formControlName="numberShirt"
+                [control]="formGroup.get('numberShirt')"
                 [errorsMessage]="{
                     required: 'MEMBER.ERRORS.PRINTED_NUMBER.REQUIRED'
                 }"
@@ -53,6 +56,7 @@
                 [variant]="'input'"
                 [placeholder]="'MEMBER.INPUT_PHONE' | translate"
                 formControlName="phoneNumber"
+                [control]="formGroup.get('phoneNumber')"
                 [errorsMessage]="{
                     required: 'MEMBER.ERRORS.PHONE.REQUIRED',
                     maxLength: 'MEMBER.ERRORS.PHONE.MAX_LENGTH',
@@ -62,8 +66,8 @@
         </div>
         <div class="col-md-6">
             <position-select
-                [value]="formGroup.controls.position.value"
-                (change)="formGroup.controls.position.setValue($event)"
+                [value]="formGroup.get('position').value"
+                (change)="formGroup.get('position').setValue($event)"
             ></position-select>
         </div>
     </div>
@@ -76,6 +80,7 @@
                 [type]="'text'"
                 [variant]="'textarea'"
                 formControlName="address"
+                [control]="formGroup.get('address')"
                 [errorsMessage]="{
                     maxLength: 'MEMBER.ERRORS.ADDRESS.MAX_LENGTH'
                 }"
@@ -88,7 +93,6 @@
                 }}</label>
                 <input
                     type="file"
-                    class="form-control"
                     (change)="onChangeAvatar($event)"
                 />
             </div>

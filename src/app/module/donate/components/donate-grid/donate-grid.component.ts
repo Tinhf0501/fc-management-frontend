@@ -1,88 +1,78 @@
-import { Component } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms/grid';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pagination } from '@fms/core';
+import { ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'donate-grid',
-    template: '',
+    templateUrl: './donate-grid.component.html',
     styleUrls: ['./donate-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [FmsTableComponent, TranslateModule],
 })
-export class DonateGridComponent extends GridCore<any> {
-    public override getRowData(): any[] {
-        return [
-            {
-                name: 'Tinhf0501',
-                amount: '1.000.000đ',
-                note: 'Quỹ tháng 1',
-                fcName: 'FC 2000',
-                createdDate: '26-01-2024',
-                status: 'Hoàn thành',
-            },
-        ];
-    }
+export class DonateGridComponent {
+    @Input() rows: any[] = [
+        {
+            name: 'Tinhf0501',
+            amount: '1.000.000đ',
+            note: 'Quỹ tháng 1',
+            fcName: 'FC 2000',
+            createdDate: '26-01-2024',
+            status: 'Hoàn thành',
+        },
+    ];
 
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                pinned: 'left',
-                valueGetter: (param) => {
-                    return param.node.rowIndex + 1;
-                },
+    @Input() pagination: Pagination;
+
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
+    
+    public readonly columns: ColumnTable<any>[] = [
+        {
+            label: 'COMMON.NO',
+            pinned: 'left',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
             },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('DONATE.NAME_DONATOR'),
-                minWidth: 100,
-                field: 'name',
-                tooltipField: 'name',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('DONATE.AMOUNT_DONATE'),
-                minWidth: 100,
-                field: 'amount',
-                tooltipField: 'amount',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('DONATE.CONTENT'),
-                minWidth: 100,
-                field: 'note',
-                tooltipField: 'note',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.FC'),
-                minWidth: 100,
-                field: 'fcName',
-                tooltipField: 'fcName',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('DONATE.DATE_DONATE'),
-                minWidth: 100,
-                field: 'createdDate',
-                tooltipField: 'createdDate',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.STATUS'),
-                minWidth: 100,
-                field: 'status',
-                tooltipField: 'status',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+        },
+        {
+            label: 'DONATE.NAME_DONATOR',
+            name: 'name',
+        },
+        {
+            label: 'DONATE.AMOUNT_DONATE',
+            name: 'amount',
+        },
+        {
+            label: 'DONATE.CONTENT',
+            name: 'note',
+        },
+        {
+            label: 'COMMON.FC',
+            name: 'fcName',
+        },
+        {
+            label: 'DONATE.DATE_DONATE',
+            name: 'createdDate',
+        },
+        {
+            label: 'COMMON.STATUS',
+            name: 'status',
+        },
+        {
+            label: 'COMMON.ACTION',
+            pinned: 'right',
+        },
+    ];
 }
