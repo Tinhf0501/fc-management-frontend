@@ -1,4 +1,4 @@
-<div class="d-flex flex-column row-gap-4">
+<div class="d-flex flex-column row-gap-4 h-100">
     <create-fc-form
         (formInitialized)="createFcForm = $event"
         (changeAvatar)="avatar = $event"
@@ -9,16 +9,20 @@
         (changeMedia)="media = $event"
     ></list-media>
     <member-grid-wrapper
+        class="flex-grow-1"
         [members]="members"
         (changeMember)="members = $event"
     ></member-grid-wrapper>
     <div class="d-flex justify-content-center gap-10px">
-        <button class="btn btn-success" (click)="onSubmitForm()">
-            <fa-icon [icon]="['fas', 'plus']" class="me-2"></fa-icon>
-            <span class="text-capitalize">
-                {{ 'FOOTBALL_CLUB.CREATE.BTN_CREATE' | translate }}
-            </span>
-        </button>
-        <button-back [size]="'md'"></button-back>
+        <fms-button
+            [icon]="'plus'"
+            [label]="'FOOTBALL_CLUB.CREATE.BTN_CREATE' | translate"
+            (click)="onSubmitForm()"
+        ></fms-button>
+        <fms-button
+            [icon]="'arrow-left'"
+            [label]="'COMMON.GO_BACK' | translate"
+            (click)="goBack()"
+        ></fms-button>
     </div>
 </div>

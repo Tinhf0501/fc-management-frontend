@@ -1,9 +1,10 @@
-<search-wrapper [formGroup]="formGroup" (search)="ngOnSearch($event)">
+<fms-search-form [formGroup]="formGroup" (search)="ngOnSearch($event)">
     <div class="row row-gap-3">
         <div class="col-md-3">
             <fms-input
                 type="text"
                 formControlName="fcName"
+                [control]="formGroup.get('fcName')"
                 [label]="'FOOTBALL_CLUB.NAME' | translate"
                 [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate"
             ></fms-input>
@@ -12,43 +13,28 @@
             <fms-select
                 [items]="status"
                 [label]="'COMMON.STATUS' | translate"
-                [bindLabel]="'name'"
+                [bindLabel]="'desc'"
                 [bindValue]="'code'"
                 [multiple]="false"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
                 formControlName="fcStatus"
-                [templates]="[
-                    {
-                        name: 'ng-label-tmp',
-                        templateRef: templateOption
-                    },
-                    {
-                        name: 'ng-option-tmp',
-                        templateRef: templateOption
-                    }
-                ]"
+                [control]="formGroup.get('fcStatus')"
             ></fms-select>
         </div>
 
         <div class="col-md-3">
-            <fms-input
-                type="date"
-                [label]="'COMMON.FROM_DATE' | translate"
+            <fms-date
                 formControlName="fromDate"
-            ></fms-input>
+                [control]="formGroup.get('fromDate')"
+                [label]="'COMMON.FROM_DATE' | translate"
+            ></fms-date>
         </div>
         <div class="col-md-3">
-            <fms-input
-                type="date"
-                [label]="'COMMON.TO_DATE' | translate"
+            <fms-date
                 formControlName="toDate"
-            ></fms-input>
+                [control]="formGroup.get('toDate')"
+                [label]="'COMMON.TO_DATE' | translate"
+            ></fms-date>
         </div>
     </div>
-</search-wrapper>
-
-<ng-template #templateOption let-item="item" let-index="index">
-    <span class="text-capitalize ng-option-label">{{
-        'FOOTBALL_CLUB.STATUS.' + item.desc | translate
-    }}</span>
-</ng-template>
+</fms-search-form>

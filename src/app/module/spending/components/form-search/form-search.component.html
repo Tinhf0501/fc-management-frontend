@@ -1,27 +1,39 @@
-<search-wrapper [formGroup]="formGroup">
+<fms-search-form [formGroup]="formGroup">
     <div class="row">
         <div class="col-md-3">
-            <label class="fw-semibold">{{ 'COMMON.FC' | translate }}</label>
-            <ng-select
+            <fms-select
+                [items]="items | signal"
+                [label]="'COMMON.FC' | translate"
                 [placeholder]="'COMMON.SELECT_FC' | translate"
-            ></ng-select>
+                formControlName="fc"
+                [control]="formGroup.get('fc')"
+            ></fms-select>
         </div>
         <div class="col-md-3">
-            <label class="fw-semibold">{{ 'COMMON.STATUS' | translate }}</label>
-            <ng-select
+            <fms-select
+                [items]="items | signal"
+                [label]="'COMMON.STATUS' | translate"
                 [placeholder]="'COMMON.SELECT_STATUS' | translate"
-            ></ng-select>
+                formControlName="status"
+                [control]="formGroup.get('status')"
+            ></fms-select>
         </div>
         <div class="col-md-6">
             <label class="fw-semibold">{{ 'SPENDING.DATE' | translate }}</label>
             <div class="row row-gap-3">
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="fromDate"
+                        [control]="formGroup.get('fromDate')"
+                    ></fms-date>
                 </div>
                 <div class="col-md-6">
-                    <input type="date" class="form-control" />
+                    <fms-date
+                        formControlName="toDate"
+                        [control]="formGroup.get('toDate')"
+                    ></fms-date>
                 </div>
             </div>
         </div>
     </div>
-</search-wrapper>
+</fms-search-form>

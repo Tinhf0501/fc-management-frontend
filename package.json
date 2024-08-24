@@ -19,20 +19,11 @@
     "@angular/platform-browser": "^16.2.12",
     "@angular/platform-browser-dynamic": "^16.2.12",
     "@angular/router": "^16.2.12",
-    "@fortawesome/angular-fontawesome": "^0.13.0",
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-regular-svg-icons": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@ng-bootstrap/ng-bootstrap": "^15.1.2",
-    "@ng-select/ng-select": "11.2.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "@popperjs/core": "^2.11.6",
-    "ag-grid-angular": "^31.0.2",
     "bootstrap": "^5.2.3",
-    "ngx-toastr": "^17.0.2",
+    "ng-zorro-antd": "^16.2.2",
     "rxjs": "~7.5.0",
-    "sweetalert2": "^11.10.8",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
   },
@@ -49,7 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "prettier": "3.2.4",
+    "prettier": "^3.3.3",
     "typescript": "~5.1.6"
   }
 }

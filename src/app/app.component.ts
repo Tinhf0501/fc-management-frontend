@@ -8,7 +8,8 @@ import {
     RouterOutlet,
     Scroll,
 } from '@angular/router';
-import { DestroyService, SpinnerComponent } from '@fms-module/common';
+import { DestroyService } from '@fms/core';
+import { SpinnerComponent } from '@fms/spinner';
 import { TranslateService } from '@ngx-translate/core';
 import { filter, map, takeUntil } from 'rxjs';
 import { SidebarService } from './layout/main/service/sidebar.service';

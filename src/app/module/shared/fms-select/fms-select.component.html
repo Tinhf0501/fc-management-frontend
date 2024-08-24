@@ -1,0 +1,69 @@
+<fms-message-error
+    [isError]="control.touched && control.invalid"
+    [errorsMessage]="errorsMessage"
+    [errors]="control.errors"
+>
+    <div>
+        <label
+            *ngIf="label"
+            class="fw-semibold text-capitalize"
+            [class.required]="required"
+            >{{ label }}</label
+        >
+
+        <nz-select
+            class="w-100"
+            [nzMode]="multiple ? 'multiple' : 'default'"
+            [nzShowArrow]="true"
+            [nzPlaceHolder]="placeholder"
+            [(ngModel)]="value"
+            [nzDisabled]="disabled"
+            [nzAllowClear]="clearable"
+            [nzShowSearch]="true"
+            [nzStatus]="control.touched && control.invalid ? 'error' : ''"
+            (ngModelChange)="onChangeValue()"
+            (nzBlur)="markAsTouched()"
+        >
+            <ng-container *ngFor="let x of options()">
+                <nz-option-group
+                    *ngIf="group; else nonGroup"
+                    [nzLabel]="x.groupLabel | translate"
+                >
+                    <nz-option
+                        *ngFor="let item of x.items"
+                        nzCustomContent
+                        [nzValue]="item.value"
+                        [nzLabel]="
+                            (item.i18key ?? item.label | translate)
+                        "
+                    >
+                        <ng-container
+                            [ngTemplateOutlet]="
+                                customOptionTemplate ?? nonCustomOptionTemplate
+                            "
+                            [ngTemplateOutletContext]="{ item: item }"
+                        ></ng-container>
+                    </nz-option>
+                </nz-option-group>
+
+                <ng-template #nonGroup>
+                    <nz-option
+                        nzCustomContent
+                        [nzValue]="x.value"
+                        [nzLabel]="(x.i18key ?? x.label | translate)"
+                    >
+                        <ng-container
+                            [ngTemplateOutlet]="
+                                customOptionTemplate ?? nonCustomOptionTemplate
+                            "
+                            [ngTemplateOutletContext]="{ item: x }"
+                        ></ng-container>
+                    </nz-option>
+                </ng-template>
+            </ng-container>
+        </nz-select>
+    </div>
+</fms-message-error>
+<ng-template #nonCustomOptionTemplate let-item="item">
+    {{ (item.i18key ?? item.label | translate) }}
+</ng-template>

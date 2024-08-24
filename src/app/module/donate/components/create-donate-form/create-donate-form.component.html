@@ -1,13 +1,13 @@
 <form [formGroup]="formGroup" class="d-flex flex-column row-gap-3">
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required text-capitalize">{{
-                'DONATE.NAME_DONATOR' | translate
-            }}</label>
-            <input
+            <fms-input
                 [placeholder]="'DONATE.INPUT_NAME_DONATOR' | translate"
-                class="form-control"
-            />
+                [required]="true"
+                [label]="'DONATE.NAME_DONATOR' | translate"
+                formControlName="donator"
+                [control]="formGroup.get('donator')"
+            ></fms-input>
         </div>
     </div>
 
@@ -18,18 +18,23 @@
             }}</label>
             <div class="row">
                 <div class="col-md-9">
-                    <input
+                    <fms-input
                         [placeholder]="'DONATE.INPUT_AMOUNT_DONATE' | translate"
-                        type="number"
-                        class="form-control"
-                    />
+                        [type]="'number'"
+                        [required]="true"
+                        formControlName="amt"
+                        [control]="formGroup.get('amt')"
+                    ></fms-input>
                 </div>
                 <div class="col-md-3">
-                    <ng-select
-                        [items]="['VNĐ']"
+                    <fms-select
+                        [items]="currency"
                         [clearable]="false"
                         [placeholder]="'DONATE.CURRENCY' | translate"
-                    ></ng-select>
+                        [required]="true"
+                        formControlName="currency"
+                        [control]="formGroup.get('currency')"
+                    ></fms-select>
                 </div>
             </div>
         </div>
@@ -37,21 +42,26 @@
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required text-capitalize">{{
-                'COMMON.FC' | translate
-            }}</label>
-            <ng-select
+            <fms-select
+                [required]="true"
                 [placeholder]="'COMMON.SELECT_FC' | translate"
-            ></ng-select>
+                [label]="'COMMON.FC' | translate"
+                [items]="items | signal"
+                formControlName="fc"
+                [control]="formGroup.get('fc')"
+            ></fms-select>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <label class="fw-semibold required">{{
-                'DONATE.CONTENT' | translate
-            }}</label>
-            <textarea class="form-control"></textarea>
+            <fms-input
+                [variant]="'textarea'"
+                [required]="true"
+                [label]="'DONATE.CONTENT' | translate"
+                formControlName="desc"
+                [control]="formGroup.get('desc')"
+            ></fms-input>
         </div>
     </div>
 </form>

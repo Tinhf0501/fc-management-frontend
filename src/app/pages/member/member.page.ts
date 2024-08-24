@@ -1,13 +1,16 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
-    MemberGridComponent,
+    CreateMemberFormComponent,
     MemberFormSearchComponent,
-    CreateMemberModal,
+    MemberGridComponent
 } from '@fms-module/member';
-import { PaginationComponent, Pagination } from '@fms-module/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FmsBoxComponent } from '@fms/box';
+import { FmsButtonComponent } from '@fms/button';
+import { Pagination } from '@fms/core';
+import { ModalService, ModalSize } from '@fms/modal';
+import { ActionEvent } from '@fms/table';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { title } from 'process';
 
 @Component({
     selector: 'member-page',
@@ -17,22 +20,31 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     imports: [
         MemberGridComponent,
         MemberFormSearchComponent,
-        PaginationComponent,
         TranslateModule,
-        FontAwesomeModule,
+
+        FmsBoxComponent
     ],
 })
 export class MemberPage implements OnInit {
     public pagination: Pagination = new Pagination(1, 70);
 
-    private modalService: NgbModal = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService)
 
     public ngOnInit(): void {}
 
     public openAddMemberModal(): void {
-        this.modalService.open(CreateMemberModal, {
-            size: 'lg',
-            centered: true,
+        this.modalService.openModal({
+            size: ModalSize.LARGE,
+            title: this.translateService.instant('MEMBER.CREATE_TITLE'),
+            content: CreateMemberFormComponent
         });
+    }
+
+    public clickAction(data: {event: ActionEvent, data?: any}): void {
+        if (data.event === ActionEvent.CREATE) {
+            this.openAddMemberModal();
+            return;
+        }
     }
 }

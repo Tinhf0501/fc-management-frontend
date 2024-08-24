@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MoneyPipe } from '@fms-module/common';
+import { MoneyPipe } from '@fms/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

@@ -1,11 +1,10 @@
-import { Component, QueryList, ViewChildren, inject } from '@angular/core';
-import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarService } from '@fms-layout/main';
-import { Observable } from 'rxjs';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateModule } from '@ngx-translate/core';
 import { AsyncPipe } from '@angular/common';
-import { LanguageComponent } from '@fms-module/common';
+import { Component, inject } from '@angular/core';
+import { SidebarService } from '@fms-layout/main';
+import { FmsButtonComponent } from '@fms/button';
+import { LanguageComponent } from '@fms/select/language';
+import { TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'main-header',
@@ -13,15 +12,13 @@ import { LanguageComponent } from '@fms-module/common';
     styleUrls: ['./header.component.scss'],
     standalone: true,
     imports: [
-        FontAwesomeModule,
-        NgbCollapse,
         TranslateModule,
         AsyncPipe,
         LanguageComponent,
+        FmsButtonComponent,
     ],
 })
 export class MainHeaderComponent {
-    @ViewChildren(NgbCollapse) ngbCollapses: QueryList<NgbCollapse>;
 
     private sidebarService: SidebarService = inject(SidebarService);
 
@@ -29,14 +26,5 @@ export class MainHeaderComponent {
 
     public openSidebarMobile() {
         this.sidebarService.toggleSidebar();
-    }
-
-    public toggleDropdown(self: NgbCollapse): void {
-        this.ngbCollapses.forEach((x) => {
-            if (x !== self && !x['_isCollapsed']) {
-                x.toggle();
-            }
-        });
-        self.toggle();
     }
 }

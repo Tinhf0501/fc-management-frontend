@@ -1,6 +1,6 @@
-import { AfterViewChecked, Component, Input, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ButtonBackComponent, DestroyService } from '@fms-module/common';
+import { SidebarService } from '@fms-layout/main';
 import {
     CreateFcFormComponent,
     UpdateFcRequest,
@@ -10,11 +10,11 @@ import {
     UpdateFCMemberRequest,
 } from '@fms-module/member';
 import { ListMediaComponent } from '@fms-module/resource';
+import { FmsButtonComponent } from '@fms/button';
+import { DestroyService } from '@fms/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
 import { CreateFootballClubPage } from '../create-football-club/create-football-club.page';
-import { SidebarService } from '@fms-layout/main';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
     selector: 'update-football-club',
@@ -23,12 +23,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     standalone: true,
     imports: [
         TranslateModule,
-        FontAwesomeModule,
 
         CreateFcFormComponent,
-        ButtonBackComponent,
         ListMediaComponent,
         MemberGridWrapperComponent,
+        FmsButtonComponent,
     ],
     providers: [DestroyService],
 })

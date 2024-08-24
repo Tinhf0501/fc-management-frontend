@@ -1,9 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { SidebarService } from '@fms-layout/main';
 import { Observable } from 'rxjs';
-import { MenuService, Menu } from '@fms-module/common';
+import { MenuService, Menu } from '@fms/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
     AsyncPipe,
     NgFor,
@@ -12,7 +11,7 @@ import {
     NgTemplateOutlet,
 } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
+import { FmsIconComponent } from '@fms/icon';
 
 @Component({
     selector: 'main-sidebar',
@@ -21,15 +20,14 @@ import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
     standalone: true,
     imports: [
         RouterLink,
-        FontAwesomeModule,
         NgTemplateOutlet,
         RouterLinkActive,
         AsyncPipe,
         TranslateModule,
-        NgbCollapse,
         NgStyle,
         NgIf,
         NgFor,
+        FmsIconComponent,
     ],
 })
 export class MainSidebarComponent {

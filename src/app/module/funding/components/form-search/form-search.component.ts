@@ -5,9 +5,11 @@ import {
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import { SearchWrapperComponent } from '@fms-module/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { SignalPipe } from '@fms/core';
+import { FmsDateComponent } from '@fms/date-picker';
+import { FmsInputComponent } from '@fms/input';
+import { SearchWrapperComponent } from '@fms/search-form';
+import { FmsSelectComponent } from '@fms/select';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -19,21 +21,30 @@ import { TranslateModule } from '@ngx-translate/core';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        NgSelectModule,
-        FontAwesomeModule,
 
+        FmsSelectComponent,
+        FmsInputComponent,
+        FmsDateComponent,
         SearchWrapperComponent,
+        SignalPipe
     ],
 })
 export class FundingFormSearchComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);
     public formGroup: FormGroup;
+    public items = [];
 
     public ngOnInit(): void {
         this.buildFormGroup();
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({});
+        this.formGroup = this.formBuilder.group({
+            fc: [null],
+            status: [null],
+            name: [null],
+            fromDate: [null],
+            toDate: [null]
+        });
     }
 }

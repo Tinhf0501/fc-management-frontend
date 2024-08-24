@@ -3,17 +3,13 @@
         <h4 *ngIf="showTitle" class="text-capitalize">
             {{ 'RESOURCE.MEDIA' | translate }}
         </h4>
-        <button
+        <fms-button
             *ngIf="!readonly"
-            class="btn btn-sm btn-success"
             (click)="onOpenUploadModal()"
             [disabled]="media.files.length >= maxNumberFile"
-        >
-            <fa-icon [icon]="'plus'" class="me-2"></fa-icon>
-            <span class="text-capitalize">{{
-                'RESOURCE.ADD_MEDIA' | translate
-            }}</span>
-        </button>
+            [icon]="'plus'"
+            [label]="'RESOURCE.ADD_MEDIA' | translate"
+        ></fms-button>
     </div>
 
     <div class="d-flex gap-3 flex-wrap w-100">

@@ -1,13 +1,19 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import {
+    FormBuilder,
+    FormGroup,
     FormsModule,
     ReactiveFormsModule,
-    FormGroup,
-    FormBuilder,
 } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { SearchWrapperComponent } from '@fms-module/common';
+
+import { FmsDateComponent } from '@fms/date-picker';
+import { FmsInputComponent } from '@fms/input';
+import { SearchWrapperComponent } from '@fms/search-form';
+import { FmsSelectComponent } from '@fms/select';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { POSITIONS } from '../../constant';
+import { PositionSelectComponent } from '../position-select/position-select.component';
 
 @Component({
     selector: 'member-form-search',
@@ -17,10 +23,15 @@ import { SearchWrapperComponent } from '@fms-module/common';
     imports: [
         FormsModule,
         ReactiveFormsModule,
-        NgSelectModule,
         TranslateModule,
-
+        
         SearchWrapperComponent,
+        FmsSelectComponent,
+        FmsInputComponent,
+        FmsSelectComponent,
+        FmsDateComponent,
+        PositionSelectComponent,
+        NzGridModule,
     ],
 })
 export class MemberFormSearchComponent implements OnInit {
@@ -28,11 +39,22 @@ export class MemberFormSearchComponent implements OnInit {
 
     public formGroup: FormGroup;
 
+    items = signal([]);
+    positions = signal(POSITIONS);
+
     public ngOnInit(): void {
         this.buildFormGroup();
     }
 
     private buildFormGroup(): void {
-        this.formGroup = this.formBuilder.group({});
+        this.formGroup = this.formBuilder.group({
+            fullName: [],
+            fromDate: [],
+            toDate: [],
+            status: [],
+            account: [],
+            position: [],
+            fc: [],
+        });
     }
 }

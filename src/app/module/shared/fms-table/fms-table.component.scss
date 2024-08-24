@@ -1,0 +1,16 @@
+:host ::ng-deep {
+    nz-spin {
+        height: 100%;
+
+        > .ant-spin-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+th {
+    text-transform: capitalize;
+}
