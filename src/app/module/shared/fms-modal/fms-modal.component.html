@@ -1,0 +1,9 @@
+<ng-template
+    asDynamicView
+    [component]="options.content"
+    (afterGenerateView)="generatedView($event)"
+></ng-template>
+
+<div *ngIf="options.hiddenFooter">
+    <div *nzModalFooter></div>
+</div>

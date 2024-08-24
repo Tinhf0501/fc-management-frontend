@@ -30,8 +30,44 @@
       "@fms-module/auth": [
         "src/app/module/auth/index.ts"
       ],
-      "@fms-module/common": [
-        "src/app/module/common/index.ts"
+      "@fms/core": [
+        "src/app/module/shared/common/index.ts"
+      ],
+      "@fms/box": [
+        "src/app/module/shared/fms-box/index.ts"
+      ],
+      "@fms/modal": [
+        "src/app/module/shared/fms-modal/index.ts"
+      ],
+      "@fms/search-form": [
+        "src/app/module/shared/fms-search-form/index.ts"
+      ],
+      "@fms/table": [
+        "src/app/module/shared/fms-table/index.ts"
+      ],
+      "@fms/spinner": [
+        "src/app/module/shared/fms-spinner/index.ts"
+      ],
+      "@fms/icon": [
+        "src/app/module/shared/fms-icon/index.ts"
+      ],
+      "@fms/button": [
+        "src/app/module/shared/fms-button/index.ts"
+      ],
+      "@fms/input": [
+        "src/app/module/shared/fms-input/index.ts"
+      ],
+      "@fms/upload": [
+        "src/app/module/shared/fms-upload/index.ts"
+      ],
+      "@fms/select": [
+        "src/app/module/shared/fms-select/index.ts"
+      ],
+      "@fms/date-picker": [
+        "src/app/module/shared/fms-date/index.ts"
+      ],
+      "@fms/select/language": [
+        "src/app/module/shared/language-select/index.ts"
       ],
       "@fms-module/football-club": [
         "src/app/module/football-club/index.ts"

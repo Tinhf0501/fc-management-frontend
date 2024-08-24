@@ -1,71 +1,68 @@
-import { Component } from '@angular/core';
-import { GridCore } from '@fms-module/common';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pagination } from '@fms/core';
+import { ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'spending-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    templateUrl: './spending-grid.component.html',
     styleUrls: ['./spending-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
-})
-export class SpendingGridComponent extends GridCore<any> {
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                valueGetter: (param) => param.node.rowIndex + 1,
-                pinned: 'left',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.FC'),
-                minWidth: 100,
-                field: 'fc',
-                tooltipField: 'fc',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.AMT'),
-                minWidth: 100,
-                field: 'amount',
-                tooltipField: 'amount',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('SPENDING.DATE'),
-                minWidth: 100,
-                field: 'date',
-                tooltipField: 'date',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.DESC'),
-                minWidth: 100,
-                field: 'desc',
-                tooltipField: 'desc',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.STATUS'),
-                minWidth: 100,
-                field: 'status',
-                tooltipField: 'status',
-            },
-            {
-                headerValueGetter: (p) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+    imports: [FmsTableComponent, TranslateModule],
 
-    public override getRowData(): any[] {
-        return [];
-    }
+})
+export class SpendingGridComponent {
+
+    @Input() rows: any[] = [];
+
+    @Input() pagination: Pagination;
+
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
+
+    
+    public readonly columns: ColumnTable<any>[] = [
+        {
+            label: 'COMMON.NO',
+            pinned: 'left',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
+            },
+        },
+        {
+            label: 'COMMON.FC',
+            name: 'fc',
+        },
+        {
+            label: 'COMMON.AMT',
+            name: 'amount',
+        },
+        {
+            label: 'SPENDING.DATE',
+            name: 'date',
+        },
+        {
+            label: 'COMMON.DESC',
+            name: 'desc',
+        },
+        {
+            label: 'COMMON.STATUS',
+            name: 'status',
+        },
+        {
+            label: 'COMMON.ACTION',
+            pinned: 'right',
+        },
+    ]
 }

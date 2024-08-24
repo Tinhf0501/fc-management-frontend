@@ -1,9 +1,65 @@
 /// <reference types="@angular/localize" />
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {
+    HTTP_INTERCEPTORS,
+    HttpClient,
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+    provideRouter,
+    withComponentInputBinding,
+    withInMemoryScrolling,
+} from '@angular/router';
+import { AuthInterceptor, LoaderInterceptor } from '@fms/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { AppComponent } from './app/app.component';
+import { routes } from './app/router';
 
-import { AppModule } from './app/app.module';
+const translateLoaderFactory = (
+    httpClient: HttpClient,
+): TranslateHttpLoader => {
+    return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
+};
 
-platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+    providers: [
+        provideNzI18n(en_US),
+        provideAnimations(),
+        provideRouter(
+            routes,
+            withComponentInputBinding(),
+            withInMemoryScrolling({
+                scrollPositionRestoration: 'enabled',
+            }),
+        ),
+        provideHttpClient(withInterceptorsFromDi()),
+        importProvidersFrom([
+            NzModalModule,
+            TranslateModule.forRoot({
+                defaultLanguage: localStorage.getItem('language') ?? 'vn',
+                loader: {
+                    provide: TranslateLoader,
+                    useFactory: translateLoaderFactory,
+                    deps: [HttpClient],
+                },
+            }),
+        ]),
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true,
+        },
+    ],
+}).catch((err) => console.error(err));

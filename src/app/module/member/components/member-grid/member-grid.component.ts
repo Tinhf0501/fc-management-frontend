@@ -1,187 +1,142 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import {
-    ActionColumnComponent,
-    ConfirmationComponent,
-    GridCore,
-    fileToImageUrl,
-} from '@fms-module/common';
-import {
-    CreateFCMemberRequest,
-    CreateMemberModal,
-    POSITION_MAP,
-} from '@fms-module/member';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { CreateFCMemberRequest, POSITION_MAP } from '@fms-module/member';
+import { fileToImageUrl, Pagination } from '@fms/core';
+import { ModalService } from '@fms/modal';
+import { ActionColumnComponent, ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'member-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    templateUrl: './member-grid.component.html',
     styleUrls: ['./member-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular, TranslateModule],
+    imports: [FmsTableComponent, TranslateModule],
 })
-export class MemberGridComponent extends GridCore<any> {
+export class MemberGridComponent implements OnInit {
     @Input() readonly: boolean = false;
+    @Input() rows: any[] = [];
+    @Input() pagination: Pagination;
 
     @Output() updateMember = new EventEmitter<{
         data: CreateFCMemberRequest;
         index: number;
     }>();
-
     @Output() deleteMember = new EventEmitter<number>();
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
 
-    private readonly modalService = inject(NgbModal);
+    public columns: ColumnTable<any>[];
 
-    constructor() {
-        super();
-        this.gridOptions = {
-            rowHeight: 100,
-        };
-    }
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService);
 
-    public override getColumnDefs(): ColDef[] {
-        const column: ColDef[] = [
+    ngOnInit(): void {
+        const column: ColumnTable<any>[] = [
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.AVATAR'),
-                minWidth: 200,
-                cellRenderer: (params) => {
-                    const imageUrl = fileToImageUrl(params.data.avatar);
+                label: 'MEMBER.AVATAR',
+                valueGetter: (data) => {
+                    const imageUrl = fileToImageUrl(data.avatar);
                     if (!imageUrl) return '';
                     return `<img src='${imageUrl}' style='width: 200px; height: 100px' />`;
                 },
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                valueGetter: (param) => {
-                    return param.node.rowIndex + 1;
+                label: 'COMMON.NO',
+                valueGetter: (_, rowIndex) => {
+                    const { page, pageSize } = this.pagination;
+                    const rowNumber = rowIndex + 1;
+                    return (page - 1) * pageSize + rowNumber;
                 },
                 pinned: 'left',
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.PRINTED_NAME'),
-                minWidth: 100,
-                field: 'nameShirt',
-                tooltipField: 'nameShirt',
+                label: 'MEMBER.PRINTED_NAME',
+                name: 'nameShirt',
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.PRINTED_NUMBER'),
-                minWidth: 50,
-                field: 'numberShirt',
-                tooltipField: 'numberShirt',
+                label: 'MEMBER.PRINTED_NUMBER',
+                name: 'numberShirt',
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.POSITION'),
-                minWidth: 100,
-                valueGetter: (params) => {
-                    const { position } = params.data;
+                label: 'COMMON.POSITION',
+                valueGetter: (data) => {
+                    const { position } = data;
                     if (!position) return;
                     return position.map((pos) => {
                         const { name } = POSITION_MAP.get(pos);
                         return this.translateService.instant(name);
                     });
-                },
-                tooltipValueGetter: (params) => {
-                    const { position } = params.data;
-                    if (!position) return;
-                    return position.map((pos) => {
-                        const { name } = POSITION_MAP.get(pos);
-                        return this.translateService.instant(name);
-                    });
-                },
+                }
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.FULLNAME'),
-                minWidth: 100,
-                field: 'fullName',
-                tooltipField: 'fullName',
+                label: 'MEMBER.FULLNAME',
+                name: 'fullName',
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.PHONE'),
-                minWidth: 100,
-                field: 'phoneNumber',
-                tooltipField: 'phoneNumber',
+                label: 'MEMBER.PHONE',
+                name: 'phoneNumber',
             },
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MEMBER.ADDRESS'),
-                minWidth: 100,
-                field: 'address',
-                tooltipField: 'address',
+                label: 'MEMBER.ADDRESS',
+                name: 'address',
             },
 
             {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                cellRenderer: ActionColumnComponent,
-                cellRendererParams: {
+                label: 'COMMON.ACTION',
+                customColumn: ActionColumnComponent,
+                customColumnParams: {
                     actions: [
                         {
-                            icon: faEdit,
+                            icon: 'edit',
                             classes: 'text-warning',
                             onClick: this.onEditMember.bind(this),
                         },
                         {
-                            icon: faTrash,
+                            icon: 'delete',
                             classes: 'text-danger',
                             onClick: this.onDeleteMember.bind(this),
                         },
                     ],
                 },
-                minWidth: 50,
                 pinned: 'right',
             },
         ];
         if (this.readonly) {
             column.splice(column.length - 1, 1);
         }
-        return column;
+        this.columns = column;
     }
 
-    public override getRowData(): any[] {
-        return null;
+    public onEditMember(data, rowIndex: number): void {
+        // const modalRef = this.modalService.open(CreateMemberModal, {
+        //     centered: true,
+        //     size: 'lg',
+        // });
+        // modalRef.componentInstance.member = data;
+        // modalRef.closed.subscribe((res) => {
+        //     if (res) {
+        //         this.updateMember.emit({
+        //             data: res,
+        //             index: rowIndex,
+        //         });
+        //     }
+        // });
     }
 
-    public onEditMember(param: ICellRendererParams): void {
-        const member = param.data;
-        const modalRef = this.modalService.open(CreateMemberModal, {
-            centered: true,
-            size: 'lg',
-        });
-        modalRef.componentInstance.member = member;
-        modalRef.closed.subscribe((res) => {
-            if (res) {
-                this.updateMember.emit({
-                    data: res,
-                    index: param.node.rowIndex,
-                });
-            }
-        });
-    }
-
-    public onDeleteMember(param: ICellRendererParams): void {
-        const modalRef = this.modalService.open(ConfirmationComponent, {
-            centered: true,
-            size: 'md',
-        });
-        modalRef.componentInstance.confirmation = {
+    public onDeleteMember(data, rowIndex: number): void {
+        this.modalService.open('confirm', {
+            title: this.translateService.instant('COMMON.CONFIRM'),
             content: this.translateService.instant('MEMBER.CONFIRM_DELETE'),
-            isHtml: false,
-        };
-        modalRef.closed.subscribe((isAccept) => {
-            if (!isAccept) return;
-            this.deleteMember.emit(param.node.rowIndex);
+            onOk: () => this.deleteMember.emit(rowIndex),
         });
     }
 }

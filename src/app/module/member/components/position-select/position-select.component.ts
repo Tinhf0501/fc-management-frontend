@@ -4,11 +4,8 @@ import {
     Input,
     OnInit,
     Output,
-    inject,
+    inject
 } from '@angular/core';
-import { DestroyService, FmsSelectComponent } from '@fms-module/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { POSITIONS } from '../../constant';
 import {
     FormBuilder,
     FormGroup,
@@ -16,7 +13,11 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
+import { DestroyService, SignalPipe } from '@fms/core';
+import { FmsSelectComponent } from '@fms/select';
+import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil } from 'rxjs';
+import { POSITIONS } from '../../constant';
 
 @Component({
     selector: 'position-select',
@@ -27,6 +28,7 @@ import { takeUntil } from 'rxjs';
         TranslateModule,
         FormsModule,
         ReactiveFormsModule,
+        SignalPipe
     ],
     providers: [DestroyService],
 })

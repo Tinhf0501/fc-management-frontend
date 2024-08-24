@@ -7,6 +7,7 @@
                 [variant]="'input'"
                 [placeholder]="'FOOTBALL_CLUB.INPUT_NAME' | translate"
                 formControlName="fcName"
+                [control]="formGroup.get('fcName')"
                 [errorsMessage]="{
                     required: 'FOOTBALL_CLUB.CREATE.ERRORS.FC_NAME.REQUIRED',
                     maxLength: 'FOOTBALL_CLUB.CREATE.ERRORS.FC_NAME.MAX_LENGTH'
@@ -19,7 +20,6 @@
             }}</label>
             <input
                 #avatarUploader
-                class="form-control"
                 type="file"
                 accept="image/*"
                 (change)="onChangeAvatar($event)"
@@ -35,6 +35,7 @@
                 [variant]="'textarea'"
                 [placeholder]="'COMMON.INPUT_DESC' | translate"
                 formControlName="description"
+                [control]="formGroup.get('description')"
                 [errorsMessage]="{
                     maxLength:
                         'FOOTBALL_CLUB.CREATE.ERRORS.DESCRIPTION.MAX_LENGTH'

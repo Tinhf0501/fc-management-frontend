@@ -15,7 +15,8 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import { FmsInputComponent, fileToImageUrl } from '@fms-module/common';
+import { fileToImageUrl } from '@fms/core';
+import { FmsInputComponent } from '@fms/input';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

@@ -1,0 +1,14 @@
+<form
+    class="d-flex flex-column gap-3"
+    [formGroup]="formGroup"
+    (submit)="ngOnSearch()"
+>
+    <ng-content></ng-content>
+
+    <div class="d-flex justify-content-start justify-content-md-center">
+        <fms-button
+            [label]="'COMMON.SEARCH' | translate"
+            [icon]="'search'"
+        ></fms-button>
+    </div>
+</form>

@@ -1,13 +1,15 @@
+import { ActionEvent } from '@fms/table';
 import { Component, inject } from '@angular/core';
 import {
+    FundingCreateFormComponent,
     FundingFormSearchComponent,
     FundingGridComponent,
-    FundingCreateModalComponent,
 } from '@fms-module/funding';
-import { PaginationComponent, Pagination } from '@fms-module/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FmsBoxComponent } from '@fms/box';
+import { FmsButtonComponent } from '@fms/button';
+import { Pagination } from '@fms/core';
+import { ModalService } from '@fms/modal';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'funding-page',
@@ -17,20 +19,28 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     imports: [
         FundingFormSearchComponent,
         FundingGridComponent,
-        PaginationComponent,
         TranslateModule,
-        FontAwesomeModule,
+        FmsButtonComponent,
+        FmsBoxComponent
     ],
 })
 export class FundingPage {
-    private modalService: NgbModal = inject(NgbModal);
+    private readonly modalService = inject(ModalService);
+    private readonly translateService = inject(TranslateService);
 
     public pagination: Pagination = new Pagination(1, 100);
 
     public openAddFunding(): void {
-        this.modalService.open(FundingCreateModalComponent, {
-            centered: true,
-            size: 'md',
+        this.modalService.openModal({
+            title: this.translateService.instant('FUNDING.CREATE_TITLE'),
+            content: FundingCreateFormComponent,
         });
+    }
+
+    public clickAction(data: {event: ActionEvent, data?: any}): void {
+        if (data.event === ActionEvent.CREATE) {
+            this.openAddFunding();
+            return;
+        }
     }
 }

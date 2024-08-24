@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup">
+    <fms-select
+        [items]="languages | signal"
+        [clearable]="false"
+        bindLabel="label"
+        bindValue="value"
+        formControlName="language"
+        [customOptionTemplate]="languageTemplate"
+        [control]="formGroup.get('language')"
+        (ngModelChange)="onChangeLanguage($event)"
+    ></fms-select>
+</form>
+
+<ng-template #languageTemplate let-item="item">
+    <img
+        class="me-2"
+        width="30px"
+        height="30px"
+        [src]="item.iconUrl"
+        [alt]="item.label | translate"
+    />
+    <span class="small">{{ item.label | translate }}</span>
+</ng-template>

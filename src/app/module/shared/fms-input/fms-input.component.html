@@ -1,0 +1,54 @@
+<fms-message-error
+    [isError]="control.touched && control.invalid"
+    [errors]="control.errors"
+    [errorsMessage]="errorsMessage"
+>
+    <div>
+        <label
+            *ngIf="label"
+            class="fw-semibold text-capitalize"
+            [class.required]="required"
+            >{{ label }}</label
+        >
+        <nz-input-group [nzSuffix]="inputClearTpl">
+            <ng-container [ngSwitch]="variant">
+                <input
+                    *ngSwitchCase="'input'"
+                    nz-input
+                    [type]="type"
+                    [disabled]="disabled"
+                    [placeholder]="placeholder"
+                    [(ngModel)]="value"
+                    [nzStatus]="
+                        control.touched && control.invalid ? 'error' : ''
+                    "
+                    (blur)="markAsTouched()"
+                    (ngModelChange)="onChangeValue()"
+                />
+
+                <textarea
+                    *ngSwitchCase="'textarea'"
+                    nz-input
+                    style="min-height: 150px"
+                    [placeholder]="placeholder"
+                    [disabled]="disabled"
+                    [nzStatus]="
+                        control.touched && control.invalid ? 'error' : ''
+                    "
+                    [(ngModel)]="value"
+                    (blur)="markAsTouched()"
+                    (ngModelChange)="onChangeValue()"
+                ></textarea>
+            </ng-container>
+        </nz-input-group>
+
+        <ng-template #inputClearTpl>
+            <fms-icon
+                *ngIf="value"
+                [iconName]="'close-circle'"
+                [theme]="'fill'"
+                (click)="value = null"
+            ></fms-icon>
+        </ng-template>
+    </div>
+</fms-message-error>

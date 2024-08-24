@@ -2,21 +2,21 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SidebarService } from '@fms-layout/main';
-import { FmsBoxComponent } from '@fms-module/common';
 import {
     DetailFCResponse,
     FcInformationComponent,
     FootballClubService,
 } from '@fms-module/football-club';
-import { MemberGridComponent } from '@fms-module/member';
-import { Observable } from 'rxjs';
 import { FundingInformationComponent } from '@fms-module/funding';
-import { TranslateModule } from '@ngx-translate/core';
 import {
-    MatchResultInformationComponent,
     MatchResultGridComponent,
+    MatchResultInformationComponent,
 } from '@fms-module/match-result';
+import { MemberGridComponent } from '@fms-module/member';
 import { ListMediaComponent } from '@fms-module/resource';
+import { FmsBoxComponent } from '@fms/box';
+import { TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'detail-football-club',

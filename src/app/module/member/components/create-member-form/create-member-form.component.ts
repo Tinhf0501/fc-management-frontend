@@ -14,14 +14,14 @@ import {
     ReactiveFormsModule,
     Validators,
 } from '@angular/forms';
-import {
-    fileToImageUrl,
-    FmsInputComponent,
-    FmsSelectComponent,
-} from '@fms-module/common';
-import { CreateFCMemberRequest } from './../../interface';
+import { fileToImageUrl } from '@fms/core';
+import { FmsInputComponent } from '@fms/input';
+import { FmsSelectComponent } from '@fms/select';
 import { TranslateModule } from '@ngx-translate/core';
+import { OnModalInit, OnModalSave } from 'src/app/module/shared/fms-modal/hook';
 import { PositionSelectComponent } from '../position-select/position-select.component';
+import { CreateFCMemberRequest } from './../../interface';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
     selector: 'create-member-form',
@@ -39,14 +39,14 @@ import { PositionSelectComponent } from '../position-select/position-select.comp
         PositionSelectComponent,
     ],
 })
-export class CreateMemberFormComponent implements OnInit {
+export class CreateMemberFormComponent implements OnInit, OnModalInit, OnModalSave {
     @Input() member: CreateFCMemberRequest;
 
     @Output() formInitialized = new EventEmitter<FormGroup>();
 
-    @Output() changeAvatar = new EventEmitter<File>();
-
     private formBuilder: FormBuilder = inject(FormBuilder);
+    private modalRef: NzModalRef;
+    private avatar: File;
 
     public formGroup: FormGroup;
     public previewAvatarUrl: string;
@@ -57,17 +57,20 @@ export class CreateMemberFormComponent implements OnInit {
             this.formGroup.patchValue(this.member);
             if (this.member.avatar) {
                 this.previewAvatarUrl = fileToImageUrl(this.member.avatar);
-                this.changeAvatar.emit(this.member.avatar);
             }
         }
         this.formInitialized.emit(this.formGroup);
     }
 
+    public ngOnModalInit(ref: NzModalRef): void | Promise<void> {
+        this.modalRef = ref;
+    }
+
     public onChangeAvatar(event): void {
         const file = event.target.files[0];
         if (!file) return;
+        this.avatar = file;
         this.previewAvatarUrl = fileToImageUrl(file);
-        this.changeAvatar.emit(file);
     }
 
     private buildFormGroup(): void {
@@ -86,5 +89,17 @@ export class CreateMemberFormComponent implements OnInit {
             position: [null, [Validators.required]],
             address: [null, [Validators.maxLength(2000)]],
         });
+    }
+
+    ngOnModalSave(): void | Promise<void> {
+        this.formGroup.markAllAsTouched();
+        if (this.formGroup.invalid) {
+            return;
+        }
+        const member = this.formGroup.getRawValue();
+        if (this.avatar) {
+            member.avatar = this.avatar;
+        }
+        this.modalRef.close(this.member);
     }
 }

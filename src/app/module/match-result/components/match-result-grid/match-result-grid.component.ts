@@ -1,64 +1,63 @@
-import { Component } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
-import { GridCore } from '@fms-module/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Pagination } from '@fms/core';
+import { ActionEvent, ColumnTable, FmsTableComponent, TableOptions } from '@fms/table';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
     selector: 'match-result-grid',
-    templateUrl:
-        '../../../common/components/grid-core/grid-core.component.html',
+    templateUrl: './match-result-grid.component.html',
     styleUrls: ['./match-result-grid.component.scss'],
     standalone: true,
-    imports: [AgGridAngular],
+    imports: [FmsTableComponent, TranslateModule],
 })
-export class MatchResultGridComponent extends GridCore<any> {
-    public override getColumnDefs(): ColDef[] {
-        return [
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.NO'),
-                minWidth: 50,
-                valueGetter: (param) => param.node.rowIndex + 1,
-                pinned: 'left',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MATCH_RESULT.NAME'),
-                minWidth: 100,
-                field: 'name',
-                tooltipField: 'name',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MATCH_RESULT.RESULT'),
-                minWidth: 100,
-                field: 'result',
-                tooltipField: 'result',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MATCH_RESULT.DATE'),
-                minWidth: 100,
-                field: 'date',
-                tooltipField: 'date',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('MATCH_RESULT.ADDRESS'),
-                minWidth: 100,
-                field: 'address',
-                tooltipField: 'address',
-            },
-            {
-                headerValueGetter: (param) =>
-                    this.translateService.instant('COMMON.ACTION'),
-                minWidth: 50,
-                pinned: 'right',
-            },
-        ];
-    }
+export class MatchResultGridComponent {
 
-    public override getRowData(): any[] {
-        return [];
-    }
+    @Input() rows: any[] = [];
+
+    @Input() pagination: Pagination;
+
+    @Output() paginate = new EventEmitter<Pagination>();
+    @Output() clickAction = new EventEmitter<{
+        event: ActionEvent;
+        data?: any;
+    }>();
+    
+    public readonly tableOptions: TableOptions<any> = {
+        uniqueKey: 'id',
+        isCreate: true,
+        isExport: true,
+    };
+
+    public readonly columns: ColumnTable<any>[] = [
+        {
+            label: 'COMMON.NO',
+            pinned: 'left',
+            valueGetter: (_, rowIndex) => {
+                const { page, pageSize } = this.pagination;
+                const rowNumber = rowIndex + 1;
+                return (page - 1) * pageSize + rowNumber;
+            },
+        },
+        {
+            label: 'MATCH_RESULT.NAME',
+            name: 'name',
+        },
+        {
+            label: 'MATCH_RESULT.RESULT',
+            name: 'result',
+        },
+        {
+            label: 'MATCH_RESULT.DATE',
+            name: 'date',
+        },
+        {
+            label: 'MATCH_RESULT.ADDRESS',
+            name: 'address',
+        },
+        {
+            label: 'COMMON.ACTION',
+            pinned: 'right',
+        },
+    ];
+
 }

@@ -1,19 +1,26 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnInit,
+    Output,
+    inject,
+    signal,
+} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
     FormsModule,
     ReactiveFormsModule,
 } from '@angular/forms';
-import {
-    FmsInputComponent,
-    FmsSelectComponent,
-    SearchWrapperComponent,
-} from '@fms-module/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchFcRequest } from '../../interface';
 import { FC_STATUS } from '../../constant';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { FmsInputComponent } from '@fms/input';
+import { FmsSelectComponent } from '@fms/select';
+import { SearchWrapperComponent } from '@fms/search-form';
+import { FmsDateComponent } from '@fms/date-picker';
 
 @Component({
     selector: 'fc-form-search',
@@ -24,11 +31,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         FormsModule,
         ReactiveFormsModule,
         TranslateModule,
-        FontAwesomeModule,
-
         FmsInputComponent,
         FmsSelectComponent,
         SearchWrapperComponent,
+        FmsDateComponent,
+        NzGridModule,
     ],
 })
 export class FcFormSearchComponent implements OnInit {
@@ -39,8 +46,7 @@ export class FcFormSearchComponent implements OnInit {
     private formBuilder: FormBuilder = inject(FormBuilder);
 
     public formGroup: FormGroup;
-    public status = FC_STATUS;
-
+    public status = signal(FC_STATUS);
     public ngOnInit(): void {
         this.buildFormGroup();
         this.formInitialized.emit(this.formGroup);
@@ -55,7 +61,7 @@ export class FcFormSearchComponent implements OnInit {
         this.formGroup = this.formBuilder.group({
             fcName: [null],
             fcStatus: [null],
-            fromDate: [null],
+            fromDate: [],
             toDate: [null],
         });
     }
