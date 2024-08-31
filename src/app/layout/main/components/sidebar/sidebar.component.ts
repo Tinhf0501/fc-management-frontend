@@ -1,17 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { SidebarService } from '@fms-layout/main';
-import { Observable } from 'rxjs';
-import { MenuService, Menu } from '@fms/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import {
-    AsyncPipe,
-    NgFor,
-    NgIf,
-    NgStyle,
-    NgTemplateOutlet,
-} from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { BASE_MENU } from '@fms/core';
 import { FmsIconComponent } from '@fms/icon';
+import { TranslateModule } from '@ngx-translate/core';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
 @Component({
     selector: 'main-sidebar',
@@ -21,22 +15,17 @@ import { FmsIconComponent } from '@fms/icon';
     imports: [
         RouterLink,
         NgTemplateOutlet,
-        RouterLinkActive,
-        AsyncPipe,
         TranslateModule,
-        NgStyle,
         NgIf,
         NgFor,
         FmsIconComponent,
+
+        NzMenuModule,
+        NzToolTipModule,
     ],
 })
 export class MainSidebarComponent {
-    private sidebarService: SidebarService = inject(SidebarService);
-    private menuService: MenuService = inject(MenuService);
+    @Input() isCollapsed: boolean;
 
-    public sidebarStatus$: Observable<boolean> =
-        this.sidebarService.getSidebarStatus();
-    public menu$: Observable<Menu[]> = this.menuService.getMenu();
-
-    public routeLink(link: string, li: HTMLElement): void {}
+    public menus = BASE_MENU;
 }

@@ -1,20 +1,12 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow">
-    <!-- Sidebar Toggle (Topbar) -->
-    <fms-button
-        id="sidebar-toggle-top"
-        class="btn btn-link d-md-none rounded-circle mr-3"
-        [icon]="'bars'"
-        (click)="openSidebarMobile()"
-    ></fms-button>
-
-    <span class="h4 ps-3 d-none d-md-block text-capitalize">{{
+<nav class="d-flex align-items-center justify-content-between pl-10px pr-10px">
+    <span class="h4 text-capitalize mb-0px">{{
         title$ | async | translate
     }}</span>
 
     <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto d-flex align-items-center">
+    <ul class="d-flex align-items-center mb-0px">
         <!-- Nav Item - Alerts -->
-        <li class="nav-item dropdown no-arrow mx-1">
+        <li>
             <div style="min-width: 150px">
                 <select-language></select-language>
             </div>

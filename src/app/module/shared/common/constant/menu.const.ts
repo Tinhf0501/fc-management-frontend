@@ -7,33 +7,18 @@ export const BASE_MENU: Menu[] = [
         link: '/dashboard',
     },
     {
-        title: 'Interface',
-        label: 'Components',
-        icon: 'setting',
-        children: [
-            {
-                icon: 'setting',
-                label: 'Buttons',
-            },
-            {
-                icon: 'setting',
-                label: 'Cards',
-            },
-        ],
-    },
-    {
         label: 'FOOTBALL_CLUB.TITLE',
-        icon: 'table',
+        icon: 'team',
         link: '/football-club',
     },
     {
         label: 'MEMBER.TITLE',
-        icon: 'table',
+        icon: 'user',
         link: '/member',
     },
     {
         label: 'DONATE.TITLE',
-        icon: 'table',
+        icon: 'dollar',
         link: 'donate',
     },
     {
@@ -43,12 +28,12 @@ export const BASE_MENU: Menu[] = [
     },
     {
         label: 'FUNDING.TITLE',
-        icon: 'table',
+        icon: 'fund',
         link: 'funding',
     },
     {
         label: 'SPENDING.TITLE',
-        icon: 'table',
+        icon: 'shopping-cart',
         link: 'spending',
     },
 ];

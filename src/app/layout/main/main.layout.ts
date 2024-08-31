@@ -1,12 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { BASE_MENU, MenuService } from '@fms/core';
-import { Observable, take } from 'rxjs';
-import { SidebarService } from './service/sidebar.service';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { Observable, take } from 'rxjs';
 import { MainHeaderComponent } from './components/header/header.component';
 import { MainSidebarComponent } from './components/sidebar/sidebar.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { AsyncPipe } from '@angular/common';
+import { SidebarService } from './service/sidebar.service';
 
 @Component({
     selector: 'main-layout',
@@ -17,19 +15,15 @@ import { AsyncPipe } from '@angular/common';
         RouterOutlet,
         MainHeaderComponent,
         MainSidebarComponent,
-        TranslateModule,
-        AsyncPipe,
+
+        NzLayoutModule,
     ],
 })
-export class MainLayout implements OnInit {
+export class MainLayout {
+    public isCollapsed = true;
     private sidebarService: SidebarService = inject(SidebarService);
-    private menuService: MenuService = inject(MenuService);
 
     public title$: Observable<string> = this.sidebarService
         .getValueTitle()
         .pipe(take(1));
-
-    public ngOnInit(): void {
-        this.menuService.setMenu(BASE_MENU);
-    }
 }

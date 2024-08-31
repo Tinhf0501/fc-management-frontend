@@ -1,16 +1,20 @@
-<div class="d-flex">
-    <div>
-        <main-sidebar></main-sidebar>
-    </div>
-    <div class="flex-grow-1">
-        <div class="d-flex flex-column h-100">
-            <main-header></main-header>
-            <span class="h4 ps-3 d-block d-md-none text-capitalize"
-                >{{ title$ | async | translate }}</span
-            >
-            <div class="flex-grow-1 p-3">
+<div class="vh-100">
+    <nz-layout class="h-100">
+        <nz-sider
+            nzCollapsible
+            [nzCollapsed]="isCollapsed"
+            (nzCollapsedChange)="isCollapsed = $event"
+            [nzBreakpoint]="'xl'"
+        >
+            <main-sidebar [isCollapsed]="isCollapsed"></main-sidebar>
+        </nz-sider>
+        <nz-layout>
+            <nz-header>
+                <main-header></main-header>
+            </nz-header>
+            <nz-content class="ml-0px mr-0px overflow-a nice-scrollbar">
                 <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
+            </nz-content>
+        </nz-layout>
+    </nz-layout>
 </div>

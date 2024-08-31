@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:docker": "sudo docker build .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prettier": "prettier src --write"
