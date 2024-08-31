@@ -19,12 +19,7 @@ import { Observable } from 'rxjs';
     ],
 })
 export class MainHeaderComponent {
-
     private sidebarService: SidebarService = inject(SidebarService);
 
     public title$: Observable<string> = this.sidebarService.getValueTitle();
-
-    public openSidebarMobile() {
-        this.sidebarService.toggleSidebar();
-    }
 }

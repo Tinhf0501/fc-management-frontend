@@ -1,12 +1,38 @@
+$direction: (
+    l: left,
+    r: right,
+    b: bottom,
+    t: top,
+);
+
+$overflow: (
+    a: auto,
+    s: scroll,
+);
+
 // gap
-@for $i from 1 to 100 {
+@for $i from 0 to 100 {
     .gap-#{$i}px {
-        gap: #{$i}px;
+        gap: #{$i}px !important;
+    }
+
+    .row-gap-#{$i}px {
+        row-gap: #{$i}px !important;
+    }
+
+    @each $name, $value in $direction {
+        .m#{$name}-#{$i}px {
+            margin-#{$value}: #{$i}px !important;
+        }
+
+        .p#{$name}-#{$i}px {
+            padding-#{$value}: #{$i}px !important;
+        }
     }
 }
 
-@for $i from 1 to 100 {
-    .row-gap-#{$i}px {
-        row-gap: #{$i}px;
+@each $alias, $value in $overflow {
+    .overflow-#{$alias} {
+        overflow: #{$value} !important;
     }
 }

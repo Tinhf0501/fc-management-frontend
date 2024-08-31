@@ -5,8 +5,6 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
     providedIn: 'root',
 })
 export class SidebarService {
-    private collapseSidebarMobile: BehaviorSubject<boolean> =
-        new BehaviorSubject<boolean>(false);
     private titleCache: BehaviorSubject<string> = new BehaviorSubject<string>(
         '',
     );
@@ -23,20 +21,5 @@ export class SidebarService {
 
     public getValueTitle(): Observable<string> {
         return this.titleCache.asObservable();
-    }
-
-    public toggleSidebar(): void {
-        const status = this.collapseSidebarMobile.getValue();
-        this.collapseSidebarMobile.next(!status);
-    }
-
-    public listenSidebarChange(
-        listener: (status: boolean) => void,
-    ): Subscription {
-        return this.collapseSidebarMobile.asObservable().subscribe(listener);
-    }
-
-    public getSidebarStatus(): Observable<boolean> {
-        return this.collapseSidebarMobile.asObservable();
     }
 }
